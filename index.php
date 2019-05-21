@@ -18,7 +18,7 @@
 	</head>	
 	<body>
 		<header>
-			<h1 class="anula">Vs_100.com</h1>
+			<h1 class="anula">Vs_100</h1>
 		    <input type="checkbox" id="MenuRes">
 		    <label id="ComandoMenu" class="comandoMenu" onclick="mostrarMenu()">Menu</label>
 		    <nav id="MenuResponsive" class="menuResponsive">
