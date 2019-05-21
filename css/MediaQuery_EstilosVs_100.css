@@ -1,0 +1,1275 @@
+@media screen and (max-width: 800px){
+
+footer{
+	display: none;
+}
+h1{
+	font-size: 8vw;
+	height: 13vw;
+}
+h2{/*todos los titulos de página*/
+	background-color:;
+	font-size: 16px;
+}
+h3 {
+	background-color:;
+ 	font-size:14px;
+	color:#040652;
+	text-align: center;
+	margin-top: 2%;
+	width: 95%;
+ }
+ h4{/*preguntaXxxxxx_00.php  UltimaXxxxx.php*/
+ 	background-color: ;
+ 	padding: 2% 0%;
+ 	font-size: 14px;
+ }
+ h5{/*index.html*/
+	text-align: center;
+	font-size: 15px;
+	color:#575DCE;
+	font-weight: bold;
+	font-family:verdana;
+	padding-top: 0%;
+}
+ header label{
+ 	background-color: #BEBFDD;
+ 	border-bottom-color: #040652;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	padding:1% 2%;	
+	display: block;
+	box-sizing: border-box;
+}
+input{/*principal.php  demo.php*/
+	background-color: ;
+	font-size: 15px;
+	height: 20px;
+	line-height: 20px;
+	width: 90%;
+	display: block;
+	margin-bottom: 7% !important;
+}
+input #entrarSesion{
+	background-color: yellow;
+	display: block;
+	margin:auto;
+}
+input[type=checkbox]{/*principal.php*/
+	background-color: ;
+	width: 10%;
+	margin-left: 3%;
+	display: inline;
+	margin-bottom: 8%;
+}
+input[type=submit]{
+	background:#040652;
+	border-radius: 15px;
+	border:0px;
+	padding:2px 2px;
+	cursor: pointer;
+	width:70px;
+	height: 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-size:13px;
+	line-height: 13px;
+	display: block;
+	margin-top: 10% !important;
+}
+legend{
+	font-size: 15px;
+}
+p{
+	background-color: ;
+	font-size: 12px;
+}
+table{
+	width:90%;
+}
+textarea{
+	background-color: ;
+	width: 50%;
+	height: 100px;
+}
+td {
+	text-align:left; 
+	background-color: #F4FCFB;
+	border-style: none; 
+	font-family:verdana; 
+	color:09204D; 
+	width: 100%;
+	line-height: 23px;
+	font-size: 11px;
+}
+th{
+	background-color: ;
+	font-size: 9.5px;
+}
+select{
+	font-size: 14px;
+}
+small{
+	background-color: ;
+	display: block;
+	margin-top: -8%;
+	font-family: verdana;
+	font-size: 10px;
+}
+.A_03{
+	background-color: ;
+	font-size: 13px;
+	width: 55%;  
+	margin-left: 10px;
+}
+.A_04{
+	background-color: ;
+	font-size: 11px; 
+	width: 30%; 
+}
+.A_05{
+	text-align:left; 
+	background-color:#F4FCFB ; 
+	font-size: 11px; 
+	border-style: none; 
+	font-family:verdana; 
+	color:09204D; 
+	display: inline; 
+	width: 100%;
+}
+.A_06{
+	background-color:#F4FCFB;
+	text-align:left;
+	font-size: 11px; 
+	border-style: none; 
+	font-family:verdana; 
+	color:09204D; 
+	width: 140%;
+}
+.A_07{
+	background-color:#F4FCFB ;
+	text-align:left; 
+	margin-left: 0%;
+	margin-top:0%;
+	margin-bottom: -8%;
+	font-size: 11px; 
+	border-style: none; 
+	font-family:verdana; 
+	color:09204D; 
+	width: 200%;
+}
+.agradecimientos{/*registrarse.php*/
+	background-color: ;
+	font-size: 14px;
+	width: 80%;
+	margin: auto;
+}
+.ancla_1{
+	display: none;
+}	
+.bloqueo{/*ultimaXxxxxxx.php*/
+	background-color:yellow ;
+	font-size: 16px; 
+	margin-top: 3%; 
+	display: inline-block; 
+}
+.button_principal{
+	background-color: ;
+	font-size: 11px;
+	padding:1.5%;
+	width: 50%;
+	height: 10%;
+}
+.buttonCuatro{
+	font-size:12px   !important;
+	width: 30%;
+}
+.celdas_th{
+	background-color: #F4FCFB; 
+	color:#040652; 
+	font-weight: bold;
+	font-size: 11px;
+}
+.CentroCeldas{
+	background-color: ;
+	color:09204D; 
+	width: 800px; 
+	text-align: center;
+}
+.color{
+	background-color: ;
+	color: yellow;
+}
+.contacto_2{/*contacto.php*/
+	background-color:;
+	margin: 5% auto ;
+	width: 95%;
+}
+.comandoMenu{/*index.html*/
+	background-color: ;
+	font-family: verdana;
+	font-size: 12px; 
+	padding: 1.5% 2%;
+}
+.efecto{/*preguntaXxxxx_00.php*/
+	background-color: ;
+	display: inline;
+	width: 45%;
+}
+.efecto:hover{/*preguntaXxxxx_00.php#040652*/
+	background-color: ;
+	color:white;
+}
+.destinos_3{
+	background-color:; 
+	display: block; 
+	margin-bottom: 20px; 
+	width: 200px; 
+	margin: auto;"
+}
+.directorio_01{
+	background-color: ;
+	display: inline-block;
+	margin-left: 4%;
+	font-size: 12px;
+}
+.encabezado{/*preguntaXxxx_00.php*/
+	background-color:;
+	color: white; 
+}
+.encabezado_2{/*preguntaXxxx_00.php*/
+	background-color: ;
+	padding: 1% 0%; 
+	top: 0%;
+	left: 83%;
+	height: 9%; /*evita que se de un salto en la pagina cuando los puntos se este actualizando en el servidor*/
+}
+.entrada{/*entrada.php*/
+	background-color:;
+	text-align: center;
+	width: 50%;
+}
+.entrada_1{/*entrada.php*/
+	background-color: ;
+	margin-top: 3%;
+	font-size: 15px;
+	border-bottom-color:blue;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+.entrada_2{/*entrada.php*/
+	background-color: ;
+	margin-top: 8%;
+	font-size: 14px;
+
+}
+.entrada_4{/*entrada.php*/
+	background-color: ;
+	display: inline-block;
+	font-size: 12px;
+	width: 45%;
+}
+.entrada_5{/*entrada.php*/
+	background-color: ;
+	width: 100%;
+}
+.entrada_6{/*entrada.php*/
+	background-color: ;
+	display: block;
+	width: 100%;
+	margin: auto;
+}
+.etiqueta_1{
+	background-color: ;
+	width: 100%;
+	display: inline-block;
+	margin: auto;
+	text-align: center;
+	font-size: 13px;
+}
+.etiquetaEspeciale{
+	background-color:;
+}
+.Gratis_2{/*ultimaPreguntaGratis.php*/
+	background-color: ;
+	width: 90%;
+}
+.icon{
+  font-size: 10px;
+}
+.imagenTamaño{
+	background-color: ;
+	width: 35%;
+}
+.Inicio_0{
+	text-align: center;
+	width: 100%;
+	background-color:;
+	font-family: 'Raleway';
+	font-size:9px;
+	text-align: center;
+}
+.Inicio_1{/*index.php    contacto.php*/
+	background-color: ;
+	font-size:15px;
+	width: 90%; 
+	text-align: center;
+}
+.Inicio_2{/*demo.php*/
+	background-color: ;
+	width: 100%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0%;
+	border-radius: 15px;
+	padding: 2%;
+	padding-bottom: 0%;
+	box-sizing: border-box;
+}
+.Inicio_3{
+	background-color:;
+	color: ; 
+	width: 90%;
+	font-size:15px;
+	margin-bottom: 10%;
+}
+.Inicio_4{/*entrada.php*/
+	background-color: ;
+	font-size: 15px;
+	width: 90%;
+	margin:auto;
+}
+.Inicio_5{
+	background-color:;
+	color:#040652 ; 
+	font-size:13px;
+	font-weight:bold; ;
+	margin: auto;
+	margin-bottom: -5%;
+	line-height: 140%;
+}
+.Inicio_6{
+	background-color:; 
+	font-family: 'Raleway', sans-serif;
+	font-size:13px;
+	width: 200%;
+	margin-left: -50%;
+	margin-bottom: 4%;
+	line-height: 140%;
+}
+.Inicio_7{
+	background-color: ;
+	font-size: 14px;
+	width: 90%;
+}
+.Inicio_8{
+	background-color: ;
+	font-size: 14px;
+	width: 90%;
+}
+.Inicio_9{
+	background-color: #040652;
+	margin-top: 10px;
+	color: white;
+	margin: auto;
+	width: 80%;
+	font-family: 'Raleway', sans-serif;
+	text-align: center; 
+	font-size: 13px;  
+	display: block;
+}
+.inputDestino{
+	background-color: blue;
+	width: 50%;
+	margin:auto; 
+	font-size: 12px;
+}
+.imagen{
+	width: 160px; 
+	height: 160px;
+	object-fit: contain; 
+	filter: brightness(110%);
+}
+.imagen_Div{
+	background-color: ;
+	margin-left: 2%;
+	margin-top: 0%;
+}
+.linea{
+	display: none;
+}
+.listaOculta{
+	display: none;
+}
+.listaMostrar{
+	display: block;
+}
+.Logo{
+	background-color: ; 
+	width: 45%;
+	height: 30%;
+	margin-top: 25%;
+	margin-right:10%;
+}
+.medio{
+	display: inline-block;
+	color: white;
+	font-size: 12px;
+}
+.medio_2{
+	background-color: ;
+	width: 95%;
+	margin-left: -1.5px;
+	font-size: 11px;
+}
+.medio_3{
+	background-color: ;
+	width: 95%;
+	font-size: 12px;
+}
+.menuResponsive{/*Todas las páginas*/
+	background-color: ;
+	position: absolute;
+	width:35%;
+	margin-left: -35%;/*oculta el menu responsive*/
+	transition: all 0.5s;
+	z-index: 50;
+}
+.menuResponsive ul{/*Todas las páginas*/
+	background-color: ;
+	flex-direction: column;
+}
+.menuResponsive li{/*Todas las páginas*/
+	background-color: ;
+	padding-left: 15%;
+	flex-grow: 1;/*distribuye proporcionalmente los elementos internos en el eje horizontal, es necesario que el elemento padre tenga la propiedad display con el valor flex*/
+	/*width: 80%;*/
+}
+.menuResponsive li a{
+	font-size: 11px;
+	width: 100px;
+	background-color: ;
+	text-align: left;
+}
+.menuResponsive li a:hover{/*Todas las páginas*/
+	background-color: ;
+	font-size: 11px;
+}
+.modal{
+	display: none;
+}
+.modalEtiquetaCerrar{
+	display: block;
+}
+.n00{/*index.html*/
+	background-color: ;
+	width: 90%;
+	display: block;
+}
+.n10{/*da formato a rectangulos en index.html*/
+	background: -webkit-linear-gradient(bottom, white 82%, #040652 18%);
+	margin: 2% 10%;
+}
+.n20{/*index.php*/
+	background: -webkit-linear-gradient(bottom, white 93%, #040652 7%);
+	border:2px solid #000;
+	border-radius:15px;
+	padding-top: 0.5%;
+	padding-bottom: 0%;
+	box-sizing: border-box;
+	margin-top: 2%;
+	margin-bottom: 2%;
+ 	width: 90%;
+ 	display: block;
+ 	line-height: 20px;
+}
+.nav_2{/*entrada.php */
+	background-color: ;
+	font-size: 15px;
+}
+.nav_5{/*registrarse.php*/
+	background-color: ;
+	text-align: center;
+	margin-top: 5%;
+	margin-bottom: 1%;
+}
+.nav_5 a{/*registrarse.php*/
+	background-color: ;
+	color:#040652; 
+	font-size:16px;
+	font-weight: ; 
+	text-align: center;"
+}
+.nav_7{/*entrada.php*/
+	background-color: ;
+	font-size: 15px;
+	display: block;
+}
+.navegacion_1{/*preguntaXxxxx_00.php*/
+	background-color:;
+	position: absolute;
+	bottom: 10pt;
+	margin-left: 10%;
+	width: 80%;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	font-family:verdana;
+}
+.noticia_1{
+	background-color: ; 
+	padding: 1% 2%; 
+	margin-right: 2%; 
+	margin-bottom: 0%; 
+	margin-left: 2%; 
+	text-align: justify-all;
+	font-size: 13px;
+}
+.nueva_Prueba{
+	background-color: ;
+	width: 90%;
+}
+.ocultarMenu{/*index.html*/
+	display: block;
+}
+.ocultarCelda{
+	display: none;
+}
+.p_1{/*da formato al texto que indica el puntaje el las preguntas preguntaXxxxx_00.php*/
+	background-color: ;
+	color: yellow;
+	font-size: 11px;
+	font-family:verdana;
+	text-align: center;
+	width: 100%;
+}
+.p_2{/*preguntaXxxxx_00.php*/
+	background-color: ;
+	text-align: center;
+	font-size: 13px;
+	width: 100%;
+}
+.pais{
+	background-color: ;
+	font-size: 17px;
+	font-weight: bold;
+	font-family: verdana;
+}
+.paciente{
+	background-color: ;
+	color: black;
+	font-size: 12px;
+}
+.paciente_1{
+	background-color:;
+	font-size: 12px;
+}
+.Principal_2{
+	background-color:;
+	height: 50%;
+}
+.precios_1{
+	background-color: ;
+	font-size: 11px;
+}
+.pregunta{/*preguntaXxxx_00.php*/
+	background-color: ;
+	height: 100px;
+	width: 90%;
+	margin: 2% auto;
+	line-height: 140%;
+	font-size: 13px;
+	font-weight: bold;
+}
+.preguntaHeader{/*preguntaXxxx_00.php*/
+	cursor: default;
+	font-size: 7vw;
+	height: 5%;
+}
+.proposito{/*entrada*/
+	color: white;
+	font-family: verdana;
+	font-size: 23px;
+	height: 25px;
+}
+.Quinto{/*preguntaXxxxx_00.php*/
+	background-color:;
+	padding-top: 1%;
+	width: 90%;
+	height: 90px;
+	margin: auto;
+	border-top-color: #040652;
+	border-bottom-color: #040652;
+	border-bottom-style: solid;
+	border-top-style: solid;
+}
+.Quinto_2{/*contenedor de opciones para responder (preguntaXxxxx_00.php)*/
+	background-color:;
+	width: 100%;
+	height: 40px;
+	margin-top: 2%;
+	margin-bottom: 1%;
+	display: flex;
+	justify-content: space-between;
+}
+.Quinto_2 .efecto{/*preguntaXxxxx_00.php*/
+	background-color: ;
+	display: inline;
+	width: 50%;
+	font-size: 13px;
+}
+.recordar{/*principal.php*/
+	background-color:;
+	font-size: 10px; 
+	margin-top: 2%;
+	margin-left: 1%;
+	display: inline-block;
+	width: 70%;
+	text-align: left;
+	font-family:verdana;
+	font-weight: 100;
+}
+.recordar_1{/*principal.php*/
+	padding: 0px !important;
+}
+.RegistroPago_1{/*registro_Pago.php*/
+	background-color: red !important;
+	width: 95%;
+	margin: auto;
+}
+.respuestaPreguntas{/*preguntaXxxxx_00.php*/
+	background-color:;
+	margin-top: 4%;
+	margin-bottom: 0%;
+	text-align: center;
+	height: 17%;
+}
+.saltoLinea{
+	display: block;
+}
+.span_0{/*entrada*/
+	background-color: ;
+	font-size:22px;
+}
+.span_1{/*entrada*/
+	background-color: ;
+	font-size:15px;
+}
+.span_2{/*entrada*/
+	font-size:12px;
+}
+.span_3{/*entrada*/
+	font-size:10px;
+}
+.span_4{/*PreguntaXxxxx_00.php*/
+	background-color: ;
+	font-size: 13px;
+}
+.tabla_1{/*participantes.php*/
+    background-color:;
+    height: 20px;
+    width: 50px;
+    text-align: center;
+}
+.tabla_3{
+	background-color: ;
+	width: 10px; 
+	text-align: center;
+}
+.tablaTexto_1{
+    background-color: ;
+    height: 4%;
+    margin-bottom: 9%;
+    font-size: 12px; 
+    text-align: left;
+    font-family: 'Raleway', sans-serif;
+    display: block;
+}
+.tablaPrecio{
+    background-color: ;
+    width: 110%;
+    font-size: 10px;
+}
+.temp{/*Temporizador*/
+	 background-color:; 
+	 font-size:11px;
+}
+.temp_2{/*Temporizador*/
+	 background-color:;
+	 font-size:11px;
+}
+.temporizador{
+	background-color: blue;
+}
+.textoVerificar{
+	display: inline-block;
+	background-color: ;
+	margin-top: 10% ;
+	font-size: 12px;
+}
+.AcuseContacto_01{
+	margin-top: 10%;
+	width: 80%;
+	line-height: 140%;
+}
+#Afili{
+	background-color:;
+	margin-top: 5%;
+	margin-bottom: 7%;
+	margin-left: 15%;
+	width: 100%;
+	float: none;
+	clear: right;
+	display: block;
+} 
+#afiliacionLinea{
+	margin-bottom: 0%;
+}
+#Afiliacion_1{
+	background-color:;
+	width: 100%;
+	float: left;
+	height: 10%;
+	margin-top:5%;
+	margin-bottom: 2%;
+	padding: 10px 2%;
+	margin-bottom: 6%;
+	height: 10%;
+} 
+#Afiliacion_1 p{
+	 text-align: justify;
+}
+#Afili_2{
+	background-color:;
+	margin:auto;
+	width: 90%;
+}
+#Afili_3{
+	background-color:;
+	margin-left: 0%;
+	width: 100%;
+}
+#Afiliacion_5 label{
+	background-color:; ;
+	font-size: 12px;
+}
+#Afiliacion_5 select{
+	background-color: ;
+	width: 46%;
+	font-size: 12px;
+}
+#Afiliacion_5 option{
+	font-size: 12px;
+}
+#Afiliacion_7{
+	background-color:;
+	border-radius: 15px;
+	padding: 10px ;
+	width: 65%;
+	margin: auto;
+}
+#btnCerrar{
+	display: none;
+}
+#cancelar_1{
+	background-color:;
+	width:100%;
+	margin-top: 5%;
+	margin-left: 0%;
+	display: inline-block;
+}
+#cancelar_4{
+	background-color: ;
+	margin-top: 3%;
+	margin-bottom: 5%;
+	width: 100%;
+	margin-left:0%;
+}
+#cancelar_4 .Inicio_1{
+	background-color: ;
+	width: 90%;
+}
+#cancelar_5{
+	background-color:;
+	margin-top: -10px;
+	margin-bottom: 15px;
+	margin-right: 0%;
+	margin-top: 0px;
+	width: 100%; 
+}
+#cancelar_8{
+	background-color:;
+	width: 100%;
+	margin-bottom: 5%;
+}
+#citas{
+	background-color: ;
+	font-size: 10px;
+}
+#cerrar{
+	display: none;
+}
+#contacto_1{/*contacto.php*/
+	background-color:;
+	clear: left;
+	width: 90%;
+	float: right;
+	margin-top: -3%;
+	margin-right: 5%;
+}
+/*#contacto_2{contacto.php
+	background-color: ;
+	float: none;
+	width: 80%;
+	margin: 10% auto ;
+ 	line-height: 20px;
+}*/
+#contacto_3{
+	background-color: ;
+	text-align: justify;
+	width: 100%;
+	margin-top: 0%;
+	margin-bottom: 0%;
+}
+#contacto_2 h6{
+	display: none;
+}
+#contacto_3{
+	background-color:;
+	width: 100%;
+	padding: 0% 0%;
+	box-sizing: border-box;
+	margin:auto;
+	margin-top: 2%;
+	display: block;
+}
+#Contenido{
+	background-color: ;
+	width: 80%;
+}
+#destino_1{ 
+	background-color: ;
+	border-color: #040652;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 15px;
+	width: 90%;
+	padding: 5% 5%;
+	box-sizing: border-box;
+	margin-top: 2%;
+	margin-left: 5%;
+	margin-bottom: 5%;
+}
+#destino_2{ 
+	background-color: ;
+	border-color: #040652;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 15px;
+	width: 90%;
+	padding: 5% 5%;
+	box-sizing: border-box;
+	margin-right: 5%;
+	margin-bottom: 5%;
+}
+#destino_2 a{
+	background-color: ;
+	width: 80%;
+	margin-left: 10%;
+	margin-bottom: 4%;
+	font-size: 12px;
+}
+#Directorio_00 p{
+	color: ;
+	font-family: 'Raleway', sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: left;
+}
+#Directorio_00 a{
+	color: ;
+	font-size: 13px;
+}
+#Directorio_00 p{
+	font-size: 15px;
+}
+#DocAfiliado{
+	background-color: ;
+	margin-top: 0%;
+	width: 100%;
+	margin:auto;
+}
+#DocAfiliado .Inicio_5{
+	background-color: ;
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+	margin-left: auto;  
+	margin-right: auto;
+	text-decoration: none; 
+ 	font-size: 16px; 
+	display: block;">
+}
+#DocAfiliado_2{
+	background-color:orange;
+	width: 40%;
+	margin: auto;
+	text-align: center;
+	border-color: black;
+	border-width: 1px;
+	border-style: solid
+}
+#DocAfiliado_2 b{
+	font-size: 12px;
+}
+#Doctores_1{
+	background-color: ;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+}
+#entrada_3{/*entrada.php*/
+	margin-top: 20%;
+}
+.EntradaParticipante{/*entrada.php*/
+	background-color:;
+	width: 95%;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	font-family:verdana;
+	margin: auto;
+}
+#especial_1{/*entrada.php*/
+	background-color: ;
+	margin-top: -25%;
+	margin-bottom: 4%;
+}
+#faqImagen{
+	clear: left;
+	width: 70%; 
+	margin-right: 15%; 
+	border-color: #040652; 
+	border-style: solid; 
+	border-width: 2px; 
+	margin-bottom: 5%;
+	} 
+#faq_1{ /*  faq.php*/
+	background-color: ;
+	width: 100%;
+	padding: 0% 5%;
+	box-sizing: border-box;
+	margin-top: 2%;
+	margin-bottom: 10%;
+	display: block;
+}
+#faq_2{ /* faq.php*/
+	background-color: ;
+	width: 100%;
+	padding: 0% 5%;
+	box-sizing: border-box;
+	margin-bottom: 5%;
+	display: block;
+} 
+#foto{
+	width: 90%; 
+	margin-left: 0%; 
+	margin-right: 10px; 
+	margin: auto;
+}
+#gracias{
+	margin-bottom: 0px;
+	font-size: 11px;
+}
+#Gratis{/*contenedor de datos de registro de participante registrarse.php)*/
+	background-color: ;	
+	width: 60%;
+	clear: both;
+	display: block;
+	margin-top: 10%;
+}
+#Horario_Mañana{
+	background-color: ;
+	width: 
+}
+#index_00{/*index.php*/
+	background-color: ;
+	height: auto;
+}
+#Inicio{/*principal.php*/
+	background-color: ;
+	width: 70%;
+	height: 270px;
+	margin: auto;
+	margin-top: 10%;
+	background-color: ;
+	border-radius: 20px;
+	padding: 15px;
+	padding-top: 4%;
+	box-sizing: border-box;    
+}
+#Inicio p{/*principal.php*/
+	background-color: ;
+	margin-bottom: -23%;
+	font-size: 10px;
+	width: 95%;
+}
+#index_01{
+	display: none;
+}
+#lineaPerfil{
+	display: block;
+	width: 90%;
+	margin: auto;
+}
+#logo{
+	background-color:;
+	display: block;
+	width: 25%;
+	float: right;
+	margin-top: 9%;
+	margin-right: 3%;
+}
+#Menu{
+	display: none;
+}
+#mostrarTiempoBLoqueo{/*entrada*/
+	background-color: ;
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	line-height: 150%;
+	margin: auto;
+	margin-bottom: 35%;
+}
+#n001{
+	font-size: 12px;
+}
+#n003{
+	font-size: 12px;
+}
+#n3{
+	font-size: 12px;
+}
+#n100{
+	background-color:;
+	position:relative;
+	top:-30px;
+	clear: left;
+	display:block;
+	margin-left: 4%;
+	margin-top: 4%;
+	width: 45%;
+}
+#n100_principal{
+	height: 300px;
+}
+#n100 h3{
+	color: white;
+}
+#n110{
+	background-color:;
+	position:relative;
+	top:-30px;
+	clear: right;
+	display:block;
+	margin-left: 2%;
+	margin-top: 4%;
+	width: 45%;
+}
+#n110 h3{
+	color: white;
+}
+#n110_principal{
+	height: 300px;
+}
+#n110_tapa{
+	background: -webkit-linear-gradient(bottom, #040652 , #040652 );
+	opacity: 0.2;
+	width:100%;
+	height: 79%;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	vertical-align: top;
+	position:absolute;
+	top:50px;
+	left: -10px;
+	display:inline-block;
+	margin-left: 10px;
+	z-index: 3;
+}
+#n110 .botones{
+	color:;
+	font-size:13px; 
+	width: 90%;
+}
+#Pacientes_1{
+	background-color: ;
+	width: 90%;
+	margin-bottom: 10%;
+	margin: auto;
+}
+#Pacientes_1 b{
+	margin-left: 2%;
+}
+#Pacientes_2{
+	background-color:yellow ;
+	width: 90%;
+	margin-top: 10%
+	margin-bottom: 10%;
+	margin: auto;
+}
+#Pais{/*registro.php*/
+	width: 92%;
+}
+#planes{
+	background-color: ;
+	width: 90%;
+	margin-bottom: 3%;
+	margin-left: 3%;
+}
+#planes th{
+    background-color: ;
+    font-size: 10px;
+    width: 85%;
+    margin: auto;
+    margin-bottom: 5%;
+}
+#recibir{/*registro.php*/
+	background-color: ;
+	width: 66%;
+}
+#registro{/*registrarse.php*/
+	background-color: ;
+	font-size: 14px;
+}
+.anuncio{/*registro.php*/
+	background-color: yellow;
+	height: 30px;
+}
+#reservaciones_3{
+	background-color:; 
+	width: 100%; 
+	margin-top: -35%; 
+	margin-bottom: -3%; 
+	display: flex; 
+	justify-content: center;"
+}
+#sesion_3{/*formato a contenedor de tabla de participantes (participantes.php)*/
+	background-color:;
+	height: 60%;
+	width: 100%;
+}
+#Perfil_00{
+	background-color:;
+	display: block;
+	width: 100%;
+	margin-left:-7% ;
+	box-sizing: border-box;
+	margin-top: 10px;
+}
+#Perfil_1{
+	background-color: ;
+	width: 48%; 
+	display: inline-block;
+}
+#Perfil_2{
+	background-color:;
+	display: block;
+	width: 90%;
+	padding-top: 5%;
+	float: none;
+	margin:auto;
+	text-align: justify-all;
+}
+#Perfil_2 .Perfil_2a{
+	font-size: 14px;
+}
+#Perfil_2 p{
+	font-size: 12px;
+}
+#Perfil_01{ 
+	background-color:;
+	display: inline-block;
+	width: 40%;
+	margin-left: 4%;
+	margin-top: 0px;
+	height: 10%;
+}
+#Perfil_02{
+	background-color:;
+	display:block;
+	width: 100%;
+	margin-top: 3%;
+	margin: auto;
+}
+#Perfil_04{
+	background-color:;
+	display: inline-block;
+	margin-right: 0%;
+	width: 55% ;
+	float: none;
+	margin-left: 5%;
+	margin-top: 5px;
+}
+#Perfil_04 td{
+	width: 100px;
+	text-align: center;
+}
+#Perfil_06 a{
+	display: none;
+}
+#Perfil_07{
+	background-color: ;
+	margin-left: -50%;
+	margin-top: -15%;
+}
+#Perfil_07 input{
+	background-color: ;
+	font-size:12px; 
+}
+#Perfil_07 .botones{
+	background-color: ;
+	font-size:11px; 
+	width: 100%;
+	font-size: 11px;
+	padding:2% ;
+	height: 10%;
+}
+/*#Recordar{principal.php
+	margin-top: 2%;
+	width: 9px;
+	margin-left: 14%;
+}*/
+#reservaciones_1{
+	background-color:;
+	clear: left;
+	width: 90%;
+	float: right;
+	margin-top: 0%;
+	margin-right: 5%;
+}
+#reservaciones_2{
+	background-color: ;
+	text-align: justify;
+	width: 100%;
+	margin-top: 0%;
+}
+#servicio_1{ 
+	background-color: ;
+	width: 100%;
+	padding: 0% 5%;
+	box-sizing: border-box;
+	margin-top: 2%;
+	margin-bottom: 10%;
+	display: block;
+}
+#servicio_2{ 
+	background-color: ;
+	width: 100%;
+	padding: 0% 5%;
+	box-sizing: border-box;
+	margin-bottom: 5%;
+	display: block;
+}
+}
