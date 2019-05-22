@@ -48,6 +48,9 @@
 		<script src="../../javascript/puntaje.js"></script>
 		<script src="../../javascript/bloqueo.js"></script>
 		<script src="../../javascript/Funciones_varias.js"></script>
+		<script language="JavaScript">//impide regresar a esta pagina nuevamente con el boton de atras 
+			javascript:window.history.forward(1);
+		</script> 
    	</head>	
 
 	<body onload="llamar_puntaje()"><!--funcion Ajax en puntaje.js que accede a BD para sumar el puntaje del participante -->

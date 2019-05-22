@@ -59,7 +59,7 @@ session_start();
                 
                         echo "<p class='Inicio_1'>Recibimos el codigo de tu deposito, verificaremos tu pago y en 24 horas tu prueba estará disponible para ser respondida.</p>";
                         echo "<p class='Inicio_1'>Una vez disponible su prueba tiene hasta el dia viernes a las 6:00 pm para responderla.</p>";
-                        echo "<p class='Inicio_1'>En caso de que no se reuna la plaza minima para lanzar la prueba su dinero le sera reepbolsado.</p>";
+                        echo "<p class='Inicio_1'>En caso de que no se reuna la plaza minima para lanzar la prueba su dinero le sera reembolsado.</p>";
 
                         echo "<p class='Inicio_1'>Si resultas ganador el pago puedes retirarlo por una agencia J_Pita con tu cedula de identidad, a partir de las 07:00 pm del dia viernes.</p>";
 

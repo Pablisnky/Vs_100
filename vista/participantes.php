@@ -41,7 +41,7 @@
                         $i = 1;
 
                         //se consulta el puntaje de los participantes y se muestra en una tabla en ventana modal
-                        $Consulta= "SELECT participante.Nombre, participantes_pruebas.Puntos FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE participantes_pruebas.Tema='Demo'  ORDER BY participantes_pruebas.Puntos DESC ";
+                        $Consulta= "SELECT usuario, puntos FROM participante_demo ORDER BY puntos DESC";
                         // GROUP BY Nombre ORDER BY Puntos DESC
                         $Recordset=mysqli_query($conexion,$Consulta);
                         For($size=1;$size<=10;$size++){                            
@@ -51,8 +51,8 @@
                             <tbody>
                                 <tr>
                                     <td><?php echo $i;?></td>
-                                    <td><?php echo $participantes["Nombre"];?></td>
-                                    <td><?php echo $participantes["Puntos"];?></td>           
+                                    <td><?php echo $participantes["usuario"];?></td>
+                                    <td><?php echo $participantes["puntos"];?></td>           
                                 </tr>
                             <?php $i++;   
                         } 
@@ -95,15 +95,15 @@
                         $i = 1;
 
                         //se consulta el puntaje de los participantes y se muestra en una tabla
-                        $Consulta= "SELECT participante.Nombre, participantes_pruebas.Puntos FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE participantes_pruebas.Tema='Demo' ORDER BY participantes_pruebas.Puntos DESC";
+                        $Consulta= "SELECT usuario, puntos FROM participante_demo ORDER BY puntos DESC";
                         $Recordset=mysqli_query($conexion,$Consulta); 
                         while($participantes= mysqli_fetch_array($Recordset)){
                     ?>
                     <tbody>
                         <tr>
                             <td class="tabla_3"><?php echo $i;?></td>
-                            <td class="tabla_0"><?php echo $participantes["Nombre"];?></td>
-                            <td class="tabla_1"><?php echo $participantes["Puntos"];?></td> 
+                            <td class="tabla_0"><?php echo $participantes["usuario"];?></td>
+                            <td class="tabla_1"><?php echo $participantes["puntos"];?></td> 
                            <!-- <td class="tabla_1"><?php echo date("d-m-Y", strtotime($participantes[11])); ?></td>se cambia el formato de la fecha de registro-->
                             <!--<td><?php// echo date("d-m-Y", strtotime($participantes[0])); ?></td>se cambia el formato de la fecha de ultima participacion-->           
                         </tr>

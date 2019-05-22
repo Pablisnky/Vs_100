@@ -60,14 +60,14 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<div style="background-color: ; text-align: center; margin-top: 3%;">
 										<a href="seleccionTema.php?seleccion=<?php echo $Tema?>&codigo=<?php echo $Codigo?>"><?php echo $Registro_2["Tema"];?></a>
 										<p style="display: inline-block;"> | Código</p>
-						<a style="color: black" href="seleccionTema.php?seleccion=<?php echo $Tema?>&codigo=<?php echo $Codigo?>"><?php echo $Registro_2["ID_PP"];?></a>
+										<a style="color: black" href="seleccionTema.php?seleccion=<?php echo $Tema?>&codigo=<?php echo $Codigo?>"><?php echo $Registro_2["ID_PP"];?></a>
 									</div>
 									<?php
 								}	?>
 							</div>	
 							<?php
 						}   
-						else{   ?>
+						  ?>
 							<div id="EntradaParticipante" class="entradaParticipante">			
 								<div class="entrada">
 									<p class="entrada_1">Participación por 3.000 $</p>
@@ -98,13 +98,11 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<p class="nav_7">Musica clasica</p>	
 									<p class="nav_7">Musica general</p>	
 									<p class="nav_7" href="registro_Pago.php?Tema=Programacion">Programación</p>
-									<p class="nav_7" href="registro_Pago.php?Tema=Cristianismo">Cristianismo</p>
+									<a class="nav_7" href="registro_Pago.php?Tema=Cristianismo">Cristianismo</a>
 									<a class="nav_7" href="registro_Pago.php?Tema=Venezuela">Venezuela</a>
 								</div>
 							</div>
 							<a class="nav_7" href="cerrarSesion.php" >Cerrar Sesión</a>
-							<?php
-						} ?>
 					</section>
 				</div>
 			</body>

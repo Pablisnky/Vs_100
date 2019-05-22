@@ -51,6 +51,9 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		<script src="../../javascript/puntaje.js"></script>
 		<script src="../../javascript/bloqueo.js"></script>
 		<script src="../../javascript/Funciones_varias.js"></script>
+		<script language="JavaScript">//impide regresar a esta pagina nuevamente con el boton de atras 
+			javascript:window.history.forward(1)
+		</script>
    	</head>	
 
 	<body onload="llamar_puntaje()"><!--funcion Ajax en puntaje.js que accede a BD para sumar el puntaje del participante -->
@@ -81,7 +84,6 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 						<p id="respuesta_c" class="efecto" onclick="llamar_bloqueo()">Índico.</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
 						<p id="respuesta_d" class="efecto" onclick="llamar_bloqueo()">Caribeño.</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
 					</div>
-
 				</div>
 
 				<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
@@ -149,9 +151,9 @@ function respuesta_sombrear_01a(){
          if (peticion.status == 200){
            document.getElementById('RespuestaPreguntas').innerHTML=peticion.responseText;//se recoje el numero de pacientes
         } 
-        // else{
-        //     alert('Hubo problemas con la petición.');
-        // }
+        else{
+            alert('Hubo problemas con la petición.');
+        }
     }
 }
 </script>

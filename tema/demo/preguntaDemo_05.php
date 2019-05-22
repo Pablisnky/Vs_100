@@ -46,7 +46,9 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		<script src="../../javascript/puntaje.js"></script>
 		<script src="../../javascript/bloqueo.js"></script>
 		<script src="../../javascript/Funciones_varias.js"></script>
-    	<!--la fuente Montserrat se aplica a los enlaces-->
+		<script language="JavaScript">//impide regresar a esta pagina nuevamente con el boton de atras 
+			javascript:window.history.forward(1)
+		</script>
 	</head>	
 
 	<?php

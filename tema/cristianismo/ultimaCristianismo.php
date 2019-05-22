@@ -1,5 +1,5 @@
-<?php
-session_start();    //se inicia sesion para llamar a una variable 
+<?php   
+session_start();    //se inicia sesion para llamar a una variable almacenada en validarSesion.php
 
 	$participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
 	    //echo $participante;
@@ -12,12 +12,12 @@ session_start();    //se inicia sesion para llamar a una variable
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Vs-100</title>
+		<title>Biblionario</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
-		<meta name="description" content="Juego de preguntas sobre suramerica."/>
-		<meta name="keywords" content="suramerica, latinoamerica"/>
-		<meta name="author" content="Pablo Cabeza"/>
+		<meta name="description" content="Juego de preguntas biblicas."/>
+		<meta name="keywords" content="citas biblicas, biblia"/>
+		<meta name="author" content="HOREBI"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="expires" content="07 de mayo de 2018"><!--Inicio de construcción de la página-->
 
@@ -28,7 +28,7 @@ session_start();    //se inicia sesion para llamar a una variable
 		<script src="../../javascript/puntaje.js"></script>
 		<script src="../../javascript/bloqueo.js"></script>
 	</head>	
-	<body onload="llamar_puntaje()"><!--funcion Ajax en puntaje.js que accede a BD para sumar el puntaje por libro del participante -->
+	<body onload= "llamar_puntaje()"><!--funcion Ajax en puntaje.js que accede a BD para sumar el puntaje por libro del participante -->
 		<?php
 			include("../../conexion/Conexion_BD.php");	
 
@@ -42,12 +42,12 @@ session_start();    //se inicia sesion para llamar a una variable
 		<input type="text" class="ocultar" id="ID_Participante" value="<?php echo $participante;?>"><!-- se utiliza para enviar a puntaje.js-->
 		<?php
 			//Consulta realizada para verificar que la pregunta anterior esta respondida y puede entrar en esta.
-			$Consulta_3="SELECT * FROM respuestas WHERE ID_Participante='$participante' AND Correcto='1' AND ID_Pregunta = 8 AND Tema= '$Tema' ";
+			$Consulta_3="SELECT * FROM respuestas WHERE ID_Participante='$participante' AND Correcto='1' AND ID_Pregunta = 10 AND Tema= '$Tema' ";
 			$Recordset_3 = mysqli_query($conexion,$Consulta_3);
 			$Respondida= mysqli_num_rows($Recordset_3);//se suman los registros que tiene la consulta realizada.
 				//echo $Respondida;	
 
-		    if($Respondida>8){//Condicion que impide entrar a una pregunta sino a respondido la pregunta previa, $_SESSION creada en sumaPuntaje.php
+		    if($Respondida>0){//Condicion que impide entrar a una pregunta sino a respondido la pregunta previa, $_SESSION creada en sumaPuntaje.php
 
 		   	//se actualiza en la BD que no tiene esta prueba pendiente
 			$Actualiza="UPDATE participantes_pruebas SET Prueba_Activa= 0, Prueba_Cerrada = 1 WHERE ID_Participante='$participante' AND Tema='$Tema' AND ID_PP = '$CodigoPrueba' ";
@@ -98,12 +98,9 @@ session_start();    //se inicia sesion para llamar a una variable
 				</div>
 				<br>
 				<nav class="navegacion">
-					<div class="nav_1"><a href="preguntaVenezuela_10.php">Volver</a></div>
+					<div class="nav_1"><a href="preguntaCristianismo_10.php">Volver</a></div>
 				</nav>
 			</div>
 			
 		<?php	}
 		?>
-
-
-	

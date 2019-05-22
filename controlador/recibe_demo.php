@@ -12,10 +12,18 @@ session_start();//se inicia sesion para crear una $_SESSION que almacene el ID_P
         $Consulta= "SELECT usuario FROM participante_demo";
         $Recordset= mysqli_query($conexion, $Consulta);
         
-        //echo $Correo["usuario"] ;
+        //echo $Correo["usuario"];
         while($Correo= mysqli_fetch_array($Recordset)){
             if($Correo["usuario"] == $_POST["usuario"]){
-                echo "El usuario que introdujo ya existe en nuestros registros";  
+                echo "<p style='color:yellow; position: absolute; top: 45%; left: 25%; font-size: 30px; font-family:arial;'>El usuario que introdujo ya existe en nuestros registros</p>"; 
+                echo "<a style='background-color:white; padding: 1% 2%; font-size: 20px; font-family:arial;text-decoration:none; border-radius: 15px;position: absolute; top: 55%; left: 45%;' href='../vista/demo.php'>Regresar</a>"   ?> 
+                <style>
+                body{
+                    background-color: rgba(0,0,0,0.85) !important;
+                }
+                </style>
+
+                <?php
             exit();
             }
         }

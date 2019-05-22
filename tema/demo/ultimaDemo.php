@@ -56,7 +56,6 @@ session_start();    //se inicia sesion para llamar a una variable
 				$Actualiza="UPDATE participantes_pruebas SET Prueba_Activa= 0 WHERE ID_Participante='$participante' AND Tema='$Tema' ";
 				mysqli_query($conexion,$Actualiza);
 	    	?>
-
 			<div class="Secundario">
 				<div class="encabezado">
 		    		<h1 class="anula">Vs_100.com</h1>

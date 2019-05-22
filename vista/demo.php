@@ -39,7 +39,7 @@
 
 						<input type="submit" value="Entrar"><!-- validar_02() se encuentra en return validar_02()validarFormularios.js -->
 						<br><hr>
-						<p> Tabla de posiciones del Demo <a href="participantes.php">Ver.</a></p> 
+						<p>Tabla de posiciones del Demo <a href="participantes.php">Ver.</a></p> 
 						</fieldset>
 					</form>
 				</div>			
