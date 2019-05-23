@@ -71,8 +71,11 @@
 		}
 	}
 	else{
+		//Se consulta la hora en la que se realizó la pregunta para introducirlo nuevamente en la consulta $insertar
+		$Hora_Pregunta= $Verificar["Hora_Pregunta"];
+
 		echo "<h3>Su repuesta es correcta, pero no sumará puntos porque antes respondio erradamente</h3>";
-		$insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Correcto, Hora_Respuesta) VALUES('$Pregunta', '$Participante', '$CodigoPrueba', '$Tema', 1, NOW())";
+		$insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Correcto, Hora_Pregunta, Hora_Respuesta) VALUES('$Pregunta', '$Participante', '$CodigoPrueba', '$Tema', 1, '$Hora_Pregunta', NOW())";
 		mysqli_query($conexion,$insertar);
 	}	  
 ?>

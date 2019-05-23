@@ -12,7 +12,7 @@ session_start();    //se inicia sesion para llamar a una variable almacenada en 
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Biblionario</title>
+		<title>Vs_100 Final</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas biblicas."/>
@@ -28,7 +28,7 @@ session_start();    //se inicia sesion para llamar a una variable almacenada en 
 		<script src="../../javascript/puntaje.js"></script>
 		<script src="../../javascript/bloqueo.js"></script>
 	</head>	
-	<body onload= "llamar_puntaje()"><!--funcion Ajax en puntaje.js que accede a BD para sumar el puntaje por libro del participante -->
+	<body>
 		<?php
 			include("../../conexion/Conexion_BD.php");	
 
@@ -65,8 +65,47 @@ session_start();    //se inicia sesion para llamar a una variable almacenada en 
 			<p class="pais"><?php echo $Tema;?></p>
 			<hr>
 			<div class="ultimaPregunta">
-		    	<p class="Inicio_1">Los puntos acumulados son: xxxxx.</p>
-		    	<p class="Inicio_1">El tiempo en responder fue: xxxxx</p>
+				<?php
+			    	//se realiza una consulta para obtener los puntos del participante
+			    	$Consulta="SELECT * FROM participantes_pruebas WHERE ID_Participante='$participante' AND Tema='$Tema' AND ID_PP = '$CodigoPrueba'";//se plantea la consulta
+					$Recordset = mysqli_query($conexion, $Consulta);//se manda a ejecutar la consulta
+					$Participante= mysqli_fetch_array($Recordset);
+
+			    	//se realiza una consulta para obtener el tiempo de respuesta del participante
+			    	$Consulta_1="SELECT SEC_TO_TIME(SUM(TIMEDIFF(Hora_Respuesta,Hora_Pregunta))) AS TiempoTotal FROM respuestas WHERE ID_PP = '$CodigoPrueba' ";
+					$Recordset_1 = mysqli_query($conexion, $Consulta_1);//se manda a ejecutar la consulta
+					$Tiempo= mysqli_fetch_array($Recordset_1);
+  
+ ?>
+		    	<p class="Inicio_1">Los puntos acumulados son: <?php echo $Participante["Puntos"];?></p>
+		    	<p class="Inicio_1">El tiempo en responder fue: <?php echo $Tiempo["TiempoTotal"];?></p>
+		    	<p class="Inicio_1">El tiempo en responder cada pregunta:</p>
+		    	<div style="background-color: ; width: 20%; margin: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pregunta</th>
+                            <th>Tiempo</th>
+                            <!--<th  style="font-size: 0.9vw; background-color: #040652; color: white;">ULTIMA PARTICIPACION</th>-->
+                        </tr>
+                    </thead>
+                    <?php
+					//Se consulta el tiempo que tardo en responder una pregunta
+					$Consulta_2="SELECT ID_Pregunta, TIMEDIFF(Hora_Respuesta,Hora_Pregunta) AS tiempo FROM respuestas WHERE ID_PP = '$CodigoPrueba' AND Correcto = 1";
+					$Recordset_2 = mysqli_query($conexion, $Consulta_2);//se manda a ejecutar la consulta
+					while($TiempoPregunta= mysqli_fetch_array($Recordset_2)){  ?>
+                    <tbody>
+                        <tr>
+                            <td class="tabla_0"><?php echo $TiempoPregunta["ID_Pregunta"];?></td>
+                            <td class="tabla_1"><?php echo $TiempoPregunta["tiempo"];?></td> 
+                            <!-- <td class="tabla_1"><?php// echo date("d-m-Y", strtotime($participantes["fecha_Registro"])); ?></td><!se cambia el formato de la fecha de registro--> 
+                            <!--<td><?php// echo date("d-m-Y", strtotime($participantes[0])); ?></td>se cambia el formato de la fecha de ultima participacion-->           
+                        </tr>
+                        <?php  
+                    }   ?> 
+                    </tbody>
+                 </table>
+            </div>
 		    	<p class="Inicio_1">Tu posición fue la Nº xxxxxx, de xxxxx sigue intentando.</p>
 		    	<p class="Inicio_1">Reporte de respuesta.</p>
 		    	<br>
@@ -76,7 +115,7 @@ session_start();    //se inicia sesion para llamar a una variable almacenada en 
 			    	<br>
 			    </div>
 	    	</div>
-	    	<nav class="navegacion_1" style="margin-top: 15%;">
+	    	<nav class="">
 				<a class="nav_7" href="../../controlador/entrada.php" class="">Inicio</a>
 				<a class="nav_7" href="../../controlador/cerrarSesion.php">Cerrar Sesión</a>
 			</nav>

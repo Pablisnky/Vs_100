@@ -42,12 +42,12 @@ session_start();    //se inicia sesion para llamar a una variable
 		<input type="text" class="ocultar" id="ID_Participante" value="<?php echo $participante;?>"><!-- se utiliza para enviar a puntaje.js-->
 		<?php
 			//Consulta realizada para verificar que la pregunta anterior esta respondida y puede entrar en esta.
-			$Consulta_3="SELECT * FROM respuestas WHERE ID_Participante='$participante' AND Correcto='1' AND ID_Pregunta = 8 AND Tema= '$Tema' ";
+			$Consulta_3="SELECT * FROM respuestas WHERE ID_Participante='$participante' AND Correcto='1' AND Tema= '$Tema' ";
 			$Recordset_3 = mysqli_query($conexion,$Consulta_3);
 			$Respondida= mysqli_num_rows($Recordset_3);//se suman los registros que tiene la consulta realizada.
 				//echo $Respondida;	
 
-		    if($Respondida>8){//Condicion que impide entrar a una pregunta sino a respondido la pregunta previa, $_SESSION creada en sumaPuntaje.php
+		    if($Respondida>9){//Condicion que impide entrar a una pregunta sino a respondido la pregunta previa, $_SESSION creada en sumaPuntaje.php
 
 		   	//se actualiza en la BD que no tiene esta prueba pendiente
 			$Actualiza="UPDATE participantes_pruebas SET Prueba_Activa= 0, Prueba_Cerrada = 1 WHERE ID_Participante='$participante' AND Tema='$Tema' AND ID_PP = '$CodigoPrueba' ";

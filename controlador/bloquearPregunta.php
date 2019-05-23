@@ -19,13 +19,16 @@
 			
 			//si existe una respuesta incorrecta para esta pregunta.
 		    if($Verificar["Correcto"] == "0"){
+		    	//Se consulta la hora en la que se realizó la pregunta para introducirlo nuevamente en la consulta $insertar
+		    	$Hora_Pregunta= $Verificar["Hora_Pregunta"];
+
 				//Se restan 2.25 puntos por cada bloqueo.
 				$Castigo=2.25;
 				$Restar="UPDATE participantes_pruebas SET Puntos= (Puntos - $Castigo) WHERE ID_Participante='$participante' AND ID_PP ='$CodigoPrueba' ";
 				mysqli_query($conexion,$Restar);
 
-		  //   	//se inserta en la BD que el participante respondio incorrectamente nuevamente
-				$insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Correcto, Hora_Respuesta) VALUES('$Pregunta', '$participante','$CodigoPrueba', '$Tema', 0, NOW())";
+		     	//se inserta en la BD que el participante respondio incorrectamente nuevamente
+				$insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Correcto, Hora_Pregunta, Hora_Respuesta) VALUES('$Pregunta', '$participante','$CodigoPrueba', '$Tema', 0, '$Hora_Pregunta', NOW())";
 				mysqli_query($conexion,$insertar);
 	
 				echo "<h3>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
@@ -44,7 +47,7 @@
 				// $insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Correcto, Hora_Respuesta) VALUES('$Pregunta', '$participante','$CodigoPrueba', '$Tema', 0 NOW())";
 				// mysqli_query($conexion,$insertar);
 
-				//se actualiza en la BD la hora a la que responido la pregunta
+				//se actualiza en la BD la hora a la que respondio la pregunta
 				$Actualizar_5= "UPDATE respuestas SET correcto = 0, Hora_Respuesta = NOW() WHERE ID_Participante='$participante' AND ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PP = '$CodigoPrueba'";
 				mysqli_query($conexion,$Actualizar_5);
 

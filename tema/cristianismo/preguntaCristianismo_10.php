@@ -32,7 +32,7 @@ session_start(); //se inicia sesion para llamar las variables $_SESSION creadas 
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Biblionario</title>
+		<title>Vs_100 Pregunta 10</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas biblicas."/>
@@ -80,16 +80,16 @@ session_start(); //se inicia sesion para llamar las variables $_SESSION creadas 
 
 			<h4>Pregunta Nº <?php echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">¿Cuando Pablo les escribe a los romanos, les dice que tiene muchos deseos de verlos para impartirles:?</p>
+				<p class="pregunta">Moises subio por segunda vez a la cumbre del Monte Sinaí con dos tablas de piedra; en esta oportunidad Moises fue acompañado por: </p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">
-					<p id="principiantes_10a" class="efecto" onclick="llamar_bloqueo()">El evangelio de Cristo.</p>
-					<p id="principiantes_10b" class="efecto" onclick="llamar_bloqueo()">Un Don espiritual.</p>
+					<p id="principiantes_10a" class="efecto" onclick="llamar_bloqueo()">Josue.</p>
+					<p id="principiantes_10b" class="efecto" onclick="llamar_bloqueo()">Aaron.</p>
 				</div>
 				<div class="Quinto_2">
-					<p id="principiantes_10c" class="efecto" onclick="llamar_sombrear_10c(); setTimeout(llamar_puntaje,200);">Correcta.</p>
-					<p id="principiantes_10d" class="efecto" onclick="llamar_bloqueo()">Como llego a ser cristiano.</p>
+					<p id="principiantes_10c" class="efecto" onclick="llamar_sombrear_10c(); setTimeout(llamar_puntaje,200);">Ninguno de los anteriores.</p>
+					<p id="principiantes_10d" class="efecto" onclick="llamar_bloqueo()">Sefora.</p>
 				</div>
 			</div>
 			<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
