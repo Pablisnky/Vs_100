@@ -30,18 +30,24 @@
     $Recordset= mysqli_query($conexion,$Consulta);
     $VerificarPregunta= mysqli_num_rows($Recordset);
     //mysqli_free_result($conexion); //se libera memoria de la consulta
-    // echo $VerificarPregunta . "<br>";
+     // echo "Pregunta respondida= " . $VerificarPregunta . "<br>";
     
-    //Se corrige la hora que entrega el sistema, para que trabaje con la hora nacional venezolana
+  // ----------------------------------------------------------------------------------------------------------------------
+  // ----------------------------------------------------------------------------------------------------------------------
+    //Se corrige la hora que entrega el sistema, para que trabaje con la hora nacional colombiana
     date_default_timezone_set('America/Bogota');
     $HoraServidorPHP =date("Y-m-d  H:i:s");
+    // echo "Hora PHP de respuesta" . $HoraServidorPHP . "<br>";
 
-   //Se corrige la hora del servidor PHP local
-   //$salto_horario_PHPLocal = -0.5 * 60 * 60;//se restan 30 minutas, porque el servidor PHP esta adelantado
-    //$PHPlocal = date("Y-m-d  H:i:s", time()  + $salto_horario_PHPLocal);
-    $PHPlocal= date("Y-m-d  H:i:s");
+    //se suman 2 minutos al tiempo que esta registrado en la BD como de apertura de una pregunta (HoraPregunta).
+    $salto_horario_PHPLocal = +0.03333333333333334 * 60 * 60;//se restan 30 minutas, porque el servidor PHP esta adelantado
+    $PHPlocal = date("Y-m-d  H:i:s", time()  + $salto_horario_PHPLocal);
+    // $PHPlocal= date("Y-m-d  H:i:s");
+     // echo "Hora PHP incrementada en 2 min" . $PHPlocal . "<br>";
+  // ----------------------------------------------------------------------------------------------------------------------
+  // ----------------------------------------------------------------------------------------------------------------------
 
-    //se inserta en la BD la hora en la que el participante entro a una pregunta, la hora es tomada del servidor MySQL
+    // Si la pregunta no ha sido respondida
     if($VerificarPregunta == 0){ 
         // se suman 2 minutos al tiempo que esta registrado en la BD como de apertura de una pregunta (HoraPregunta).
         //El servidor remoto MySQL tiene 2 horas de atrazo, por eso se añaden -58 minutos mas.
@@ -50,10 +56,11 @@
         $Recordset_2= mysqli_query($conexion,$Consulta_2);
         $Minutos=  mysqli_fetch_array($Recordset_2);
         $Incremento_2=$Minutos["minutos"];
-        //echo $Incremento_2;
+        // echo $Incremento_2;
       
-        $insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Hora_Pregunta, HoraMaximo) VALUES('$Pregunta', '$Participante', '$CodigoPrueba', '$Tema', NOW(), '$Incremento_2')";
-          mysqli_query($conexion,$insertar);
+        //se inserta en la BD la hora en la que el participante entro a una pregunta.
+        $insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Hora_Pregunta, HoraMaximo) VALUES('$Pregunta', '$Participante', '$CodigoPrueba', '$Tema', '$HoraServidorPHP', '$PHPlocal')";
+          mysqli_query($conexion,$insertar) or DIE ('Falló conexión a la base de datos');;
     
     }
     else{
@@ -67,14 +74,14 @@
   $Recordset_0= mysqli_query($conexion,$Consulta_0); 
   $Fecha= mysqli_fetch_array($Recordset_0);
   $FechaFinPlazo= $Fecha["DATE_FORMAT(HoraMaximo, '%Y/%m/%d')"];//la clave del array que devuelve $Fecha cambia al nombre del campo que devuele la consulta SQL.
-  //echo "Fecha culminacion del plazo para responder" . "$FechaFinPlazo". "<br>";
+  // echo "Fecha culminacion plazo para responder= " . "$FechaFinPlazo". "<br>";
 
   //Se busca en la BD la hora en la que termina el plazo para responder
   $Consulta_1= "SELECT DATE_FORMAT(HoraMaximo, '%H:%i:%s') FROM respuestas WHERE ID_Participante= '$Participante'AND ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PP = '$CodigoPrueba'";
   $Recordset_1= mysqli_query($conexion,$Consulta_1); 
   $Hora= mysqli_fetch_array($Recordset_1);
   $HoraFinPlazo= $Hora["DATE_FORMAT(HoraMaximo, '%H:%i:%s')"];//la clave del array que devuelve $Tiempo cambia al nombre del campo que devuele la consulta SQL.
-  //echo "Hora de culminacion del plazo para responder" . "$HoraFinPlazo". "<br>";
+  // echo "Hora culminacion del plazo para responder= " . "$HoraFinPlazo". "<br>";
 
   //se obtuvo la fecha con el formato aa/mm/dd y se necesita en javascript con formato mm/dd/aa
   $Consulta_2= "SELECT DATE_FORMAT('$FechaFinPlazo', GET_FORMAT(DATE, 'USA'))";
@@ -84,11 +91,10 @@
 
   //se cambian los puntos por barras
   $FechaBarras= str_replace(".", "/", $FechaFormato);
-
   //echo "Formato fecha deseado " . $FechaBarras . " " . $TiempoFinBloqueo . "<br>";
 
   $FormatoFinal= $FechaBarras . " " . $HoraFinPlazo;
-  //echo $FormatoFinal . "<br>";
+  // echo "Formato final necesitado= " .  $FormatoFinal . "<br>";
   ?>
 
 <!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->
