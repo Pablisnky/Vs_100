@@ -40,8 +40,6 @@
 #Cerrar:checked + label, #Cerrar:checked ~ .modal{
 	display: none;
 }
-#Inicio{
-}
 .Inicio_1{
 	background-color:;
 	font-family: 'Raleway', sans-serif;
@@ -61,4 +59,43 @@
 	animation-fill-mode: forwards;/*la animacion se queda fija*/
 	visibility: hidden;
 	opacity: 0;
+}
+.contenedor_modal{/*#F4FCFB*/
+	border-radius: 15px; 
+	background-color:rgba(244,252,251,0.9) ;
+	width: 50%; 
+	margin: 10% auto; 
+	padding: 5% 2%;
+}
+.span_1{
+	font-size: 22px;
+	font-weight: bold;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+@media(min-width: 326px) and (max-width: 550px){/*aplicaría en cualquier medio con dimensiones entre 326 y 550 píxeles.*/
+
+.contenedor_modal{
+	width: 95%; 
+	margin: 60% auto; 
+}
+#Cerrar + label{/*el + selecciona al elemento que esta inmediatamente despues de Cerrar*/
+	margin-left: 37%;
+	margin-top: 30%;
+}
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
+@media(min-width: 1600px){/*las reglas se aplicarán cuando la pantalla tenga una anchura mayor de la indicada.*/
+.contenedor_modal{
+	width: 70%; 
+	margin: 60% auto; 
+	padding: 4% 2%;
+}
+#Cerrar + label{/*el + selecciona al elemento que esta inmediatamente despues de Cerrar*/
+	margin-left: 37%;
+	margin-top: 30%;
+}
 }
