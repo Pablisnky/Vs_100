@@ -25,45 +25,40 @@
 		</script>
 	</head>	
 	<body>
-			<header>
-				<h1 class="anula">Versus_20</h1>
-			    <input type="checkbox" id="MenuRes">
-	    		<label id="ComandoMenu" class="comandoMenu" onclick="mostrarMenu()"><span class="icon-menu"></span></label>
-			    <nav id="MenuResponsive" class="menuResponsive">
-			        <ul id="MenuContenedor">
-			            <li><a href="vista/principal.php">Entrar</a></li>
-			            <li><a href="vista/registro.php">Registrarse</a></li>
-			            <!-- <li><a href="participantes.php">Participantes</a></li> -->
-			            <li><a href="vista/contacto.php">Contacto</a></li>
-			            <li><a href="vista/demo.php">Demo</a></li> 
-			        </ul>
-			    </nav>
-			</header>
-			<div onclick="ocultarMenu()" class="Secundario"><!--en este contenedor se hace click y se oculta el menu responsive-->
-				<div class="n00">
-					<div class="n10">
-						<h5>Inicia sesión</h5>
-						<a href="vista/principal.php" class="buttonCuatro">Entrar</a>
-					</div>
-					<div class="n10">
-						<header><h5>Demo</h5></header>
-						<a href="vista/demo.php"  class="buttonCuatro">Iniciar</a>
-					</div>					
+		<header>
+			<h1 class="anula">Versus_20</h1>
+		    <input type="checkbox" id="MenuRes">
+    		<label id="ComandoMenu" class="comandoMenu" onclick="mostrarMenu()"><span class="icon-menu"></span></label>
+		    <nav id="MenuResponsive" class="menuResponsive">
+		        <ul id="MenuContenedor">
+		            <li><a href="vista/principal.php">Entrar</a></li>
+		            <li><a href="vista/registro.php">Registrarse</a></li>
+		            <!-- <li><a href="participantes.php">Participantes</a></li> -->
+		            <li><a href="vista/contacto.php">Contacto</a></li>
+		            <li><a href="vista/demo.php">Demo</a></li> 
+		        </ul>
+		    </nav>
+		</header>
+		<div onclick="ocultarMenu()" class="Secundario"><!--en este contenedor se hace click y se oculta el menu responsive-->
+			<div class="n00">
+				<div class="n10">
+					<h5>Inicia sesión</h5>
+					<a href="vista/principal.php" class="buttonCuatro">Entrar</a>
 				</div>
-			    <div class="n20">
-					<h5>¿Que es Versus_20?</h5>				
-							
-					<p class="Inicio_1">Es una prueba de conocimiento en la cual se plantean 10 preguntas de un tema seleccionado por el participante, y en el que compiten 20 usuarios por un premio pagado en dinero.</p>
-
-					<p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en la respuesta penalizará, dejandote a merced de tus contrincantes y alejandote del premio.</p>	
-					<a class="Inicio_3  buttonCuatro" href="vista/instruccion.php">Instrucciones</a>					
-				</div>
+				<div class="n10">
+					<header><h5>Demo</h5></header>
+					<a href="vista/demo.php"  class="buttonCuatro">Iniciar</a>
+				</div>					
 			</div>
+			<div class="n20">
+				<h5>¿Que es Versus_20?</h5>				
+				<p class="Inicio_1">Es una prueba de conocimiento en la cual se plantean 10 preguntas de un tema seleccionado por el participante, y en el que compiten 20 usuarios por un premio pagado en dinero.</p>
+				<p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en la respuesta penalizará, dejandote a merced de tus contrincantes y alejandote del premio.</p>	
+				<a class="Inicio_3  buttonCuatro" href="vista/instruccion.php">Instrucciones</a>
+			</div>
+		</div>
 	    <footer class="piePagina_3">
 	        <?php include("vista/modulos/footer.php");?>
 	    </footer> 
 	</body>
 </html>
-
-
-	
