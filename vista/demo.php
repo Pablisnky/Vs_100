@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Vs_100 Prueba Demo</title>
+		<title>Versus_20 Prueba Demo</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas biblicas."/>
@@ -25,10 +25,10 @@
         </script>
 	</head>	
 	<body onload="autofocusInicioSesion()">
-		<div class="Secundario">
-       		<!--titulo y menu principal-->
-			<?php include("modulos/header.html");?>
-
+		<div class="">
+			<header>
+				<?php include("modulos/header.html");?>
+			</header>
 			<div onclick= "ocultarMenu()">
 				<div class="Inicio_2">
 					<h2>Prueba Demo</h2>
@@ -39,18 +39,20 @@
 
 						<input type="submit" value="Entrar"><!-- validar_02() se encuentra en return validar_02()validarFormularios.js -->
 						<br><hr>
-						<p>Tabla de posiciones del Demo <a href="participantes.php">Ver.</a></p> 
+						<p class="Inicio_1">Tabla de posiciones del Demo <a href="participantes.php">Ver.</a></p> 
 						</fieldset>
 					</form>
 				</div>			
-				<p>¿No tienes cuenta en Vs_100.com?<br>
+				<p class="Inicio_1">¿No tienes cuenta en Versus_20?<br>
 				<a href="registro.php">Registrate aqui.</a></p> 
 				<!--<a style="height: 10px; text-align: left;" href="controlador/llamarcookie.php">Ver cookie</a>En este archivo se pueden ver las cookies que se crearon en una visita anterior al sitio web por medio de validarSesion.php-->
 			</div>
 		</div>
+		<br>
+		<footer>
+			<?php include("modulos/footer.php");?>
+		</footer>
    	</body>
 </html>
-
-<!-- /////   JAVASCRIPT   /////   JAVASCRIPT   /////   JAVASCRIPT   /////   JAVASCRIPT   /////   JAVASCRIPT   /////   JAVASCRIPT   ///// -->
 
 <script type="text/javascript" src="../javascript/validarFormularios.js"></script>
