@@ -56,7 +56,6 @@
 		    <h4 class="ultima_1"><?php echo $Participante["Nombre"];?></h4>
 			<h4 class="ultima_1">Has concluido tu prueba sobre:</h4>
 			<h4 class="ultima_1"><?php echo $Categoria . "_" . $Tema;?></h4>
-			
 			<div class="ultimaPregunta">
 				<?php
 			    	//se realiza una consulta para obtener los puntos del participante
@@ -72,7 +71,6 @@
 					$Recordset_1 = mysqli_query($conexion, $Consulta_1);//se manda a ejecutar la consulta
 					$Tiempo= mysqli_fetch_array($Recordset_1);
  				?>
-
 		    	<p class="Inicio_5">Tiempo total: <?php echo $Tiempo["TiempoTotal"];?></p>
 		    	<p class="Inicio_5">Puntos acumulados: <?php echo $Decimal;?></p>
             	<?php
@@ -111,14 +109,13 @@
 					else{ 
 		    			if($Participante_6 == 0){  ?>           	
 		    				<p class="Inicio_5">Te ubicas en la posición Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p>  <?php
-		    			}   ?> 
-		    			<?php
+		    			}   
 		    			if($Participante_6 >= 2){  ?>
-		    			<p class="Inicio_5">Temporalmente te encuentras en la posición Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
+		    				<p class="Inicio_5">Temporalmente te encuentras en la posición Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
 		    				<strong class="Inicio_8"><?php echo $Participante_6;?> participantes aún no han respondido esta prueba</strong>  <?php 
 		    			}
 		    			else if($Participante_6 == 1){  ?>
-		    			<p class="Inicio_5">Temporalmente te ubicas en la posición Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
+		    				<p class="Inicio_5">Temporalmente te ubicas en la posición Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
 		    				<strong class="Inicio_8"><?php echo $Participante_6;?> participante aún no ha respondido esta prueba</strong>  <?php 
 		    			}  
 		    		}  ?>
@@ -137,19 +134,18 @@
 						$Consulta_2="SELECT ID_Pregunta, puntoGanado, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo FROM respuestas WHERE ID_PP='$CodigoPrueba' AND Correcto = 1 AND puntoGanado > 0 GROUP BY ID_Pregunta ";
 						$Recordset_2 = mysqli_query($conexion, $Consulta_2);//se manda a ejecutar la consulta					
 						while($TiempoPregunta= mysqli_fetch_array($Recordset_2)){  ?>
-	                    <tbody>
-	                        <tr>
-	                            <td class="tabla_0"><?php echo $TiempoPregunta["ID_Pregunta"];?></td>
-	                           	<td class="tabla_1"><?php echo $TiempoPregunta["puntoGanado"];?></td> 
-	                            <td class="tabla_0"><?php echo $TiempoPregunta["tiempo"];?></td> 
-	                            <!-- <td class="tabla_1"><?php// echo date("d-m-Y", strtotime($participantes["fecha_Registro"])); ?></td><!se cambia el formato de la fecha de registro--> 
-	                            <!--<td><?php// echo date("d-m-Y", strtotime($participantes[0])); ?></td>se cambia el formato de la fecha de ultima participacion-->           
-	                        </tr>
-	                        <?php  
-	                    }   ?> 
-	                    </tbody>
+	                    	<tbody>
+	                        	<tr>
+									<td class="tabla_0"><?php echo $TiempoPregunta["ID_Pregunta"];?></td>
+									<td class="tabla_1"><?php echo $TiempoPregunta["puntoGanado"];?></td> 
+									<td class="tabla_0"><?php echo $TiempoPregunta["tiempo"];?></td> 
+									<!-- <td class="tabla_1"><?php// echo date("d-m-Y", strtotime($participantes["fecha_Registro"])); ?></td><!se cambia el formato de la fecha de registro--> 
+									<!--<td><?php// echo date("d-m-Y", strtotime($participantes[0])); ?></td>se cambia el formato de la fecha de ultima participacion-->           
+	                        	</tr>
+								<?php  
+						}   ?> 
+	                    	</tbody>
 	                </table>
-
 	                <?php
 		                 // puntos descontados por cada pregunta incorre
 							$Consulta_3="SELECT ID_Pregunta, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo, SUM(puntoGanado) As penalizacion FROM respuestas WHERE ID_PP='$CodigoPrueba' AND puntoGanado <= 0.000 GROUP BY ID_Pregunta ";
@@ -181,9 +177,9 @@
 	        	}
 	            ?>
             </div>
-		    	<div class="Gratis_2">
-			    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Versus_20</p>
-			    </div>
+		    <div class="Gratis_2">
+		    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Versus_20</p>
+		    </div>
 	    	</div>
 			<nav class="navegacion_2">
 				<a class="nav_10" href="../controlador/entrada.php">Inicio</a>
