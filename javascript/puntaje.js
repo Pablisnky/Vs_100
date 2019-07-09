@@ -30,18 +30,38 @@
         }*/
        return http_request;
     } 
-//--------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------
 function llamar_puntaje(){//funcion invocada en preguntaXxxxxx_00.php
     var aleatorio = parseInt(Math.random()*999999999);
     C=document.getElementById("ID_Participante").value;//se inserta el ID_Participante desde preguntaXxxxxxx_00.php.
     D=document.getElementById("ID_PP").value;//se toma el ID de la prueba.
-    var url="../../controlador/sumaPuntaje.php?val_3=" + C  + "&val_4=" + D + "&r=" + aleatorio;
+    var url="../controlador/sumaPuntaje.php?val_3=" + C  + "&val_4=" + D + "&r=" + aleatorio;
     http_request.open('GET',url,true);     
     peticion.onreadystatechange = respuesta_puntaje;
     peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
     peticion.send("null");
 }                                                           
 function respuesta_puntaje(){
+    if (peticion.readyState == 4){
+         if (peticion.status == 200){
+           document.getElementById('mostrarPuntos').innerHTML=peticion.responseText;//se recoje 
+        } 
+        else{
+            alert('Hubo problemas con la petición.');
+        }
+    }
+}
+//------------------------------------------------------------------------------------------------
+function llamar_puntaje_Demo(){//funcion invocada en preguntaXxxxxx_00.php
+    var aleatorio = parseInt(Math.random()*999999999);
+    D=document.getElementById("ID_PD").value;//se toma el ID de la prueba.
+    var url="../../controlador/sumaPuntaje_Demo.php?val_3=" + D + "&r=" + aleatorio;
+    http_request.open('GET',url,true);     
+    peticion.onreadystatechange = respuesta_puntaje_Demo;
+    peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    peticion.send("null");
+}                                                           
+function respuesta_puntaje_Demo(){
     if (peticion.readyState == 4){
          if (peticion.status == 200){
            document.getElementById('mostrarPuntos').innerHTML=peticion.responseText;//se recoje 
