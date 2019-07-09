@@ -9,6 +9,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 	//se crea la sesión verifica, para validar que el participante envio los datos desde este formulario
 	$corroborar = 44;  
 	$_SESSION["verifica"] = $corroborar;
+	// echo $_SESSION["verifica"];
 
 	$Tema= $_GET["Tema"];
 	$_SESSION["Tema"]= $Tema;//se crea una $_SESSION llamada Tema que almacena el tema de la prueba que selecciona el participante
@@ -21,7 +22,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Vs_100 Inicio</title>
+		<title>Versus_20 Inicio</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas para ganar dinero."/>
@@ -37,70 +38,52 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 		<body>
 			<div class="Secundario">
 				<header>
-			   		<h1 style="cursor: default;">Vs 100.com</h1>
 				   	<input class="input_1" type="text" name="nombre" value="<?php echo $ParticipanteNombre;?>">
+						<?php include("../vista/modulos/header_usuario.html");?> 
 				</header>
-				<section style="background-color:;">
+				<section>
 					<?php
 						include("../conexion/Conexion_BD.php");
 
 			            $participante=$_SESSION["Nombre_Participante"];//en esta sesion se tiene guardado el nombre del participante, sesion creada en entrada.php
 			                 // echo "$participante:" .  $participante . "<br>";				 
 					?>
-					<div style="background-color: ">
-						<p>Tema de la prueba</p>
-						<p><?php echo $Tema;?></p>
+					<div style="background-color: ; margin-bottom: 2%;">
+						<h2>Tema de la prueba</h2>
+						<h4><?php echo $Tema;?></h4>
 					</div>
 				</section>
-				<section class="entrada_5">
-					<br><br>
-					<div class="RegistroPago">
-						<p>Una vez realizado el pago de su participación, registre los datos del deposito bancario.</p>
-						<div class="RegistroPago_1">
+				<section>
+					<p>Una vez realizado el pago de su participación, registre los datos del deposito bancario.</p>
+					<div class="contenedor_1" >
+						<div class="contenedor_2">
+							<fieldset class="Afiliacion_4">	
+								<legend>Depositos para Colombia</legend>						
+								<p>Bancolombia</p>														
+								<p>Cuenta de ahorros</p>					
+								<p>13017178677</p>
+							</fieldset>
+						</div>
+						<div class="contenedor_2">
 							<form action="recibePago.php" method="POST" name="registroGratis" onsubmit="return validar_01()">
 								<fieldset class="Afiliacion_4">
-								<input type="text" name="cedula" id="Cedula" placeholder="Cedula" autocomplete="off">
-								<input type="text" name="telefono" id="Telefono" placeholder="Telefono" autocomplete="off">
-								<input type="text" name="deposito" id="Deposito" placeholder="Nº Deposito bancario" autocomplete="off"">
-								<input type="text" name="tema" value="<?php echo $Tema;?>" style="display: none;">
-								<input type="submit" value="Registrar" style="margin-top: 6%;">
+									<legend>Registrar pago</legend>
+									<input type="text" name="cedula" id="Cedula" placeholder="Cedula" autocomplete="off">
+									<input type="text" name="telefono" id="Telefono" placeholder="Telefono" autocomplete="off">
+									<input type="text" name="deposito" id="Deposito" placeholder="Nº Consignación bancaria" autocomplete="off"">
+									<input type="text" name="tema" value="<?php echo $Tema;?>" style="display: none;">
+									<input type="text" name="categoria" value="<?php echo $Tema;?>" style="display: none;">
+									<input type="submit" value="Registrar" style="margin-top: 6%;">
 								</fieldset>
 							</form>
 						</div>
-						<!-- <a class="nav_7" href="../informacion_Pago.php">Datos bancarios para depositos.</a> -->
-						<div style=" display: flex; justify-content: space-between; width: 20%; margin: auto;">
-							<a class="nav_7" href="javascript:history.go(-1)">Regresar</a>
-							<a class="nav_7" href="cerrarSesion.php" >Cerrar Sesión</a>
-						</div>
+					</div>
+					<!-- <a class="nav_7" href="../informacion_Pago.php">Datos bancarios para depositos.</a> -->
+					<div class="contenedor_3">
+						<a class="nav_7" href="javascript:history.go(-1)">Regresar</a>
+						<a class="nav_7" href="cerrarSesion.php" >Cerrar Sesión</a>
 					</div>
 				</section>
 			</body>
 		</html>
-<?php 
-	}
-		//Se corrige la hora del servidor PHP
-		//$salto_horario = -4 * 60 * 60; //(se restan 4 horas)
-		//$fecha = date('Y-m-d H:i:s', time() + $salto_horario);
-		//echo "Hora real del servidor = " . date('H:i:s', time()) . "<br>";
-
-		//-------------------------------------------------------------------------------------------------
-		//-------------------------------------------------------------------------------------------------
-		//se configura el sistema para que trabaje con la hora nacional.
-		date_default_timezone_set('America/Caracas');
-		//echo "Hora del servidor PHP= " . date("Y-m-d  H:i:s")."<br>";
-
-		//Hora del servidor MySQL
-		$Consulta_5="SELECT now()";
-		$Recordset_3= mysqli_query($conexion,$Consulta_5);
-		$Verificar= mysqli_fetch_array($Recordset_3);
-		$H_S= $Verificar["now()"];
-		//echo "Hora del servidor MySQL= " . $H_S . "<br>";
-
-		//Se corrige la hora del servidor PHP local
-		$salto_horario_PHPLocal = -0.5 * 60 * 60;//se restan 30 minutas, porque el servidor PHP local esta adelantado
-		$PHPlocal = date("Y-m-d  H:i:s", time()  + $salto_horario_PHPLocal);
-		//echo "Hora del servidor PHP corregida = " . $PHPlocal . "<br>" . "<br>";
-?>
-
- 		
-
+<?php   }   ?>
