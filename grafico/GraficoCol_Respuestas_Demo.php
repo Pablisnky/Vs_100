@@ -30,7 +30,10 @@ Highcharts.chart('container', {
   xAxis: {
     min: 0,
     categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',],
-  },
+    title: {
+      text: 'Preguntas',
+    },
+  },    
   yAxis: {
     title: {
       text: 'Puntos',
@@ -38,7 +41,7 @@ Highcharts.chart('container', {
     max:5,
   }, 
   credits: {
-    enabled: true
+    enabled: false
   },
 
 
