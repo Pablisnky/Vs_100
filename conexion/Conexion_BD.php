@@ -6,11 +6,7 @@
 
     mysqli_query($conexion,'SET NAMES "' . CHARSET . '"');//es importante esta linea para que los caracteres especiales funcione, tanto graficamente como logicamente
 
-    //Si tenemos un posible error en la conexión lo mostramos
-    if($conexion->connect_errno){
-        printf("Falló conexión a la base de datos: %s\n", mysqli_connect_error());
-        exit();
-}
+
 
 //------------------------------------------------------------------------------
 /*if (!function_exists('ejecutarConsulta')) {

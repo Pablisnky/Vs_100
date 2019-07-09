@@ -8,28 +8,18 @@
 	// echo "ID_Participante= ". $participante . "<br>";
 	// echo "ID_PP= " . $CodigoPrueba . "<br>";
 
-	if($CodigoPrueba != "demo"){
 		//Consulta realizada para obtener el puntaje del participante despues de haber actualizado 
 		$Consulta="SELECT * FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE participante.ID_Participante='$participante' AND participantes_pruebas.ID_PP = '$CodigoPrueba'";
 		$Recordset = mysqli_query($conexion,$Consulta);
 		$Puntaje=  mysqli_fetch_array($Recordset);
 			
-		$_SESSION["PuntosPais"]= $Puntaje[16];//se crea una sesion que almacena el puntaje del usuario
+		$_SESSION["PuntosPais"]= $Puntaje["Puntos"];//se crea una sesion que almacena el puntaje del usuario
+
+		//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
+ 		$Decimal = str_replace('.', ',', $Puntaje["Puntos"]); 
 		
-		echo "<p class='p_1'>$Puntaje[1]</p> ";
-		echo "<p class='p_2'>" . $Puntaje[16] . "</p>";
-		echo "<p class='p_1'> Puntos</p>";
+		echo "<p class='p_1'>$Puntaje[1]</p>";
+		echo "<p class='p_1'>$Decimal</p>";
+		echo "<p class='p_1'>Puntos</p>";
 		//Respuesta es mostrada en preguntaXxxxxx_00.php porque alli se realizó la petición al servidor utilizando AJAX
-	}
-	else{
-		//Consulta realizada para obtener el puntaje del participante despues de haber actualizado 
-		$Consulta="SELECT * FROM participante_demo WHERE ID_Participante = '$participante'";
-		$Recordset = mysqli_query($conexion,$Consulta);
-		$Puntaje=  mysqli_fetch_array($Recordset);
-		
-		echo "<p class='p_1'>$Puntaje[1]</p> ";
-		echo "<p class='p_2'>" . $Puntaje[3] . "</p>";
-		echo "<p class='p_1'> Puntos</p>";
-		//Respuesta es mostrada en preguntaDemo_Xx.php porque alli se realizó la petición al servidor utilizando AJAX
-	}
 ?>

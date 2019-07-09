@@ -122,19 +122,50 @@ function respuesta_llamarCorreo(){
                 }
         }
 
-<!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->   ////// -->
 
         function ocultarMenu(){//menu responsive, llamado desde todas las paginas.
-            if(window.screen.availWidth <= 800){//solo funciona si la pantalla es menor a 800px          
+            if(window.screen.width<=800){//solo funciona si la pantalla es menor a 800px          
                 var A= document.getElementById("MenuResponsive");
                     if(A.style.marginLeft = "0%"){
-                    //alert("hola");
                     A.style.marginLeft = "-35%";
                 }
             }
         }   
 
-<!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+//va dando en pantalla la cantidad de caracteres que quedan mientra se escribe un total de 800, llamada desde contacto.php
+    function contar(){
+         var max = 500; 
+         var cadena = document.getElementById("Contenido").value; 
+         var longitud = cadena.length; 
+
+             if(longitud <= max) { 
+                  document.getElementById("Contador").value = max-longitud; 
+             } else { 
+                  document.getElementById("Contenido").value = cadena.subtring(0, max);
+             } 
+    } 
+        
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+        
+//Impide que se sigan introduciendo caracteres al alcanzar el limite maximo, llamada desde contacto.php 
+    var contenido_textarea = "";    
+    function valida_Longitud(){  
+        var num_caracteres_permitidos = 500;
+
+        //se averigua la cantidad de caracteres escritos
+        num_caracteres = document.forms[0].contenido.value.length; 
+
+        if(num_caracteres > num_caracteres_permitidos){ 
+            document.forms[0].contenido.value = contenido_textarea; 
+        }
+        else{ 
+            contenido_textarea = document.forms[0].contenido.value; 
+        } 
+    } 
 
 
 

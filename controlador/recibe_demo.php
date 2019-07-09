@@ -1,14 +1,14 @@
 <?php
 session_start();//se inicia sesion para crear una $_SESSION que almacene el ID_Participante, esta $_SESSION sera exigida cada vez que se entre en una pagina del area de afiliados, con esto se garantiza que se accedio a la cuenta del usuario haciendo login
 
-	include("../conexion/Conexion_BD.php");
+    include("../conexion/Conexion_BD.php");
     
-    //Verifica si los campo que se van a recibir desde principal.php.php estan vacios
+    //Verifica si el usuario que se va a recibir desde principal.php esta vacio
     if(empty($_POST["usuario"])){
-
         echo"<script>alert('Debe Llenar todos los campos vacios');window.location.href='../vista/demo.php';</script>";
     }
     else{
+        // Se consulta si ya existe un usuario registrado con el nickname que se introduojo
         $Consulta= "SELECT usuario FROM participante_demo";
         $Recordset= mysqli_query($conexion, $Consulta);
         
@@ -29,29 +29,30 @@ session_start();//se inicia sesion para crear una $_SESSION que almacene el ID_P
         }
 
         //sino estan vacios se sanitizan y se reciben
-        $Usuario = filter_input( INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
+        // $Usuario = filter_input( INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
+        $Usuario= $_POST["usuario"];
         // echo "Usuario: " .  $Usuario . "<br>";
 
         //se insertan los datos a la BD
-        $insertar= "INSERT INTO participante_demo(usuario, fecha_Registro) VALUES('$Usuario', NOW())";
-        mysqli_query($conexion, $insertar);
+        $insertar= "INSERT INTO participante_demo(usuario, fecha_Registro) VALUES('$Usuario',NOW())";
+        mysqli_query($conexion,$insertar) or DIE ('Falló conexión a la base de datos');
 
         //se realiza una consulta para obtener el ID_PD del participante en el demo
-        $Consulta="SELECT ID_Participante, usuario FROM participante_demo WHERE usuario= '$Usuario'";//se plantea la consulta
+        $Consulta="SELECT ID_PD, usuario FROM participante_demo WHERE usuario= '$Usuario'";//se plantea la consulta
         $Recordset = mysqli_query($conexion, $Consulta);//se manda a ejecutar la consulta
         $Usuario_2= mysqli_fetch_array($Recordset); 
-        $ID_Participante= $Usuario_2["ID_Participante"];
+        $ID_PD= $Usuario_2["ID_PD"];
         $Usuario=  $Usuario_2["usuario"];
-        echo "ID_Participante en el Demo= " . $ID_Participante . "<br>";
-        echo "Nombre de usuario en el Demo= " . $Usuario . "<br>";
+         // echo "ID_Participante en el Demo= " . $ID_PD . "<br>";
+         // echo "Nombre de usuario en el Demo= " . $Usuario . "<br>";
       
         //se crea una $_SESSION llamada $ID_PD que almacena el ID del participante para  forzar a que entre a su cuenta solo despues de logearse.
-        $_SESSION["ID_Participante"]= $ID_Participante;
+        $_SESSION["ID_PD"]= $ID_PD;
         $_SESSION["Usuario"]= $Usuario;
 
-        echo "La sesion ID_Participante= " . $_SESSION["ID_Participante"] . "<br>";
-        echo "La sesion Usuario= " . $_SESSION["Usuario"] . "<br>";
-           
+         // echo "La sesion ID_Participante= " . $_SESSION["ID_PD"] . "<br>";
+         // echo "La sesion Usuario= " . $_SESSION["Usuario"] . "<br>";
+
     	header("location:../tema/demo/preguntaDemo_01.php");//Se da acceso y se Redirije a la pagina "entrada.php" para comenzar con las preguntas del biblionario
     }
    ?>

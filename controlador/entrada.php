@@ -1,9 +1,8 @@
 <?php
 session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID_Participante, creada en validarSesion.php 
-	
-    if(!isset($_SESSION["ID_Participante"])){//si la variable $_SESSION["Participante"] no esta declarada devuelve a principal.php porque el participante no ha realizado el login
-  		header("location:../principal.php");
-  		// echo "La sesion no fue creada";			
+	if(!isset($_SESSION["ID_Participante"])){//si la variable $_SESSION["Participante"] no esta declarada devuelve a principal.php porque el participante no ha realizado el login
+  		// echo "La sesion no fue creada";
+  		header("location:../vista/principal.php");		
 	}
 	else{//si la varible $_SESSION["Participante"] esta declarada se entra al archivo, con esto se garantiza que el usuario entro por login
 		include("../conexion/Conexion_BD.php");
@@ -12,12 +11,12 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
         // echo "ID_Participante:" .  $participante . "<br>";
 
         $ParticipanteNombre=$_SESSION["Nombre_Participante"];//en esta sesion se tiene guardado el nombre del participante, sesion creada en validarSesion.php
-        // echo "Nombre Participante:" .  $ParticipanteNombre . "<br>";
+         // echo "Nombre Participante:" .  $ParticipanteNombre . "<br>";
 		?>
 		<!DOCTYPE html>
 		<html lang="es">
 			<head>
-				<title>Vs_100 Inicio</title>
+				<title>Versus_20 Inicio</title>
 
 				<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 				<meta name="description" content="Juego de preguntas para ganar dinero."/>
@@ -29,21 +28,24 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
 				<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css"> 
 			   	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'> 
+
+				<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
 			</head>	
-			<body>
-				<div class="Secundario">
-					<header>
-				   		<h1 style="cursor: default;">Vs_100.com</h1>
-				   		<input class="input_1" type="text" name="nombre" value="<?php echo $ParticipanteNombre;?>">		   		
+			<body onload="toTop()">
+					<header style="position: fixed;  width: 100%; margin-top:; ">
+				   		<input class="input_1" type="text" name="nombre" value="<?php echo $ParticipanteNombre;?>">
+						<?php include("../vista/modulos/header_usuario.html");?>   		   		
 					</header>
-					<section>
-						<p class="Inicio_3">Toma una prueba ahora mismo, ganar no es cuestión de azar, es cuestión de saber.</p>	<?php
+					<br><br><br><br><br><br>
+				<div class="Secundario"  onclick="ocultarMenu()">
+						<p class="Inicio_9">Tus conocimientos valen, ganar no es cuestión de suerte.</p>	
+						<?php
 						//Se verifica si el participante tiene pruebas pendientes por responder
-						$Consulta_0="SELECT Tema, ID_PP FROM participantes_pruebas WHERE ID_Participante='$participante' AND (Prueba_Activa = 1 AND Prueba_Pagada = 1 AND Prueba_Cerrada = 0 )";
+						$Consulta_0="SELECT ID_PP,ID_Prueba,Categoria,Tema FROM participantes_pruebas WHERE ID_Participante='$participante' AND (Prueba_Activa = 1 AND Prueba_Pagada = 1 AND Prueba_Cerrada = 0 )";
 						$Recordset_0 = mysqli_query($conexion, $Consulta_0); 
 						if(mysqli_num_rows($Recordset_0) != 0){  ?>
 							<div id="EntradaParticipante_1" class="nueva_Prueba">
-								<p class="Inicio_4">Tienes una prueba pendiente por responder sobre el tema:</p>
+								<p class="Inicio_4">Tienes pruebas pendientes por responder sobre el tema:</p>
 
 								<?php
 								// Se busca que pruebas tiene pendiente el participante
@@ -56,11 +58,17 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									// $Pendiente= $Registro_2[0]; //campo "ID_PP" en tabla participantes_pruebas 
 									// $Activa= $Participante[14]; //campo "activa" en tabla participantes_pruebas 
 									// echo "Prueva pendiente= " . $Pendiente 
-									// echo "Prueva Activa= " . $Activa ."<br>";   ?>
+									// echo "Prueva Activa= " . $Activa ."<br>";  
+									$ID_Prueba= $Registro_2["ID_Prueba"]; 
+									// echo "ID_Prueba= " . $ID_Prueba ."<br>"; 
+									$Categoria= $Registro_2["Categoria"]; 
+									// echo "ID_Prueba= " . $ID_Prueba ."<br>";
+
+									 ?>
 									<div style="background-color: ; text-align: center; margin-top: 3%;">
-										<a href="seleccionTema.php?seleccion=<?php echo $Tema?>&codigo=<?php echo $Codigo?>"><?php echo $Registro_2["Tema"];?></a>
-										<p style="display: inline-block;"> | Código</p>
-										<a style="color: black" href="seleccionTema.php?seleccion=<?php echo $Tema?>&codigo=<?php echo $Codigo?>"><?php echo $Registro_2["ID_PP"];?></a>
+										<a href="../vista/pregunta.php?seleccion=<?php echo $Tema?>&codigo=<?php echo $Codigo?>&ID_Prueba=<?php echo $ID_Prueba;?>&Categoria=<?php echo $Categoria;?>"><?php echo $Registro_2["Categoria"] . "_" . $Registro_2["Tema"];?></a>
+										<p class="entrada_6"> | Código</p>
+										<p class="entrada_6"><?php echo $Registro_2["ID_PP"];?></p>
 									</div>
 									<?php
 								}	?>
@@ -68,43 +76,70 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 							<?php
 						}   
 						  ?>
-							<div id="EntradaParticipante" class="entradaParticipante">			
-								<div class="entrada">
-									<p class="entrada_1">Participación por 3.000 $</p>
-									<p class="entrada_2">Premio minimo 50.000 $ al inscribirse 20 participantes</p>
-									<p class="entrada_2">Premio maximo 260.000 $ al inscribirse 100 participantes</p>
+							<p class="entrada_1">Participación: $ 3.000 (COP)</p>
+							<div class="Premio" >
+								<div id="EntradaParticipante" class="entradaParticipante">
+									<p class="entrada_2">1<sup class="super_in">er</sup> Premio</p>  
+									<p class="entrada_3">$ 40.000 (COP)</p>
 								</div>
-								<div class="entrada">
-									<p class="entrada_1">Participación por 10.000 $</p>
-									<p class="entrada_2">Premio minimo 170.000 $ al inscribirse 20 participantes</p>
-									<p class="entrada_2">Premio maximo 800.000 $ al inscribirse 100 participantes</p>
+								<div id="EntradaParticipante" class="entradaParticipante">
+									<p class="entrada_2">2<sup class="super_in">do</sup> Premio</p>  
+									<p class="entrada_3">$ 7.000 (COP)</p>
+								</div>
+								<div id="EntradaParticipante" class="entradaParticipante">
+									<p class="entrada_2">3<sup class="super_in">er</sup> Premio</p>  
+									<p class="entrada_3">$ 3.000 (COP)</p>
 								</div>
 							</div>
-							<br>
-							<a class="nav_7" href="../vista/informacion_Pago.php">Datos bancarios para depositos.</a>
-							<br>
-							<p class="nav_2" >Seleccione un tema para su prueba.</p>
+							<p class="nav_2" >Seleccione una categoría para su prueba de 10 preguntas.</p>
 							<div class="entrada_5">
 								<div class="entrada_4 ">
-									<p class="nav_7">Ingenieria civil</p>
-									<p class="nav_7">Ingenieria Mecánica</p>
-									<p class="nav_7">Salud</p>
-									<p class="nav_7">Matematica</p>
-									<p class="nav_7">Geografia</p>
-									<p class="nav_7">Cultura general</p>
+									<input type="text" class="nav_7" readonly="readonly" value="Ingenieria civil" onclick="SeleccionarIngenieriaCivil()">
+									<input type="text" class="nav_7" readonly="readonly" value="Ingenieria Mecánica" onclick="SeleccionarIngenieriaMecánica()">
+									<input type="text" class="nav_7" readonly="readonly" value="Familia" onclick="SeleccionarFamilia()">
+									<input type="text" class="nav_7" readonly="readonly" value="Matematica" onclick="SeleccionarMatematica()">
+									<input type="text" class="nav_7" readonly="readonly" value="Geografia" onclick="SeleccionarGeografia()">
+									<input type="text" class="nav_7" readonly="readonly" value="Cultura general" onclick="SeleccionarCulturaGeneral()">
+									<input type="text" class="nav_7" readonly="readonly" value="Colombia" onclick="SeleccionarColombia()">
 								</div>
 								<div class="entrada_4">
-									<p class="nav_7">Arte</p>
-									<p class="nav_7">Musica clasica</p>	
-									<p class="nav_7">Musica general</p>	
-									<p class="nav_7" href="registro_Pago.php?Tema=Programacion">Programación</p>
-									<a class="nav_7" href="registro_Pago.php?Tema=Cristianismo">Cristianismo</a>
-									<a class="nav_7" href="registro_Pago.php?Tema=Venezuela">Venezuela</a>
+									<input type="text" class="nav_7" readonly="readonly" value="Arte" onclick="SeleccionarArte()">
+									<input type="text" class="nav_7" readonly="readonly" value="Deporte" onclick="SeleccionarDeporte()">
+									<input type="text" class="nav_7" readonly="readonly" value="Musica" onclick="SeleccionarMusica()">
+									<input type="text" class="nav_7" readonly="readonly" value="Programación" onclick="SeleccionarProgramación()">
+									<input type="text" class="nav_7" readonly="readonly" value="Venezuela" onclick="SeleccionarVenezuela()">
+									<input type="text" class="nav_9" readonly="readonly" value="Biblia" onclick="SeleccionarBiblia()"> <span class="small">libre</span> 
 								</div>
 							</div>
-							<a class="nav_7" href="cerrarSesion.php" >Cerrar Sesión</a>
-					</section>
+								<a class="cerrar" href="cerrarSesion.php">Cerrar Sesión</a>
 				</div>
+			    <footer>
+			        <?php include("../vista/modulos/footer.php");?>
+			    </footer>
 			</body>
 		</html>   <?php
 	}  ?>
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<script type="text/javascript">
+    function SeleccionarBiblia(){//esta funcion es llamada desde este archivo                                                
+        window.open("clasificacion_Tema.php?Categoria=biblia","anexo","width=800px,height=600px,left=300px");  
+    }
+    function SeleccionarColombia(){//esta funcion es llamada desde este archivo
+        window.open("clasificacion_Tema.php?Categoria=colombia","anexo","width=800px,height=600px,left=300px");  
+    }
+    function SeleccionarFamilia(){//esta funcion es llamada desde este archivo
+        window.open("clasificacion_Tema.php?Categoria=familia","anexo","width=800px,height=600px,left=300px");  
+    }
+    function SeleccionarVenezuela(){//esta funcion es llamada desde este archivo
+        window.open("clasificacion_Tema.php?Categoria=venezuela","anexo","width=800px,height=600px,left=300px");  
+    }
+    function SeleccionarMusica(){//esta funcion es llamada desde este archivo
+        window.open("clasificacion_Tema.php?Categoria=musica","anexo","width=800px,height=600px,left=300px");  
+    }
+
+    function toTop(){//Al recargar la página siempre se coloca al inicio de esta, funcion llamada desde la etiqueta body
+        window.scrollTo(0, 0)
+    }
+     
+ 
+</script>

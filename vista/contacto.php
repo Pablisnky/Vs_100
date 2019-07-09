@@ -60,18 +60,16 @@
 	</body>
 </html>
 
-
-<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 <script type="text/javascript">
-// Con este script se ajusta el textarea según se va escribiendo el contenido del mismo
+    // Con este script se ajusta el textarea según se va escribiendo el contenido del mismo
     var textarea_A = document.querySelector('textarea');
     textarea_A.addEventListener('keydown', autosize);
              
     function autosize(){
-      var el = this;
-      setTimeout(function(){
+        var el = this;
+        setTimeout(function(){
         el.style.cssText = 'height:100px; padding:0';
         el.style.cssText = 'height:' + el.scrollHeight + 'px';
-      },0);
-}
+        },0);
+    }
 </script>

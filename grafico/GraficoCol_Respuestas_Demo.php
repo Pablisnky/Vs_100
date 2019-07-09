@@ -1,6 +1,6 @@
 <?php
 session_start();
-  // $ID_PD= $_SESSION["ID_PD"];
+  $ID_PD= $_SESSION["ID_PD"];
   // echo $ID_PD;
   include("../conexion/Conexion_BD.php");
 ?>
@@ -13,6 +13,8 @@ session_start();
 <script type="text/javascript">
 Highcharts.chart('container', {
   chart: {
+    height: 290,
+    marginTop: 95,
     type: 'column',
     backgroundColor: '#F4FCFB',
   },
@@ -21,13 +23,13 @@ Highcharts.chart('container', {
   },
   legend: {
         align: 'left',
-        verticalAlign: 'center',
+        verticalAlign: 'center',        
+        itemMarginTop: 30,
         // layout: 'vertical',
     },
   xAxis: {
-    min:1,
-    max:10,
-    categories: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    min: 0,
+    categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',],
   },
   yAxis: {
     title: {
@@ -46,7 +48,7 @@ Highcharts.chart('container', {
     name:
         <?php
         //consulta para buscar el nombre del participante 
-        $Consulta_1="SELECT usuario FROM participante_demo WHERE ID_PD= 44";
+        $Consulta_1="SELECT usuario FROM participante_demo WHERE ID_PD= '$ID_PD'";
         $Recordset_1= mysqli_query($conexion, $Consulta_1);
         $Resultado_1= mysqli_fetch_array($Recordset_1);
         ?>//se cierra php porque los datos que recibe name son cadenas de texto
@@ -54,7 +56,7 @@ Highcharts.chart('container', {
       '<?php echo $Resultado_1["usuario"] ;?>',//esta cadena es la que aparece en el grafico
     data:[<?php 
         //consulta para buscar los puntos ganados por el participante
-        $Consulta_2="SELECT puntoGanado FROM respuestas_demo WHERE ID_PD= 44 AND Correcto = 1";
+        $Consulta_2="SELECT SUM(puntoGanado) AS puntoGanado FROM respuestas_demo WHERE ID_PD= '$ID_PD' GROUP BY ID_Pregunta";
         $Recordset_2= mysqli_query($conexion, $Consulta_2);
         while($Resultado_2= mysqli_fetch_array($Recordset_2)){
           echo $Resultado_2["puntoGanado"] . ",";
@@ -62,7 +64,14 @@ Highcharts.chart('container', {
   },
       {
     color:'#040652',
-    name: 'Lider de la prueba',
+    name: <?php
+        //Consulta que selecciona al participante lider
+        $Consulta_3= "SELECT ID_PD, usuario FROM participante_demo ORDER BY Puntos DESC LIMIT 1";
+        $Recordset_3= mysqli_query($conexion, $Consulta_3);
+        $Resultado_3= mysqli_fetch_array($Recordset_3);  
+        $Participante_3= $Resultado_3["ID_PD"];
+        $Participante_4= $Resultado_3["usuario"]; ?>
+        '<?php echo "Lider: " . $Participante_4;?>', 
     data:[<?php 
         //Consulta que selecciona al participante lider
         $Consulta_3= "SELECT ID_PD FROM participante_demo ORDER BY Puntos DESC LIMIT 1";

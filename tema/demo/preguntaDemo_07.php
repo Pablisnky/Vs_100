@@ -1,12 +1,14 @@
 <?php   
 session_start();//se inicia sesion para llamar las variables $_SESSION creadas en otros archivos, o para crear una nueva.
 
-	 if(!isset($_SESSION["ID_Participante"])){//sino hay nada almacenado en la variable superglobal devuelve a la pagina de inicio
+	 if(!isset($_SESSION["ID_PD"])){//sino hay nada almacenado en la variable superglobal devuelve a la pagina de inicio
     	//con esto se garantiza que el usuario entro por login
 
   		header("location:../../index.php");			
 	}
 	else{//se entra en esta seccion porque se tiene almacenado el ID_Participante en una variable SESSION
+
+		include("../../conexion/Conexion_BD.php");
 
 		define("PREGUNTA_ACTUAL", 7); // definiendo una constante para identificar el número de la pregunta actual
 		define("PREGUNTA_ANTERIOR", 6); // definiendo una constante para identificar el número de la pregunta anterior
@@ -16,21 +18,16 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 	    $_SESSION["Pregunta"] = PREGUNTA_ACTUAL;//se crea la SESION pregunta, necesaria en Temporizador_2	
 	    // echo "Pregunta Nº " . $_SESSION["Pregunta"] . "<br>";
 
-	    $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
-	    // echo "ID_Participante: " . $participante . "<br>";
+	    $participanteDemo= $_SESSION["ID_PD"];//en esta sesion se guarda el id del participante, sesion creada en recibe_demo.php
+	    // echo "ID_Participante: " . $participanteDemo . "<br>";
 
 	    $Tema= "Demo";
 	    // echo "El tema de la prueba es: " . $Tema . "<br>";
-
-	    $CodigoPrueba= "demo";
-
-		//se evalua si se ha respondido la pregunta anterior
-		include("../../controlador/cabeceraPreguntas.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Vs_100 Pregunta 7</title>
+		<title>Vs_20 Pregunta Nº <?php echo $Num_Pregunta;?></title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas sobre suramerica."/>
@@ -53,7 +50,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 	<?php
 		//Se consulta si el participante a respondido la pregunta anterior
-		$Consulta="SELECT * FROM respuestas_demo WHERE ID_Participante='$participante' AND Correcto='1' AND Tema='$Tema' AND ID_PP ='$CodigoPrueba'";
+		$Consulta="SELECT * FROM respuestas_demo WHERE  Correcto='1' AND Tema='$Tema' AND ID_PD ='$participanteDemo'";
 		$Recordset = mysqli_query($conexion, $Consulta) or die (mysqli_error($conexion)); 
 		$Respondida= mysqli_num_rows($Recordset);//se suman los registros que tiene la consulta realizada.
 		// echo $Respondida;
@@ -61,17 +58,16 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		if($Respondida>5){//Condicion que impide entrar a una pregunta sino a respondido la pregunta previa, $_SESSION creada en sumaPuntaje.php
 	?>
 	
-	<body onload="llamar_puntaje()"><!--funcion Ajax en puntaje.js que accede a BD para sumar el puntaje del participante -->
-		
+	<body onload="llamar_puntaje_Demo()"><!--funcion Ajax en puntaje.js que accede a BD para sumar el puntaje del participante -->
+	
 	    <input type="text" class="ocultar" id="Tema" value="Demo">
-		<input type="text" class="ocultar" id="ID_Pregunta" value= "<?PHP echo PREGUNTA_ACTUAL;?>">
-		<input type="text" class="ocultar" id="ID_Participante" value="<?php echo $participante;?>"><!-- se utiliza para enviar a puntaje.js-->
-	    <input type="text" class="ocultar" id="ID_PP" value="<?php echo $CodigoPrueba;?>"><!-- se utiliza para enviar a puntaje.js-->
+		<input type="text" class="ocultar" id="ID_Pregunta" value= "<?php echo PREGUNTA_ACTUAL;?>">
+	    <input type="text" class="ocultar" id="ID_PD" value="<?php echo $participanteDemo;?>"><!-- se utiliza para enviar a puntaje.js-->
 	    <input type="text" class="ocultar" id="Pregunta_Num" value="<?php echo $Num_Pregunta;?>"><!-- se utiliza para enviar a puntaje.js-->
 
 	    <div class="Secundario">
 			<div class="encabezado">
-	    		<h1 class="anula">Vs_100.com</h1>
+	    		<h1 class="anula">Vs_20</h1>
 	    	</div>
 	    	<div class="encabezado_2">
 	    	    <div id="mostrarPuntos"></div><!-- recibe el puntaje del participante desde Ajax en puntaje.js-->
@@ -82,12 +78,12 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">
-					<p id="respuesta_a" class="efecto" onclick="llamar_sombrear_04a(); setTimeout(llamar_puntaje,200)">Izar.</p>
-					<p id="respuesta_b" class="efecto" onclick="llamar_bloqueo()">Subir.</p>
+					<p id="respuesta_a" class="efecto" onclick="llamar_sombrear_04a(); setTimeout(llamar_puntaje_Demo,200)">Izar.</p>
+					<p id="respuesta_b" class="efecto" onclick="llamar_bloqueo_Demo()">Subir.</p>
 				</div>
 				<div class="Quinto_2">
-					<p id="respuesta_c" class="efecto" onclick="llamar_bloqueo()">Abanderar.</p>
-					<p id="respuesta_d" class="efecto" onclick="llamar_bloqueo()">Colgar.</p>
+					<p id="respuesta_c" class="efecto" onclick="llamar_bloqueo_Demo()">Abanderar.</p>
+					<p id="respuesta_d" class="efecto" onclick="llamar_bloqueo_Demo()">Colgar.</p>
 				</div>
 			</div>
 
@@ -99,9 +95,9 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 				</div>
 					
 			<nav class="navegacion_1">
-				<a class="nav_7" href="../../index.php">Inicio</a>
-				<a class="nav_7" href="../../controlador/cerrarSesion.php">Cerrar Sesión</a>
-				<a class="nav_7" href="preguntaDemo_08.php">Siguiente</a>
+				<a class="nav_10" href="../../index.php">Inicio</a>
+				<a class="nav_10" href="../../controlador/cerrarSesion.php">Cerrar Sesión</a>
+				<a class="nav_10" href="preguntaDemo_08.php">Siguiente</a>
 			</nav>
 		</div>
 	</body>
@@ -140,19 +136,17 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 function llamar_sombrear_04a(){
 	var A= document.getElementById("respuesta_a");
-	A.style.color="white";
-	
-	var aleatorio = parseInt(Math.random()*999999999);
-    E=document.getElementById("ID_Participante").value;//se inserta el ID_Participante desde este mismo archivo.
-    F=document.getElementById("Tema").value;//se inserta el nombre del libro desde este mismo archivo.
+
+    var aleatorio = parseInt(Math.random()*999999999);
+    F=document.getElementById("Tema").value;//se toma el nombre del libro desde este mismo archivo.
     G=document.getElementById("Pregunta_Num").value;//se toma el numero de la pregunta desde este mismo archivo.
-	H=document.getElementById("ID_PP").value;//se toma el ID de la prueba.
-	var url="respuesta.php?val_1=" + E  + "&val_2=" + F + "&val_3=" + G + "&val_4=" + H + "&r=" + aleatorio;
+    H=document.getElementById("ID_PD").value;//se toma el ID de la prueba.
+    var url="respuestaDemo.php?val_2=" + F + "&val_3=" + G + "&val_4=" + H + "&r=" + aleatorio;
     http_request.open('GET',url,false);     
     peticion.onreadystatechange = respuesta_sombrear_04a;
     peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
     peticion.send("null");
-}                         
+}                                                           
 
 function respuesta_sombrear_04a(){
     if (peticion.readyState == 4){
@@ -164,8 +158,7 @@ function respuesta_sombrear_04a(){
         }
     }
 }
-
-//--------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
 
 
 </script>
@@ -182,7 +175,7 @@ function respuesta_sombrear_04a(){
 				<div class="Cuarto_4">
 					<p>No ha respondido correctamente la pregunta Nº <?PHP echo PREGUNTA_ANTERIOR;?>, debe dar una respuesta correcta</p>
 				</div>
-				<a class="nav_1" href="preguntaDemo_06.php">Volver</a>			
+				<a class="nav_1" href='<?php echo "pregunta" . $Tema . "_" . 0 . PREGUNTA_ANTERIOR;?>.php'>Volver</a>			
 			</div>	
 		<?php	
 		}

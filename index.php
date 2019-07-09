@@ -52,7 +52,7 @@
 			</div>
 			<div class="n20">
 				<h5>¿Que es Versus_20?</h5>				
-				<p class="Inicio_1">Es una prueba de conocimiento en la cual se plantean 10 preguntas de un tema seleccionado por el participante, y en el que compiten 20 usuarios por un premio pagado en dinero.</p>
+				<p class="Inicio_1">Son pruebas de conocimiento que plantean 10 preguntas de un tema seleccionado por el participante, y en el que compiten 20 usuarios por prueba para tomar un premio pagado en dinero.</p>
 				<p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en la respuesta penalizará, dejandote a merced de tus contrincantes y alejandote del premio.</p>	
 				<a class="Inicio_3  buttonCuatro" href="vista/instruccion.php">Instrucciones</a>
 			</div>

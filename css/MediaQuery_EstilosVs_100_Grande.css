@@ -1,0 +1,31 @@
+@media screen and (min-width: 1600px){/*las reglas se aplicarán cuando la pantalla tenga una anchura mayor de la indicada.*/
+
+body{
+	background-color: red;
+}
+
+.n00{/*index.php*/
+	background-color: ;
+	width: 55%;
+	float: left;
+	padding-left: 10%;
+	box-sizing: border-box;
+	margin-top: 5%;
+}
+.n10{/*index.php*/
+	background: -webkit-linear-gradient(bottom, white 65%, #040652 35%);
+	border:2px solid #000;
+	border-radius:15px;
+	padding-top: 0.5%;
+	padding-bottom: 5%;
+	box-sizing: border-box;
+ 	width: 50%;
+	margin: 0% 10%;
+	margin-bottom: 7%;
+}
+.Secundario{/*principal.php   preguntaXxxxx_00.php     contacto.php  registro.php    registrarse.php #040652*/
+	background-color:;
+	width: 80%;
+}
+
+}

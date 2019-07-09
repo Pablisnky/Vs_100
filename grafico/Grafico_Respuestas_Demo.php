@@ -39,7 +39,7 @@ Highcharts.chart('container', {
       // text: 'Preguntas',
     },
     min:1,
-    categories: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    categories: ['0','1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
   }],
     tooltip: {
         enabled: true,
@@ -73,7 +73,7 @@ Highcharts.chart('container', {
         $Recordset_2= mysqli_query($conexion, $Consulta_2);
         while($Resultado_2= mysqli_fetch_array($Recordset_2)){
           echo $Resultado_2["puntoGanado"] . ",";
-         }?>]},
+         }?>]}, 
         {
     color:'#0815CD',
     name: <?php
@@ -94,6 +94,7 @@ Highcharts.chart('container', {
         //consulta para buscar los puntos ganados en cada pregunta por el participante lider
         // $Consulta_4="SELECT puntoGanado FROM respuestas_demo WHERE ID_PD= $Participante_3 AND Correcto = 1";
         $Consulta_4="SELECT SUM(puntoGanado) AS puntoGanado FROM respuestas_demo WHERE ID_PD= '$Participante_3' GROUP BY ID_Pregunta";
+
         $Recordset_4= mysqli_query($conexion, $Consulta_4);
         while($Resultado_4= mysqli_fetch_array($Recordset_4)){
           echo $Resultado_4["puntoGanado"] . ",";
