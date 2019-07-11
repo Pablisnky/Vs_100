@@ -12,6 +12,7 @@
 
 		<link rel="stylesheet" type="text/css" href="css/EstilosVs_100.css"/>
         <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="css/MediaQuery_EstilosVs_100.css">
+        <link rel="stylesheet" type="text/css" media="(min-width: 1700px)" href="css/MediaQuery_EstilosVs_100_Grande.css">
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>    
         <link rel="stylesheet" type="text/css" href="iconos/icono_menu/style_menu.css"/> <!--galeria icomoon.io  -->
 
@@ -39,7 +40,7 @@
 		        </ul>
 		    </nav>
 		</header>
-		<div onclick="ocultarMenu()" class="Secundario"><!--en este contenedor se hace click y se oculta el menu responsive-->
+		<div class="Secundario" onclick="ocultarMenu()"><!--en este contenedor se hace click y se oculta el menu responsive-->
 			<div class="n00">
 				<div class="n10">
 					<h5>Inicia sesión</h5>
