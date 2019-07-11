@@ -1,11 +1,6 @@
-@media screen and (min-width: 1600px){/*las reglas se aplicarán cuando la pantalla tenga una anchura mayor de la indicada.*/
-
-body{
-	background-color: red;
-}
+@media screen and (min-width: 1500px){/*las reglas se aplicarán cuando la pantalla tenga una anchura mayor de la indicada.*/
 
 .n00{/*index.php*/
-	background-color: ;
 	width: 55%;
 	float: left;
 	padding-left: 10%;
@@ -23,9 +18,9 @@ body{
 	margin: 0% 10%;
 	margin-bottom: 7%;
 }
-.Secundario{/*principal.php   preguntaXxxxx_00.php     contacto.php  registro.php    registrarse.php #040652*/
-	background-color:;
+.Secundario{/*principal.php pregunta.php contacto.php  registro.php    registrarse.php*/
 	width: 80%;
+	margin: auto;
 }
 
 }
