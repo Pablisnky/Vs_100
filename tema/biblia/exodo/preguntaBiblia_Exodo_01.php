@@ -15,7 +15,7 @@
 				<p id="principiantes_01a" class="efecto" onclick="llamar_bloqueo()">La Reina Esther.</p>
 				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Moises.</p>
 			</div>
-			<div class="Quinto_2"><!---->
+			<div class="Quinto_2">
 				<p id="principiantes_01c" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)">Dios.
 				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Satanas.</p>
 			</div>
