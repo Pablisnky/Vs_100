@@ -10,7 +10,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="expires" content="07 de mayo de 2018"><!--Inicio de construcción de la página-->
 
-		<link rel="stylesheet" type="text/css" href="css/EstilosVs_100.css"/>
+		<link rel="stylesheet" type="text/css" href="css/EstilosVs_100.css"/>      
+		<link rel="stylesheet" type="text/css" href="css/Modal.css">   
         <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="css/MediaQuery_EstilosVs_100.css">
         <link rel="stylesheet" type="text/css" media="(min-width: 1500px)" href="css/MediaQuery_EstilosVs_100_Grande.css">
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>    
@@ -25,7 +26,20 @@
 		  	gtag('config', 'UA-117655324-5');
 		</script>
 	</head>	
-	<body>
+	<body> 
+		<!--Construcion de ventanan modal-->
+        <input type="checkbox" id="Cerrar">
+        <label for="Cerrar" id="btnCerrar">Cerrar</label>
+        <div class="modal">
+            <div class="contenedor_modal modal_2">
+                <p class="Inicio_1"><span>Promoción ImpresionArte</span></p>
+				 <p>Obten el 30% de descuentos en nuestro servicio de impresión en plotter participando en nuestra trivia</p>
+				 <a class="a_1" href="vista/reglas_trivia.php">Participar</a>
+            </div>
+        </div>    
+		<!--Termina ventana modal-->
+		
+
 		<header>
 			<h1 class="anula">Versus_20</h1>
 		    <input type="checkbox" id="MenuRes">

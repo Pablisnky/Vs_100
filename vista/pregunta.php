@@ -156,6 +156,9 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			                    case "Jeremias":  
 			                       	include("../tema/biblia/jeremias/posicionJeremias.php");
 			                    break;
+			                    case "Doctrina":  
+			                       	include("../tema/biblia/doctrina/posicionDoctrina.php");
+			                    break;
 			                }
 	                    break;
 	                    case "Colombia":

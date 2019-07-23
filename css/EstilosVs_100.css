@@ -192,6 +192,11 @@ td{
 	font-family: verdana;
 	line-height: 25px;
 }
+.a_1{/*index.php*/
+	display: block;
+	text-align: center;
+	margin-top: 5%;
+}
 .Afiliacion_4{/*todos los formularios*/
 	border-radius: 15px;
 	padding: 10px;
