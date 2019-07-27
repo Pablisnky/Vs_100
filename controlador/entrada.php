@@ -94,19 +94,19 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 							<p class="nav_2" >Seleccione una categoría para su prueba de 10 preguntas.</p>
 							<div class="entrada_5">
 								<div class="entrada_4 ">
-									<input type="text" class="nav_7" readonly="readonly" value="Ingenieria civil" onclick="SeleccionarIngenieriaCivil()">
-									<input type="text" class="nav_7" readonly="readonly" value="Ingenieria Mecánica" onclick="SeleccionarIngenieriaMecánica()">
+									<input type="text" class="nav_4" readonly="readonly" value="Ingenieria civil">
+									<input type="text" class="nav_4" readonly="readonly" value="Ingenieria Mecánica">
 									<input type="text" class="nav_7" readonly="readonly" value="Familia" onclick="SeleccionarFamilia()">
-									<input type="text" class="nav_7" readonly="readonly" value="Matematica" onclick="SeleccionarMatematica()">
-									<input type="text" class="nav_7" readonly="readonly" value="Geografia" onclick="SeleccionarGeografia()">
-									<input type="text" class="nav_7" readonly="readonly" value="Cultura general" onclick="SeleccionarCulturaGeneral()">
+									<input type="text" class="nav_4" readonly="readonly" value="Matematica">
+									<input type="text" class="nav_4" readonly="readonly" value="Geografia">
+									<input type="text" class="nav_4" readonly="readonly" value="Cultura general">
 									<input type="text" class="nav_7" readonly="readonly" value="Colombia" onclick="SeleccionarColombia()">
 								</div>
 								<div class="entrada_4">
-									<input type="text" class="nav_7" readonly="readonly" value="Arte" onclick="SeleccionarArte()">
-									<input type="text" class="nav_7" readonly="readonly" value="Deporte" onclick="SeleccionarDeporte()">
+									<input type="text" class="nav_4" readonly="readonly" value="Arte">
+									<input type="text" class="nav_4" readonly="readonly" value="Deporte">
 									<input type="text" class="nav_7" readonly="readonly" value="Musica" onclick="SeleccionarMusica()">
-									<input type="text" class="nav_7" readonly="readonly" value="Programación" onclick="SeleccionarProgramación()">
+									<input type="text" class="nav_4" readonly="readonly" value="Programación">
 									<input type="text" class="nav_7" readonly="readonly" value="Venezuela" onclick="SeleccionarVenezuela()">
 									<input type="text" class="nav_9" readonly="readonly" value="Biblia" onclick="SeleccionarBiblia()"> <span class="small">libre</span> 
 								</div>
