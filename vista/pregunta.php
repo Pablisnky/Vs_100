@@ -116,7 +116,6 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			javascript:window.history.forward(1)
 		</script>
    	</head>	
-
 	<body onload="llamar_puntaje()"><!--funcion Ajax en puntaje.js que accede a BD para sumar el puntaje del participante -->	
 		<input type="text" class="ocultar" id="Tema" value="<?php echo $Tema;?>"><!-- se utiliza para enviar a puntaje.js-->
 		<input type="text" class="ocultar" id="ID_Pregunta" value= "<?php echo $Num_Pregunta;?>">
@@ -136,7 +135,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 	    	<div class="encabezado_2">
 			    <div id="mostrarPuntos"></div><!-- recibe el puntaje y el nombre del participante por medio de llamar_puntaje() llamada al cargar el documento desde sumaPuntaje.php-->
 			</div>
-				<div>
+			<div>
 				<?php
 					switch($Categoria){
 	                    case "Familia":  
@@ -179,8 +178,8 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 	                      	}
 	                    break;
 	                } 
-	                ?>
-				</div>
+	            ?>
+			</div>
 			<?php
 			if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
 				<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
@@ -194,7 +193,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 					<div><a class="nav_10" href="../controlador/cerrarSesion.php">Cerrar Sesión</a></div>
 					<div><a class="nav_10" href='javascript:history.go(0)'>Siguiente</a></div>
 				</nav>
-			<?php
+				<?php
 			}  ?>
 		</div>		
 	</body>

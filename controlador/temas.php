@@ -66,6 +66,11 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
                         <input type="submit" value="Cargar" name="Enviar">
                     </form>
                 </div>
+				<nav class="navegacion_1">
+					<div>
+                        <!-- <input type="buttom" class="nav_10" value="Volver" onclick="cerrar()"> -->
+                    </div>
+				</nav>
                     <?php
         }
         else{//Si se a pulsado en boton enviar se recibe el formulario
@@ -145,6 +150,8 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
     //     var colombia= document.getElementById(id).value;
     // }         
     function cerrar(){//esta funcion es llamada desde este archivo
+        // Se recarga la ventana padre
+        window.opener.location.reload();
         window.close();
     }
 </script>

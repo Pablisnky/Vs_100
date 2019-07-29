@@ -55,4 +55,4 @@ session_start();//se inicia sesion para crear una $_SESSION que almacene el ID_P
 
     	header("location:../tema/demo/preguntaDemo_01.php");//Se da acceso y se Redirije a la pagina "entrada.php" para comenzar con las preguntas del biblionario
     }
-   ?>
+    ?>

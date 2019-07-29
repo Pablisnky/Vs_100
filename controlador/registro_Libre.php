@@ -12,14 +12,17 @@
 
     switch($Tema){
         case 'Genesis': 
-        	  $ID_Prueba = 1;
+        	$ID_Prueba = 1;
        	break;
         case 'Exodo': 
-        	  $ID_Prueba = 2;
+            $ID_Prueba = 2;
        	break;
         case 'Jeremias': 
-        	  $ID_Prueba = 3;
+        	$ID_Prueba = 3;
        	break;
+        case 'Doctrina': 
+            $ID_Prueba = 4;
+        break;
     }
     //Se genera un numero aleatorio para insertarlo como Nº de deposito
     mt_srand (time());
@@ -39,6 +42,6 @@
 <script type="text/javascript">
     // Se recarga la ventana padre
     window.opener.location.reload();
-    // se cierra la vnetana POPUP
+    // se cierra la ventana POPUP
     this.window.close();
 </script>

@@ -27,9 +27,9 @@
            return http_request;
         } 
 
-//--------------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------------
-        function llamar_verificaCorreo(){//Es llamada desde registro.php
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+function llamar_verificaCorreo(){//Es llamada desde registro.php
             A=document.getElementById("Correo").value;//se inserta el ID_Especialidad desde Citas.php
             var url="../modelo/VerificarCorreo.php?val_1=" + A;
             http_request.open('GET',url,true);     
@@ -48,9 +48,9 @@
             }
         }
 
-//--------------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------------
-        function llamar_verificaCedula(){//Es llamada desde registro.php
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+function llamar_verificaCedula(){//Es llamada desde registro.php
             A=document.getElementById("Cedula").value;//se inserta el ID_Especialidad desde Citas.php
             var url="../modelo/VerificarCedula.php?val_1=" + A;
             http_request.open('GET',url,true);     
@@ -69,9 +69,9 @@
             }
         }
 
-//--------------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------------
-        function llamar_verificaClave(){//Es llamada desde registro.php
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+function llamar_verificaClave(){//Es llamada desde registro.php
             A=document.getElementById("Clave").value;//se inserta el ID_Especialidad desde Citas.php
             var url="../modelo/VerificarClave.php?val_1=" + A;
             http_request.open('GET',url,true);     
@@ -90,9 +90,9 @@
             }
         }
 
-//--------------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------------
-    function llamar_sombrear(){//Es llamada desde pregunta.php
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+function llamar_sombrear(){//Es llamada desde pregunta.php
 
         var aleatorio = parseInt(Math.random()*999999999);
         E=document.getElementById("ID_Participante").value;//se toma el ID_Participante desde este mismo archivo.
@@ -116,12 +116,14 @@ function respuesta_sombrear(){
             alert('Hubo problemas con la petición.');
         }
     }
-}//--------------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------------
-    function llamar_grafico(){//Es llamada desde pregunta.php
+}
 
-        var aleatorio = parseInt(Math.random()*999999999);
-        Z=document.getElementById("ID_Participante").value;//se toma el ID_Participante desde este mismo archivo.
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+function llamar_grafico(){//Es llamada desde pregunta.php
+
+    var aleatorio = parseInt(Math.random()*999999999);
+    Z=document.getElementById("ID_Participante").value;//se toma el ID_Participante desde este mismo archivo.
 
         var url="../grafico/Grafico_Respuestas.php?val_1=" + Z  + "&r=" + aleatorio;
         http_request.open('GET',url,false);     
@@ -140,3 +142,79 @@ function respuesta_grafico(){
         }
     }
 }
+
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+//funcion invocada en pregunta_trivia.php
+function llamar_puntaje_trivia(){
+    C=document.getElementById("ID_Par_Tri").value;//se inserta el ID_ParticipanteTrivia 
+    var url="../controlador/sumaPuntajeTrivia.php?val_3=" + C;
+    http_request.open('GET',url,true);     
+    peticion.onreadystatechange = respuesta_puntajeTrivia;
+    peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    peticion.send("null");
+}                                                           
+function respuesta_puntajeTrivia(){
+    if (peticion.readyState == 4){
+         if (peticion.status == 200){
+           document.getElementById('mostrarPuntosTrivia').innerHTML=peticion.responseText;
+        } 
+        else{
+            alert('Hubo problemas con la petición.');
+        }
+    }
+}
+
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+//funcion invocada en preguntaTriviaXX_XX.php
+function llamar_sombrear_trivia(){//Es llamada desde pregunta_trivia.php
+    E=document.getElementById("ID_Par_Tri").value;//se toma el ID_Participante
+    G=document.getElementById("ID_Pregunta").value;//se toma el numero de la pregunta
+    H=document.getElementById("ID_PTD").value;//se toma el ID de la prueba.   
+
+    var url="../controlador/respuestaTrivia.php?val_1=" + E  + "&val_3=" + G + "&val_4=" + H;
+    http_request.open('GET',url,false);     
+    peticion.onreadystatechange = respuesta_sombrear_trivia;
+    peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    peticion.send("null");
+}                                           
+
+function respuesta_sombrear_trivia(){
+if (peticion.readyState == 4){
+     if (peticion.status == 200){
+       document.getElementById('RespuestaPreguntas').innerHTML=peticion.responseText;//se recoje el numero de pacientes
+    } 
+    else{
+        alert('Hubo problemas con la petición.');
+    }
+}
+}
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+////invocada en preguntaTriviaXX_XX.php 
+function llamar_bloqueo_trivia(){
+
+    C=document.getElementById("ID_Par_Tri").value;//se inserta el ID_Participante
+    E=document.getElementById("ID_Pregunta").value;//se inserta el ID de la pregunta 
+    H=document.getElementById("ID_PTD").value;//se toma el ID de la prueba diaria.
+    
+    var url="../controlador/bloquearPregunta_trivia.php?val_4=" + C + "&val_5=" + E + "&val_6=" + H;
+    http_request.open('GET',url,true);     
+    peticion.onreadystatechange = respuesta_bloqueo_trivia;
+    peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    peticion.send("null");
+}                                                           
+function respuesta_bloqueo_trivia(){
+    if (peticion.readyState == 4){
+         if (peticion.status == 200){
+           document.getElementById('RespuestaPreguntas').innerHTML=peticion.responseText;//envia respuesta a preguntaXxxxx_00.php
+        } 
+        else{
+            alert('Hubo problemas con la petición.');
+        }
+    }
+}
+
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------

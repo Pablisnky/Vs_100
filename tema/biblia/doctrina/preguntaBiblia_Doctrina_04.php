@@ -8,19 +8,17 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">En nuestro misionero de hoy, el pastor de la iglesia que Ricky habia abandonado para ser bautizado como adventista, reaccionó con:</p>
+			<p class="pregunta">Se desempeñaba como agricultor antes de ser rey, provenia de la tribu de Benjamín, pertenecía a la familia de Matri, nos referimos a:</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Enojo</p>
-				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Celos.</p>
+				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Samuel</p>
+				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Jonatan.</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">Envidia</p>
-				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)";>Aceptación placentera</p>
+				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">David</p>
+				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)";>Saúl</p>
 			</div>
 		</div>
 		<?php
 	}  ?>
-
-	<!-- Jeremías 17:19-21 -->

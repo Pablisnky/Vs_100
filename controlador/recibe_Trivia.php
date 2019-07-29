@@ -11,9 +11,9 @@
         $Cedula=$_POST["cedula"];
         $Correo=$_POST["correo"];
 
-        echo "Nombre= " . $Nombre . "<br>";
-        echo "Cedula= " . $Cedula . "<br>";
-        echo "Correo= " . $Correo . "<br>"; 
+        // echo "Nombre= " . $Nombre . "<br>";
+        // echo "Cedula= " . $Cedula . "<br>";
+        // echo "Correo= " . $Correo . "<br>"; 
     
         //Se verifica que el participante no haya dejado campos sin llenar
         if(empty($Nombre) AND empty($Cedula) AND empty($Correo)){
@@ -32,7 +32,7 @@
                 $Recordset= mysqli_query($conexion, $Consulta);
                 $CupoAbierto= mysqli_fetch_array($Recordset);
                 $PruebaCupo= $CupoAbierto["ID_PTD"];
-                echo "ID_Prueba con cupo =" . $PruebaCupo . "<br>";
+                // echo "ID_Prueba con cupo =" . $PruebaCupo . "<br>";
                 
                 if($CupoAbierto["CupoMax"] == ''){//La prueba no existe
                     echo "CupoMax= vacio" . "<br>";
@@ -42,7 +42,7 @@
                     //generamos un número aleatorio
                     mt_srand (time());
                     $Aleatorio = mt_rand(1000000,999999999);
-                    echo "Aleatorio= " . $Aleatorio . "<br>";
+                    // echo "Aleatorio= " . $Aleatorio . "<br>";
 
                     //Se registra al participante
                     $Insertar = "INSERT INTO participante_trivia(nombre, cedula_ciudadania, correo, fecha_regitro, Aleatorio) VALUES('$Nombre','$Cedula','$Correo', NOW(),'$Aleatorio')";
@@ -71,8 +71,10 @@
                     //Se crea una sesion con el ID_ParticipanteTrivia
                     $_SESSION["ID_ParticipanteTrivia"]= $ID_ParticipanteTrivia;
                     
-                    //Se crea una sesion con el ID_PTD
+                    //Se crea una sesion con el ID_PTD (PruebaTriviaDiaria)
                     $_SESSION["ID_PTD"]= $ID_PruebaTrivia;
+
+                    header("Location:../vista/pregunta_trivia.php");
                 }        
                 else if($CupoAbierto["CupoMax"] == '0'){//La prueba esta abierta                 
                     //Se consulta cuantos participantes tiene la prueba del dia
@@ -80,12 +82,12 @@
                     $Recordset_3= mysqli_query($conexion, $Consulta_3);
                     $Verificar= mysqli_fetch_array($Recordset_3); 
                     if($Verificar['participantes'] < 3 ){
-                        echo "CupoMax < 3" . "<br>";
+                        // echo "CupoMax < 3" . "<br>";
 
                         //generamos un número aleatorio
                         mt_srand (time());
                         $Aleatorio_2 = mt_rand(1000000,999999999);
-                        echo "Aleatorio= " . $Aleatorio_2 . "<br>";
+                        // echo "Aleatorio= " . $Aleatorio_2 . "<br>";
 
                         //Se registra al participante
                         $Insertar = "INSERT INTO participante_trivia(nombre, cedula_ciudadania, correo, fecha_regitro, Aleatorio) VALUES('$Nombre','$Cedula','$Correo', NOW(),'$Aleatorio_2')";
@@ -110,13 +112,13 @@
                         //Se crea una sesion con el ID_ParticipanteTrivia
                         $_SESSION["ID_ParticipanteTrivia"]= $ID_ParticipanteTrivia;
 
-                        //Se crea una sesion con el ID_PTD
+                        //Se crea una sesion con el ID_PTD (PruebaTriviaDiaria)
                         $_SESSION["ID_PTD"]= $ID_PruebaTrivia;
 
                         header("Location:../vista/pregunta_trivia.php");
                     }
                     else if($Verificar['participantes'] = 3){
-                        echo "CupoMax=  3" . "<br>";
+                        // echo "CupoMax=  3" . "<br>";
                         //Se consulta el ID_Prueba que alcanzo el maximo
                         $Consulta_4= "SELECT ID_PTD FROM pruebas_trivias WHERE CupoMax=0";
                         $Recordset_4= mysqli_query($conexion, $Consulta_4);
@@ -137,12 +139,12 @@
                         $Recordset_3= mysqli_query($conexion, $Consulta_3);
                         $Resultado=mysqli_fetch_array($Recordset_3);
                         $ID_PruebaTrivia= $Resultado["ID_PTD"];
-                        echo "ID_Prueba generada= " . $ID_PruebaTrivia . "<br>";
+                        // echo "ID_Prueba generada= " . $ID_PruebaTrivia . "<br>";
 
                         //generamos un número aleatorio
                         mt_srand (time());
                         $Aleatorio_3 = mt_rand(1000000,999999999);
-                        echo "Aleatorio= " . $Aleatorio_3 . "<br>";
+                        // echo "Aleatorio= " . $Aleatorio_3 . "<br>";
 
                         //Se registra al participante
                         $Insertar = "INSERT INTO participante_trivia(nombre, cedula_ciudadania, correo, fecha_regitro, Aleatorio) VALUES('$Nombre','$Cedula','$Correo', NOW(),'$Aleatorio_3')";
@@ -161,7 +163,7 @@
                         //Se crea una sesion con el ID_ParticipanteTrivia
                         $_SESSION["ID_ParticipanteTrivia"]= $ID_ParticipanteTrivia;
 
-                        //Se crea una sesion con el ID_PTD
+                        //Se crea una sesion con el ID_PTD (PruebaTriviaDiaria)
                         $_SESSION["ID_PTD"]= $ID_PruebaTrivia;
 
                         header("Location:../vista/pregunta_trivia.php");

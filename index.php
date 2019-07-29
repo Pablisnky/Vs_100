@@ -33,7 +33,7 @@
         <div class="modal">
             <div class="contenedor_modal modal_2">
                 <p class="Inicio_1"><span>Promoción ImpresionArte</span></p>
-				 <p>Obten el 30% de descuentos en nuestro servicio de impresión en plotter participando en nuestra trivia</p>
+				 <p>Obten el 20% de descuentos en nuestro servicio de impresión en plotter participando en nuestra trivia diaria</p>
 				 <a class="a_1" href="vista/reglas_trivia.php">Participar</a>
             </div>
         </div>    
@@ -60,6 +60,10 @@
 					<h5>Inicia sesión</h5>
 					<a href="vista/principal.php" class="buttonCuatro">Entrar</a>
 				</div>
+				<div class="n10">
+					<header><h5>Club de lectura</h5></header>
+					<a href="vista/demo.php"  class="buttonCuatro">Iniciar</a>
+				</div>	
 				<div class="n10">
 					<header><h5>Demo</h5></header>
 					<a href="vista/demo.php"  class="buttonCuatro">Iniciar</a>

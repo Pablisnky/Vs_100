@@ -8,19 +8,17 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">"La ley de Dios es eterna e inmutable" es una frase de extrema importancia que se mencionó hoy en:</p>
+			<p class="pregunta">En que lugar se juntó el pueblo en pos de Saúl para pelear contra los filisteos:</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">La escuela sabatica</p>
-				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)";>El segundo servicio</p>
+				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Micmas</p>
+				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)";>Gilgal</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Los anuncios</p>
-				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">Ninguna de las anteriores</p>
+				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Betel</p>
+				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">Betaben</p>
 			</div>
 		</div>
 		<?php
 	}  ?>
-
-	<!-- Jeremías 1:2,3 -->

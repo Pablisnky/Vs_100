@@ -1,46 +1,51 @@
 //coloca el foco autotmaticamente en el primer input de los formularios
-    function foco(id){
-        document.getElementById(id).focus();   
-    }
+function foco(id){
+    document.getElementById(id).focus();   
+}
 
-// ------------------------------------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------------
-	function autofocusRegistroGratis(){
-		document.getElementById('Nombre').focus();
-	}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+function autofocusRegistroGratis(){
+	document.getElementById('Nombre').focus();
+}
 
-<!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
 
-	function autofocusRegistroInscripcion(){
-		document.getElementById('comprobantePago').focus();
-	}
+function autofocusRegistroInscripcion(){
+	document.getElementById('comprobantePago').focus();
+}
 
-<!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
 
-	function autofocusContacto(){
-		document.getElementById('Nombre').focus();
-	}
+function autofocusContacto(){
+	document.getElementById('Nombre').focus();
+}
 
-<!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
 
-    function autofocusInicioSesion(){
-        document.getElementById('Correo').focus();
-    }
+function autofocusInicioSesion(){
+    document.getElementById('Correo').focus();
+}
 
-<!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
 
-    function quitarAnuncio(){
-        document.getElementById("recibir").innerHTML="";
-        setTimeout('llamarCorreo()',500);        
-        setTimeout('autofocusInicioSesion()',1000);
-    }
+function quitarAnuncio(){
+    document.getElementById("recibir").innerHTML="";
+    setTimeout('llamarCorreo()',500);        
+    setTimeout('autofocusInicioSesion()',1000);
+}
 
-<!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
 
-    var http_request = false;
-    var peticion= conexionAJAX();
+var http_request = false;
+var peticion= conexionAJAX();
 
-        function conexionAJAX(){
+    function conexionAJAX(){
             http_request = false;
             if (window.XMLHttpRequest){ // Mozilla, Safari,...
                 http_request = new XMLHttpRequest();
@@ -88,15 +93,16 @@ function respuesta_llamarCorreo(){
     }
 }
 
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
 
-<!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->
+function recargaInput(){
+    document.getElementById("Correo").reload();
+    return false;
+}
 
-    function recargaInput(){
-        document.getElementById("Correo").reload();
-        return false;
-    }
-
-<!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
      //No hace nada
         function mostrar() {
             div = document.getElementById('Temporizador_2');
@@ -108,7 +114,9 @@ function respuesta_llamarCorreo(){
             div.style.display = 'none';
         }
 
-<!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->   
+
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------   
 
         function mostrarMenu(){//menu responsive
             var A= document.getElementById("MenuResponsive");//nav
@@ -122,20 +130,21 @@ function respuesta_llamarCorreo(){
                 }
         }
 
-<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->   ////// -->
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//menu responsive, llamado desde todas las paginas.
+function ocultarMenu(){
+    if(window.screen.width<=800){//solo funciona si la pantalla es menor a 800px          
+        var A= document.getElementById("MenuResponsive");
+        if(A.style.marginLeft = "0%"){
+            A.style.marginLeft = "-35%";
+        }
+    }
+}   
 
-        function ocultarMenu(){//menu responsive, llamado desde todas las paginas.
-            if(window.screen.width<=800){//solo funciona si la pantalla es menor a 800px          
-                var A= document.getElementById("MenuResponsive");
-                    if(A.style.marginLeft = "0%"){
-                    A.style.marginLeft = "-35%";
-                }
-            }
-        }   
-
-// ------------------------------------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------------
-//va dando en pantalla la cantidad de caracteres que quedan mientra se escribe un total de 800, llamada desde contacto.php
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//indica la cantidad de caracteres que quedan mientra se escribe, llamada desde contacto.php
     function contar(){
          var max = 500; 
          var cadena = document.getElementById("Contenido").value; 
@@ -148,9 +157,8 @@ function respuesta_llamarCorreo(){
              } 
     } 
         
-// ------------------------------------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------------
-        
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
 //Impide que se sigan introduciendo caracteres al alcanzar el limite maximo, llamada desde contacto.php 
     var contenido_textarea = "";    
     function valida_Longitud(){  
@@ -167,6 +175,16 @@ function respuesta_llamarCorreo(){
         } 
     } 
 
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Cierra la ventana window.open(); es llamada desde temas.php
+function cerrar(){
+    // Se recarga la ventana padre
+    window.opener.location.reload();
+    //se cierrar la ventana hijo
+    window.close();
+}
 
-
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
 

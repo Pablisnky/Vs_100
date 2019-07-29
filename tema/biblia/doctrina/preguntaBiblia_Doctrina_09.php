@@ -8,19 +8,17 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">En los anuncios de hoy, se informó una novedad con respecto a los manteles del grupo Peniel, usted tiene disposición de colaborar a:</p>
+			<p class="pregunta">Complete la frase con la opción correcta, "Cuando fue llamado al trono, Saúl tenia ___________, y una humilde opinión de su propia capacidad":</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Desmancharlos</p>
-				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">Bordarlos</p>
+				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Gran capacidad de oratoria</p>
+				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">El favor de todo el pueblo</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Repararlos</p>
-				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)";>Buscarlos</p>
+				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Experiencia</p>
+				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)";>Graves defectos de caracter</p>
 			</div>
 		</div>
 		<?php
 	}  ?>
-
-	<!-- Jeremías 39:5 -->

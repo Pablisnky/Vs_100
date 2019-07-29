@@ -8,19 +8,17 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">La frase "Sutil es el engaño y loca la pasión" forma parte de una estrofa del Himno Adventista:</p>
+			<p class="pregunta">En que lugar convoco Samuel a todo el pueblo, divididos en tribus para echar la suerte y elegir al primer rey de Israel:</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">541-Señor reposamos</p>
-				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">175-Señor, yo he prometido</p>
+				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Gabaón</p>
+				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">Gabaa</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)";>256-Jesus, yo he prometido</p>
-				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Ninguno de los anteriores</p>
+				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)";>Mizpa</p>
+				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Galaad</p>
 			</div>
 		</div>
 		<?php
 	}  ?>
-
-	<!-- Jeremías 21:7 -->
