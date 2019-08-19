@@ -5,9 +5,11 @@
 
     $Pregunta= $_SESSION["Pregunta"];//sesion creada en cada pregunta.
     $Participante= $_SESSION["ID_Participante"];
+    $CodigoPrueba= $_SESSION["codigoPrueba"];// en esta sesion se tiene guardado el codigo de la prueba creada en
+    // echo "ID_PP= " . $CodigoPrueba;
 
     if($CodigoPrueba != "demo"){
-      $CodigoPrueba= $_SESSION["codigoPrueba"];// en esta sesion se tiene guardado el codigo de la prueba.
+      $CodigoPrueba= $_SESSION["codigoPrueba"];// en esta sesion se tiene guardado el codigo de la prueba creada en
     }
     else{
       $CodigoPrueba= "demo";
@@ -32,8 +34,8 @@
     //mysqli_free_result($conexion); //se libera memoria de la consulta
      // echo "Pregunta respondida= " . $VerificarPregunta . "<br>";
     
-  // ----------------------------------------------------------------------------------------------------------------------
-  // ----------------------------------------------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------------------
     //Se corrige la hora que entrega el sistema, para que trabaje con la hora nacional colombiana
     date_default_timezone_set('America/Bogota');
     $HoraServidorPHP =date("Y-m-d  H:i:s");
@@ -44,8 +46,9 @@
     $PHPlocal = date("Y-m-d  H:i:s", time()  + $salto_horario_PHPLocal);
     // $PHPlocal= date("Y-m-d  H:i:s");
      // echo "Hora PHP incrementada en 2 min" . $PHPlocal . "<br>";
-  // ----------------------------------------------------------------------------------------------------------------------
-  // ----------------------------------------------------------------------------------------------------------------------
+
+  // ----------------------------------------------------------------------------------------------
+  // ----------------------------------------------------------------------------------------------
 
     // Si la pregunta no ha sido respondida
     if($VerificarPregunta == 0){ 
@@ -67,7 +70,8 @@
       // echo "Pregunta respondida" , "<br>";
       
     }
-//----------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
 
   //Se busca en la BD la fecha en la que termina el plazo para responder
   $Consulta_0= "SELECT DATE_FORMAT(HoraMaximo, '%Y/%m/%d') FROM respuestas WHERE ID_Participante= '$Participante' AND ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PP = '$CodigoPrueba'";

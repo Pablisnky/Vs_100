@@ -1,7 +1,6 @@
 <?php   
     session_start();  
 
-	include("../conexion/Conexion_BD.php");
    	$verifica = $_SESSION["verifica"];
     if($verifica == 1906){// Anteriormente en Registro.php se generó la variable $_SESSION["verfica"] con un valor de 1906; aqui se constata que se halla pasado por la pagina de registro de usuario Registro.php, si no es asi no se puede entrar en esta página.
  		unset($_SESSION['verifica']);//se borra la $_SESSION verifica.
@@ -16,31 +15,31 @@
 		$Clave = $_POST["clave"];
 		$ConfirmarClave = $_POST["confirmarClave"];
 
-		// echo "<p class='Inicio_2'>Nombre: $nombre</p>" ;
-		// echo "<p class='Inicio_2'>Apellido: $apellido</p>";
-		// echo "<p class='Inicio_2'>Cedula: $cedula</p>";
-		// echo "<p class='Inicio_2'>Correo: $correo</p>";
-		// echo "<p class='Inicio_2'>Usuario: $Usuario</p>";
+		// echo "<p class='Inicio_2'>Nombre: $Nombre</p>" ;
+		// echo "<p class='Inicio_2'>Cedula: $Cedula</p>";
+		// echo "<p class='Inicio_2'>Correo: $Correo</p>";
 		// echo "<p class='Inicio_2'>Clave: $Clave</p>";
 		// echo "<p class='Inicio_2'>Confirmar clave: $ConfirmarClave</p>"; 
 
 		$_SESSION["Usuario"]= $Nombre;//se crea una sesion que almacena el Nombre del usuario.
 
-		//Se insertan los datos del participante en la tabla paricipante, la información de su cuenta entra en la tabla usuarios 
-		$insertar= "INSERT INTO participante(Nombre, Cedula, Correo, fechaRegistro) VALUES('$Nombre','$Cedula','$Correo', NOW())";
-		mysqli_query($conexion, $insertar);
-
 		//Se comparan ambas contraseñas
-		if($Clave == $ConfirmarClave){
+		if($Clave == $ConfirmarClave){			
+			include("../conexion/Conexion_BD.php");
+
 	    	//se cifra la contraseña con un algoritmo de encriptación
 	    	$ClaveCifrada= password_hash($Clave, PASSWORD_DEFAULT);
+			
+			//Se insertan los datos del participante en la tabla participante, la información privada de su cuenta entra en la tabla usuarios 
+			$insertar= "INSERT INTO participante(Nombre, Cedula, Correo, FechaRegistro) VALUES('$Nombre','$Cedula','$Correo', NOW())";
+			mysqli_query($conexion, $insertar) or die ("Algo ha dio mal en la consulta a la BD");
 
 			//Se consulta en la tabla participante el ID_Usuario del usuario que se esta afiliando
 			$Consulta= "SELECT ID_Participante FROM participante WHERE Cedula ='$Cedula'";
 			$Recordset= mysqli_query($conexion, $Consulta); 
 			$Resultado= mysqli_fetch_array($Recordset);
 			$ID_Participante= $Resultado["ID_Participante"];
-			// echo "El ID_Afiliado es= " . $ID_Usuario . "<br>";
+			// echo "El ID_Afiliado es= " . $ID_Participante . "<br>";
 
 			//Se insertan los datos de la cuenta del participante en la base de datos. 
 			$insertar_2= "INSERT INTO usuarios(ID_Participante, clave) VALUES('$ID_Participante', '$ClaveCifrada')";
@@ -74,7 +73,7 @@
 					</header>
 					<div onclick= "ocultarMenu()">
 						<h2 id="registro">Datos registrados</h2>
-						<p class="agradecimientos"><?php echo $Nombre;?>, Hemos recibido tus datos, ahora eres miembro de la comunidad Vs_100.</p>
+						<p class="agradecimientos"><?php echo $Nombre;?>, Hemos recibido tus datos, ahora eres miembro de la comunidad Versus_20.</p>
 					</div>	
 					<div class="nav_5">
 						<a href="principal.php">Inicia sesión</a>

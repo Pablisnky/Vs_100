@@ -16,16 +16,16 @@
 	$Verificar= mysqli_fetch_array($Recordset);
 	// echo $Verificar["Correcto"];
 	
-		  // ----------------------------------------------------------------------------------------------------------------------
-		  // ----------------------------------------------------------------------------------------------------------------------
+		  // ------------------------------------------------------------------------------------
+		  // ------------------------------------------------------------------------------------
 		    //Se corrige la hora que entrega el sistema, para que trabaje con la hora nacional colombiana
 		    date_default_timezone_set('America/Bogota');
 		    $HoraServidorPHP =date("Y-m-d  H:i:s");
 		    //echo "Hora PHP de respuesta" . $HoraServidorPHP . "<br>";
 
-		    //CUando se trabaje en local se utiliza la funcion NOW() de mysql
-		  // ----------------------------------------------------------------------------------------------------------------------
-		  // ----------------------------------------------------------------------------------------------------------------------
+		    //Cuando se trabaje en local se utiliza la funcion NOW() de mysql
+		  // -------------------------------------------------------------------------------------
+		  // -------------------------------------------------------------------------------------
 	
 	//si existe una respuesta correcta en la base de datos.
 	if(($Verificar["Correcto"]) == "1"){ 
@@ -59,7 +59,7 @@
 			mysqli_query($conexion,$Actualizar_4);
 		}
 		else{
-			echo "<h3 class='bloqueo_2'>Correcto. Felicitaciones</h3>";
+			echo "<h3 class='bloqueo_3'>Correcto. Felicitaciones</h3>";
 			//se actualiza en la BD la hora a la que respondio la pregunta
 			$Actualizar_5= "UPDATE respuestas SET correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Participante='$Participante' AND ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PP = '$CodigoPrueba'";
 			mysqli_query($conexion,$Actualizar_5);
@@ -75,8 +75,9 @@
 		//Se consulta la hora en la que se realizó la pregunta para introducirlo nuevamente en la consulta $insertar
 		$Hora_Pregunta= $Verificar["Hora_Pregunta"];
 
-		echo "<h3 class='bloqueo_2'>Su repuesta es correcta, pero no sumará puntos porque antes respondio erradamente</h3>";
+		echo "<h3 class='bloqueo_2'>Su repuesta es correcta, pero no sumará puntos porque anteriormente falló en su respuesta</h3>";
 		$insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Correcto, Hora_Pregunta, Hora_Respuesta) VALUES('$Pregunta', '$Participante', '$CodigoPrueba', '$Tema', 1, '$Hora_Pregunta', '$HoraServidorPHP')";
 		mysqli_query($conexion, $insertar);
-	}	  
+	}	
+	
 ?>

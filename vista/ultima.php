@@ -5,19 +5,16 @@
 	// echo "ID_Participante= " . $participante . "<br>";
 
 	$Tema= $_SESSION["Tema"];//en esta sesion se tiene guardado el tema de la prueba, sesion creada en seleccionTema.php
-	// echo "El tema de la prueba es: " . $Tema . "<br>";
+	//  echo "El tema de la prueba es: " . $Tema . "<br>";
 
-	$Categoria= $_SESSION["Categoria"];//en esta sesion se tiene guardado el tema de la prueba, sesion creada en seleccionTema.php
-	// echo "La categoria de la prueba es: " . $Tema . "<br>";
+	$Categoria= $_SESSION["Categoria"];//en esta sesion se tiene guardado la categoria de la prueba, sesion creada en seleccionTema.php
+	// echo "La categoria de la prueba es: " . $Categoria . "<br>";
 
 	$CodigoPrueba =$_SESSION["codigoPrueba"];
 	// echo "Codigo prueba= " . $CodigoPrueba . "<br>";
 
 	$ID_Prueba= $_SESSION["ID_Prueba"];
 	// echo "ID_Prueba= " . $ID_Prueba . "<br>";
-
-    $Categoria= $_SESSION["Categoria"];//en esta sesion se tiene guardado el nombre del participante, sesion creada en validarSesion.php
-    // echo "La categoria de la prueba es:" .  $Categoria . "<br>"; 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -53,9 +50,16 @@
 		<input type="text" class="ocultar" id="ID_Participante" value="<?php echo $participante;?>"><!-- se utiliza para enviar a puntaje.js-->
 
 		<div class="Secundario">
-		    <h4 class="ultima_1"><?php echo $Participante["Nombre"];?></h4>
-			<h4 class="ultima_1">Has concluido tu prueba sobre:</h4>
-			<h4 class="ultima_1"><?php echo $Categoria . "_" . $Tema;?></h4>
+			<h4 class="ultima_1"><?php echo $Participante["Nombre"];?></h4>
+			<?php 				
+				if($Tema == "Reavivados"){ ?>
+					<h4 class="ultima_1">Has concluido tu prueba diaria sobre <br> Reavivados por su palabra</h4>  <?php
+				} 
+				else{  ?>           				
+					<h4 class="ultima_1">Has concluido tu prueba sobre:</h4>
+					<h4 class="ultima_1"><?php echo $Categoria . "_" . $Tema;?></h4>  <?php
+				}  
+			?>
 			<div class="ultimaPregunta">
 				<?php
 			    	//se realiza una consulta para obtener los puntos del participante
@@ -64,7 +68,15 @@
 					$Participante= mysqli_fetch_array($Recordset);
 					
 					//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
-			 		$Decimal = str_replace('.', ',', $Participante["Puntos"]); 
+					$Decimal = str_replace('.', ',', $Participante["Puntos"]); 
+					
+					//(Reavivads)se consulta los puntos acumulados en todas las pruebas
+			    	$Consulta_0="SELECT SUM(Puntos) AS Acumulado FROM participantes_pruebas WHERE ID_Participante='$participante' AND Tema='$Tema'";
+					$Recordset_0= mysqli_query($conexion, $Consulta_0);
+					$Participante_0= mysqli_fetch_array($Recordset_0);
+					
+					//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
+					$Decimal_0 = str_replace('.', ',', $Participante_0["Acumulado"]);
 
 			    	//se realiza una consulta para obtener el tiempo total de respuesta del participante
 			    	$Consulta_1="SELECT SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS TiempoTotal FROM respuestas WHERE ID_Participante='$participante' AND ID_PP = '$CodigoPrueba' AND Correcto= 1";
@@ -72,7 +84,8 @@
 					$Tiempo= mysqli_fetch_array($Recordset_1);
  				?>
 		    	<p class="Inicio_5">Tiempo total: <?php echo $Tiempo["TiempoTotal"];?></p>
-		    	<p class="Inicio_5">Puntos acumulados: <?php echo $Decimal;?></p>
+		    	<p class="Inicio_5">Puntos ganados hoy: <?php echo $Decimal;?></p>
+		    	<p class="Inicio_5">Puntos acumulados: <?php echo $Decimal_0;?></p>
             	<?php
             		//Se busca en que posicion quedo el participante
             		//Se consulta cuantos puntos tiene un participante  
@@ -103,8 +116,37 @@
 					$Prueba= mysqli_fetch_array($Recordset_7);
 					// echo $Prueba["Deposito"];
 
-					if($Prueba["Categoria"] == "Biblia"){ ?>
-		    			<p class="Inicio_5">Te encuentras en la posición Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p>  <?php
+					if($Prueba["Categoria"] == "Biblia"){ 
+						//Se consulta su posicion del dia segun sus puntos
+						$Consulta_5="SELECT DISTINCT(ID_Participante), COUNT(ID_Participante) AS Pus FROM participantes_pruebas WHERE Puntos >= '$Puesto' AND ID_Prueba='$ID_Prueba' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE()";
+						$Recordset_5 = mysqli_query($conexion, $Consulta_5);  
+						$PosicionBiblia=  mysqli_fetch_array($Recordset_5);
+
+						//Se consulta cuantos participantes hay en la prueba el dia de hoy
+						$Consulta_4="SELECT DISTINCT(ID_Participante) FROM participantes_pruebas WHERE Tema='$Tema' AND ID_Prueba='$ID_Prueba'";//se plantea la consulta
+						$Recordset_4 = mysqli_query($conexion, $Consulta_4);//se manda a ejecutar la consulta
+						$Participante_4= mysqli_num_rows($Recordset_4);
+						// echo "El total de participantes son= " . $Participante_4 . "<br>";
+
+						//Se consulta la posicion general del participante
+						$Consulta_8="SELECT (@numero:= @numero + 1) AS Posicion, ID_Participante, SUM(Puntos) AS Suma FROM participantes_pruebas CROSS JOIN (SELECT @numero:= 0) r WHERE ID_Prueba=5 GROUP BY ID_Participante ORDER BY Suma DESC ";
+						$Recordset_8 = mysqli_query($conexion, $Consulta_8);
+						while($PosicionBibliaGeneral=  mysqli_fetch_array($Recordset_8)){
+							echo "TU Posicion Gneral: " . $PosicionBibliaGeneral['Posicion'] . "<br>";
+						}
+
+						//Se ordenan los resultados en una tabla para sacar la posicion general
+
+						//Se consulta su posicion segun sus puntos
+						$Consulta_5="SELECT COUNT(*) AS Pus FROM participantes_pruebas WHERE Puntos >= '$Puesto' AND ID_Prueba='$ID_Prueba'";
+						$Recordset_5 = mysqli_query($conexion, $Consulta_5);//se manda a ejecutar la consulta
+						$Posicion=  mysqli_fetch_array($Recordset_5);//Se obtienen los resultados
+						// echo "Ocupas el puesto Nº= " . $Posicion['Pus'] . "<br>";
+							?>
+
+						<p class="Inicio_5">Tu posición hoy fue de Nº <?php echo $PosicionBiblia['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
+						<p class="Inicio_5">Tu posición general es de Nº <?php echo $PosicionBibliaGeneral['Posicion'];?> de <?php echo $Participante_4;?> participantes.</p> 
+						<p class="Inicio_5">Actualmente el lider general de la prueba es:<?php echo "Pablito";?></p>  <?php
 					} 
 					else{ 
 		    			if($Participante_6 == 0){  ?>           	
@@ -176,8 +218,37 @@
 	            <?php
 	        	}
 	            ?>
-            </div>
+			</div>
+			<div>
+				<?php
+				//Se consulta si el usuario tiene pruebas pendientes po responde del tema "Reavivados por su palabra"
+				if($Tema == "Reavivados"){
+					$Consulta_7="SELECT ID_PP, DATE_FORMAT(Fecha_pago, '%Y/%m/%d') AS Fecha_pago FROM participantes_pruebas WHERE Tema = 'Reavivados' AND ID_Participante = '$participante' AND Prueba_Cerrada= 0";
+					$Recordset= mysqli_query($conexion, $Consulta_7);
+					if(mysqli_num_rows($Recordset)!=0){  ?>
+						<p>Aún tienes las siguientes pruebas diarias sobre "Reavivados por su palabra" sin responder</p>
+						<table>
+							<thead>
+								<th>Pruebas anteriores pendientes</th>
+							</thead>
+							<tbody>
+								<?php
+									while($Resultado= mysqli_fetch_array($Recordset)){ ?>
+										<tr>
+											<td><a href="../tema/biblia/ReavivadosPalabra/fecha.php?fecha=<?php echo $Resultado["Fecha_pago"]?>&ID_PP=<?php echo $Resultado["ID_PP"]?>"><?php echo $Resultado["Fecha_pago"]?></a></td>
+										</tr>  <?php
+									}   ?>
+							</tbody>   
+						</table>  <?php
+					} 
+				}	?>
+			</div>
 		    <div class="Gratis_2">
+				<?php
+					if($Tema == "Reavivados"){ 
+						echo "<h4>Mañana continuamos.</h4>";
+					}
+				?>
 		    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Versus_20</p>
 		    </div>
 	    	</div>

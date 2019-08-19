@@ -20,8 +20,8 @@
 		    // echo "Hora PHP de respuesta" . $HoraServidorPHP . "<br>";
 
 		    //CUando se trabaje en local se utiliza la funcion NOW() para introducir la hora respuesta de mysql
-		  // -------------------------------------------------------------------------------------------------------------
-		  // --------------------------------------------------------------------------------------------------------------
+		  // -----------------------------------------------------------------------------------------
+		  // -----------------------------------------------------------------------------------------
 
 			//se consulta que tipo de respuesta tiene esta pregunta
 			$Consulta= "SELECT * FROM respuestas WHERE ID_Participante= '$participante' AND ID_Pregunta='$Pregunta' AND Tema= '$Tema' AND ID_PP ='$CodigoPrueba' ORDER BY ID_Respuesta DESC LIMIT 1";
@@ -45,7 +45,7 @@
 				$insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Correcto, Hora_Pregunta, Hora_Respuesta, puntoGanado) VALUES('$Pregunta', '$participante','$CodigoPrueba', '$Tema', 0, '$Hora_Pregunta', '$HoraServidorPHP', '$puntoDescontado' )";
 				mysqli_query($conexion, $insertar);
 	
-				echo "<h3>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
+				echo "<h3 class='bloqueo_2'>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
 				//echo "<h3>La cookie de bloqueo no esta en tiempo de ejecucón.</h3>";
 				//echo "<h3>No hay registro en la BD.</h3>";
 				//echo "<h3>Se crea la cookie de bloqueo</h3>";
@@ -64,11 +64,13 @@
 				$Actualizar_5= "UPDATE respuestas SET correcto = 0, Hora_Respuesta = '$HoraServidorPHP',  puntoGanado= '$puntoDescontado' WHERE ID_Participante='$participante' AND ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PP = '$CodigoPrueba'";
 				mysqli_query($conexion,$Actualizar_5);
 
-			 	echo "<h3>Su respuesta fue equivocada, será penalizado con 2,25 centesimas de sus puntos.</h3>";
+			 	echo "<h3 class='bloqueo_2'>Respuesta incorrecta, será penalizado con  2,25 centesimas de sus puntos.</h3>";
 			}	
 			else if($Verificar["Correcto"] == 1){// si existe una respuesta correcta
 				echo "<h3>Anteriormente usted respondio correctamente esta pregunta, pero ahora se ha equivocado, no tomaremos en cuenta su equivocación</h3>";
 			}	
 	?>
 			<!-- Se refresca la pagina -->
-			<a class="bloqueo" href="javascript:history.go(0)">Nuevo intento</a>
+			<div class="contenedor_6" id="Flecha">
+				<a  href='javascript:history.go(0)'><span class="icon-arrow-up parpadea" title="Siguiente"></span></a>					
+			</div>

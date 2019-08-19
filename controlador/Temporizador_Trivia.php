@@ -1,44 +1,55 @@
 <?php   
-    //Este archivo calcula el tiempo de cada pregunta, que es de dos minutos, 
+    //Este archivo calcula el tiempo de cada pregunta, que es de dos minutos, es llamado desde pregunta_trivia.php
     // session_start();
     include("../conexion/Conexion_BD.php"); //No se incluye la conexion y la apertura de sesion porque a los archivos a donde va hacer incluido Temporizador_2.php ya tienen conexion a BD y sesion start.
 
     $ID_PTD= $_SESSION["ID_PTD"];//Sesion creada en recibe_Trivia.php
     $ID_ParticipanteTrivia= $_SESSION["ID_ParticipanteTrivia"];//Sesion creada en recibe_Trivia.php
-    $Tema = "Trivia";
     $Num_Pregunta;//Esta variable esta declarada en pregunta_trivia.php
    
-    // echo "Numero de pregunta0 " . $Num_Pregunta; 
-    // echo "Tema= " . $Tema . "<br>";
-    // echo "ID_PTD= " . $ID_PTD . "<br>";
-    // echo "ID_ParticipanteTrivia= " . $ID_ParticipanteTrivia . "<br>";
+    //  echo "Numero de pregunta " . $Num_Pregunta . "<br>"; 
+    //  echo "ID_PTD= " . $ID_PTD . "<br>";
+    //  echo "ID_ParticipanteTrivia= " . $ID_ParticipanteTrivia . "<br>";
+
+    //verifica si la pregunta ha sido respondida, en caso de no hallar un registro es que no se ha entrado a esa pregunta
+    $Consulta="SELECT * FROM respuestas_trivias WHERE ID_Pregunta='$Num_Pregunta' AND ID_PTD = '$ID_PTD' AND ID_ParticipanteTrivia = '$ID_ParticipanteTrivia'";
+    $Recordset= mysqli_query($conexion, $Consulta);
+    $VerificarPregunta= mysqli_num_rows($Recordset);
+    //mysqli_free_result($conexion); //se libera memoria de la consulta
+    // echo "Pregunta respondida= " . $VerificarPregunta . "<br>";
 
     //Se corrige la hora que entrega el sistema, para que trabaje con la hora nacional colombiana
     date_default_timezone_set('America/Bogota');
     $HoraServidorPHP =date("Y-m-d  H:i:s");
-    // echo "Hora PHP de respuesta" . $HoraServidorPHP . "<br>";
+    // echo "Hora servidor PHP= " . $HoraServidorPHP . "<br>";
 
     //se suman 2 minutos al tiempo que esta registrado en la BD como de apertura de una pregunta (HoraPregunta).
     $salto_horario_PHPLocal = +0.03333333333333334 * 60 * 60;//se restan 30 minutas, porque el servidor PHP esta adelantado
     $PHPlocal = date("Y-m-d  H:i:s", time()  + $salto_horario_PHPLocal);
     // $PHPlocal= date("Y-m-d  H:i:s");
-    // echo "Hora PHP incrementada en 2 min" . $PHPlocal . "<br>";
+    // echo "Hora PHP incrementada en 2 min: " . $PHPlocal . "<br>";
 
 // -----------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------
 
-    //El servidor remoto MySQL tiene 2 horas de atrazo, por eso se añaden -58 minutos mas.
-    //El servidor local MySQL tiene la hora correcta, por eso se añaden 2 minutos.    
-    $Consulta_2= "SELECT DATE_ADD(NOW(),INTERVAL 2 minute) AS minutos";//este codigo funciona para añadir tiempo 
-    $Recordset_2= mysqli_query($conexion,$Consulta_2);
-    $Minutos=  mysqli_fetch_array($Recordset_2);
-    $Incremento_2=$Minutos["minutos"];
-    // echo "Incremento de dos minutos para responder= " .  $Incremento_2 . "<br>";
-      
-    //se inserta en la BD la hora en la que el participante entro a una pregunta.
-    $insertar= "INSERT INTO respuestas_trivias(ID_PTD, ID_ParticipanteTrivia, ID_Pregunta,Hora_Pregunta, Hora_Maximo) VALUES ('$ID_PTD','$ID_ParticipanteTrivia','$Num_Pregunta','$HoraServidorPHP','$PHPlocal')";
-    //en local se manejan estas horas como de respuesta y tiempo maximo NOW()'$Incremento_2'
-    mysqli_query($conexion, $insertar); 
+    // Si la pregunta no ha sido respondida
+    if($VerificarPregunta == 0){ 
+        //El servidor remoto MySQL tiene 2 horas de atrazo, por eso se añaden -58 minutos mas.
+        //El servidor local MySQL tiene la hora correcta, por eso se añaden 2 minutos.    
+        $Consulta_2= "SELECT DATE_ADD(NOW(),INTERVAL 2 minute) AS minutos";//este codigo funciona para añadir tiempo 
+        $Recordset_2= mysqli_query($conexion,$Consulta_2);
+        $Minutos=  mysqli_fetch_array($Recordset_2);
+        $Incremento_2=$Minutos["minutos"];
+        // echo "Incremento de dos minutos para responder= " .  $Incremento_2 . "<br>";
+        
+        //se inserta en la BD la hora en la que el participante entro a una pregunta.
+        $insertar= "INSERT INTO respuestas_trivias(ID_PTD, ID_ParticipanteTrivia, ID_Pregunta,Hora_Pregunta, Hora_Maximo) VALUES ('$ID_PTD','$ID_ParticipanteTrivia','$Num_Pregunta','$HoraServidorPHP','$PHPlocal')";
+        //en local se manejan estas horas como de respuesta y tiempo maximo NOW()'$Incremento_2'
+        mysqli_query($conexion, $insertar); 
+    }
+    else{
+        // echo "Pregunta respondida" , "<br>";     
+    }
  
     //Se consulta el ID_RT
     $Consulta_5="SELECT ID_RT FROM respuestas_trivias ORDER BY ID_RT DESC";
@@ -48,18 +59,18 @@
     // echo "ID_RT= " . $Respuesta . "<br>";
 
     //Se busca en la BD la fecha en la que termina el plazo para responder
-    $Consulta_0= "SELECT DATE_FORMAT(Hora_Maximo, '%Y/%m/%d') FROM respuestas_trivias WHERE ID_RT='$Respuesta'";
+    $Consulta_0= "SELECT DATE_FORMAT(Hora_Maximo, '%Y/%m/%d') FROM respuestas_trivias WHERE ID_Pregunta= '$Num_Pregunta' AND ID_PTD = '$ID_PTD' AND ID_ParticipanteTrivia = '$ID_ParticipanteTrivia' ORDER BY ID_RT ASC LIMIT 1";
     $Recordset_0= mysqli_query($conexion,$Consulta_0); 
     $Fecha= mysqli_fetch_array($Recordset_0);
     $FechaFinPlazo= $Fecha["DATE_FORMAT(Hora_Maximo, '%Y/%m/%d')"];//la clave del array que devuelve $Fecha cambia al nombre del campo que devuele la consulta SQL.
-    //echo "Fecha culminacion del plazo para responder= " . "$FechaFinPlazo". "<br>";
+    // echo "Fecha culminacion del plazo para responder= " . "$FechaFinPlazo". "<br>";
 
     //Se busca en la BD la hora en la que termina el plazo para responder
-    $Consulta_1= "SELECT DATE_FORMAT(Hora_Maximo, '%H:%i:%s') FROM respuestas_trivias WHERE ID_RT='$Respuesta'";
+    $Consulta_1= "SELECT DATE_FORMAT(Hora_Maximo, '%H:%i:%s') FROM respuestas_trivias WHERE ID_Pregunta= '$Num_Pregunta' AND ID_PTD = '$ID_PTD' AND ID_ParticipanteTrivia = '$ID_ParticipanteTrivia'  ORDER BY ID_RT ASC LIMIT 1";
     $Recordset_1= mysqli_query($conexion,$Consulta_1); 
     $Hora= mysqli_fetch_array($Recordset_1);
     $HoraFinPlazo= $Hora["DATE_FORMAT(Hora_Maximo, '%H:%i:%s')"];//la clave del array que devuelve $Tiempo cambia al nombre del campo que devuele la consulta SQL.
-    //echo "Hora de culminacion del plazo para responder" . "$HoraFinPlazo". "<br>";
+    // echo "Hora de culminacion del plazo para responder" . "$HoraFinPlazo". "<br>";
 
     //se obtuvo la fecha con el formato aa/mm/dd y se necesita en javascript con formato mm/dd/aa
     $Consulta_2= "SELECT DATE_FORMAT('$FechaFinPlazo', GET_FORMAT(DATE, 'USA'))";
@@ -76,8 +87,6 @@
     $FormatoFinal= $FechaBarras . " " . $HoraFinPlazo;
     // echo "Formato final necesitado= " . $FormatoFinal . "<br>";
   
-// -----------------------------------------------------------------------------------------------
-// -----------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------
 ?>

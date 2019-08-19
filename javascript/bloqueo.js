@@ -51,6 +51,8 @@ function respuesta_bloqueo(){
             alert('Hubo problemas con la petición.');
         }
     }
+    
+    setTimeout(flecha,3000);
 }
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -76,4 +78,6 @@ function respuesta_bloqueo_Demo(){
             alert('Hubo problemas con la petición.');
         }
     }
+    
+    setTimeout(flecha,3000);
 }

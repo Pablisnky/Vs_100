@@ -3,10 +3,13 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
     
     if(!isset($_SESSION["ID_Participante"])){//si la variable $_SESSION["Participante"] no esta declarada devuelve a principal.php porque el participante no ha realizado el login
     
-        header("location:../principal.html");           
+        header("location:../vista/principal.php");           
     }
     else{ 
-        if(!isset($_POST["Enviar"])){//sino se a pulsado el boton enviar de este archivo se entra en el formulario?>
+        if(!isset($_POST["Enviar"])){//sino se a pulsado el boton enviar de este archivo se entra en el formulario
+        
+
+        ?>
             <!DOCTYPE html>
                 <html lang="es">
                     <head>
@@ -43,7 +46,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
                 </script>        
                 <div class="contenedor_4">   
                     <?php                
-                    $Categoria= $_GET["categoria"];
+                    $Categoria= $_GET["categoria"];//se recibe desde clasificacion_Tema.php
                     //echo "La categoria es: " . $Categoria;
 
                     include("../conexion/Conexion_BD.php");
@@ -56,11 +59,10 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
                     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST" name="Fortema">  <?php
                         while($Seleccion_1 = mysqli_fetch_array($Recordset_1)){
                             ?>
-                            <div style="background-color: ; width:100%; box-sizing: border-box; ">
+                            <div style="width:100%; height:50px; box-sizing: border-box; ">
                                 <input type="radio" name="temaPrueba" id=<?php echo $Seleccion_1["ID_Tema"];?> value="<?php echo $Seleccion_1['tema'];?>" onclick=" Regform()">
                                 <label class="nav_8" for="<?php echo $Seleccion_1["ID_Tema"];?>"><?php echo $Seleccion_1['tema'];?></label>
                                 <input  type="hidden" name="categoria" value="<?php echo $Categoria;?>">
-                                <!-- <input  type="hidden" name="tema" id="Tema" value="<script>tema;</script>">  -->
                             </div> <?php 
                         } ?>
                         <input type="submit" value="Cargar" name="Enviar">
@@ -75,8 +77,8 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
         }
         else{//Si se a pulsado en boton enviar se recibe el formulario
             $Categoria= $_POST["categoria"];
-            // echo "El tema es: " . $Tema= $_POST["temaPrueba"] . "<br>";
-            // echo  "La categoria es: " . $Categoria . "<br>";
+            echo "El tema es: " . $Tema= $_POST["temaPrueba"] . "<br>";
+            echo  "La categoria es: " . $Categoria . "<br>";
 
             if($Categoria != "Biblia"){
                 //se crea la sesión verifica, para validar que el participante envio los datos desde este formulario
@@ -95,7 +97,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
                 <section>
                     <?php
                         $participante=$_SESSION["Nombre_Participante"];//en esta sesion se tiene guardado el nombre del participante, sesion creada en entrada.php
-                        // echo "El nombre del participante: " .  $participante . "<br>";                 
+                        // echo "El nombre del participante: " .  $participante . "<br>";       
                     ?>
                     <div>
                         <h2 class="tema_1">El tema de la prueba seleccionada es:</h2>
@@ -133,13 +135,35 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
                 </section> 
                 <?php
             }
-            else{//Entramos aqui cuando es Biblia
+            else{// si $Categoria == "Biblia")
                 $Categoria= $_POST["categoria"];
                 $Tema= $_POST["temaPrueba"];
                 // echo "Se entró en la sección Biblia" . "<br>";
                 // echo "Categoria= " . $Categoria . "<br>";
                 // echo "Tema= " . $Tema;
-                header("location:registro_Libre.php?Tema=$Tema&Categoria=$Categoria");
+
+                if($Tema=="Reavivados"){
+                    echo "Entramos aqui";
+                    
+                    $ID_Participante=$_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php    
+                    // echo "ID_Participante= " .   $ID_Participante . "<br>"; 
+
+		            include("../conexion/Conexion_BD.php");     
+
+                    //Se consulta pruebas pendientes sobre Reavivados
+	                $Consulta_1="SELECT * FROM participantes_pruebas WHERE ID_Participante='$ID_Participante' AND Tema='$Tema' AND Prueba_Cerrada = 0";
+	                $Recordset_1 = mysqli_query($conexion, $Consulta_1) or die (mysqli_error($conexion)); 
+                    while($Resultado_1= mysqli_fetch_array($Recordset_1)){
+                            echo $Resultado["Fecha_pago"] . "<br>";
+                    }
+                    
+                    header("location:registro_Libre.php?Tema=$Tema&Categoria=$Categoria");
+                    exit();
+                }
+                else{
+                    //echo "Redireccionamos a registro_libre.php";
+                    header("location:registro_Libre.php?Tema=$Tema&Categoria=$Categoria");
+                }
             }
         }
     } 

@@ -13,14 +13,17 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 		include("../conexion/Conexion_BD.php");
 
-		$Tema= $_GET["seleccion"]; //Se recibe desde entrada.php
-		// echo "Tema seleccionado: " . $Tema . "<br>";
+		$Tema= $_GET["tema"]; //Se recibe desde entrada.php
+		// echo "Tema: " . $Tema . "<br>";
 		
-		$ID_PP = $_GET["codigo"]; //Se recibe desde entrada.php
+		$ID_PP = $_GET["ID_PP"]; //Se recibe desde entrada.php
 		// echo "ID_PP: " . $ID_PP . "<br>";
 
 		$Categoria = $_GET["Categoria"]; //Se recibe desde entrada.php
 		// echo "Categoria: " . $Categoria . "<br>";
+		
+		$Fecha = $_GET["fecha"]; //Se recibe desde entrada.php
+		// echo "Fecha: " . $Fecha . "<br>";
 
 		// Se consulta si es una prueba libre o una de pago
 		$Consulta_7= "SELECT Deposito FROM participantes_pruebas WHERE Deposito= 'Exonerado' AND Tema = '$Tema'";
@@ -31,7 +34,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		}
 		else{
 			$ID_Prueba= $_GET["ID_Prueba"]; //Se recibe desde entrada.php
-			// echo "ID_Prueba: " . $ID_Prueba . "<br>";
+			//  echo "ID_Prueba: " . $ID_Prueba . "<br>";
 		}
 		$_SESSION["Tema"]= $Tema;//se crea una nueva sesion, en esta sesion se guardará el tema de la prueba
 		// echo "Sesion con el tema: " . $_SESSION["Tema"] . "<br>";
@@ -42,54 +45,76 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		$_SESSION["ID_Prueba"]= $ID_Prueba;//se crea una nueva sesion, en esta sesion se guardará el ID_Prueba
 		// echo "Sesion con el ID_Prueba: " . $_SESSION["ID_Prueba"] . "<br>";
 
-	    $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
-	    // echo "ID_Participante: " . $participante . "<br>";
-
         $_SESSION["Categoria"]= $Categoria;//en esta sesion se crea la categoria de la prueba.
         // echo "Categoria de la prueba:" .  $_SESSION["Categoria"] . "<br>"; 
 
+	    $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
+		// echo "ID_Participante: " . $participante . "<br>";
+		
 		//Se consulta en la BD que preguntas a respondido para saber el Nº de la pregunta a responder
 		//Consulta realizada para obtener la cantidad de respuestas correctas y posicionar al participante en la que le corresponde
 		$Consulta="SELECT * FROM respuestas WHERE ID_Participante='$participante' AND Correcto='1' AND Tema='$Tema' AND ID_PP ='$ID_PP'";
 		$Recordset = mysqli_query($conexion, $Consulta) or die (mysqli_error($conexion)); 
 		$Puntaje= mysqli_num_rows($Recordset);//se suman los registros que tiene la consulta realizada.
 		// echo "Puntos: " . $Puntaje;
-		if ($Puntaje==0){
-			$Num_Pregunta= 1;// definiendo una variable para identificar el número de la pregunta;
-		}
-		else if ($Puntaje==1){
-			$Num_Pregunta= 2;// definiendo una variable para identificar el número de la pregunta;
-		}
-		else if ($Puntaje==2){
-			$Num_Pregunta= 3;// definiendo una variable para identificar el número de la pregunta;
-		}
-		else if ($Puntaje==3){
-			$Num_Pregunta= 4;// definiendo una variable para identificar el número de la pregunta;
-		}
-		else if ($Puntaje==4){
-			$Num_Pregunta= 5;// definiendo una variable para identificar el número de la pregunta;
-		}
-		else if ($Puntaje==5){
-			$Num_Pregunta= 6;// definiendo una variable para identificar el número de la pregunta;
-		}
-		else if ($Puntaje==6){
-			$Num_Pregunta= 7;// definiendo una variable para identificar el número de la pregunta;
-		}
-		else if ($Puntaje==7){
-			$Num_Pregunta= 8;// definiendo una variable para identificar el número de la pregunta;
-		}
-		else if ($Puntaje==8){
-			$Num_Pregunta= 9;// definiendo una variable para identificar el número de la pregunta;
-		}
-		else if ($Puntaje==9){
-			$Num_Pregunta= 10;// definiendo una variable para identificar el número de la pregunta;
+		if($Tema == "Reavivados"){
+			if ($Puntaje==0){
+				$Num_Pregunta= 1;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==1){
+				$Num_Pregunta= 2;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==2){
+				$Num_Pregunta= 3;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==3){
+				$Num_Pregunta= 4;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==4){
+				$Num_Pregunta= 5;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else{
+				$Num_Pregunta= "Resultados";// definiendo una variable para identificar el número de la pregunta;
+			}
 		}
 		else{
-			$Num_Pregunta= "Resultados";// definiendo una variable para identificar el número de la pregunta;
+			if ($Puntaje==0){
+				$Num_Pregunta= 1;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==1){
+				$Num_Pregunta= 2;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==2){
+				$Num_Pregunta= 3;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==3){
+				$Num_Pregunta= 4;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==4){
+				$Num_Pregunta= 5;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==5){
+				$Num_Pregunta= 6;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==6){
+				$Num_Pregunta= 7;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==7){
+				$Num_Pregunta= 8;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==8){
+				$Num_Pregunta= 9;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else if ($Puntaje==9){
+				$Num_Pregunta= 10;// definiendo una variable para identificar el número de la pregunta;
+			}
+			else{
+				$Num_Pregunta= "Resultados";// definiendo una variable para identificar el número de la pregunta;
+			}
 		}
 
 	    $_SESSION["Pregunta"] = $Num_Pregunta;//se crea la SESION pregunta, necesaria en Temporizador_2	
-	    //echo "Pregunta Nº " . $_SESSION["Pregunta"];
+	    // echo "Pregunta Nº " . $_SESSION["Pregunta"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -106,7 +131,9 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
         <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="
         ../css/MediaQuery_EstilosVs_100.css">
-   		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
+		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
+		<link rel="stylesheet" type="text/css" href="../iconos/icono_siguiente/style_siguiente.css"/> <!--galeria icomoon.io  -->
+		<link rel="stylesheet" type="text/css" href="../iconos/icono_repetir/style_repetir.css"/> <!--galeria icomoon.io  -->
 
 		<script src="../javascript/puntaje.js"></script>
 		<script src="../javascript/bloqueo.js"></script>
@@ -127,9 +154,16 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			<div class="encabezado">
 	    		<h1 class="anula">Versus_20</h1>
 	    	</div>
-	    		<?php
-					if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
-						<h4>Pregunta Nº <?php echo $Num_Pregunta;?></h4> <?php
+				<?php			
+					if($Tema == "Reavivados"){
+						if($Puntaje<5){ //No se muestra si se encuentra en la ultima pregunta  ?>
+							<h4>Pregunta Nº <?php echo $Num_Pregunta;?></h4> <?php
+						}
+					}
+					else{
+						if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
+							<h4>Pregunta Nº <?php echo $Num_Pregunta;?></h4> <?php
+						}
 					}
 				?>
 	    	<div class="encabezado_2">
@@ -158,6 +192,9 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			                    case "Doctrina":  
 			                       	include("../tema/biblia/doctrina/posicionDoctrina.php");
 			                    break;
+			                    case "Reavivados":  
+			                       	include("../tema/biblia/ReavivadosPalabra/fecha.php");
+			                    break;
 			                }
 	                    break;
 	                    case "Colombia":
@@ -180,20 +217,40 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 	                } 
 	            ?>
 			</div>
-			<?php
-			if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
-				<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
-					<div id="Temporizador_2">
-						<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
-							<?php include("../controlador/Temporizador_2.php");?>
+			<?php			
+			if($Tema == "Reavivados"){
+				if($Puntaje<5){ //No se muestra si se encuentra en la ultima pregunta  ?>
+					<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
+						<div id="Temporizador_2">
+							<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
+								<?php include("../controlador/Temporizador_2.php");?>
+						</div>
+					</div>	
+					<div class="contenedor_7">
+						<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
 					</div>
-				</div>	
-				<nav class="navegacion_1">
-					<div><a class="nav_10" href="../controlador/entrada.php">Inicio</a></div>
-					<div><a class="nav_10" href="../controlador/cerrarSesion.php">Cerrar Sesión</a></div>
-					<div><a class="nav_10" href='javascript:history.go(0)'>Siguiente</a></div>
-				</nav>
-				<?php
+					<div class="contenedor_6" id="Flecha">
+						<a href='javascript:history.go(0)'><span class="icon-arrow-right parpadea"  title="Siguiente"></span></a>					
+					</div>
+					<?php
+				}
+			} 
+			else {
+				if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
+					<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
+						<div id="Temporizador_2">
+							<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
+								<?php include("../controlador/Temporizador_2.php");?>
+						</div>
+					</div>	
+					<div class="contenedor_7">
+						<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
+					</div>
+					<div class="contenedor_6" id="Flecha">
+						<a  href='javascript:history.go(0)'><span class="icon-arrow-right parpadea" title="Siguiente"></span></a>					
+					</div>
+					<?php
+				}
 			}  ?>
 		</div>		
 	</body>

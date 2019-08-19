@@ -116,7 +116,40 @@ function respuesta_sombrear(){
             alert('Hubo problemas con la petición.');
         }
     }
+    setTimeout(flecha,3000);
 }
+
+//----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------
+//lamada desde preguntaDemo_xx.php
+function llamar_sombrear_Demo(){
+	var A= document.getElementById("respuesta_a");
+
+    var aleatorio = parseInt(Math.random()*999999999);
+    F=document.getElementById("Tema").value;//se toma el nombre del libro desde este mismo archivo.
+    G=document.getElementById("Pregunta_Num").value;//se toma el numero de la pregunta desde este mismo archivo.
+    H=document.getElementById("ID_PD").value;//se toma el ID de la prueba.
+    var url="respuestaDemo.php?val_2=" + F + "&val_3=" + G + "&val_4=" + H + "&r=" + aleatorio;
+    http_request.open('GET',url,false);     
+    peticion.onreadystatechange = respuesta_sombrear_Demo;
+    peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    peticion.send("null");
+}                                                           
+
+function respuesta_sombrear_Demo(){
+    if (peticion.readyState == 4){
+         if (peticion.status == 200){
+           document.getElementById('RespuestaPreguntas').innerHTML=peticion.responseText;//se recoje el numero de pacientes
+        } 
+        else{
+            alert('Hubo problemas con la petición.');
+        }
+	}
+	
+    setTimeout(flecha,3000);
+}
+
+
 
 //-----------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------
@@ -192,7 +225,7 @@ if (peticion.readyState == 4){
 }
 //-----------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------
-////invocada en preguntaTriviaXX_XX.php 
+//invocada en preguntaTriviaXX_XX.php 
 function llamar_bloqueo_trivia(){
 
     C=document.getElementById("ID_Par_Tri").value;//se inserta el ID_Participante

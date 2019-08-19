@@ -9,8 +9,6 @@
 	// echo "ID_Pregunta= " . $Pregunta . "<br>";//Esto se puede ver en preguntaxxxx_00.php porque es una solicitud ajax
 	// echo "ID_PD= " . $ID_PD . "<br>"; //Esto se puede ver en preguntaxxxx_00.php porque es una solicitud ajax realizada en ese archivo
 
-
-
 		  // ------------------------------------------------------------------------------------------------------
 		  // -------------------------------------------------------------------------------------------------------
 		    //Se corrige la hora que entrega el sistema, para que trabaje con la hora nacional colombiana
@@ -45,7 +43,7 @@
 		$insertar= "INSERT INTO respuestas_demo(ID_Pregunta, ID_PD, Tema, Correcto, Hora_Pregunta, Hora_Respuesta, puntoGanado) VALUES('$Pregunta', '$ID_PD', '$Tema', 0, '$Hora_Pregunta', '$HoraServidorPHP', '$puntoDescontado')";
 		mysqli_query($conexion,$insertar);
 		
-		echo "<h3>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
+		echo "<h3 class='bloqueo_2'>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
 	}
 			else if($Verificar["Correcto"] == "Sin_Respuesta"){//si no se habia respondido esta pregunta
 				$Restar="UPDATE participante_demo SET puntos= (puntos - $Castigo) WHERE ID_PD ='$ID_PD'";
@@ -59,13 +57,14 @@
 				$Actualizar_5= "UPDATE respuestas_demo SET correcto = 0, Hora_Respuesta = '$HoraServidorPHP', puntoGanado= '$puntoDescontado'  WHERE ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PD = '$ID_PD'";
 				mysqli_query($conexion,$Actualizar_5);
 
-			 	echo "<h3>Su respuesta fue equivocada, será penalizado con 2,25 centesimas de sus puntos.</h3>";
+			 	echo "<h3 class='bloqueo_2'>Su respuesta fue equivocada, será penalizado con 2,25 centesimas de sus puntos.</h3>";
 			}	
 			else if($Verificar["Correcto"] == 1){// si existe una respuesta correcta
-				echo "<h3>Anteriormente usted respondio correctamente esta pregunta, pero ahora se ha equivocado, no tomaremos en cuenta su equivocación</h3>";
+				echo "<h3 class='bloqueo_2'>Anteriormente usted respondio correctamente esta pregunta, pero ahora se ha equivocado, no tomaremos en cuenta su equivocación</h3>";
 			}
 ?>
 			<!-- Se refresca la pagina -->
-			<a class="bloqueo" href="javascript:history.go(0)">Nuevo intento</a> 
-			<!-- <a class="bloqueo" href="javascript:void(document.getElementById('RespuestaPreguntas').style.display='none')">Nuevo intento</a> -->
+			<div class="contenedor_6" id="Flecha">
+				<a  href='javascript:history.go(0)'><span class="icon-arrow-up parpadea" title="Siguiente"></span></a>					
+			</div>
 			

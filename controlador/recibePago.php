@@ -71,14 +71,14 @@ session_start();
             $Consulta_3= "SELECT DISTINCT(ID_Prueba), COUNT(ID_Prueba) AS participantes FROM participantes_pruebas WHERE ID_Prueba = '$ID_Prueba_2'";
             $Recordset_3= mysqli_query($conexion, $Consulta_3);
             $Verificar= mysqli_fetch_array($Recordset_3); 
-                if($Verificar['participantes'] < 3 ){
+                if($Verificar['participantes'] < 20 ){
                     global $ID_Prueba_2;
                     // Se inscribe al participante en la prueba que haya cupo
                     $Insertar_1 = "INSERT INTO participantes_pruebas(ID_Participante, ID_Prueba, Categoria, Tema, Deposito, Fecha_pago) VALUES('$Participante','$ID_Prueba_2', '$Categoria', '$Tema','$Deposito', NOW())";
                     mysqli_query($conexion, $Insertar_1); 
                    
                 }
-                else if($Verificar['participantes'] = 3){
+                else if($Verificar['participantes'] = 20){
                     //Se consulta el ID_Prueba que alcanzo el maximo cupo
                     $Consulta_2=  "SELECT ID_Prueba FROM pruebas WHERE Tema= '$Tema' AND Categoria= '$Categoria' GROUP BY ID_Prueba DESC LIMIT 1";
                     $Recordset_2= mysqli_query($conexion, $Consulta_2);
@@ -160,7 +160,7 @@ session_start();
 
 <?php
     $email_to = "pcabeza7@gmail.com"; 
-    $email_subject = "Nuevo registro en Vs_100";  
+    $email_subject = "Nuevo registro en Versuss_20";  
     $email_message = "Inscripción en la prueba" . " " . $Tema;
     $headers = 'From: '. "pc@vs_100.com" . "\r\n".
  

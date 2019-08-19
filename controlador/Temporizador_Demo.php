@@ -18,8 +18,8 @@
     //mysqli_free_result($conexion); //se libera memoria de la consulta
     // echo "Pregunta respondida= " . $VerificarPregunta . "<br>";
     
-  // ----------------------------------------------------------------------------------------------------------------------
-  // ----------------------------------------------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------------------
     //Se corrige la hora que entrega el sistema, para que trabaje con la hora nacional colombiana
     date_default_timezone_set('America/Bogota');
     $HoraServidorPHP =date("Y-m-d  H:i:s");
@@ -30,8 +30,8 @@
     $PHPlocal = date("Y-m-d  H:i:s", time()  + $salto_horario_PHPLocal);
     // $PHPlocal= date("Y-m-d  H:i:s");
     // echo "Hora PHP incrementada en 2 min" . $PHPlocal . "<br>";
-  // ----------------------------------------------------------------------------------------------------------------------
-  // ----------------------------------------------------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------
 
     // Si la pregunta no ha sido respondida
     if($VerificarPregunta == 0){ 
@@ -52,22 +52,22 @@
       // echo "Pregunta respondida" , "<br>";
       
     }
-//----------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
 
   //Se busca en la BD la fecha en la que termina el plazo para responder
   $Consulta_0= "SELECT DATE_FORMAT(HoraMaximo, '%Y/%m/%d') FROM respuestas_demo WHERE ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PD = '$CodigoPrueba'";
   $Recordset_0= mysqli_query($conexion,$Consulta_0); 
   $Fecha= mysqli_fetch_array($Recordset_0);
-  $FechaFinPlazo= $Fecha["DATE_FORMAT(HoraMaximo, '%Y/%m/%d')"];//la clave del array que devuelve $Fecha cambia al nombre del campo que devuele la consulta SQL.
+  $FechaFinPlazo= $Fecha["DATE_FORMAT(HoraMaximo, '%Y/%m/%d')"];//la clave del array que devuelve fecha cambia al nombre del campo que devuele la consulta SQL.
  // echo "Fecha culminacion del plazo para responder= " . "$FechaFinPlazo". "<br>";
 
   //Se busca en la BD la hora en la que termina el plazo para responder
   $Consulta_1= "SELECT DATE_FORMAT(HoraMaximo, '%H:%i:%s') FROM respuestas_demo WHERE ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PD = '$CodigoPrueba'";
   $Recordset_1= mysqli_query($conexion,$Consulta_1); 
   $Hora= mysqli_fetch_array($Recordset_1);
-  $HoraFinPlazo= $Hora["DATE_FORMAT(HoraMaximo, '%H:%i:%s')"];//la clave del array que devuelve $Tiempo cambia al nombre del campo que devuele la consulta SQL.
-  // echo "Hora de culminacion del plazo para responder" . "$HoraFinPlazo". "<br>";
+  $HoraFinPlazo= $Hora["DATE_FORMAT(HoraMaximo, '%H:%i:%s')"];//la clave del array que devuelve tiempo cambia al nombre del campo que devuelve la consulta SQL.
+  //  echo "Hora de culminacion del plazo para responder" . "$HoraFinPlazo". "<br>";
 
   //se obtuvo la fecha con el formato aa/mm/dd y se necesita en javascript con formato mm/dd/aa
   $Consulta_2= "SELECT DATE_FORMAT('$FechaFinPlazo', GET_FORMAT(DATE, 'USA'))";

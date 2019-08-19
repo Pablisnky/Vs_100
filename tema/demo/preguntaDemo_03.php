@@ -39,10 +39,13 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		<link rel="stylesheet" type="text/css" href="../../css/EstilosVs_100.css"/>
         <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../../css/MediaQuery_EstilosVs_100.css">
    		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
+		<link rel="stylesheet" type="text/css" href="../../iconos/icono_siguiente/style_siguiente.css"/> <!--galeria icomoon.io  -->
+		<link rel="stylesheet" type="text/css" href="../../iconos/icono_repetir/style_repetir.css"/> <!--galeria icomoon.io  -->
 
 		<script src="../../javascript/puntaje.js"></script>
 		<script src="../../javascript/bloqueo.js"></script>
 		<script src="../../javascript/Funciones_varias.js"></script>
+		<script src="../../javascript/Funciones_Ajax.js"></script>
 		<script language="JavaScript">//impide regresar a esta pagina nuevamente con el boton de atras 
 			javascript:window.history.forward(1)
 		</script>
@@ -80,88 +83,29 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			<div class="Quinto">
 				<div class="Quinto_2">
 					<p id="respuesta_a" class="efecto" onclick="llamar_bloqueo_Demo()">El avestruz</p>
-					<p id="respuesta_b" class="efecto" onclick="llamar_sombrear_03b(); setTimeout(llamar_puntaje_Demo,200); ">El murcielago</p>
+					<p id="respuesta_b" class="efecto" onclick="llamar_sombrear_Demo(); setTimeout(llamar_puntaje_Demo,200); ">El murcielago</p>
 				</div>
 				<div class="Quinto_2">
 					<p id="respuesta_c" class="efecto" onclick="llamar_bloqueo_Demo()">La gallina</p>
 					<p id="respuesta_d" class="efecto" onclick="llamar_bloqueo_Demo()">El pez volador</p>
 				</div>
 			</div>
-
-				<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
-					<div id="Temporizador_2">
-						<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta y el tiempo maximo para responder-->
-						<?php include("../../controlador/Temporizador_Demo.php");?>
-					</div>
+			<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
+				<div id="Temporizador_2">
+					<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta y el tiempo maximo para responder-->
+					<?php include("../../controlador/Temporizador_Demo.php");?>
 				</div>
-							
-			<nav class="navegacion_1">
-				<a class="nav_10" href="../../index.php">Inicio</a>
-				<a class="nav_10" href="../../controlador/cerrarSesion.php">Cerrar Sesión</a>
-				<a class="nav_10" href="preguntaDemo_04.php">Siguiente</a>
-			</nav>
+			</div>			
+			<div class="contenedor_7">
+				<a style="color:white !important;" href="../../index.php">Inicio</a>
+			</div>
+			<div class="contenedor_6" id="Flecha">
+				<a  href='preguntaDemo_04.php'><span class="icon-arrow-right parpadea" title="Siguiente"></span></a>					
+			</div>
 		</div>
 	</body>
 </html>
-
-<script>
-		var http_request = false;
-        var peticion= conexionAJAX();
-
-        function conexionAJAX(){
-            http_request = false;
-            if (window.XMLHttpRequest){ // Mozilla, Safari,...
-                http_request = new XMLHttpRequest();
-                if (http_request.overrideMimeType){
-                    http_request.overrideMimeType('text/xml');
-                }
-            } else if (window.ActiveXObject){ // IE
-                try {
-                    http_request = new ActiveXObject("Msxml2.XMLHTTP");
-                } catch (e){
-                    try{
-                        http_request = new ActiveXObject("Microsoft.XMLHTTP");
-                    } catch (e) {}
-                }
-            }
-            if (!http_request){
-                alert('No es posible crear una instancia XMLHTTP');
-                return false;
-            }
-          	/*else{
-                alert("Instancia creada exitosamente ok");
-            }*/
-           return http_request;
-        } 
-//--------------------------------------------------------------------------------------------------------------------
-function llamar_sombrear_03b(){
-	var B= document.getElementById("respuesta_b");
-
-    var aleatorio = parseInt(Math.random()*999999999);
-    F=document.getElementById("Tema").value;//se toma el nombre del libro desde este mismo archivo.
-    G=document.getElementById("Pregunta_Num").value;//se toma el numero de la pregunta desde este mismo archivo.
-    H=document.getElementById("ID_PD").value;//se toma el ID de la prueba.
-    var url="respuestaDemo.php?val_2=" + F + "&val_3=" + G + "&val_4=" + H + "&r=" + aleatorio;
-    http_request.open('GET',url,false);     
-    peticion.onreadystatechange = respuesta_sombrear_03b;
-    peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
-    peticion.send("null");
-}                                                           
-
-function respuesta_sombrear_03b(){
-    if (peticion.readyState == 4){
-         if (peticion.status == 200){
-           document.getElementById('RespuestaPreguntas').innerHTML=peticion.responseText;//se recoje el numero de pacientes
-        } 
-        else{
-            alert('Hubo problemas con la petición.');
-        }
-    }
-}
-//-----------------------------------------------------------------------------------------------------------------------
-
-</script>
-					
+				
 			<?php
 		}
 		else{//sino a respondido la pregunta previa entra en esta sección, porque la variable $_Session es menor 1

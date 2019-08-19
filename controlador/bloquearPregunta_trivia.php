@@ -15,19 +15,19 @@
 	//Se corrige la hora que entrega el sistema, para que trabaje con la hora nacional colombiana
 	date_default_timezone_set('America/Bogota');
 	$HoraServidorPHP =date("Y-m-d  H:i:s");
-	// echo "Hora PHP de respuesta" . $HoraServidorPHP . "<br>";
+	// echo "Hora servidor PHP" . $HoraServidorPHP . "<br>";
 
 	//Cuando se trabaje en local se utiliza la funcion NOW() para introducir la hora respuesta de mysql
 	// -----------------------------------------------------------------------------------------
 	// -----------------------------------------------------------------------------------------
 
 	//se consulta que tipo de respuesta tiene esta pregunta
-	$Consulta= "SELECT * FROM respuestas_trivias WHERE ID_Pregunta='$ID_Pregunta' AND ID_PTD ='$ID_PTD' ORDER BY ID_RT DESC LIMIT 1";
+	$Consulta= "SELECT * FROM respuestas_trivias WHERE ID_Pregunta='$ID_Pregunta' AND ID_PTD ='$ID_PTD' AND ID_ParticipanteTrivia = $ID_ParticipanteTrivia";
    	$Recordset= mysqli_query($conexion, $Consulta);
     $Verificar= mysqli_fetch_array($Recordset);
 	 // echo $Verificar["Correcto"];
 
-	 //Se restan 2.25 puntos por cada bloqueo.
+	//Se restan 2.25 puntos por cada bloqueo.
 	$Castigo=2.25;
 	$puntoDescontado= -2.25;
 			
@@ -40,30 +40,29 @@
 		mysqli_query($conexion,$Restar);
 
 		//se inserta en la BD que el participante respondio incorrectamente nuevamente
-		$insertar= "INSERT INTO respuestas_trivias(ID_Pregunta, ID_PTD, Correcto, Hora_Pregunta, Hora_Respuesta, punto_ganado) VALUES('$Pregunta', '$ID_PTD', 0, '$Hora_Pregunta', '$HoraServidorPHP', '$puntoDescontado')";
+		$insertar= "INSERT INTO respuestas_trivias(ID_ParticipanteTrivia, ID_Pregunta, ID_PTD, Correcto, Hora_Pregunta, Hora_Respuesta, punto_ganado) VALUES('$ID_ParticipanteTrivia','$ID_Pregunta', '$ID_PTD', 0, '$Hora_Pregunta', '$HoraServidorPHP', '$puntoDescontado')";
 		mysqli_query($conexion,$insertar);
 		
 		echo "<h3>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
 	}
-			else if($Verificar["Correcto"] == "Sin_Respuesta"){//si no se habia respondido esta pregunta
-				$Restar="UPDATE participante_trivia SET puntos= (puntos - $Castigo) WHERE ID_ParticipanteTrivia ='$ID_ParticipanteTrivia'";
-				mysqli_query($conexion,$Restar);
+	else if($Verificar["Correcto"] == "Sin_Respuesta"){//si no se habia respondido esta pregunta
+		$Restar="UPDATE participante_trivia SET puntos= (puntos - $Castigo) WHERE ID_ParticipanteTrivia ='$ID_ParticipanteTrivia'";
+		mysqli_query($conexion,$Restar);
 
-		  //   	//se inserta en la BD que el participante respondio incorrectamente
-				// $insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PTD, Tema, Correcto, Hora_Respuesta) VALUES('$Pregunta', '$participante','$ID_PTD', 0 $HoraServidorPHP)";
-				// mysqli_query($conexion,$insertar);
+		//se inserta en la BD que el participante respondio incorrectamente
+		// $insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PTD, Tema, Correcto, Hora_Respuesta) VALUES('$Pregunta', '$participante','$ID_PTD', 0 $HoraServidorPHP)";
+		// mysqli_query($conexion,$insertar);
 
-				//se actualiza en la BD la hora a la que respondio la pregunta
-				$Actualizar_5= "UPDATE respuestas_trivias SET correcto = 0, Hora_Respuesta = '$HoraServidorPHP', punto_ganado= '$puntoDescontado'  WHERE ID_Pregunta='$ID_Pregunta'  AND ID_PTD = '$ID_PTD'";
-				mysqli_query($conexion,$Actualizar_5);
+		//se actualiza en la BD la hora a la que respondio la pregunta
+		$Actualizar_5= "UPDATE respuestas_trivias SET correcto = 0, Hora_Respuesta = '$HoraServidorPHP', punto_ganado= '$puntoDescontado'  WHERE ID_Pregunta='$ID_Pregunta'  AND ID_PTD = '$ID_PTD' AND ID_ParticipanteTrivia = $ID_ParticipanteTrivia";
+		mysqli_query($conexion,$Actualizar_5);
 
-			 	echo "<h3>Su respuesta fue equivocada, será penalizado con 2,25 centesimas de sus puntos.</h3>";
-			}	
-			else if($Verificar["Correcto"] == 1){// si existe una respuesta correcta
-				echo "<h3>Anteriormente usted respondio correctamente esta pregunta, pero ahora se ha equivocado, no tomaremos en cuenta su equivocación</h3>";
-			}
+		echo "<h3>Su respuesta fue equivocada, será penalizado con 2,25 centesimas de sus puntos.</h3>";
+	}	
+	else if($Verificar["Correcto"] == 1){// si existe una respuesta correcta
+		echo "<h3>Anteriormente usted respondio correctamente esta pregunta, pero ahora se ha equivocado, no tomaremos en cuenta su equivocación</h3>";
+	}
 ?>
-			<!-- Se refresca la pagina -->
-			<a class="bloqueo" href="javascript:history.go(0)">Nuevo intento</a> 
-			<!-- <a class="bloqueo" href="javascript:void(document.getElementById('RespuestaPreguntas').style.display='none')">Nuevo intento</a> -->
-			
+	<!-- Se refresca la pagina -->
+	<a class="bloqueo" href="javascript:history.go(0)">Nuevo intento</a> 
+	<!-- <a class="bloqueo" href="javascript:void(document.getElementById('RespuestaPreguntas').style.display='none')">Nuevo intento</a> -->

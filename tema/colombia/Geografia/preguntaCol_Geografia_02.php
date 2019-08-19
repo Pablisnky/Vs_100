@@ -8,7 +8,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">El Municipio en el departamento Bolívar conocido como “La Capital de los ríos”, ya que allí el río Magdalena recibe las vertientes de los ríos Cauca y San Jorge, es:</p>
+			<p class="pregunta">El Municipio del departamento Bolívar conocido como “La Capital de los ríos”, ya que allí el río Magdalena recibe las vertientes de los ríos Cauca y San Jorge:</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">

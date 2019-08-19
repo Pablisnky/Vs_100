@@ -14,21 +14,22 @@
 	$Verificar= mysqli_fetch_array($Recordset);
 	// echo $Verificar["Correcto"];
 
-		  // ----------------------------------------------------------------------------------------------------------------------
-		  // ----------------------------------------------------------------------------------------------------------------------
+		  // ---------------------------------------------------------------------------------------
+		  // ---------------------------------------------------------------------------------------
 		    //Se corrige la hora que entrega el sistema, para que trabaje con la hora nacional colombiana
 		    date_default_timezone_set('America/Bogota');
 		    $HoraServidorPHP =date("Y-m-d  H:i:s");
 		    // echo "Hora PHP de respuesta" . $HoraServidorPHP . "<br>";
 
 		    //CUando se trabaje en local se utiliza la funcion NOW() para introducir la hora respuesta de mysql
-		  // ----------------------------------------------------------------------------------------------------------------------
-		  // ----------------------------------------------------------------------------------------------------------------------
+		  
+		  // ---------------------------------------------------------------------------------------
+		  // ---------------------------------------------------------------------------------------
 	
 	//si existe una respuesta correcta en la base de datos.
 	if(($Verificar["Correcto"]) == 1){ 
 		//No es posible que entre en esta opcion porque al responder correcto solo queda la opcion de avanzar a la siguiente pregunta, solo es posible si se recarga la pagina
-		echo "<h3 class='bloqueo_2'>Su repuesta es correcta, no sumará puntos, antes ha respondido esta pregunta</h3>";
+		echo "<h3 class='bloqueo_2'>Su repuesta es correcta, no sumará puntos porque ya respondio esta pregunta</h3>";
 	}
 	else if(($Verificar["Correcto"]) == "Sin_Respuesta"){    
 		// se actualiza la hora de respuesta a la BD
@@ -59,7 +60,7 @@
 			mysqli_query($conexion,$Actualizar_4);
 		}
 		else{
-			echo "<h3 class='bloqueo_2'>Correcto. Felicitaciones</h3>";
+			echo "<h3 class='bloqueo_3'>Correcto. Felicitaciones</h3>";
 			//se actualiza en la BD la hora a la que respondio la pregunta
 			//CUando se trabaje en local se utiliza la funcion NOW() de mysql
 			$Actualizar_5= "UPDATE respuestas_demo SET correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PD = '$CodigoPrueba'";
@@ -77,7 +78,7 @@
 		//Se consulta la hora en la que se realizó la pregunta para introducirlo nuevamente en la consulta $insertar
 		$Hora_Pregunta= $Verificar["Hora_Pregunta"];
 		
-		echo "<h3 class='bloqueo_2'>Su repuesta es correcta, no sumará puntos, antes respondio erradamente</h3>";
+		echo "<h3 class='bloqueo_2'>Su repuesta es correcta, pero no sumará puntos porque anteriormente falló en su respuesta</h3>";
 		$insertar= "INSERT INTO respuestas_demo(ID_Pregunta, ID_PD, Tema, Correcto, Hora_Pregunta, Hora_Respuesta) VALUES('$Pregunta', '$CodigoPrueba', '$Tema', 1, '$Hora_Pregunta', '$HoraServidorPHP')";
 		mysqli_query($conexion,$insertar);
 	}	  ?>

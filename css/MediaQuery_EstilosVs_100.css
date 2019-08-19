@@ -46,7 +46,8 @@ header label{
 	box-sizing: border-box;
 }
 iframe{/*respuestas.php*/
-	top: 25%;
+	top: 10%;
+	height: 90%;
 }
 input{/*principal.php  demo.php*/
 	background-color: ;
@@ -152,6 +153,24 @@ th{/*participantes.php*/
 	height: 15%;
 	line-height: 180%;
 }
+.bloqueo_3{/*respuesta.php*/
+	background-color: rgba(0,0,0,0.85);
+	color:  rgba(194, 245, 19,1);
+	font-size: 18px;  
+	top: 50%;
+	left: 0%;
+	width: 90%;
+	padding: 4% 5% 13% 5%;
+}
+.bloqueo_3_a{/*prorroteoPuntos.php*/
+	/* background-color: rgba(0,0,0,0.85); */
+	color:  rgba(194, 245, 19,1);
+	font-size: 18px;  
+	top: 55%;
+	left: 0%;
+	width: 90%;
+	padding: 4% 5%;
+}
 .botonDemo{/*participantes.php*/
 	width: 55%;
 	margin: 15% auto; 
@@ -163,6 +182,15 @@ th{/*participantes.php*/
 	padding:1.5%;
 	width: 50%;
 	height: 10%;
+}
+.buttonTres{/*index.php*/
+	font-size:14px  !important;
+	width: 90px !important;
+	padding: 3px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	line-height: 18px;
+	height: 42px;
 }
 .buttonCuatro{
 	font-size:12px   !important;
@@ -205,6 +233,14 @@ th{/*participantes.php*/
 	width: 70%; 
 	margin: auto; 
 	clear: left;
+}
+.contenedor_6{/*preguntaDemo_XX.php*/
+	top: 75%;
+}
+.contenedor_7{/*preguntaDemo_XX.php*/
+	top:3.5%;
+	left:2%;
+	font-size: 14px;
 }
 .contenido_2{/*contacto.php*/
 	background-color: ;
@@ -481,12 +517,11 @@ th{/*participantes.php*/
 	display: block;
 }
 .n00{/*index.php*/
-	background-color: ;
 	width: 100%;
 	display: flex;
 	padding-left: 0%;
     justify-content:center;
-    margin: 0% auto 3% auto;
+	margin: 0% auto 3% auto;
 }
 .n10{/*index.html*/
 	background: -webkit-linear-gradient(bottom, white 70%, #040652 30%);

@@ -31,7 +31,7 @@
        return http_request;
     } 
 //-------------------------------------------------------------------------------------------------
-function llamar_puntaje(){//funcion invocada en preguntaXxxxxx_00.php
+function llamar_puntaje(){//funcion invocada en pregunta.php
     var aleatorio = parseInt(Math.random()*999999999);
     C=document.getElementById("ID_Participante").value;//se inserta el ID_Participante desde preguntaXxxxxxx_00.php.
     D=document.getElementById("ID_PP").value;//se toma el ID de la prueba.

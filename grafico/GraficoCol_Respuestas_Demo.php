@@ -13,7 +13,7 @@ session_start();
 <script type="text/javascript">
 Highcharts.chart('container', {
   chart: {
-    height: 290,
+    height: 275,
     marginTop: 95,
     type: 'column',
     backgroundColor: '#F4FCFB',

@@ -8,7 +8,6 @@ session_start();
 <!-- Se inserta la libreria highcharts utilizada para realizar el grafico -->
 <script src="https://code.highcharts.com/highcharts.js"></script>
 
-
 <div id="container"></div>
 
 <script type="text/javascript">

@@ -187,4 +187,15 @@ function cerrar(){
 
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
+//Al recargar la página siempre se coloca al inicio de esta, funcion llamada desde entrada.php
+function toTop(){
+    window.scrollTo(0, 0)
+}
+
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Aparece la flecha de siguiente pregunta, función invocada Funciones_Ajax.s por medio de la funcion llamar_sombrear() en cada pregunta 
+function flecha(){
+    document.getElementById("Flecha").style.display="block";
+}
 

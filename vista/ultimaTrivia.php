@@ -49,7 +49,7 @@
 	    	?>
 			<div class="Secundario">
 				<h4><?php echo $ParticipanteTrivia["nombre"];?></h4>
-				<h4>Has concluido tu prueba Demo</h4>
+				<h4>Has concluido tu trivia diaria.</h4>
 				<br>
 			<div class="ultimaPregunta">
 				<?php
@@ -140,7 +140,7 @@
 	            </table>
             </div>
 		    	<div class="Gratis_2">
-			    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Vs_100</p>
+			    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Versus_20</p>
 					<a class="nav_7" href="../vista/registro.php">Registra una cuenta</a>
 					<a class="nav_7" href="../vista/participantes.php">Ver tabla de resultados</a>
 			    </div>

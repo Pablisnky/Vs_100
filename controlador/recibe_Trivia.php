@@ -1,7 +1,7 @@
 <?php   
     session_start();  
     $corroborar = $_SESSION["Trivia"];
-    if($corroborar == "xx"){// Anteriormente en Registro.php se generó la variable $_SESSION["verfica"] con un valor de 1906; aqui se constata que se halla pasado por la pagina de registro de usuario Registro.php, si no es asi no se puede entrar en esta página.
+    if($corroborar == "xx"){// Anteriormente en trivia.php se generó la variable $_SESSION["verfica"] con un valor de 1906; aqui se constata que se halla pasado por la pagina de registro de usuario Registro.php, si no es asi no se puede entrar en esta página.
         unset($_SESSION['Trivia']);//se borra la $_SESSION verifica.
 
         //se verifica la sesion para evitar que refresquen la pagina que procesa el formulario o entren directamente a la pagina que procesa el formulario y asi nos envien multiples veces el formulario; 
@@ -16,8 +16,9 @@
         // echo "Correo= " . $Correo . "<br>"; 
     
         //Se verifica que el participante no haya dejado campos sin llenar
-        if(empty($Nombre) AND empty($Cedula) AND empty($Correo)){
+        if(empty($Nombre) OR empty($Cedula) OR empty($Correo)){
             echo"<script>alert('Faltan campos por llenar');window.location.href='../vista/trivia.php';</script>";
+           
         }
         else{//Verifica si el usuario que se va a recibir desde trivia.php no esta participando en la prueba disponible del dia
             include("../conexion/Conexion_BD.php");

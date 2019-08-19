@@ -16,20 +16,23 @@
 	//Se crea una sesion con el Nº de pregunta 
 	$_SESSION["Pregunta"]= $Pregunta;
 
+	//Se crea una sesion con el identificador de la prueba diaria 
+	$_SESSION["ID_PTD"]= $ID_PTD;
+
 	include("../conexion/Conexion_BD.php");
 
 	//consulta para verificar si existe una respuesta correcta en la pregunta
-	$Consulta= "SELECT * FROM respuestas_trivias WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD' ORDER BY ID_RT DESC LIMIT 1";
+	$Consulta= "SELECT * FROM respuestas_trivias WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD' AND ID_ParticipanteTrivia= '$Participante_Trivia'";
 	$Recordset= mysqli_query($conexion,$Consulta);
 	$Verificar= mysqli_fetch_array($Recordset);
-	// echo $Verificar["Correcto"];
+	// echo $Verificar["Correcto"] . "<br>";
 	
 	// -------------------------------------------------------------------------------------------
 	// -------------------------------------------------------------------------------------------
 	//Se corrige la hora que entrega el sistema, para que trabaje con la hora nacional colombiana
 	date_default_timezone_set('America/Bogota');
 	$HoraServidorPHP =date("Y-m-d  H:i:s");
-	// echo "Hora PHP de respuesta" . $HoraServidorPHP . "<br>";
+	// echo "Hora servidor PHP" . $HoraServidorPHP . "<br>";
 
 	//Cuando se trabaje en local se utiliza la funcion NOW() para introducir la hora respuesta de mysql
 	// -------------------------------------------------------------------------------------------
@@ -42,11 +45,11 @@
 	}
 	else if(($Verificar["Correcto"]) == "Sin_Respuesta"){    
 		// se actualiza la hora de respuesta a la BD
-		$Actualizar_4="UPDATE respuestas_trivias SET Hora_Respuesta= '$HoraServidorPHP' WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD' ORDER BY ID_RT DESC LIMIT 1";
-		mysqli_query($conexion, $Actualizar_4);
+		// $Actualizar_4="UPDATE respuestas_trivias SET Hora_Respuesta= '$HoraServidorPHP' WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD' AND ID_ParticipanteTrivia = $Participante_Trivia";
+		// mysqli_query($conexion, $Actualizar_4);
 
 		//se verifica si el tiempo de respuesta esta vencido
-		$Consulta_3="SELECT Hora_Maximo FROM respuestas_trivias WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD'";
+		$Consulta_3="SELECT Hora_Maximo FROM respuestas_trivias WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD' AND ID_ParticipanteTrivia = $Participante_Trivia";
 		$Recordset_3= mysqli_query($conexion,$Consulta_3);
 	   	$Verificar= mysqli_fetch_array($Recordset_3);
 	   	$Verificar["Hora_Maximo"];
@@ -54,25 +57,25 @@
 	   	// echo "Hora maxima que tiene el participante para responder= " . $HM . "<br>";
 
 		//se consulta la hora de respuesta almacenada en la BD
-		$Consulta_4="SELECT Hora_Respuesta FROM respuestas_trivias WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD'";
+		$Consulta_4="SELECT Hora_Respuesta FROM respuestas_trivias WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD' AND ID_ParticipanteTrivia = $Participante_Trivia";
 		$Recordset_4= mysqli_query($conexion,$Consulta_4);
 	   	$Verificar= mysqli_fetch_array($Recordset_4);
 	   	$Verificar["Hora_Respuesta"];//Hora en la que el participante respondio
 	   	// echo "Hora en la que el participante respondio= " . $Verificar["Hora_Respuesta"] . "<br>";
 
 	   	if($HM < $Verificar["Hora_Respuesta"]){
-			// echo "<h3>Correcto, desafortunadamente no sumará puntos por tiempo vencido </h3>";
+			echo "<h3>Correcto, desafortunadamente no sumará puntos por tiempo vencido </h3>"  . "<br>";
 
 			//se actualiza en la BD la hora a la que responido la pregunta
 			//Cuando se trabaje en local se utiliza la funcion NOW() de mysql
-			$Actualizar_4= "UPDATE respuestas_trivias SET correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD'";
+			$Actualizar_4= "UPDATE respuestas_trivias SET Correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD' AND ID_ParticipanteTrivia = '$Participante_Trivia'";
 			mysqli_query($conexion,$Actualizar_4);
 		}
 		else{
 			echo "<h3 class='bloqueo_2'>Correcto. Felicitaciones</h3>";
 			//se actualiza en la BD la hora a la que respondio la pregunta
-			//CUando se trabaje en local se utiliza la funcion NOW() de mysql
-			$Actualizar_5= "UPDATE respuestas_trivias SET correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD'";
+			//Cuando se trabaje en local se utiliza la funcion NOW() de mysql
+			$Actualizar_5= "UPDATE respuestas_trivias SET Correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Pregunta='$Pregunta' AND ID_PTD = '$ID_PTD' AND ID_ParticipanteTrivia= '$Participante_Trivia'";
 			mysqli_query($conexion,$Actualizar_5);
 
 			include("prorroteoPuntos_Trivia.php");  ?>
@@ -88,7 +91,7 @@
 		$Hora_Pregunta= $Verificar["Hora_Pregunta"];
 		
 		echo "<h3 class='bloqueo_2'>Su repuesta es correcta, no sumará puntos, antes respondio erradamente</h3>";
-		$insertar= "INSERT INTO respuestas_trivias(ID_Pregunta, ID_PTD, Correcto, Hora_Pregunta, Hora_Respuesta) VALUES('$Pregunta', '$CodigoPrueba', 1, '$Hora_Pregunta', '$HoraServidorPHP')";
+		$insertar= "INSERT INTO respuestas_trivias(ID_ParticipanteTrivia,ID_Pregunta, ID_PTD, Correcto, Hora_Pregunta, Hora_Respuesta) VALUES('$Participante_Trivia','$Pregunta', '$ID_PTD', 1, '$Hora_Pregunta', '$HoraServidorPHP')";
 		mysqli_query($conexion,$insertar);
 	}	  
 ?>

@@ -32,28 +32,27 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
 			</head>	
 			<body onload="toTop()">
-					<header style="position: fixed;  width: 100%; margin-top:; ">
-				   		<input class="input_1" type="text" name="nombre" value="<?php echo $ParticipanteNombre;?>">
-						<?php include("../vista/modulos/header_usuario.html");?>   		   		
-					</header>
-					<br><br><br><br><br><br>
+				<header style="position: fixed;  width: 100%; margin-top:; ">
+					<input class="input_1" type="text" name="nombre" value="<?php echo $ParticipanteNombre;?>">
+					<?php include("../vista/modulos/header_usuario.html");?>   		   		
+				</header>
+				<br><br><br><br><br><br>
 				<div class="Secundario"  onclick="ocultarMenu()">
-						<p class="Inicio_9">Tus conocimientos valen, ganar no es cuestión de suerte.</p>	
-						<?php
-						//Se verifica si el participante tiene pruebas pendientes por responder
-						$Consulta_0="SELECT ID_PP,ID_Prueba,Categoria,Tema FROM participantes_pruebas WHERE ID_Participante='$participante' AND (Prueba_Activa = 1 AND Prueba_Pagada = 1 AND Prueba_Cerrada = 0 )";
-						$Recordset_0 = mysqli_query($conexion, $Consulta_0); 
-						if(mysqli_num_rows($Recordset_0) != 0){  ?>
-							<div id="EntradaParticipante_1" class="nueva_Prueba">
-								<p class="Inicio_4">Tienes pruebas pendientes por responder sobre el tema:</p>
-
-								<?php
+					<p class="Inicio_9">Tus conocimientos valen, ganar no es cuestión de suerte.</p>	
+					<?php
+					//Se verifica si el participante tiene pruebas pendientes por responder
+					$Consulta_0="SELECT ID_PP,ID_Prueba,Categoria,Tema,DATE_FORMAT(Fecha_pago, '%Y/%m/%d') AS Fecha_pago FROM participantes_pruebas WHERE ID_Participante='$participante' AND (Prueba_Activa = 1 AND Prueba_Pagada = 1 AND Prueba_Cerrada = 0 )";
+					$Recordset_0 = mysqli_query($conexion, $Consulta_0); 
+					if(mysqli_num_rows($Recordset_0) != 0){  ?>
+						<div id="EntradaParticipante_1" class="nueva_Prueba">
+							<p class="Inicio_4">Tienes pruebas pendientes por responder sobre el tema:</p>
+							<?php
 								// Se busca que pruebas tiene pendiente el participante
 								while($Registro_2= mysqli_fetch_array($Recordset_0)){ 
 									// echo "el tema de la prueba es: " . $Registro_2['Tema'] . "<br>"; 
 									$Tema= $Registro_2['Tema'];
 									// echo "el codigo de la prueba es: " . $Registro_2['ID_PP'] . "<br>";
-									$Codigo= $Registro_2["ID_PP"];
+									$ID_PP= $Registro_2["ID_PP"];
 									//se verifica que pruebas tiene pendientes o pruebas activas
 									// $Pendiente= $Registro_2[0]; //campo "ID_PP" en tabla participantes_pruebas 
 									// $Activa= $Participante[14]; //campo "activa" en tabla participantes_pruebas 
@@ -63,10 +62,10 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									// echo "ID_Prueba= " . $ID_Prueba ."<br>"; 
 									$Categoria= $Registro_2["Categoria"]; 
 									// echo "ID_Prueba= " . $ID_Prueba ."<br>";
-
-									 ?>
-									<div style="background-color: ; text-align: center; margin-top: 3%;">
-										<a href="../vista/pregunta.php?seleccion=<?php echo $Tema?>&codigo=<?php echo $Codigo?>&ID_Prueba=<?php echo $ID_Prueba;?>&Categoria=<?php echo $Categoria;?>"><?php echo $Registro_2["Categoria"] . "_" . $Registro_2["Tema"];?></a>
+									$Fecha= $Registro_2["Fecha_pago"];
+									?>
+									<div style="text-align: center; margin-top: 3%;">
+										<a href="../vista/pregunta.php?tema=<?php echo $Tema?>&ID_PP=<?php echo $ID_PP?>&fecha=<?php echo $Fecha?>&ID_Prueba=<?php echo $ID_Prueba;?>&Categoria=<?php echo $Categoria;?>"><?php echo $Registro_2["Categoria"] . "_" . $Registro_2["Tema"];?></a>
 										<p class="entrada_6"> | Código</p>
 										<p class="entrada_6"><?php echo $Registro_2["ID_PP"];?></p>
 									</div>
@@ -111,7 +110,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<input type="text" class="nav_9" readonly="readonly" value="Biblia" onclick="SeleccionarBiblia()"> <span class="small">libre</span> 
 								</div>
 							</div>
-								<a class="cerrar" href="cerrarSesion.php">Cerrar Sesión</a>
+							<a class="cerrar" href="cerrarSesion.php">Cerrar Sesión</a>
 				</div>
 			    <footer>
 			        <?php include("../vista/modulos/footer.php");?>
@@ -119,9 +118,12 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 			</body>
 		</html>   <?php
 	}  ?>
-<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////////// -->
+
 <script type="text/javascript">
-    function SeleccionarBiblia(){//esta funcion es llamada desde este archivo                                                
+    function SeleccionarBiblia(){//esta funcion es llamada desde este archivo                        
         window.open("clasificacion_Tema.php?Categoria=biblia","anexo","width=800px,height=600px,left=300px");  
     }
     function SeleccionarColombia(){//esta funcion es llamada desde este archivo
@@ -135,11 +137,5 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
     }
     function SeleccionarMusica(){//esta funcion es llamada desde este archivo
         window.open("clasificacion_Tema.php?Categoria=musica","anexo","width=800px,height=600px,left=300px");  
-    }
-
-    function toTop(){//Al recargar la página siempre se coloca al inicio de esta, funcion llamada desde la etiqueta body
-        window.scrollTo(0, 0)
-    }
-     
- 
+    }   
 </script>

@@ -45,7 +45,7 @@
 					$TiempoRespuesta= date("H:i:s",mktime($difh,$difm,$difs));		
 					// echo "diferencia =" . $TiempoRespuesta;
 
-$TiempoPermitido= "00:01:50";
+$TiempoPermitido= "00:01:55";
 $Premio= 5.045; //se agregan los 0,045 que se descuentan para que no este un nivel por debao al comenzar el bucle;
 
 // Se convierten los tiempos en segundos
@@ -61,12 +61,12 @@ echo "<br>";
 
 	if($TiempoRespuesta_segundos >= $TiempoPermitido_segundos){
 		$PuntosGanados = 5;
-		echo "Puntos ganados= " . $PuntosGanados;
+		echo "<h3 class='bloqueo_3_a'>Puntos ganados = "  . $PuntosGanados . "</h3>";
 	}
 	else if($TiempoRespuesta_segundos < $TiempoPermitido_segundos){
 		for($TiempoPermitido_segundos; $TiempoPermitido_segundos >= $TiempoRespuesta_segundos; $TiempoPermitido_segundos-1) {
 				$TiempoPermitido_segundos--;
-				$Premio= $Premio - 0.045;
+				$Premio= $Premio - 0.04347;
 			// echo "Tiempo transcurrido: " . $TiempoPermitido_segundos-- . "<br>";
 			// echo "Puntos ganados: " . $Premio= $Premio - 0.045;
 			// echo "<br><br>";
@@ -80,12 +80,11 @@ echo "<br>";
 
 		//Se formatean los puntos para que solo tengan tres decimales y se muestre con coma el separador de decimales
 		$PuntosFormateados= number_format($PuntosGanados, 3, ",", ".");
-
-		echo "Puntos ganados= " . $PuntosFormateados;
+		echo "<h3 class='bloqueo_3_a'>Puntos ganados = " . $PuntosFormateados . "</h3>";
 	}
 	else if($TiempoRespuesta_segundos < 0){
 		$PuntosGanados = 0;
-		echo "Puntos ganados= " . $PuntosGanados;
+		echo "<h3 class='bloqueo_3_a'>Puntos ganados = " .  $PuntosGanados . "</h3>";
 	}
 
 	// se introduce en la BD los puntos ganados

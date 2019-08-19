@@ -18,8 +18,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 	    $Recordset=mysqli_query($conexion,$Consulta); 
 	    $participantes= mysqli_fetch_array($Recordset);
 	    $Participaciones= $participantes["Participacion"];
-
- 		?>
+ 	?>
 
 		<!DOCTYPE html>
 		<html lang="es">
@@ -60,42 +59,43 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 			                        <tr>
 			                            <th></th>
 			                            <th>FECHA</th>
+			                            <th>CÓDIGO</th>
 			                            <th>TEMA</th>
 			                            <th>PUNTOS</th>
-			                            <!-- <th>POSICIÓN</th> -->
+			                            <th>POSICIÓN</th>
 			                        </tr>
 			                    </thead>
-
 			                    <tbody>
 				                    <?php
 				                        $i = 1;
-				                        //se consulta las pruebas en las que el participante se ha inscrito y se obtiene (fecha,puntos y tema)
-									    $Consulta= "SELECT Tema, Puntos,  Fecha_pago FROM participantes_pruebas WHERE ID_Participante = '$participante' AND Prueba_Cerrada = 1";
+				                        //se consulta las pruebas en las que el participante se ha inscrito 
+									    $Consulta= "SELECT ID_Prueba, Tema, Puntos,  Fecha_pago FROM participantes_pruebas WHERE ID_Participante = '$participante' AND Prueba_Cerrada = 1";
 									    $Recordset=mysqli_query($conexion, $Consulta); 					            		
 				                        while($Pruebas= mysqli_fetch_array($Recordset)){                            
 					                        //Se cambia el formato de los puntos, la Pruebase decimal es recibida con punto desde la BD y se cambia a coma
 					                    	$Decimal = str_replace('.', ',', $Pruebas["Puntos"]); ?>
 					                        <tr>
 					                            <td class="tabla_2"><?php echo $i;?></td>
-					                            <td class="tabla_0"><?php echo date("d-m-Y", strtotime($Pruebas["Fecha_pago"])); ?></td>
+												<td class="tabla_0"><?php echo date("d-m-Y", strtotime($Pruebas["Fecha_pago"])); ?></td>
+												<td><?php echo $Pruebas["ID_Prueba"];?></td>
 					                            <td class="tabla_1"><?php echo $Pruebas["Tema"];?></td> 
-					                            <td class="tabla_1"><?php echo $Decimal;?> </td>  <?php
-					                         
+					                            <td class="tabla_1"><?php echo $Decimal;?> </td> 
+												<td></td> <?php
+					                         $i++;
 					                        }   
-					                            $i++; 
+					                             
 			                        	  ?>      			                        	
 			                        </tr>
 			                    </tbody>
                 			</table> 
                 		<?php
                 	}  ?> 
-
-</div>
-</div>
-    		</div>
-			    <footer>
-			        <?php include("../vista/modulos/footer.php");?>
-			    </footer>
-			</body>
-		</html>   <?php
+				</div>
+			</div>
+		</div>
+		<footer>
+			<?php include("../vista/modulos/footer.php");?>
+		</footer>
+	</body>
+</html>   <?php
 	}  ?>
