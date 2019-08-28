@@ -98,7 +98,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 					</div>
 				</div>								
 				<div class="contenedor_7">
-					<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
+					<a style="color:white !important;" href="../../index.php">Inicio</a>
 				</div>
 				<audio id="Resp_Correc" src="../../audio/SD_ALERT_22.mp3"></audio>
 				<audio id="Resp_InCorrec" src="../../audio/incorrecta.mp3"></audio>
