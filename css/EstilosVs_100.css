@@ -79,6 +79,7 @@ html{
 	height:100%;
 }
 iframe{/*respuestas.php*/
+	z-index: 1;
 	width: 100%;
 	height: 90%;
 	position: absolute;
@@ -198,6 +199,17 @@ td{
 	text-align: center;
 	margin-top: 5%;
 }
+.a_2{/*recibe_demo.php*/
+	background-color:white; 
+	padding: 1% 2%; 
+	font-size: 20px; 
+	font-family:arial;
+	text-decoration:none; 
+	border-radius: 15px;
+	position: absolute; 
+	top: 55%; 
+	left: 45%;
+}
 .Afiliacion_4{/*todos los formularios*/
 	border-radius: 15px;
 	padding: 10px;
@@ -232,7 +244,55 @@ td{
 	width: 20%;
 	padding: 4.6% 5%;
 }	
+.bloqueo_demo{/*respuestaDemo.php*/
+	background-color: ;
+	color:  rgba(194, 245, 19,1);
+	font-size: 22px;  
+	display: inline-block; 
+	position: absolute;
+	top: 45%;
+	left: 30%;
+	width: 40%;
+	padding-top: 8%;
+	padding-bottom: 5%;
+}
 .bloqueo_2{/*respuestaTrivia.php*/
+	background-color: rgba(0,0,0,0.95);
+	color:  rgba(194, 245, 19,1);
+	font-size: 22px;  
+	display: inline-block; 
+	position: absolute;
+	top: 45%;
+	left: 30%;
+	width: 40%;
+	padding-top: 8%;
+	padding-bottom: 3.5%;
+}	
+.bloqueo_2_a{/*bloquearPreguntaDemo.php  */
+	background-color:rgba(0,0,0,0.95) ;
+	color:  rgba(194, 245, 19,1);
+	font-size: 18px; 
+	position: absolute;
+	top: 57% ;
+	left: 27%;
+	width: 40%;
+	padding: 2%;
+	height: 14%;
+	line-height: 180%;
+}	
+.bloqueo_2_b{/*bloquearPreguntaDemo.php  */
+	background-color:rgba(0,0,0,0.95) ;
+	color:  rgba(194, 245, 19,1);
+	font-size: 18px; 
+	position: absolute;
+	top: 47% ;
+	left: 27%;
+	width: 40%;
+	padding: 2%;
+	height: 14%;
+	line-height: 180%;
+}
+.bloqueo_3{/*respuesta.php*/
 	background-color: rgba(0,0,0,0.95);
 	color:  rgba(194, 245, 19,1);
 	font-size: 22px;  
@@ -244,20 +304,7 @@ td{
 	padding-top: 3.6%;
 	padding-bottom: 5%;
 }	
-.bloqueo_3{/*respuesta.php*/
-	background-color: rgba(0,0,0,0.95);
-	color:  rgba(194, 245, 19,1);
-	font-size: 22px;  
-	display: inline-block; 
-	position: absolute;
-	top: 55%;
-	left: 30%;
-	width: 40%;
-	padding-top: 3.6%;
-	padding-bottom: 5%;
-}	
 .bloqueo_3_a{/*prorroteoPuntos.php*/
-	/* background-color: rgba(0,0,0,0.85); */
 	color:  rgba(194, 245, 19,1);
 	font-size: 22px;  
 	display: inline-block; 
@@ -374,6 +421,7 @@ td{
 	right: 0%;
 	margin: auto;
 	display: none;
+	z-index: 2;
 }
 .contenedor_7{/*preguntaDemo_XX.php*/
 	background-color: #040652;
@@ -887,6 +935,14 @@ td{
 .p_2{/*principal.php*/
 	display: block;
 	text-align: center !important;
+}
+.p_3{/*recibe_demo.php*/
+	color:yellow; 
+	position: absolute; 
+	top: 45%; 
+	left: 25%; 
+	font-size: 30px; 
+	font-family:arial;
 }
 .Quinto{/*contenedor de opciones para responder (preguntaXxxxx_00.php)*/
 	padding-top: 1%;

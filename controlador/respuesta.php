@@ -52,30 +52,35 @@
 	   	// echo "Hora en la que el participante respondio= " . $Verificar["Hora_Respuesta"] . "<br>";
 
 	   	if($HM < $Verificar["Hora_Respuesta"]){
-			// echo "<h3>Correcto, desafortunadamente no sumará puntos por tiempo vencido </h3>";
-
+			echo "<h3 class='bloqueo_2'>Correcto, desafortunadamente no sumará puntos por tiempo vencido </h3>";
+			?>
+				<iframe src="../grafico/Grafico_Respuestas.php" 
+					marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" 
+						frameborder="0" height="300">
+				</iframe> 
+			<?php
 			//se actualiza en la BD la hora a la que responido la pregunta
 			$Actualizar_4= "UPDATE respuestas SET correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Participante='$Participante' AND ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PP = '$CodigoPrueba'";
 			mysqli_query($conexion,$Actualizar_4);
 		}
 		else{
-			echo "<h3 class='bloqueo_3'>Correcto. Felicitaciones</h3>";
+			echo "<h3 class='bloqueo_2'>Correcto. Felicitaciones</h3>";
 			//se actualiza en la BD la hora a la que respondio la pregunta
 			$Actualizar_5= "UPDATE respuestas SET correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Participante='$Participante' AND ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PP = '$CodigoPrueba'";
 			mysqli_query($conexion,$Actualizar_5);
 
 			include("prorroteoPuntos.php");	?>
-			<iframe  src="../grafico/Grafico_Respuestas.php" 
-				marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" 
-					frameborder="0" height="300">
-			</iframe> 	<?php
+			<iframe  src="../grafico/Grafico_Respuestas.php" marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" frameborder="0" height="300">
+			</iframe> 	
+			<audio autoplay src="../../audio/Grafico.mp3" loop></audio>	<?php
 		}
 	}
 	else{//Solo queda el caso de que Correcto == 0
 		//Se consulta la hora en la que se realizó la pregunta para introducirlo nuevamente en la consulta $insertar
 		$Hora_Pregunta= $Verificar["Hora_Pregunta"];
 
-		echo "<h3 class='bloqueo_2'>Su repuesta es correcta, pero no sumará puntos porque anteriormente falló en su respuesta</h3>";
+		echo "<h3 class='bloqueo_3'>Su repuesta es correcta, pero no sumará puntos porque anteriormente falló en su respuesta</h3>";
+		
 		$insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Correcto, Hora_Pregunta, Hora_Respuesta) VALUES('$Pregunta', '$Participante', '$CodigoPrueba', '$Tema', 1, '$Hora_Pregunta', '$HoraServidorPHP')";
 		mysqli_query($conexion, $insertar);
 	}	

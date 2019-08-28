@@ -17,8 +17,8 @@
 		    // echo "Hora PHP de respuesta" . $HoraServidorPHP . "<br>";
 
 		    //CUando se trabaje en local se utiliza la funcion NOW() para introducir la hora respuesta de mysql
-		  // -------------------------------------------------------------------------------------------------------------
-		  // --------------------------------------------------------------------------------------------------------------
+		  // --------------------------------------------------------------------------------------------
+		  // --------------------------------------------------------------------------------------------
 
 
 	//se consulta que tipo de respuesta tiene esta pregunta
@@ -42,8 +42,20 @@
 		//se inserta en la BD que el participante respondio incorrectamente nuevamente
 		$insertar= "INSERT INTO respuestas_demo(ID_Pregunta, ID_PD, Tema, Correcto, Hora_Pregunta, Hora_Respuesta, puntoGanado) VALUES('$Pregunta', '$ID_PD', '$Tema', 0, '$Hora_Pregunta', '$HoraServidorPHP', '$puntoDescontado')";
 		mysqli_query($conexion,$insertar);
+		?>
+			<iframe src="../../grafico/GraficoCol_Respuestas_Demo.php" 
+				marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" 
+					frameborder="0" height="300">
+			</iframe> 
+			<audio autoplay src="../../audio/Grafico.mp3" loop></audio>
+		<?php
 		
-		echo "<h3 class='bloqueo_2'>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
+		echo "<h3 class='bloqueo_2_a'>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
+		?>
+		<!-- Se refresca la pagina -->
+		<div class="contenedor_6" id="Flecha">
+			<a  href='javascript:history.go(0)'><span class="icon-arrow-up parpadea" title="Siguiente"></span></a>					
+		</div>	<?php
 	}
 			else if($Verificar["Correcto"] == "Sin_Respuesta"){//si no se habia respondido esta pregunta
 				$Restar="UPDATE participante_demo SET puntos= (puntos - $Castigo) WHERE ID_PD ='$ID_PD'";
@@ -57,14 +69,22 @@
 				$Actualizar_5= "UPDATE respuestas_demo SET correcto = 0, Hora_Respuesta = '$HoraServidorPHP', puntoGanado= '$puntoDescontado'  WHERE ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PD = '$ID_PD'";
 				mysqli_query($conexion,$Actualizar_5);
 
-			 	echo "<h3 class='bloqueo_2'>Su respuesta fue equivocada, será penalizado con 2,25 centesimas de sus puntos.</h3>";
+				?>
+					<iframe src="../../grafico/GraficoCol_Respuestas_Demo.php" 
+						marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" 
+							frameborder="0" height="300">
+					</iframe> 
+					<audio autoplay src="../../audio/Grafico.mp3" loop></audio>
+				<?php
+
+				 echo "<h3 class='bloqueo_2'>Respuesta incorrecta, fue penalizado con  2,25 centesimas de sus puntos.</h3>";
+				 ?>
+				 <!-- Se refresca la pagina -->
+				 <div class="contenedor_6" id="Flecha">
+					 <a  href='javascript:history.go(0)'><span class="icon-arrow-up parpadea" title="Siguiente"></span></a>					
+				 </div>	<?php
 			}	
 			else if($Verificar["Correcto"] == 1){// si existe una respuesta correcta
 				echo "<h3 class='bloqueo_2'>Anteriormente usted respondio correctamente esta pregunta, pero ahora se ha equivocado, no tomaremos en cuenta su equivocación</h3>";
 			}
-?>
-			<!-- Se refresca la pagina -->
-			<div class="contenedor_6" id="Flecha">
-				<a  href='javascript:history.go(0)'><span class="icon-arrow-up parpadea" title="Siguiente"></span></a>					
-			</div>
-			
+?>		

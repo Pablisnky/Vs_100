@@ -44,8 +44,14 @@
 		     	//se inserta en la BD que el participante respondio incorrectamente nuevamente
 				$insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Correcto, Hora_Pregunta, Hora_Respuesta, puntoGanado) VALUES('$Pregunta', '$participante','$CodigoPrueba', '$Tema', 0, '$Hora_Pregunta', '$HoraServidorPHP', '$puntoDescontado' )";
 				mysqli_query($conexion, $insertar);
-	
-				echo "<h3 class='bloqueo_2'>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
+				
+				?>
+					<iframe src="../grafico/Grafico_Respuestas.php" 
+						marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" 
+							frameborder="0" height="300">
+					</iframe> 
+				<?php
+				echo "<h3 class='bloqueo_2'>Nuevamente su respuesta fue equivocada, fue penalizado con 2,25 centesimas de sus puntos</h3>";
 				//echo "<h3>La cookie de bloqueo no esta en tiempo de ejecucón.</h3>";
 				//echo "<h3>No hay registro en la BD.</h3>";
 				//echo "<h3>Se crea la cookie de bloqueo</h3>";
@@ -64,7 +70,13 @@
 				$Actualizar_5= "UPDATE respuestas SET correcto = 0, Hora_Respuesta = '$HoraServidorPHP',  puntoGanado= '$puntoDescontado' WHERE ID_Participante='$participante' AND ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PP = '$CodigoPrueba'";
 				mysqli_query($conexion,$Actualizar_5);
 
-			 	echo "<h3 class='bloqueo_2'>Respuesta incorrecta, será penalizado con  2,25 centesimas de sus puntos.</h3>";
+				?>
+					<iframe src="../grafico/Grafico_Respuestas.php" 
+						marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" 
+							frameborder="0" height="300">
+					</iframe> 
+				<?php
+			 	echo "<h3 class='bloqueo_2'>Respuesta incorrecta, fue penalizado con  2,25 centesimas de sus puntos.</h3>";
 			}	
 			else if($Verificar["Correcto"] == 1){// si existe una respuesta correcta
 				echo "<h3>Anteriormente usted respondio correctamente esta pregunta, pero ahora se ha equivocado, no tomaremos en cuenta su equivocación</h3>";

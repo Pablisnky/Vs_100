@@ -2,6 +2,8 @@
 session_start();//se inicia sesion para crear una $_SESSION que almacene el ID_Participante, esta $_SESSION sera exigida cada vez que se entre en una pagina del area de afiliados, con esto se garantiza que se accedio a la cuenta del usuario haciendo login
 
     include("../conexion/Conexion_BD.php");
+
+    include("../modulos/muestraError.php");
     
     //Verifica si el usuario que se va a recibir desde principal.php esta vacio
     if(empty($_POST["usuario"])){
@@ -12,15 +14,19 @@ session_start();//se inicia sesion para crear una $_SESSION que almacene el ID_P
         $Consulta= "SELECT usuario FROM participante_demo";
         $Recordset= mysqli_query($conexion, $Consulta);
         
-        //echo $Correo["usuario"];
         while($Correo= mysqli_fetch_array($Recordset)){
             if($Correo["usuario"] == $_POST["usuario"]){
-                echo "<p style='color:yellow; position: absolute; top: 45%; left: 25%; font-size: 30px; font-family:arial;'>El usuario que introdujo ya existe en nuestros registros</p>"; 
-                echo "<a style='background-color:white; padding: 1% 2%; font-size: 20px; font-family:arial;text-decoration:none; border-radius: 15px;position: absolute; top: 55%; left: 45%;' href='../vista/demo.php'>Regresar</a>"   ?> 
+                // echo $Correo["usuario"];
+                ?>
+                    <link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
+                    <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
+                <?php
+                echo "<p class='p_3'>El usuario que introdujo ya existe en nuestros registros</p>"; 
+                echo "<a class='a_2' href='../vista/demo.php'>Regresar</a>"   ?> 
                 <style>
-                body{
-                    background-color: rgba(0,0,0,0.85) !important;
-                }
+                    body{
+                        background-color: rgba(0,0,0,0.85) !important;
+                    }
                 </style>
 
                 <?php
@@ -50,8 +56,8 @@ session_start();//se inicia sesion para crear una $_SESSION que almacene el ID_P
         $_SESSION["ID_PD"]= $ID_PD;
         $_SESSION["Usuario"]= $Usuario;
 
-         // echo "La sesion ID_Participante= " . $_SESSION["ID_PD"] . "<br>";
-         // echo "La sesion Usuario= " . $_SESSION["Usuario"] . "<br>";
+        //  echo "La sesion ID_Participante= " . $_SESSION["ID_PD"] . "<br>";
+        //  echo "La sesion Usuario= " . $_SESSION["Usuario"] . "<br>";
 
     	header("location:../tema/demo/preguntaDemo_01.php");//Se da acceso y se Redirije a la pagina "entrada.php" para comenzar con las preguntas del biblionario
     }

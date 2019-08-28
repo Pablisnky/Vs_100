@@ -81,12 +81,12 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">
-					<p id="respuesta_a" class="efecto" onclick="llamar_bloqueo_Demo();">La flor de la vida.</p>
-					<p id="respuesta_b" class="efecto" onclick="llamar_bloqueo_Demo()">El ave fenix.</p>
+					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo();">La flor de la vida.</p>
+					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">El ave fenix.</p>
 				</div>
 				<div class="Quinto_2">
-					<p id="respuesta_c" class="efecto" onclick="llamar_sombrear_Demo(); setTimeout(llamar_puntaje_Demo,200)">La medusa Turritopsis nutricula .</p>
-					<p id="respuesta_d" class="efecto" onclick="llamar_bloqueo_Demo()">Ninguno de los anteriores.</p>
+					<p id="respuesta_c" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">La medusa Turritopsis nutricula .</p>
+					<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Ninguno de los anteriores.</p>
 				</div>
 			</div>
 			<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
@@ -98,6 +98,9 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			<div class="contenedor_7">
 				<a style="color:white !important;" href="../../index.php">Inicio</a>
 			</div>
+			<audio id="Resp_Correc" src="../../audio/SD_ALERT_22.mp3"></audio>
+			<audio id="Resp_InCorrec" src="../../audio/incorrecta.mp3"></audio>
+			<audio id="FondoComercial_1" autoplay src="../../audio/AudioCorrecta.mp3" loop></audio>
 			<div class="contenedor_6" id="Flecha">
 				<a  href='preguntaDemo_09.php'><span class="icon-arrow-right parpadea" title="Siguiente"></span></a>					
 			</div>

@@ -55,30 +55,29 @@
 			// echo "<h3>Correcto, desafortunadamente no sumará puntos por tiempo vencido </h3>";
 
 			//se actualiza en la BD la hora a la que responido la pregunta
-			//CUando se trabaje en local se utiliza la funcion NOW() de mysql
+			//Cuando se trabaje en local se utiliza la funcion NOW() de mysql
 			$Actualizar_4= "UPDATE respuestas_demo SET correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PD = '$CodigoPrueba'";
 			mysqli_query($conexion,$Actualizar_4);
 		}
-		else{
-			echo "<h3 class='bloqueo_3'>Correcto. Felicitaciones</h3>";
+		else{ ?>
+			<iframe  src="../../grafico/GraficoCol_Respuestas_Demo.php" marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" frameborder="0" height="300">
+			</iframe>  
+			<audio autoplay src="../../audio/Grafico.mp3" loop></audio>			
+			<?php	
+			echo "<h3 class='bloqueo_2'>Correcto. Felicitaciones</h3>";
 			//se actualiza en la BD la hora a la que respondio la pregunta
-			//CUando se trabaje en local se utiliza la funcion NOW() de mysql
 			$Actualizar_5= "UPDATE respuestas_demo SET correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PD = '$CodigoPrueba'";
 			mysqli_query($conexion,$Actualizar_5);
 
-			include("prorroteoPuntos_Demo.php");  ?>
-
-			<iframe  src="../../grafico/GraficoCol_Respuestas_Demo.php" 
-				marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" 
-					frameborder="0" height="300">Hello
-			</iframe>  <?php				
+			include("prorroteoPuntos_Demo.php"); 			
 		}
 	}
 	else{//Solo queda el caso de que Correcto == 0
 		//Se consulta la hora en la que se realizó la pregunta para introducirlo nuevamente en la consulta $insertar
 		$Hora_Pregunta= $Verificar["Hora_Pregunta"];
 		
-		echo "<h3 class='bloqueo_2'>Su repuesta es correcta, pero no sumará puntos porque anteriormente falló en su respuesta</h3>";
+		echo "<h3 class='bloqueo_2_b'>Su repuesta es correcta, pero no sumará puntos porque anteriormente falló en su respuesta</h3>";
+		
 		$insertar= "INSERT INTO respuestas_demo(ID_Pregunta, ID_PD, Tema, Correcto, Hora_Pregunta, Hora_Respuesta) VALUES('$Pregunta', '$CodigoPrueba', '$Tema', 1, '$Hora_Pregunta', '$HoraServidorPHP')";
 		mysqli_query($conexion,$insertar);
 	}	  ?>

@@ -9,6 +9,9 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
   $ID_PP = $_SESSION["codigoPrueba"]; //Se recibe desde entrada.php
   // echo "ID_PP: " . $ID_PP . "<br>";
 
+  $Tema = $_SESSION["Tema"]; //Se recibe desde entrada.php
+  // echo "Tema: " . $Tema . "<br>";
+
   include("../conexion/Conexion_BD.php");
 ?>
 
@@ -84,15 +87,25 @@ Highcharts.chart('container', {
           echo $Resultado_2["puntoGanado"] . ",";
         }?>]},
         {
-    color:'#0815CD',
+    color:'rgba(8,21,205,0.4)',
     name:<?php 
         //Consulta que selecciona al participante lider
-        $Consulta_3= "SELECT participantes_pruebas.ID_Participante, participante.Nombre, ID_PP FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE ID_Prueba=  '$ID_Prueba' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d')=CURDATE() ORDER BY Puntos DESC LIMIT 1";
-        $Recordset_3= mysqli_query($conexion, $Consulta_3);
-        $Resultado_3= mysqli_fetch_array($Recordset_3);
-        $Participante_3= $Resultado_3["ID_Participante"];
-        $Participante_4= $Resultado_3["ID_PP"];
-        $Participante_5= $Resultado_3["Nombre"];?>         
+        if($Tema == "Reavivados"){
+          $Consulta_3= "SELECT participantes_pruebas.ID_Participante, participante.Nombre, ID_PP FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE ID_Prueba=  '$ID_Prueba' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d')=CURDATE() ORDER BY Puntos DESC LIMIT 1";
+          $Recordset_3= mysqli_query($conexion, $Consulta_3);
+          $Resultado_3= mysqli_fetch_array($Recordset_3);
+          $Participante_3= $Resultado_3["ID_Participante"];
+          $Participante_4= $Resultado_3["ID_PP"];
+          $Participante_5= $Resultado_3["Nombre"];
+        }
+        else{   
+          $Consulta_3= "SELECT participantes_pruebas.ID_Participante, participante.Nombre, ID_PP FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE ID_Prueba=  '$ID_Prueba' ORDER BY Puntos DESC LIMIT 1";
+          $Recordset_3= mysqli_query($conexion, $Consulta_3);
+          $Resultado_3= mysqli_fetch_array($Recordset_3);
+          $Participante_3= $Resultado_3["ID_Participante"];
+          $Participante_4= $Resultado_3["ID_PP"];
+          $Participante_5= $Resultado_3["Nombre"];
+        }?>         
         '<?php echo "Lider: " . $Participante_5;?>', 
     data: [<?php
         //consulta para buscar los puntos ganados en cada pregunta por el participante lider

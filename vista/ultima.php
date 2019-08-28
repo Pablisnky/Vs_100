@@ -74,18 +74,30 @@
 			    	$Consulta_0="SELECT SUM(Puntos) AS Acumulado FROM participantes_pruebas WHERE ID_Participante='$participante' AND Tema='$Tema'";
 					$Recordset_0= mysqli_query($conexion, $Consulta_0);
 					$Participante_0= mysqli_fetch_array($Recordset_0);
+					$Acumulado= $Participante_0["Acumulado"];
 					
 					//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
-					$Decimal_0 = str_replace('.', ',', $Participante_0["Acumulado"]);
+					$Decimal_0 = str_replace('.', ',', $Acumulado);
 
 			    	//se realiza una consulta para obtener el tiempo total de respuesta del participante
 			    	$Consulta_1="SELECT SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS TiempoTotal FROM respuestas WHERE ID_Participante='$participante' AND ID_PP = '$CodigoPrueba' AND Correcto= 1";
 					$Recordset_1 = mysqli_query($conexion, $Consulta_1);//se manda a ejecutar la consulta
 					$Tiempo= mysqli_fetch_array($Recordset_1);
+
+					if($Tema == "Reavivados"){
+						//Se inserta el puntaje global acumulado en reavivados
+						$Insertar= "INSERT INTO posicion_general_reavivados(PuntosTotales,ID_Participante,Fecha)VALUES('$Acumulado','$participante',NOW())";
+						mysqli_query($conexion, $Insertar);
+					}
+					
  				?>
-		    	<p class="Inicio_5">Tiempo total: <?php echo $Tiempo["TiempoTotal"];?></p>
-		    	<p class="Inicio_5">Puntos ganados hoy: <?php echo $Decimal;?></p>
-		    	<p class="Inicio_5">Puntos acumulados: <?php echo $Decimal_0;?></p>
+				<p class="Inicio_5">Tiempo total: <?php echo $Tiempo["TiempoTotal"];?></p>
+				<?php
+					if($Tema == "Reavivados"){  ?>	
+						<p class="Inicio_5">Puntos ganados hoy: <?php echo $Decimal;?></p> <?php
+					}	?>
+				<p class="Inicio_5">Puntos acumulados: <?php echo $Decimal_0;?></p>
+				
             	<?php
             		//Se busca en que posicion quedo el participante
             		//Se consulta cuantos puntos tiene un participante  
@@ -122,31 +134,32 @@
 						$Recordset_5 = mysqli_query($conexion, $Consulta_5);  
 						$PosicionBiblia=  mysqli_fetch_array($Recordset_5);
 
-						//Se consulta cuantos participantes hay en la prueba el dia de hoy
+						//Se consulta cuantos participantes hay en la prueba
 						$Consulta_4="SELECT DISTINCT(ID_Participante) FROM participantes_pruebas WHERE Tema='$Tema' AND ID_Prueba='$ID_Prueba'";//se plantea la consulta
 						$Recordset_4 = mysqli_query($conexion, $Consulta_4);//se manda a ejecutar la consulta
 						$Participante_4= mysqli_num_rows($Recordset_4);
 						// echo "El total de participantes son= " . $Participante_4 . "<br>";
 
-						//Se consulta la posicion general del participante
-						$Consulta_8="SELECT (@numero:= @numero + 1) AS Posicion, ID_Participante, SUM(Puntos) AS Suma FROM participantes_pruebas CROSS JOIN (SELECT @numero:= 0) r WHERE ID_Prueba=5 GROUP BY ID_Participante ORDER BY Suma DESC ";
-						$Recordset_8 = mysqli_query($conexion, $Consulta_8);
-						while($PosicionBibliaGeneral=  mysqli_fetch_array($Recordset_8)){
-							echo "TU Posicion Gneral: " . $PosicionBibliaGeneral['Posicion'] . "<br>";
-						}
-
-						//Se ordenan los resultados en una tabla para sacar la posicion general
-
-						//Se consulta su posicion segun sus puntos
-						$Consulta_5="SELECT COUNT(*) AS Pus FROM participantes_pruebas WHERE Puntos >= '$Puesto' AND ID_Prueba='$ID_Prueba'";
+						//Se consulta su posicion general segun sus puntos
+						$Consulta_5="SELECT COUNT(*) AS Pus FROM posicion_general_reavivados WHERE PuntosTotales >= '$Acumulado' ";
 						$Recordset_5 = mysqli_query($conexion, $Consulta_5);//se manda a ejecutar la consulta
 						$Posicion=  mysqli_fetch_array($Recordset_5);//Se obtienen los resultados
 						// echo "Ocupas el puesto Nº= " . $Posicion['Pus'] . "<br>";
-							?>
 
-						<p class="Inicio_5">Tu posición hoy fue de Nº <?php echo $PosicionBiblia['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
-						<p class="Inicio_5">Tu posición general es de Nº <?php echo $PosicionBibliaGeneral['Posicion'];?> de <?php echo $Participante_4;?> participantes.</p> 
-						<p class="Inicio_5">Actualmente el lider general de la prueba es:<?php echo "Pablito";?></p>  <?php
+						//Se consulta el nombre del lider de la prueba
+						$Consulta_11="SELECT participantes_pruebas.ID_Participante, participante.Nombre, ID_PP FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE ID_Prueba=  '$ID_Prueba' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() ORDER BY Puntos DESC LIMIT 1";
+						$Recordset_11= mysqli_query($conexion, $Consulta_11);
+						$Resultado_11= mysqli_fetch_array($Recordset_11);
+						$Participante_11= $Resultado_11["Nombre"];
+							?>
+							<p class="Inicio_5">Tu posición es de Nº <?php echo $PosicionBiblia['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
+
+						<?php
+							if($Tema == "Reavivados"){  ?>							
+								<p class="Inicio_5">Tu posición hoy fue de Nº <?php echo $PosicionBiblia['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
+								<p class="Inicio_5">Tu posición general es de Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 		
+								<p class="Inicio_5">Actualmente el lider general de la prueba es:<?php echo $Participante_11;?></p>  <?php
+							}	
 					} 
 					else{ 
 		    			if($Participante_6 == 0){  ?>           	
@@ -218,30 +231,6 @@
 	            <?php
 	        	}
 	            ?>
-			</div>
-			<div>
-				<?php
-				//Se consulta si el usuario tiene pruebas pendientes po responde del tema "Reavivados por su palabra"
-				if($Tema == "Reavivados"){
-					$Consulta_7="SELECT ID_PP, DATE_FORMAT(Fecha_pago, '%Y/%m/%d') AS Fecha_pago FROM participantes_pruebas WHERE Tema = 'Reavivados' AND ID_Participante = '$participante' AND Prueba_Cerrada= 0";
-					$Recordset= mysqli_query($conexion, $Consulta_7);
-					if(mysqli_num_rows($Recordset)!=0){  ?>
-						<p>Aún tienes las siguientes pruebas diarias sobre "Reavivados por su palabra" sin responder</p>
-						<table>
-							<thead>
-								<th>Pruebas anteriores pendientes</th>
-							</thead>
-							<tbody>
-								<?php
-									while($Resultado= mysqli_fetch_array($Recordset)){ ?>
-										<tr>
-											<td><a href="../tema/biblia/ReavivadosPalabra/fecha.php?fecha=<?php echo $Resultado["Fecha_pago"]?>&ID_PP=<?php echo $Resultado["ID_PP"]?>"><?php echo $Resultado["Fecha_pago"]?></a></td>
-										</tr>  <?php
-									}   ?>
-							</tbody>   
-						</table>  <?php
-					} 
-				}	?>
 			</div>
 		    <div class="Gratis_2">
 				<?php

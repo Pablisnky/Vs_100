@@ -199,3 +199,26 @@ function flecha(){
     document.getElementById("Flecha").style.display="block";
 }
 
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Reproduce el sonido de respuesta correcta
+function sonidoCorrecto() {
+  var A = document.getElementById("Resp_Correc");
+    A.play();
+ }
+
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Pausa el sonido de fondo
+function pauseAudio(){ 
+    var B = document.getElementById("FondoComercial_1");
+    B.pause(); 
+}
+ 
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Reproduce el sonido de respuesta incorrecta
+function sonidoInCorrecto() {
+    var A = document.getElementById("Resp_InCorrec");
+      A.play();
+   }

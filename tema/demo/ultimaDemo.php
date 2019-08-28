@@ -57,9 +57,8 @@ session_start();    //se inicia sesion para llamar a una variable
 				<div class="encabezado">
 		    		<h1 class="anula">Vs_100.com</h1>
 		    	</div>
-		    <h4><?php echo $ParticipanteDemo["usuario"];?></h4>
-			<h4>Has concluido tu prueba Demo</h4>
-			<br>
+		    <h4 class="ultima_1"><?php echo $ParticipanteDemo["usuario"];?></h4>
+			<h4 class="ultima_1">Has concluido tu prueba Demo</h4>
 			<div class="ultimaPregunta">
 				<?php
 			    	//se realiza una consulta para obtener los puntos totales del participante
@@ -93,9 +92,16 @@ session_start();    //se inicia sesion para llamar a una variable
 					$Recordset_4 = mysqli_query($conexion, $Consulta_4);//se manda a ejecutar la consulta
 					$Participante_4= mysqli_num_rows($Recordset_4);
 					// echo "El total de participantes son= " . $Participante_4 . "<br>";
+
+					//Se consulta el nombre del lider de la prueba
+					$Consulta_11="SELECT usuario FROM participante_demo ORDER BY Puntos DESC LIMIT 1";
+					$Recordset_11= mysqli_query($conexion, $Consulta_11);
+					$Resultado_11= mysqli_fetch_array($Recordset_11);
+					$Participante_11= $Resultado_11["usuario"];
             	?>
-		    	<p class="Inicio_5">Te ubicas en la posición Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p>
-		    	<p class="Inicio_5">Tiempo total: <?php echo $Tiempo["TiempoTotal"];?></p>
+		    	<p class="Inicio_5">Tu posición es la Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p>
+		    	<p class="Inicio_5">Tiempo total: <?php echo $Tiempo["TiempoTotal"];?></p>	
+				<p class="Inicio_5">Actualmente el lider de la prueba es: <?php echo $Participante_11;?></p>
 		    	<div class="tabla_3">
 	                <table>
 	                	<caption class="caption_correc">Respuestas correctas</caption>
@@ -150,7 +156,8 @@ session_start();    //se inicia sesion para llamar a una variable
 	            </table>
             </div>
 		    	<div class="Gratis_2">
-			    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Vs_100</p>
+					<audio id="FondoComercial_1" autoplay src="../../audio/DarknessInMetropolis.mp3" loop></audio>
+			    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Vs_20</p>
 					<a class="nav_7" href="../../vista/registro.php">Registra una cuenta</a>
 					<a class="nav_7" href="../../vista/participantes.php">Ver tabla de resultados</a>
 			    </div>

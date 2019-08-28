@@ -28,15 +28,17 @@
 	</head>	
 	<body> 
 		<!--Construcion de ventanan modal-->
-        <input type="checkbox" id="Cerrar">
-        <label for="Cerrar" id="btnCerrar">Cerrar</label>
-        <div class="modal">
-            <div class="contenedor_modal modal_2">
-                <p class="Inicio_1"><span>Promoción ImpresionArte</span></p>
-				 <p>Obten el 20% de descuentos en nuestro servicio de impresión en plotter participando en nuestra trivia diaria</p>
-				 <a class="a_1" href="vista/reglas_trivia.php">Participar</a>
-            </div>
-        </div>    
+        <!--
+			<input type="checkbox" id="Cerrar">
+        	<label for="Cerrar" id="btnCerrar">Cerrar</label>
+			<div class="modal">
+				<div class="contenedor_modal modal_2">
+					<p class="Inicio_1"><span>Promoción ImpresionArte</span></p>
+					<p>Obten el 20% de descuentos en nuestro servicio de impresión en plotter participando en nuestra trivia diaria</p>
+					<a class="a_1" href="vista/reglas_trivia.php">Participar</a>
+				</div>
+			</div>     
+		-->
 		<!--Termina ventana modal-->
 	
 		<header>
