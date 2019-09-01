@@ -75,12 +75,12 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 				</div>
 				<div class="Quinto">
 					<div class="Quinto_2">
-						<p id="respuesta_a" class="efecto" onclick="sonidoCorrecto(); pauseAudio();llamar_sombrear_Demo(); setTimeout(llamar_puntaje_Demo,200);">Judas iscariote.</p><!-- llamar_puntaje() se encuentra en puntaje.js -->
+						<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Poncio Pilatos.</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
 						<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Pedro.</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
 					</div>
 					<div class="Quinto_2">
 						<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Judas Tadeo.</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
-						<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Pablo.</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
+						<p id="respuesta_a" class="efecto" onclick="sonidoCorrecto(); pauseAudio();llamar_sombrear_Demo(); setTimeout(llamar_puntaje_Demo,200);">Judas iscariote.</p><!-- llamar_puntaje() se encuentra en puntaje.js -->
 					</div>
 				</div>
 				<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->

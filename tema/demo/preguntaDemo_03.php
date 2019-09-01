@@ -78,16 +78,16 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">¿Cuál es el único mamífero capaz de volar?</p>
+				<p class="pregunta">¿Cual fue la ultima tribu barbara que opuso resistencia al papado de la iglesia catolica?</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">
-					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">El avestruz</p>
-					<p id="respuesta_b" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200); ">El murcielago</p>
+					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Los visigodos.</p>
+					<p id="respuesta_b" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200); ">Los ostrogodos</p>
 				</div>
 				<div class="Quinto_2">
-					<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">La gallina</p>
-					<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">El pez volador</p>
+					<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Los vándalos.</p>
+					<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Los hérulos.</p>
 				</div>
 			</div>
 			<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->

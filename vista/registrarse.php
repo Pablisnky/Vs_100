@@ -1,9 +1,9 @@
 <?php   
     session_start();  
 
-   	$verifica = $_SESSION["verifica"];
-    if($verifica == 1906){// Anteriormente en Registro.php se generó la variable $_SESSION["verfica"] con un valor de 1906; aqui se constata que se halla pasado por la pagina de registro de usuario Registro.php, si no es asi no se puede entrar en esta página.
- 		unset($_SESSION['verifica']);//se borra la $_SESSION verifica.
+   	// $verifica = $_SESSION["verifica"];
+    // if($verifica == 1906){// Anteriormente en Registro.php se generó la variable $_SESSION["verfica"] con un valor de 1906; aqui se constata que se halla pasado por la pagina de registro de usuario Registro.php, si no es asi no se puede entrar en esta página.
+ 		// unset($_SESSION['verifica']);//se borra la $_SESSION verifica.
  
     	//se verifica la sesion para evitar que refresquen la pagina que procesa el formulario o entren directamente a la pagina que procesa el formulario y asi nos envien multiples veces el formulario; 
     	//echo $verifica;
@@ -12,14 +12,32 @@
 		$Nombre = htmlspecialchars($_POST["nombre"]);
 		$Cedula = htmlspecialchars($_POST["cedula"]);
 		$Correo = htmlspecialchars($_POST["correo"]);
+		$Pais = htmlspecialchars($_POST["pais"]);
+		if(!empty($_POST["departamento"])){
+			$Region= $_POST["departamento"];
+		}
+		if(!empty($_POST["municipio_Col"])){
+			$SubRegion=  $_POST["municipio_Col"];
+		}
+		if(!empty($_POST["estado"])){
+			$Region= $_POST["estado"];
+		}
+		if(!empty($_POST["municipio"])){
+			$SubRegion= $_POST["municipio"];
+		}
+		$Iglesia = htmlspecialchars($_POST["iglesia"]);
 		$Clave = $_POST["clave"];
 		$ConfirmarClave = $_POST["confirmarClave"];
 
-		// echo "<p class='Inicio_2'>Nombre: $Nombre</p>" ;
-		// echo "<p class='Inicio_2'>Cedula: $Cedula</p>";
-		// echo "<p class='Inicio_2'>Correo: $Correo</p>";
-		// echo "<p class='Inicio_2'>Clave: $Clave</p>";
-		// echo "<p class='Inicio_2'>Confirmar clave: $ConfirmarClave</p>"; 
+		// echo "Nombre: " . $Nombre . "<br>" ;
+		// echo "Cedula: " . $Cedula . "<br>";
+		// echo "Correo: " .  $Correo . "<br>";
+		// echo "Pais: " .  $Pais . "<br>";
+		// echo "Region: " .  $Region . "<br>";
+		// echo "SubRegion: " .  $SubRegion . "<br>";
+		// echo "Iglesia: " .  $Iglesia . "<br>";
+		// echo "Clave: " .  $Clave . "<br>";
+		// echo "Confirmar clave: " .  $ConfirmarClave . "<br>"; 
 
 		$_SESSION["Usuario"]= $Nombre;//se crea una sesion que almacena el Nombre del usuario.
 
@@ -31,7 +49,7 @@
 	    	$ClaveCifrada= password_hash($Clave, PASSWORD_DEFAULT);
 			
 			//Se insertan los datos del participante en la tabla participante, la información privada de su cuenta entra en la tabla usuarios 
-			$insertar= "INSERT INTO participante(Nombre, Cedula, Correo, FechaRegistro) VALUES('$Nombre','$Cedula','$Correo', NOW())";
+			$insertar= "INSERT INTO participante(Nombre, Cedula, Correo, Pais, Region, SubRegion, Iglesia, FechaRegistro) VALUES('$Nombre','$Cedula','$Correo','$Pais','$Region','$SubRegion','$Iglesia', NOW())";
 			mysqli_query($conexion, $insertar) or die ("Algo ha dio mal en la consulta a la BD");
 
 			//Se consulta en la tabla participante el ID_Usuario del usuario que se esta afiliando
@@ -73,18 +91,18 @@
 					</header>
 					<div onclick= "ocultarMenu()">
 						<h2 id="registro">Datos registrados</h2>
-						<p class="agradecimientos"><?php echo $Nombre;?>, Hemos recibido tus datos, ahora eres miembro de la comunidad Versus_20.</p>
+						<p class="agradecimientos"><?php echo $Nombre;?>, Hemos recibido tus datos, ahora eres miembro de la comunidad Reavivados.</p>
 					</div>	
 					<div class="nav_5">
 						<a href="principal.php">Inicia sesión</a>
 					</div>
 				</div>
 			</body>
-		</htnl>	<?php 
-	}   
-	else{ // Si no viene del formulario de registro Registro.php o trata de recargar página lo enviamos al formulario de registro  
-		echo "<META HTTP-EQUIV='Refresh' CONTENT='0; url=Registro.php'>";  
-	} 
+		</html>	<?php 
+	// }   
+	// else{ // Si no viene del formulario de registro Registro.php o trata de recargar página lo enviamos al formulario de registro  
+	// 	echo "<META HTTP-EQUIV='Refresh' CONTENT='0; url=Registro.php'>";  
+	// } 
 ?>
 
 

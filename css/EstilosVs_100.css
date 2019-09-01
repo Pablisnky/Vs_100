@@ -141,7 +141,6 @@ caption{/*ultimaDemo*/
 	font-family:verdana;	
 }
 select{/*registro.php*/
-	background-color:blue;
 	font-size: 17px;
 	width: 250px;
 	text-align: center;
@@ -990,7 +989,6 @@ td{
 	margin-left: -2%;
 }
 .small_1{/*ultima.php*/
-	background-color: ;
 	margin-top: -25px;
 	display: block;
 	text-align: center;

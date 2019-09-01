@@ -77,16 +77,16 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">¿Cómo se llama el procedimiento de subir la bandera?</p>
+				<p class="pregunta">¿Quien fue el que pretendia esclavizar a los habitantes de Jabes de Galaad y les exigio sacarse el ojo derecho sino querían morir?</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">
-					<p id="respuesta_a" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">Izar.</p>
-					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Subir.</p>
+					<p id="respuesta_a" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">Nahas amonita</p>
+					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Saúl de Gabaa</p>
 				</div>
 				<div class="Quinto_2">
-					<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Abanderar.</p>
-					<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Colgar.</p>
+					<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Dario el grande</p>
+					<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Ninguno de los anteriores</p>
 				</div>
 			</div>
 			<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->

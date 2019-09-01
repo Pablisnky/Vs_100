@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Versus_20</title>
+		<title>horebi</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas para ganar dinero."/>
@@ -9,15 +9,19 @@
 		<meta name="author" content="Pablo Cabeza"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="expires" content="07 de mayo de 2018"><!--Inicio de construcción de la página-->
+		<meta name="MobileOptimized" content="width">
+		<meta name="HandheldFriendly" content="true">
 
 		<link rel="stylesheet" type="text/css" href="css/EstilosVs_100.css"/>      
 		<link rel="stylesheet" type="text/css" href="css/Modal.css">   
         <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="css/MediaQuery_EstilosVs_100.css">
         <link rel="stylesheet" type="text/css" media="(min-width: 1500px)" href="css/MediaQuery_EstilosVs_100_Grande.css">
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>    
-        <link rel="stylesheet" type="text/css" href="iconos/icono_menu/style_menu.css"/> <!--galeria icomoon.io  -->
+		<link rel="stylesheet" type="text/css" href="iconos/icono_menu/style_menu.css"/> <!--galeria icomoon.io  -->
+		<link rel="shortcut icon" type="image/png" href="images/logo.png">
+		<link rel="manifest" href="./manifest.json">
 
-		<script type="text/javascript" src="javascript/Funciones_varias.js" ></script> 
+		<script type="text/javascript" src="javascript/Funciones_varias.js" ></script>
 		<script>
 		  	window.dataLayer = window.dataLayer || [];
 		  	function gtag(){dataLayer.push(arguments);}
@@ -78,3 +82,6 @@
 	    </footer> 
 	</body>
 </html>
+
+
+<script src="convoca_SW.js"></script> 

@@ -77,16 +77,16 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">La caida de agua más grande del mundo ubicada en Venezuela se llama:</p>
+				<p class="pregunta">El día sábado es el día de reposo, este día debemos apartarlo para.</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">
-					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo();">La cascada del Vino.</p>
-					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">El Orinoco.</p>
+					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo();">Dormir lo suficiente</p>
+					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Adorar a los angeles.</p>
 				</div><!-- llamar_bloqueo_Demo() se encuentra en bloqueo.js  -->
 				<div class="Quinto_2">
-					<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">El mirador caraqueño.</p>
-					<p id="respuesta_d" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">El Salto Angel.</p>
+					<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">No agobiarse y no preocuparse</p>
+					<p id="respuesta_d" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">Recordar la creación de Dios.</p>
 				</div>
 			</div>
 			<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->

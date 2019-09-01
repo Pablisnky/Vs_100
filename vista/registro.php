@@ -21,7 +21,10 @@
 
 		<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
 		<script type="text/javascript" src="../javascript/validarFormularios.js" ></script>
-		<script type="text/javascript" src="../javascript/Funciones_Ajax.js" ></script>		
+		<script type="text/javascript" src="../javascript/Funciones_Ajax.js" ></script>	
+		<script type="text/javascript" src="../javascript/Regiones.js" ></script>	
+        <script type="text/javascript" src="../javascript/Municipios.js"></script> 
+        <script type="text/javascript" src="../javascript/Municipios_Colombia.js"></script>  	
 	</head>	
 	<body onload= "autofocusRegistroGratis()">
 		<div class="Secundario">
@@ -40,7 +43,38 @@
                         	<div class="contenedor_11" id="Mostrar_verificaCedula"></div><!-- recibe respuesta de ajax llamar_verificaCedula()-->
 							<input type="text" name="correo" id="Correo" placeholder="Correo electronico"  onchange="validarFormatoCorreo(); setTimeout(llamar_verificaCorreo,200);" autocomplete="off">
                         	<div class="contenedor_11" id="Mostrar_verificaCorreo"></div><!-- recibe respuesta de ajax llamar_verificaCorreo()-->
-						</fieldset>         
+						</fieldset>        
+                        <fieldset class="Afiliacion_4">
+                        	<legend>Datos de congregación</legend>
+							<!-- <label>Pais:</label> -->
+							<select class="etiqueta_24" name="pais" id="Pais" onchange="SeleccionarRegiones(this.form)"> 
+								<option>Pais</option>
+								<option>Colombia</option>
+								<option>Venezuela</option>
+							</select>  
+							<div id="Region_1B" style="display: none;"><!--Aplica solo a Colombia-->
+								<!-- <label>Departamento:</label> -->
+									<select class="etiqueta_24" name="departamento" id="Departamento" onchange="SeleccionarMunicipio_Colombia(this.form)">
+										<option></option>                            
+									</select>                  
+								<!-- <label>Municipio:</label> -->
+									<select class="etiqueta_24" name="municipio_Col"> 
+										<option></option>
+									</select>     
+							</div> 
+							<div id="Region_1C" style="display: none;"><!--Aplica solo a Venezuela-->
+								<!-- <label>Estado:</label> -->
+									<select class="etiqueta_24" name="estado" id="Estado" onchange="SeleccionarMunicipio(this.form)">
+										<option></option>                            
+									</select>                  
+									
+								<!-- <label>Municipio:</label> -->
+									<select class="etiqueta_24" name="municipio" id="Municipio"> 
+										<option></option>
+									</select>  
+							</div>   
+							<input type="text" name="iglesia" id="Iglesia" placeholder="Iglesia o grupo" onchange="return literal()" autocomplete="off"><!-- literal() se encuentra en validarFormulario.js -->
+						</fieldset>       
 						<fieldset class="Afiliacion_4">
 							<legend>Datos de accceso a la plataforma</legend>  
 							<div>

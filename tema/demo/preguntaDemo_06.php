@@ -77,16 +77,16 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">¿Cual es la temperatura mas baja que puede existir?</p>
+				<p class="pregunta">En que lugar convoco Samuel a todo el pueblo, divididos en tribus para echar la suerte y elegir al primer rey de Israel:</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">
-					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">0 Celcius.</p>
-					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">-500 fahrenheit.</p>
+					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Gabaón</p>
+					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Gabaa</p>
 				</div>
 				<div class="Quinto_2">
-					<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Infinito.</p>
-					<p id="respuesta_d" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">0 Kelvin.</p>
+					<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Galaad</p>
+					<p id="respuesta_d" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">Mizpa</p>
 				</div>
 			</div>
 			<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->

@@ -77,16 +77,16 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">¿Que ser vivo es inmortal?</p>
+				<p class="pregunta">Se desempeñaba como agricultor antes de ser rey, provenia de la tribu de Benjamín, pertenecía a la familia de Matri, nos referimos a:</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">
-					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo();">La flor de la vida.</p>
-					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">El ave fenix.</p>
+					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo();">Jonatan</p>
+					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Samuel</p>
 				</div>
 				<div class="Quinto_2">
-					<p id="respuesta_c" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">La medusa Turritopsis nutricula .</p>
-					<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Ninguno de los anteriores.</p>
+					<p id="respuesta_c" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">Saúl</p>
+					<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">David</p>
 				</div>
 			</div>
 			<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->

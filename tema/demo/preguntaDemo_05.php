@@ -78,16 +78,16 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">¿Cuántos años tiene un lustro?</p>
+				<p class="pregunta">La escuela sabática de la Iglesia Adventista dedica el tercer sábado de cada mes a:</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">
-					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">50 años.</p>
-					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">10 años.</p>
+					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Auditar diezmos y ofrendas</p>
+					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">La santa cena</p>
 				</div>
 				<div class="Quinto_2">
-					<p id="respuesta_c" class="efecto" onclick="sonidoCorrecto(); pauseAudio(); llamar_sombrear_Demo(); setTimeout(llamar_puntaje_Demo,200);">5 años</p>
-					<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Ninguno de los anteriores</p>
+					<p id="respuesta_c" class="efecto" onclick="sonidoCorrecto(); pauseAudio(); llamar_sombrear_Demo(); setTimeout(llamar_puntaje_Demo,200);">El fondo de inversión</p>
+					<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Visitar hermanos enfermos</p>
 				</div>
 			</div>
 			<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
