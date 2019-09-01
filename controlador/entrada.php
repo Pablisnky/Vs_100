@@ -16,7 +16,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 		<!DOCTYPE html>
 		<html lang="es">
 			<head>
-				<title>Versus_20 Inicio</title>
+				<title>Reavivados Inicio</title>
 
 				<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 				<meta name="description" content="Juego de preguntas para ganar dinero."/>

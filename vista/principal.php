@@ -54,7 +54,7 @@
 									<br>
 									<input type="submit" name="Boton_Sesion" value="Entrar">
 									<hr>
-									<p class="p_2">¿No tienes cuenta en Vs_100.com?<a href="Registro.php">Registrate aqui.</a></p>
+									<p class="p_2">¿No tienes cuenta en reavivados?<a href="Registro.php">Registrate aqui.</a></p>
 									<!--<a style="height: 10px; text-align: left;" href="Sesiones_Cookies/llamarcookie.php">Ver cookie</a> En este archivo se pueden ver las cookies que se crearon en una visita anterior al sitio web por medio de validarSesion.php-->		
 								</fieldset>
 							</form>			
@@ -101,7 +101,7 @@
 								<input type="submit" value="Entrar" onclick=""><!-- validar_02() se encuentra en return validar_02()validarFormularios.js -->
 								<br><hr>
 								<br>
-								<a class="p_2" href="registro.php">¿No tienes cuenta en Vs_100?</a>
+								<a class="p_2" href="registro.php">¿No tienes cuenta en reavivados?</a>
 								<!--<a style="height: 10px; text-align: left;" href="controlador/llamarcookie.php">Ver cookie</a>En este archivo se pueden ver las cookies que se crearon en una visita anterior al sitio web por medio de validarSesion.php-->
 								</fieldset>
 							</form>

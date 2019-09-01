@@ -29,7 +29,7 @@
 	<body> 
 		<!--Construcion de ventanan modal-->
         
-			<input type="checkbox" id="Cerrar">
+			<!-- <input type="checkbox" id="Cerrar">
         	<label for="Cerrar" id="btnCerrar">Cerrar</label>
 			<div class="modal">
 				<article class="contenedor_modal modal_2">
@@ -41,12 +41,12 @@
 				<aside>
 					<P>Hola</P>
 				</aside>
-			</div>     
+			</div>      -->
 		
 		<!--Termina ventana modal-->
 	
 		<header>
-			<h1 class="anula">Versus_20</h1>
+			<h1 class="anula">Reavivados</h1>
 		    <input type="checkbox" id="MenuRes">
     		<label id="ComandoMenu" class="comandoMenu" onclick="mostrarMenu()"><span class="icon-menu"></span></label>
 		    <nav id="MenuResponsive" class="menuResponsive">
@@ -67,8 +67,8 @@
 				<a class="buttonTres" href="vista/demo.php">Prueba Demo</a>					
 			</div>
 			<div class="n20">
-				<h5>¿Que es Versus_20?</h5>				
-				<p class="Inicio_1">Son pruebas de conocimiento que plantean 10 preguntas de un tema seleccionado por el participante, y en el que compiten 20 usuarios por prueba, para tomar un premio pagado en dinero.</p>
+				<h5>¿Que es Reavivados?</h5>				
+				<p class="Inicio_1">Son pruebas basadas en el programa "Reavivados por su palabra de la Iglesia Adventista del Septimo Dia" en las que se plantean 5 preguntas del tema diario.</p>
 				<p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en la respuesta penalizará, dejandote a merced de tus contrincantes y alejandote del premio.</p>	
 				<a class="Inicio_3  buttonCuatro" href="vista/instruccion.php">Instrucciones</a>
 			</div>
