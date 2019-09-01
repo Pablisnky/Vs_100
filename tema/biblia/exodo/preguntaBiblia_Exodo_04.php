@@ -12,12 +12,12 @@
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_04a" class="efecto" onclick="llamar_bloqueo()">La tierra prometida.</p>
-				<p id="principiantes_04b" class="efecto" onclick="llamar_bloqueo()">A Jerusalen.</p>
+				<p id="principiantes_04a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">La tierra prometida.</p>
+				<p id="principiantes_04b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">A Jerusalen.</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_04c" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200);">La tierra de Madián.</p>
-				<p id="principiantes_04d" class="efecto" onclick="llamar_bloqueo()">Al Rio Nilo.</p>
+				<p id="principiantes_04c" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia(); llamar_sombrear(); setTimeout(llamar_puntaje,200);">La tierra de Madián.</p>
+				<p id="principiantes_04d" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Al Rio Nilo.</p>
 			</div>
 		</div>
 		<?php

@@ -12,12 +12,12 @@
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_06a" class="efecto" onclick="llamar_bloqueo()">Abandonar Egipto.</p>
-				<p id="principiantes_06b" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200);">Trabajar forzosamente.</p>
+				<p id="principiantes_06a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Abandonar Egipto.</p>
+				<p id="principiantes_06b" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia(); llamar_sombrear(); setTimeout(llamar_puntaje,200);">Trabajar forzosamente.</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_06c" class="efecto" onclick="llamar_bloqueo()">Adorar a Isis.</p>
-				<p id="principiantes_06d" class="efecto" onclick="llamar_bloqueo()">Cruzar el desierto.</p>
+				<p id="principiantes_06c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Adorar a Isis.</p>
+				<p id="principiantes_06d" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Cruzar el desierto.</p>
 			</div>
 		</div>
 		<?php

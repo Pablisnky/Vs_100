@@ -35,16 +35,18 @@
         $Recordset = mysqli_query($conexion, $Consulta_0);
         if(mysqli_num_rows($Recordset) == 1) {
 
-            echo " Ya participastes en la prueba de hoy, espera hasta mañana" . "<br>";
+            echo "<h3>Ya participastes en la prueba de hoy, mañana continuamos estudiando</h3>" . "<br>";
             
 //--------------------------------------------
            //esta parte del codigo en construccion
-            echo "¿Quisieras responder las pruebas de los capitulos anteriores?" . "<br>";
-            echo "<a href='inscripcionRPSP.php'>Si</a>" . "<br>";
+            // echo "¿Quisieras responder las pruebas de los capitulos anteriores?" . "<br>";
+            // echo "<a href='inscripcionRPSP.php'>Si</a>" . "<br>";
 //--------------------------------------------
                      
             ?>
-            <label class="bloqueo" onclick="cerrar()">Regresar</label> 
+            <link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
+            <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
+            <label class="label buttonCuatro" onclick="cerrar()">Regresar</label> 
 
             <script type="text/javascript">
                 function cerrar(){

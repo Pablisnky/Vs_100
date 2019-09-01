@@ -12,12 +12,12 @@
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_03a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200);">Sangre.</p>
-				<p id="principiantes_03b" class="efecto" onclick="llamar_bloqueo()">Vino.</p>
+				<p id="principiantes_03a" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia(); llamar_sombrear(); setTimeout(llamar_puntaje,200);">Sangre.</p>
+				<p id="principiantes_03b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Vino.</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_03c" class="efecto" onclick="llamar_bloqueo()">Agua salada.</p>
-				<p id="principiantes_03d" class="efecto" onclick="llamar_bloqueo()">Hielo.</p>
+				<p id="principiantes_03c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Agua salada.</p>
+				<p id="principiantes_03d" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Hielo.</p>
 			</div>
 		</div>	
 		<?php

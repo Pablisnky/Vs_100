@@ -50,6 +50,7 @@
 						marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" 
 							frameborder="0" height="300">
 					</iframe> 
+					<audio autoplay src="../audio/MysticBeauty.mp3" loop></audio>
 				<?php
 				echo "<h3 class='bloqueo_2'>Nuevamente su respuesta fue equivocada, fue penalizado con 2,25 centesimas de sus puntos</h3>";
 				//echo "<h3>La cookie de bloqueo no esta en tiempo de ejecucón.</h3>";
@@ -75,6 +76,7 @@
 						marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" 
 							frameborder="0" height="300">
 					</iframe> 
+					<audio autoplay src="../audio/MysticBeauty.mp3" loop></audio>
 				<?php
 			 	echo "<h3 class='bloqueo_2'>Respuesta incorrecta, fue penalizado con  2,25 centesimas de sus puntos.</h3>";
 			}	

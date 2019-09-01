@@ -230,17 +230,6 @@ td{
 .anula{/*pregunta.php*/
 	cursor: default;
 }
-.bloqueo{/*bloquearPregunta.php*/
-	background-color: rgba(0,0,0,0.85);
-	color:  rgba(194, 245, 19,1);
-	font-size: 22px;  
-	display: inline-block; 
-	position: absolute;
-	top: 46%;
-	left: 35%;
-	width: 20%;
-	padding: 4.6% 5%;
-}	
 .bloqueo_demo{/*respuestaDemo.php*/
 	color:  rgba(194, 245, 19,1);
 	font-size: 22px;  
@@ -269,7 +258,7 @@ td{
 	color:  rgba(194, 245, 19,1);
 	font-size: 18px; 
 	position: absolute;
-	top: 57% ;
+	top: 47.5% ;
 	left: 27%;
 	width: 40%;
 	padding: 2%;
@@ -278,13 +267,13 @@ td{
 }	
 .bloqueo_2_b{/*bloquearPreguntaDemo.php  */
 	background-color:rgba(0,0,0,0.95) ;
-	color:  rgba(194, 245, 19,1);
+	color: rgba(194, 245, 19,1) ;
 	font-size: 18px; 
 	position: absolute;
-	top: 47% ;
-	left: 27%;
+	top: 55% ;
+	left: 30%;
 	width: 40%;
-	padding: 2%;
+	padding: 5% 2% 2% 2%;
 	height: 14%;
 	line-height: 180%;
 }
@@ -343,11 +332,11 @@ td{
 	box-shadow:0px 0px 0px;
 	color: white;			
 }
-.buttonCuatro{/*index.php*/
+.buttonCuatro{/*index.php  regisro_Libre.php*/
 	background:#040652;
 	color: rgba(194, 245, 19,1);
 	text-decoration:none;
-	font-size:18px  !important;
+	/* font-size:18px; */
 	line-height: 24px;
 	display: block;
 	margin-left: auto;
@@ -439,10 +428,12 @@ td{
 .cursor{/*header_usuario.html*/
 	cursor: default;
 }
-.efecto:hover{/*pregunta.php*/
+.efecto:hover{/*preguntaXXXXX.php*/
 	background-color:#040652 ;
 	color:white;
 	cursor: pointer;
+	padding: 2% 0%;
+	box-sizing: border-box;
 }
 .etiqueta{/*contacto.php*/
 	float: left;
@@ -611,6 +602,9 @@ td{
 	color: yellow !important; 
 	font-size: 19px;
 	font-weight: bold;
+}
+.label{/*registro_Libre.php*/
+	font-size:  25px !important;
 }
 .listaDesordenada{
 	background-color:red;
@@ -938,8 +932,8 @@ td{
 	font-family:arial;
 }
 .Quinto{/*contenedor de opciones para responder (preguntaXxxxx_00.php)*/
-	padding-top: 1%;
-	padding-bottom: 2%;
+	/* padding-top: 1%; */
+	padding-bottom: 3%;
 	width: 40%;
 	height: 115px;
 	margin: auto;
@@ -950,14 +944,15 @@ td{
 }
 .Quinto_2{/*contenedor de opciones para responder (preguntaXxxxx_00.php)*/
 	width: 100%;
-	margin-top: 1%;
-	margin-bottom: 8%;
+	margin-bottom: 1%;
 	display: flex;
+	padding: 1.5% 0%;
 	justify-content: space-between;
 }
 .Quinto_2 .efecto{/*pregunta.php*/
 	display: inline-block;
-	width: 50%;
+	padding: 3% 0%;
+	width: 48%;
 }
 .recordar{/*principal.php*/
 	font-size: 12px; 
@@ -993,6 +988,12 @@ td{
 	font-style: italic;
 	font-size:15px;
 	margin-left: -2%;
+}
+.small_1{/*ultima.php*/
+	background-color: ;
+	margin-top: -25px;
+	display: block;
+	text-align: center;
 }
 .span_0{/*recibePago.php*/
 	font-size:31px;

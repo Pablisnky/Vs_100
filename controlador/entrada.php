@@ -53,6 +53,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									$Tema= $Registro_2['Tema'];
 									// echo "el codigo de la prueba es: " . $Registro_2['ID_PP'] . "<br>";
 									$ID_PP= $Registro_2["ID_PP"];
+									// echo "ID_PP = " . 	$ID_PP	 ."<br>";
 									//se verifica que pruebas tiene pendientes o pruebas activas
 									// $Pendiente= $Registro_2[0]; //campo "ID_PP" en tabla participantes_pruebas 
 									// $Activa= $Participante[14]; //campo "activa" en tabla participantes_pruebas 

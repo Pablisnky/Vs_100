@@ -77,8 +77,8 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
         }
         else{//Si se a pulsado en boton enviar se recibe el formulario
             $Categoria= $_POST["categoria"];
-            echo "El tema es: " . $Tema= $_POST["temaPrueba"] . "<br>";
-            echo  "La categoria es: " . $Categoria . "<br>";
+            // echo "El tema es: " . $Tema= $_POST["temaPrueba"] . "<br>";
+            // echo  "La categoria es: " . $Categoria . "<br>";
 
             if($Categoria != "Biblia"){
                 //se crea la sesión verifica, para validar que el participante envio los datos desde este formulario
@@ -143,7 +143,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
                 // echo "Tema= " . $Tema;
 
                 if($Tema=="Reavivados"){
-                    echo "Entramos aqui";
+                    // echo "Entramos aqui";
                     
                     $ID_Participante=$_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php    
                     // echo "ID_Participante= " .   $ID_Participante . "<br>"; 

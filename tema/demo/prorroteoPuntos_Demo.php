@@ -9,7 +9,6 @@
 	// echo "ID_Participante: " . $participanteDemo . "<br>";
 
   	$Tema= "Demo";
-  					
     			//se obtienen los minutos que faltan para dar una respuesta, para esto se necesita HoraMaximo y Hora_Respuesta
   				//Se consulta la hora de HoraMaximo
 				$Consulta_2= "SELECT DATE_FORMAT(HoraMaximo, '%H:%i:%s') FROM respuestas_demo WHERE ID_PD='$participanteDemo' AND Tema ='$Tema' AND ID_Pregunta='$Pregunta'";

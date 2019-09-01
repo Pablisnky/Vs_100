@@ -24,7 +24,7 @@
         <div class="modal">
             <div class="contenedor_modal modal_2">
                 <p class="Inicio_1"><span>Primeras 10 posiciones</span></p>
-                 <table width="95%"  style="text-align: center; border-collapse: collapse; margin-bottom: 3%; margin-left: auto; margin-right: auto; " >
+                <table width="95%"  style="text-align: center; border-collapse: collapse; margin-bottom: 3%; margin-left: auto; margin-right: auto; " >
                     <thead >
                         <tr style="background-color: #040652; color: white;">
                             <th>POSICION</th>
@@ -44,12 +44,12 @@
                         For($size=1; $size<=10; $size++){                            
                              ($participantes= mysqli_fetch_array($Recordset));
 
-                        //Se cambia el formato de la fecha del servidor MySQL a formato D-M-A
-                        $fechaFormatoMySQL=$participantes["fecha_Registro"];
-                        $fechaFormatoPHP = date("d-m-Y", strtotime($fechaFormatoMySQL));
+                            //Se cambia el formato de la fecha del servidor MySQL a formato D-M-A
+                            $fechaFormatoMySQL=$participantes["fecha_Registro"];
+                            $fechaFormatoPHP = date("d-m-Y", strtotime($fechaFormatoMySQL));
 
-                        //Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
-                        $Decimal = str_replace('.', ',', $participantes["puntos"]); 
+                            //Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
+                            $Decimal = str_replace('.', ',', $participantes["puntos"]); 
 
                             ?>
                             <tbody>

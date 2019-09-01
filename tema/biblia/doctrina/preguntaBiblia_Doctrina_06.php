@@ -12,12 +12,12 @@
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Padrino de Dios</p>
-				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">Mentor en cristo</p>
+				<p id="principiantes_01b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Padrino de Dios</p>
+				<p id="principiantes_01c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Mentor en cristo</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)";>Guia espiritual</p>
-				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Concejero espiritual</p>
+				<p id="principiantes_01a" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia();llamar_sombrear(); setTimeout(llamar_puntaje,200)";>Guia espiritual</p>
+				<p id="principiantes_01d" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Concejero espiritual</p>
 			</div>
 		</div>
 		<?php

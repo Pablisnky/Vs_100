@@ -24,11 +24,11 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 <script type="text/javascript">
 Highcharts.chart('container', {
   chart:{    
-    height: 260,
+    height: 290,
     backgroundColor: '#F4FCFB',
   },
   title: {
-    text: 'Tu versus el lider'
+    text: 'Tu versus el lider de hoy'
   },
   // subtitle: {
   //   text: 'Tu actuación versus al lider de la prueba'

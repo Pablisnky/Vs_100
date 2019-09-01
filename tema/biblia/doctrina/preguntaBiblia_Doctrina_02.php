@@ -12,12 +12,12 @@
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200);">Los ostrogodos</p>
-				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Los visigodos.</p>
+				<p id="principiantes_01a" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia();llamar_sombrear(); setTimeout(llamar_puntaje,200);">Los ostrogodos</p>
+				<p id="principiantes_01b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Los visigodos.</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">Los hérulos.</p>
-				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Los vándalos.</p>
+				<p id="principiantes_01c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Los hérulos.</p>
+				<p id="principiantes_01d" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Los vándalos.</p>
 			</div>
 		</div>
 		<?php

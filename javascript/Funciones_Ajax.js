@@ -92,12 +92,12 @@ function llamar_verificaClave(){//Es llamada desde registro.php
 
 //-----------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------
-function llamar_sombrear(){//Es llamada desde pregunta.php
+function llamar_sombrear(){//Es llamada desde cada preguntaXXXXX.php
 
         var aleatorio = parseInt(Math.random()*999999999);
-        E=document.getElementById("ID_Participante").value;//se toma el ID_Participante desde este mismo archivo.
-        F=document.getElementById("Tema").value;//se toma el nombre del tema desde este mismo archivo.
-        G=document.getElementById("Pregunta_Num").value;//se toma el numero de la pregunta desde este mismo archivo.
+        E=document.getElementById("ID_Participante").value;//se toma el ID_Participante
+        F=document.getElementById("Tema").value;//se toma el nombre del tema 
+        G=document.getElementById("Pregunta_Num").value;//se toma el numero de la pregunta 
         H=document.getElementById("ID_PP").value;//se toma el ID de la prueba.   
 
         var url="../controlador/respuesta.php?val_1=" + E  + "&val_2=" + F + "&val_3=" + G + "&val_4=" + H  + "&r=" + aleatorio;
@@ -148,8 +148,6 @@ function respuesta_sombrear_Demo(){
 	
     setTimeout(flecha,3000);
 }
-
-
 
 //-----------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------
@@ -223,6 +221,7 @@ if (peticion.readyState == 4){
     }
 }
 }
+
 //-----------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------
 //invocada en preguntaTriviaXX_XX.php 

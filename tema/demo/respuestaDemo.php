@@ -29,7 +29,7 @@
 	//si existe una respuesta correcta en la base de datos.
 	if(($Verificar["Correcto"]) == 1){ 
 		//No es posible que entre en esta opcion porque al responder correcto solo queda la opcion de avanzar a la siguiente pregunta, solo es posible si se recarga la pagina
-		echo "<h3 class='bloqueo_2'>Su repuesta es correcta, no sumará puntos porque ya respondio esta pregunta</h3>";
+		// echo "<h3 class='bloqueo_2_a'>Su repuesta es correcta, no sumará puntos porque ya respondio esta pregunta</h3>";
 	}
 	else if(($Verificar["Correcto"]) == "Sin_Respuesta"){    
 		// se actualiza la hora de respuesta a la BD
@@ -76,7 +76,7 @@
 		//Se consulta la hora en la que se realizó la pregunta para introducirlo nuevamente en la consulta $insertar
 		$Hora_Pregunta= $Verificar["Hora_Pregunta"];
 		
-		echo "<h3 class='bloqueo_2_b'>Su repuesta es correcta, pero no sumará puntos porque anteriormente falló en su respuesta</h3>";
+		echo "<h3 class='bloqueo_2_a'>Su repuesta es correcta, pero no sumará puntos porque anteriormente falló en su respuesta</h3>";
 		
 		$insertar= "INSERT INTO respuestas_demo(ID_Pregunta, ID_PD, Tema, Correcto, Hora_Pregunta, Hora_Respuesta) VALUES('$Pregunta', '$CodigoPrueba', '$Tema', 1, '$Hora_Pregunta', '$HoraServidorPHP')";
 		mysqli_query($conexion,$insertar);

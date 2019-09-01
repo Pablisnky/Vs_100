@@ -12,12 +12,12 @@
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">No son mas poderosos que yo.</p>
-				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Estan muy bien arreglados.</p>
+				<p id="principiantes_01c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">No son mas poderosos que yo.</p>
+				<p id="principiantes_01b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Estan muy bien arreglados.</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)";>Parecen espantapajaros</p>
-				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Ninguna de las anteriores.</p>
+				<p id="principiantes_01a" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia();llamar_sombrear(); setTimeout(llamar_puntaje,200)";>Parecen espantapajaros</p>
+				<p id="principiantes_01d" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Ninguna de las anteriores.</p>
 			</div>
 		</div>
 		<?php

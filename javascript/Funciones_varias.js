@@ -201,7 +201,7 @@ function flecha(){
 
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
-//Reproduce el sonido de respuesta correcta
+//Reproduce el sonido de respuesta correcta, llamada desde cada pregunta
 function sonidoCorrecto() {
   var A = document.getElementById("Resp_Correc");
     A.play();
@@ -209,16 +209,25 @@ function sonidoCorrecto() {
 
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
-//Pausa el sonido de fondo
+//Reproduce el sonido de respuesta incorrecta, llamada desde cada pregunta
+function sonidoInCorrecto() {
+    var A = document.getElementById("Resp_InCorrec");
+    A.play();
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Pausa el sonido de fondo, llamada desde cada pregunta
 function pauseAudio(){ 
     var B = document.getElementById("FondoComercial_1");
     B.pause(); 
 }
- 
+
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
-//Reproduce el sonido de respuesta incorrecta
-function sonidoInCorrecto() {
-    var A = document.getElementById("Resp_InCorrec");
-      A.play();
-   }
+//Pausa el sonido de fondo, llamada desde cada pregunta
+function pauseAudioBiblia(){ 
+    var C = document.getElementById("FondoBiblia_1");
+    C.pause(); 
+} 
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------

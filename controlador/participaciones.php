@@ -19,7 +19,6 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 	    $participantes= mysqli_fetch_array($Recordset);
 	    $Participaciones= $participantes["Participacion"];
  	?>
-
 		<!DOCTYPE html>
 		<html lang="es">
 			<head>
@@ -62,7 +61,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 			                            <th>CÓDIGO</th>
 			                            <th>TEMA</th>
 			                            <th>PUNTOS</th>
-			                            <th>POSICIÓN</th>
+			                            <th>DETALLES</th>
 			                        </tr>
 			                    </thead>
 			                    <tbody>
@@ -80,7 +79,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 												<td><?php echo $Pruebas["ID_Prueba"];?></td>
 					                            <td class="tabla_1"><?php echo $Pruebas["Tema"];?></td> 
 					                            <td class="tabla_1"><?php echo $Decimal;?> </td> 
-												<td></td> <?php
+												<td><a href="detallesResultados.php">O</a></td> <?php
 					                         $i++;
 					                        }   
 					                             

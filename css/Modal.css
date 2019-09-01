@@ -61,8 +61,8 @@
 	opacity: 0;
 }
 .contenedor_modal{/*#F4FCFB*/
-	border-radius: 15px; 
 	background-color:rgba(244,252,251,0.9) ;
+	border-radius: 15px; 
 	width: 50%; 
 	margin: 10% auto; 
 	padding: 5% 2%;

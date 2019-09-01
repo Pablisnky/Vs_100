@@ -151,7 +151,7 @@ th{/*participantes.php*/
 .bloqueo_2{/*respuesta.php  respuestaDemo.php  */
 	background-color:rgba(0,0,0,0.85) ;
 	font-size: 18px; 
-	top: 45%;
+	top: 53%;
 	left: 0%;
 	width: 100%;
 	padding: 3%;
@@ -159,42 +159,45 @@ th{/*participantes.php*/
 	height: 14%;
 	line-height: 180%;
 }
-.bloqueo_2_a{/*bloquearPreguntaDemo.php  */
+.bloqueo_2_a{/*bloquearPreguntaDemo.php  respuestaDemo.php*/
 	font-size: 18px; 
-	top: 45%;
+	top: 30.7%;
 	left: 0%;
 	width: 100%;
 	padding: 3%;
 	box-sizing: border-box;
-	height: 16%;
+	height: 19%;
 	line-height: 180%;
 }	
-.bloqueo_2_b{/*bloquearPreguntaDemo.php  */
+.bloqueo_2_b{/*bloquearPreguntaDemo.php */
 	background-color:rgba(0,0,0,0.95) ;
 	color:  rgba(194, 245, 19,1);
 	font-size: 18px; 
-	top: 26%;
+	top: 50%;
 	left: 0%;
 	width: 100%;
+	padding-top: 0%;
 	padding: 3%;
 	box-sizing: border-box;
-	height: 14%;
+	height: 19%;
 	line-height: 180%;
 }
-.bloqueo_3{/*blquearPreguntaDemo.php   respuestaDemo.php */
+.bloqueo_3{/*blquearPreguntaDemo.php   */
 	background-color: rgba(0,0,0,0.85);
 	color:  rgba(194, 245, 19,1);
 	font-size: 18px;  
 	top: 50%;
 	left: 0%;
-	width: 90%;
-	padding: 4% 5% 13% 5%;
+	width: 100%;
+	padding: 3%;
+	box-sizing: border-box;
+	height: 28%;
+	line-height: 180%;
 }
 .bloqueo_3_a{/*prorroteoPuntos.php*/
-	/* background-color: rgba(0,0,0,0.85); */
 	color:  rgba(194, 245, 19,1);
 	font-size: 18px;  
-	top: 52%;
+	top: 59%;
 	left: 0%;
 	width: 90%;
 	padding: 4% 5%;
@@ -722,18 +725,12 @@ th{/*participantes.php*/
 	width: 100%; 
 }
 .Quinto{/*preguntaXxxxx_00.php*/
-	background-color:;
 	padding-top: 1%;
+	padding-bottom: 6%;
 	width: 90%;
 	height: 90px;
-	margin: auto;
-	border-top-color: #040652;
-	border-bottom-color: #040652;
-	border-bottom-style: solid;
-	border-top-style: solid;
 }
 .Quinto_2{/*contenedor de opciones para responder (preguntaXxxxx_00.php)*/
-	background-color:;
 	width: 100%;
 	height: 40px;
 	margin-top: 2%;
@@ -742,13 +739,11 @@ th{/*participantes.php*/
 	justify-content: space-between;
 }
 .Quinto_2 .efecto{/*preguntaXxxxx_00.php*/
-	background-color: ;
 	display: inline;
 	width: 50%;
 	font-size: 13px;
 }
 .recordar{/*principal.php*/
-	background-color:;
 	font-size: 10px; 
 	margin-top: 2%;
 	margin-left: 1%;

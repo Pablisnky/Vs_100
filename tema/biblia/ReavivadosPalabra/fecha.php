@@ -15,7 +15,16 @@
         // echo "ID_PP: " . $ID_PP . "<br>";
     }
 
-    if($Fecha == "2019/08/21"){
+    if($Fecha == "2019/08/31"){
+       include("08_19/31/posicionReavivadosPalabra.php");
+    }
+    else if($Fecha == "2019/08/30"){
+        include("08_19/30/posicionReavivadosPalabra.php");
+    }
+    else if($Fecha == "2019/08/29"){
+        include("08_19/29/posicionReavivadosPalabra.php");
+    }
+    else if($Fecha == "2019/08/21"){
         include("08_19/21/posicionReavivadosPalabra.php");
     }
     else if($Fecha == "2019/08/20"){

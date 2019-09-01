@@ -8,16 +8,16 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">La escuela sabática dedica el tercer sábado de cada mes a:</p>
+			<p class="pregunta">La escuela sabática de la Iglesia Adventista dedica el tercer sábado de cada mes a:</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200)";>El fondo de inversión</p>
-				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">Auditar diezmos y ofrendas</p>
+				<p id="principiantes_01a" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia();llamar_sombrear(); setTimeout(llamar_puntaje,200)";>El fondo de inversión</p>
+				<p id="principiantes_01c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Auditar diezmos y ofrendas</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">La santa cena</p>
-				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Visitar hermanos enfermos</p>
+				<p id="principiantes_01b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">La santa cena</p>
+				<p id="principiantes_01d" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Visitar hermanos enfermos</p>
 			</div>
 		</div>
 		<?php

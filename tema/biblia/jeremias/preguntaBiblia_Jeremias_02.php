@@ -12,12 +12,12 @@
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_01a" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200);">Han adorado las obras de sus manos</p>
-				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Han creado un becerro de oro.</p>
+				<p id="principiantes_01a" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia();llamar_sombrear(); setTimeout(llamar_puntaje,200);">Han adorado las obras de sus manos</p>
+				<p id="principiantes_01b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Han creado un becerro de oro.</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_01c" class="efecto" onclick="llamar_bloqueo()">Adoran a Baal.</p>
-				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">No guardan el sabado.</p>
+				<p id="principiantes_01c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Adoran a Baal.</p>
+				<p id="principiantes_01d" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">No guardan el sabado.</p>
 			</div>
 		</div>
 		<?php

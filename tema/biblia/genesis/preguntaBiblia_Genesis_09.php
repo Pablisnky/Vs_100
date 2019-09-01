@@ -12,12 +12,12 @@
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_09a" class="efecto" onclick="llamar_bloqueo()">Samson.</p>
-				<p id="principiantes_09b" class="efecto" onclick="llamar_bloqueo()">Salomon.</p>
+				<p id="principiantes_09a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Samson.</p>
+				<p id="principiantes_09b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Salomon.</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_09c" class="efecto" onclick="llamar_bloqueo()">El rey David.</p>
-				<p id="principiantes_09d" class="efecto" onclick="llamar_sombrear(); setTimeout(llamar_puntaje,200);">Nimrod.</p>
+				<p id="principiantes_09c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">El rey David.</p>
+				<p id="principiantes_09d" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia();llamar_sombrear(); setTimeout(llamar_puntaje,200);">Nimrod.</p>
 			</div>
 		</div>
 		<?php

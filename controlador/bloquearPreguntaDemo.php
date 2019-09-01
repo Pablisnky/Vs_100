@@ -50,7 +50,7 @@
 			<audio autoplay src="../../audio/Grafico.mp3" loop></audio>
 		<?php
 		
-		echo "<h3 class='bloqueo_2_a'>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
+		echo "<h3 class='bloqueo_2_b'>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
 		?>
 		<!-- Se refresca la pagina -->
 		<div class="contenedor_6" id="Flecha">
@@ -85,6 +85,6 @@
 				 </div>	<?php
 			}	
 			else if($Verificar["Correcto"] == 1){// si existe una respuesta correcta
-				echo "<h3 class='bloqueo_2'>Anteriormente usted respondio correctamente esta pregunta, pero ahora se ha equivocado, no tomaremos en cuenta su equivocación</h3>";
+				echo "<h3 class='bloqueo_3'>Anteriormente usted respondio correctamente esta pregunta, pero ahora se ha equivocado, no tomaremos en cuenta su equivocación</h3>";
 			}
 ?>		

@@ -28,17 +28,21 @@
 	</head>	
 	<body> 
 		<!--Construcion de ventanan modal-->
-        <!--
+        
 			<input type="checkbox" id="Cerrar">
         	<label for="Cerrar" id="btnCerrar">Cerrar</label>
 			<div class="modal">
-				<div class="contenedor_modal modal_2">
-					<p class="Inicio_1"><span>Promoción ImpresionArte</span></p>
-					<p>Obten el 20% de descuentos en nuestro servicio de impresión en plotter participando en nuestra trivia diaria</p>
-					<a class="a_1" href="vista/reglas_trivia.php">Participar</a>
-				</div>
+				<article class="contenedor_modal modal_2">
+					<p class="Inicio_1"><span></span></p>
+					<p>Este ministerio tiene el propósito de incentivar y promover la lectura de la biblia y los libros del espíritu de profecía, herramientas que nos hacen mejores personas para convivir en sociedad y asi complacer al Señor.</p>
+					<p>Pablo Cabeza</p>
+					<p class="Inicio_1"><span>Programador BackEnd de Desarrollos Web</span></p>
+				</article>
+				<aside>
+					<P>Hola</P>
+				</aside>
 			</div>     
-		-->
+		
 		<!--Termina ventana modal-->
 	
 		<header>
@@ -49,6 +53,7 @@
 		        <ul id="MenuContenedor">
 		            <li><a href="vista/principal.php">Entrar</a></li>
 		            <li><a href="vista/registro.php">Registrarse</a></li>
+		            <li><a href="vista/creditos.php">Creditos</a></li>
 		            <li><a href="../vista/club.php">Club de lectura</a></li>
 		            <li><a href="vista/contacto.php">Contacto</a></li>
 		            <li><a href="vista/demo.php">Demo</a></li> 

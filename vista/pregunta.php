@@ -56,7 +56,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		$Consulta="SELECT * FROM respuestas WHERE ID_Participante='$participante' AND Correcto='1' AND Tema='$Tema' AND ID_PP ='$ID_PP'";
 		$Recordset = mysqli_query($conexion, $Consulta) or die (mysqli_error($conexion));
 		$Puntaje= mysqli_num_rows($Recordset);//se suman los registros que tiene la consulta realizada.
-		// echo "Puntos: " . $Puntaje;
+		//   echo "Puntos: " . $Puntaje;
 		if($Tema == "Reavivados"){
 			if ($Puntaje==0){
 				$Num_Pregunta= 1;// definiendo una variable para identificar el número de la pregunta;
@@ -134,7 +134,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
 		<link rel="stylesheet" type="text/css" href="../iconos/icono_siguiente/style_siguiente.css"/> <!--galeria icomoon.io  -->
 		<link rel="stylesheet" type="text/css" href="../iconos/icono_repetir/style_repetir.css"/> <!--galeria icomoon.io  -->
-
+		
 		<script src="../javascript/puntaje.js"></script>
 		<script src="../javascript/bloqueo.js"></script>
 		<script src="../javascript/Funciones_varias.js"></script>
@@ -181,20 +181,32 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 	                    case "Biblia":
 							switch($Tema){
 			                    case "Exodo":
-									   include("../tema/biblia/exodo/posicionExodo.php");
-									   include("../audio/FondoBiblia_1.php");
+									include("../tema/biblia/exodo/posicionExodo.php");
+									if($Puntaje<10){
+										include("../audio/FondoBiblia_1.php");
+									}
 			                    break;
 			                    case "Genesis":
 			                       	include("../tema/biblia/genesis/posicionGenesis.php");
+									if($Puntaje<10){
+										include("../audio/FondoBiblia_1.php");
+								    }
 			                    break;
 			                    case "Jeremias":
 			                       	include("../tema/biblia/jeremias/posicionJeremias.php");
+									if($Puntaje<10){
+										include("../audio/FondoBiblia_1.php");
+								    }
 			                    break;
 			                    case "Doctrina":
 			                       	include("../tema/biblia/doctrina/posicionDoctrina.php");
+									if($Puntaje<10){
+										include("../audio/FondoBiblia_1.php");
+								    }
 			                    break;
 			                    case "Reavivados":
-			                       	include("../tema/biblia/ReavivadosPalabra/fecha.php");
+			                        include("../tema/biblia/ReavivadosPalabra/fecha.php");
+									
 			                    break;
 			                }
 	                    break;
@@ -220,7 +232,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<?php
 			if($Tema == "Reavivados"){
-				if($Puntaje<5){ //No se muestra si se encuentra en la ultima pregunta de reavivados ?>
+				if($Puntaje<5){//No se muestra si se encuentra en la ultima pregunta de reavivados ?>
 					<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
 						<div id="Temporizador_2">
 							<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
@@ -236,7 +248,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 					<?php
 				}
 			}
-			else {
+			else{
 				if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
 					<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
 						<div id="Temporizador_2">
@@ -247,7 +259,6 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 					<div class="contenedor_7">
 						<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
 					</div>
-					<audio src="../../audio/AudioCorrecta.mp3" autoplay loop></audio>
 					<div class="contenedor_6" id="Flecha">
 						<a  href='javascript:history.go(0)'><span class="icon-arrow-right parpadea" title="Siguiente"></span></a>
 					</div>
