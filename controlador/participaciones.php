@@ -68,7 +68,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				                    <?php
 				                        $i = 1;
 				                        //se consulta las pruebas en las que el participante se ha inscrito 
-									    $Consulta= "SELECT ID_Prueba, Tema, Puntos,  Fecha_pago FROM participantes_pruebas WHERE ID_Participante = '$participante' AND Prueba_Cerrada = 1";
+									    $Consulta= "SELECT ID_Prueba, Tema, Puntos,  Fecha_pago FROM participantes_pruebas WHERE ID_Participante = '$participante' AND Prueba_Cerrada = 1 ORDER BY Fecha_pago DESC";
 									    $Recordset=mysqli_query($conexion, $Consulta); 					            		
 				                        while($Pruebas= mysqli_fetch_array($Recordset)){                            
 					                        //Se cambia el formato de los puntos, la Pruebase decimal es recibida con punto desde la BD y se cambia a coma

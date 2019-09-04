@@ -5,9 +5,6 @@
 	$Tema= $_GET["Tema"];//recibe el tema de la prueba desde temas.php
     // echo "Tema= " . $Tema . "<br>";
 
-    $Categoria= $_GET["Categoria"];//recibe el tema de la prueba desde temas.php
-    // echo "Categoria= " . $Categoria . "<br>";
-
     $Participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el ID del participante, sesion creada en validarSesion.php
     // echo "ID_Participante= " . $Participante . "<br>";
 
@@ -35,7 +32,7 @@
         $Recordset = mysqli_query($conexion, $Consulta_0);
         if(mysqli_num_rows($Recordset) == 1) {
 
-            echo "<h3>Ya participastes en la prueba de hoy, mañana continuamos estudiando</h3>" . "<br>";
+            echo "<p class='p4'>Ya participastes en la prueba de hoy, mañana continuamos estudiando</p>" . "<br>";
             
 //--------------------------------------------
            //esta parte del codigo en construccion
@@ -46,16 +43,7 @@
             ?>
             <link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
             <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
-            <label class="label buttonCuatro" onclick="cerrar()">Regresar</label> 
-
-            <script type="text/javascript">
-                function cerrar(){
-                    // Se recarga la ventana padre
-                    window.opener.location.reload();
-                    // se cierra la ventana POPUP
-                    this.window.close();
-                }
-            </script>
+            <a class="label buttonCuatro" href="javascript:history.go(-1)">Regresar</a> 
             <?php
             exit();
         }
@@ -66,21 +54,24 @@
             // echo "Aleatorio= " . $Aleatorio . "<br>";
             
             //Se activa la prueba reavivados en la BD 
-            $Insertar= "INSERT INTO participantes_pruebas(ID_Participante, ID_Prueba, Categoria, Tema, Deposito, Prueba_Pagada, Prueba_Activa, Fecha_pago) VALUES('$Participante', '$ID_Prueba', '$Categoria', '$Tema', '$Aleatorio',1 ,1 , NOW())" ;
+            $Insertar= "INSERT INTO participantes_pruebas(ID_Participante, ID_Prueba, Tema, Deposito, Prueba_Pagada, Prueba_Activa, Fecha_pago) VALUES('$Participante', '$ID_Prueba', '$Tema', '$Aleatorio',1 ,1 , NOW())" ;
             mysqli_query($conexion, $Insertar) or DIE ('Falló conexión a la base de datos');
 
             //Se da la señal de que participo en la prueba de hoy
             $Insertar_2= "INSERT INTO pruebas_reavivados(ID_Participante, Fecha) VALUES('$Participante', NOW())" ;
             mysqli_query($conexion, $Insertar_2) or DIE ('Falló conexión a la base de datos');
 
+            
+    header("location:entrada.php");
+
         }   ?>
-        
+<!--         
         <script type="text/javascript">
             // Se recarga la ventana padre
             window.opener.location.reload();
             // se cierra la ventana POPUP
             this.window.close();
-        </script>
+        </script> -->
         <?php
     }
         else{//Si el tema no es reavivadoss
@@ -90,7 +81,7 @@
         // echo "Aleatorio= " . $Aleatorio . "<br>";
 
         //Se activa la prueba en la BD 
-        $Insertar= "INSERT INTO participantes_pruebas(ID_Participante, ID_Prueba, Categoria, Tema, Deposito, Prueba_Pagada, Prueba_Activa, Fecha_pago) VALUES('$Participante', '$ID_Prueba', '$Categoria', '$Tema', '$Aleatorio',1 ,1 , NOW())" ;
+        $Insertar= "INSERT INTO participantes_pruebas(ID_Participante, ID_Prueba, Tema, Deposito, Prueba_Pagada, Prueba_Activa, Fecha_pago) VALUES('$Participante', '$ID_Prueba', '$Tema', '$Aleatorio',1 ,1 , NOW())" ;
         mysqli_query($conexion, $Insertar) or DIE ('Falló conexión a la base de datos');	
 
         //Se consulta el codigo de la prueba
@@ -99,10 +90,12 @@
         $Resultado= mysqli_fetch_array($Recordset); 
         $CodigoID_PP= $Resultado["ID_PP"];  
     }      
+
+    header("location:entrada.php");
 ?>
 <script type="text/javascript">
-    // Se recarga la ventana padre
-    window.opener.location.reload();
-    // se cierra la ventana POPUP
-    this.window.close();
+    // // Se recarga la ventana padre
+    // window.opener.location.reload();
+    // // se cierra la ventana POPUP
+    // this.window.close();
 </script>

@@ -52,7 +52,7 @@
 					</iframe> 
 					<audio autoplay src="../audio/MysticBeauty.mp3" loop></audio>
 				<?php
-				echo "<h3 class='bloqueo_2'>Nuevamente su respuesta fue equivocada, fue penalizado con 2,25 centesimas de sus puntos</h3>";
+				echo "<h3 class='bloqueo_2_c'>Nuevamente su respuesta fue equivocada, fue penalizado con 2,25 centesimas de sus puntos</h3>";
 				//echo "<h3>La cookie de bloqueo no esta en tiempo de ejecucón.</h3>";
 				//echo "<h3>No hay registro en la BD.</h3>";
 				//echo "<h3>Se crea la cookie de bloqueo</h3>";

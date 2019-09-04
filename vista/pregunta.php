@@ -19,9 +19,6 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		$ID_PP = $_GET["ID_PP"]; //Se recibe desde entrada.php
 		// echo "ID_PP: " . $ID_PP . "<br>";
 
-		$Categoria = $_GET["Categoria"]; //Se recibe desde entrada.php
-		// echo "Categoria: " . $Categoria . "<br>";
-
 		$Fecha = $_GET["fecha"]; //Se recibe desde entrada.php
 		// echo "Fecha: " . $Fecha . "<br>";
 
@@ -34,7 +31,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		}
 		else{
 			$ID_Prueba= $_GET["ID_Prueba"]; //Se recibe desde entrada.php
-			//  echo "ID_Prueba: " . $ID_Prueba . "<br>";
+			// echo "ID_Prueba: " . $ID_Prueba . "<br>";
 		}
 		$_SESSION["Tema"]= $Tema;//se crea una nueva sesion, en esta sesion se guardará el tema de la prueba
 		// echo "Sesion con el tema: " . $_SESSION["Tema"] . "<br>";
@@ -44,9 +41,6 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 		$_SESSION["ID_Prueba"]= $ID_Prueba;//se crea una nueva sesion, en esta sesion se guardará el ID_Prueba
 		// echo "Sesion con el ID_Prueba: " . $_SESSION["ID_Prueba"] . "<br>";
-
-        $_SESSION["Categoria"]= $Categoria;//en esta sesion se crea la categoria de la prueba.
-        // echo "Categoria de la prueba:" .  $_SESSION["Categoria"] . "<br>";
 
 	    $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
 		// echo "ID_Participante: " . $participante . "<br>";
@@ -152,7 +146,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 		<div class="Secundario">
 			<div class="encabezado">
-	    		<h1 class="anula">Versus_20</h1>
+	    		<h1 class="anula">Reavivados</h1>
 	    	</div>
 				<?php
 					if($Tema == "Reavivados"){
@@ -171,14 +165,6 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<div>
 				<?php
-					switch($Categoria){
-	                    case "Familia":
-	                       	include("../tema/hogar_madre/posicionHogar_Madre.php");
-	                    break;
-	                    case "Venezuela":
-	                       	include("../tema/venezuela/posicionVenezuela.php");
-	                    break;
-	                    case "Biblia":
 							switch($Tema){
 			                    case "Exodo":
 									include("../tema/biblia/exodo/posicionExodo.php");
@@ -209,25 +195,6 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 									
 			                    break;
 			                }
-	                    break;
-	                    case "Colombia":
-							switch($Tema){
-								case "Geografia";
-	                      			include("../tema/colombia/Geografia/posicionCol_Geografia.php");
-	                      		break;
-								case "Cultura general";
-	                      			include("../tema/colombia/CulturaGeneral/posicionColombia.php");
-	                      		break;
-	                      	}
-	                    break;
-	                    case "Musica":
-							switch($Tema){
-								case "Teoria";
-	                      			include("../tema/musica/Teoria/posicionMusica_teoria.php");
-	                      		break;
-	                      	}
-	                    break;
-	                }
 	            ?>
 			</div>
 			<?php

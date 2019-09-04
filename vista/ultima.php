@@ -7,9 +7,6 @@
 	$Tema= $_SESSION["Tema"];//en esta sesion se tiene guardado el tema de la prueba, sesion creada en seleccionTema.php
 	//  echo "El tema de la prueba es: " . $Tema . "<br>";
 
-	$Categoria= $_SESSION["Categoria"];//en esta sesion se tiene guardado la categoria de la prueba, sesion creada en seleccionTema.php
-	// echo "La categoria de la prueba es: " . $Categoria . "<br>";
-
 	$CodigoPrueba =$_SESSION["codigoPrueba"];
 	// echo "Codigo prueba= " . $CodigoPrueba . "<br>";
 
@@ -53,13 +50,71 @@
 			<h4 class="ultima_1"><?php echo $Participante["Nombre"];?></h4>
 			<?php 				
 				if($Tema == "Reavivados"){ ?>
-					<h4 class="ultima_1">Has concluido tu prueba diaria sobre <br> Reavivados por su palabra</h4>  <?php
+					<h4 class="ultima_1">Has concluido tu prueba diaria sobre <br> <span class="span_5">"Reavivados por su palabra"</span></h4>  <?php
 				} 
 				else{  ?>           				
 					<h4 class="ultima_1">Has concluido tu prueba sobre:</h4>
 					<h4 class="ultima_1"><?php echo $Categoria . "_" . $Tema;?></h4>  <?php
 				}  
 			?>
+			<div class="tabla_3">
+				<table>
+					<caption class="caption_correc">Respuestas correctas</caption>
+					<thead>
+						<tr>
+							<th>Pregunta</th>
+							<th>Puntos</th>
+							<th>Tiempo</th>
+						</tr>
+					</thead>
+					<?php
+					//Se consulta el tiempo que tardo en responder una pregunta  
+					$Consulta_2="SELECT ID_Pregunta, puntoGanado, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo FROM respuestas WHERE ID_PP='$CodigoPrueba' AND Correcto = 1 AND puntoGanado > 0 GROUP BY ID_Pregunta ";
+					$Recordset_2 = mysqli_query($conexion, $Consulta_2);					
+					while($TiempoPregunta= mysqli_fetch_array($Recordset_2)){  ?>
+						<tbody>
+							<tr>
+								<td class="tabla_0"><?php echo $TiempoPregunta["ID_Pregunta"];?></td>
+								<td class="tabla_1"><?php echo $TiempoPregunta["puntoGanado"];?></td> 
+								<td class="tabla_0"><?php echo $TiempoPregunta["tiempo"];?></td> 
+								<!-- <td class="tabla_1"><?php// echo date("d-m-Y", strtotime($participantes["fecha_Registro"])); ?></td><!se cambia el formato de la fecha de registro--> 
+								<!--<td><?php// echo date("d-m-Y", strtotime($participantes[0])); ?></td>se cambia el formato de la fecha de ultima participacion-->           
+							</tr>
+							<?php  
+					}   ?> 
+						</tbody>
+				</table>
+				<?php
+					 // puntos descontados por cada pregunta incorre
+						$Consulta_3="SELECT ID_Pregunta, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo, SUM(puntoGanado) As penalizacion FROM respuestas WHERE ID_PP='$CodigoPrueba' AND puntoGanado <= 0.000 GROUP BY ID_Pregunta ";
+						$Recordset_3 = mysqli_query($conexion, $Consulta_3);
+					if(mysqli_num_rows($Recordset_3)!=0){
+				?>
+					<table>
+						<caption class="caption_incorrec">Respuestas incorrectas</caption>
+						<thead>
+							<tr>
+								<th>Pregunta</th>
+								<th>Puntos</th>
+								<th>Tiempo</th>
+							</tr>
+						</thead>
+						<?php
+						while($PuntosPregunta= mysqli_fetch_array($Recordset_3)){  
+						?>
+						<tbody>
+							<tr>
+								<td class="tabla_0"><?php echo $PuntosPregunta["ID_Pregunta"];?></td>
+								<td class="tabla_1"><?php echo $PuntosPregunta["penalizacion"];?></td>
+								<td class="tabla_0"><?php echo $PuntosPregunta["tiempo"];?></td>  
+						</tr><?php
+						 } ?>
+					</tbody>
+				</table>
+			<?php
+			}
+			?>
+		</div>
 			<div class="ultimaPregunta">
 				<?php
 			    	//se realiza una consulta para obtener los puntos del participante
@@ -134,11 +189,11 @@
 					$Participante_4a= mysqli_num_rows($Recordset_4);
 					//  echo "El total de participantes son= " . $Participante_4a . "<br>";
 
-					//(Comercial)Se consulta cuantos participantes faltan por responder la prueba
-			    	$Consulta_6="SELECT ID_Prueba FROM participantes_pruebas WHERE ID_Prueba='$ID_Prueba' AND Prueba_Cerrada= 0";
+					//Se consulta cuantos participantes faltan por responder la prueba
+			    	$Consulta_6="SELECT DISTINCT(ID_Participante) FROM participantes_pruebas WHERE  ID_Participante != ALL (SELECT ID_Participante FROM `participantes_pruebas` WHERE ID_Prueba= 5 and DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE())";
 					$Recordset_6 = mysqli_query($conexion, $Consulta_6);
 					$Participante_6= mysqli_num_rows($Recordset_6);
-					//echo "Faltan por responder " . $Participante_6 . " participantes";
+					// echo "Faltan por responder " . $Participante_6 . " participantes";
 
 					//Se consulta si es una prueba libre o una de pago
 					$Consulta_7= "SELECT Categoria FROM participantes_pruebas WHERE Categoria= 'Biblia' AND Tema = '$Tema'";
@@ -178,88 +233,48 @@
 								// echo "Ocupas el puesto Número= " . $Posicion['PusRea'] . "<br>";
 
 								//Se consulta el nombre del lider de la prueba
-								$Consulta_11="SELECT participantes_pruebas.ID_Participante, participante.Nombre, ID_PP FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE ID_Prueba=  '$ID_Prueba' ORDER BY Puntos DESC LIMIT 1";
+								$Consulta_11="SELECT participantes_pruebas.ID_Participante, participante.Nombre, participante.Iglesia, participante.SubRegion, ID_PP FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE ID_Prueba=  '$ID_Prueba' ORDER BY Puntos DESC LIMIT 1";
 								$Recordset_11= mysqli_query($conexion, $Consulta_11);
 								$Resultado_11= mysqli_fetch_array($Recordset_11);
 								$Participante_11= $Resultado_11["Nombre"];
 										?>							
-								<p class="Inicio_5">Temporalmente tu posición hoy es de Nº <?php echo $PosicionBiblia['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
-								<small class="small_1">Resultados definitivos del dia, al cierre de la prueba. (8:00 pm)</small>
-								<p class="Inicio_5">Tu posición general es de Nº <?php echo $Posicion['PusRea'];?> de <?php echo $Participante_4;?> participantes.</p> 		
-								<p class="Inicio_5">Actualmente el lider general de la prueba es:<?php echo $Participante_11;?></p>  <?php
-							}	
-					} 
-					else{ 
-		    			if($Participante_6 == 0){  ?>           	
-		    				<p class="Inicio_5">Te ubicas en la posición Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p>  <?php
-		    			}   
-		    			if($Participante_6 >= 2){  ?>
-		    				<p class="Inicio_5">Temporalmente te encuentras en la posición Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
-		    				<strong class="Inicio_8"><?php echo $Participante_6;?> participantes aún no han respondido esta prueba</strong>  <?php 
-		    			}
-		    			else if($Participante_6 == 1){  ?>
-		    				<p class="Inicio_5">Temporalmente te ubicas en la posición Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
-		    				<strong class="Inicio_8"><?php echo $Participante_6;?> participante aún no ha respondido esta prueba</strong>  <?php 
-		    			}  
-		    		}  ?>
-		    	<div class="tabla_3">
-	                <table>
-	                	<caption class="caption_correc">Respuestas correctas</caption>
-	                    <thead>
-	                        <tr>
-	                            <th>Pregunta</th>
-	                            <th>Puntos</th>
-	                            <th>Tiempo</th>
-	                        </tr>
-	                    </thead>
-	                    <?php
-						//Se consulta el tiempo que tardo en responder una pregunta  
-						$Consulta_2="SELECT ID_Pregunta, puntoGanado, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo FROM respuestas WHERE ID_PP='$CodigoPrueba' AND Correcto = 1 AND puntoGanado > 0 GROUP BY ID_Pregunta ";
-						$Recordset_2 = mysqli_query($conexion, $Consulta_2);					
-						while($TiempoPregunta= mysqli_fetch_array($Recordset_2)){  ?>
-	                    	<tbody>
-	                        	<tr>
-									<td class="tabla_0"><?php echo $TiempoPregunta["ID_Pregunta"];?></td>
-									<td class="tabla_1"><?php echo $TiempoPregunta["puntoGanado"];?></td> 
-									<td class="tabla_0"><?php echo $TiempoPregunta["tiempo"];?></td> 
-									<!-- <td class="tabla_1"><?php// echo date("d-m-Y", strtotime($participantes["fecha_Registro"])); ?></td><!se cambia el formato de la fecha de registro--> 
-									<!--<td><?php// echo date("d-m-Y", strtotime($participantes[0])); ?></td>se cambia el formato de la fecha de ultima participacion-->           
-	                        	</tr>
-								<?php  
-						}   ?> 
-	                    	</tbody>
-	                </table>
-	                <?php
-		                 // puntos descontados por cada pregunta incorre
-							$Consulta_3="SELECT ID_Pregunta, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo, SUM(puntoGanado) As penalizacion FROM respuestas WHERE ID_PP='$CodigoPrueba' AND puntoGanado <= 0.000 GROUP BY ID_Pregunta ";
-							$Recordset_3 = mysqli_query($conexion, $Consulta_3);
-	                	if(mysqli_num_rows($Recordset_3)!=0){
-	                ?>
-		                <table>
-		                	<caption class="caption_incorrec">Respuestas incorrectas</caption>
-		                    <thead>
-		                        <tr>
-		                            <th>Pregunta</th>
-		                            <th>Puntos</th>
-		                            <th>Tiempo</th>
-		                        </tr>
-		                    </thead>
-		                    <?php
-							while($PuntosPregunta= mysqli_fetch_array($Recordset_3)){  
-							?>
-		                    <tbody>
-		                        <tr>
-		                            <td class="tabla_0"><?php echo $PuntosPregunta["ID_Pregunta"];?></td>
-		                            <td class="tabla_1"><?php echo $PuntosPregunta["penalizacion"];?></td>
-		                            <td class="tabla_0"><?php echo $PuntosPregunta["tiempo"];?></td>  
-		                    </tr><?php
-		                     } ?>
-		                </tbody>
-		            </table>
-	            <?php
-	        	}
-	            ?>
-			</div>
+								<p class="Inicio_5">Tu posición hoy es de Nº <?php echo $PosicionBiblia['Pus'];?> de <?php echo $Participante_4;?> participantes.</p>  
+								
+								<?php
+								if($Participante_6 >= 2){  ?>
+									<strong class="Inicio_8"><?php echo $Participante_6;?> participantes aún no han respondido esta prueba</strong>  <?php 
+								}
+								else if($Participante_6 == 1){  ?> 
+									<strong class="Inicio_8"><?php echo $Participante_6;?> participante aún no ha respondido esta prueba</strong>  <?php 
+								}  
+								?>
+
+								<!-- <small class="small_1">Resultados definitivos del dia, al cierre de la prueba. (8:00 pm)</small> -->
+								<p class="Inicio_5">Tu posición general es de Nº <?php echo $Posicion['PusRea'];?> de <?php echo $Participante_4;?> participantes.</p> 
+								<div class="tabla_4">
+									<table>
+										<caption class="caption_lider">lider general de la prueba</caption>
+										<thead>
+											<th>Nombre</th>
+											<th>Apellido</th>
+											<th>Iglesia</th>
+											<th>Región</th>
+										</thead>
+										<tbody>	
+											<tr>
+												<td class="tabla_0"><?php echo $Participante_11;?></td>
+												<td class="tabla_0">Diaz</td>
+												<td class="tabla_0"><?php echo $Resultado_11["Iglesia"];?></td>
+												<td class="tabla_0"><?php echo $Resultado_11["SubRegion"];?></td>
+											</tr>
+										</tbody>
+									</table>		
+								</div>
+										<?php
+								}	
+						} 
+						else{ 
+						}  ?>
 		    <div class="Gratis_2">
 				<?php
 					if($Tema == "Reavivados"){ 
@@ -267,7 +282,7 @@
 					}
 				?>
 				<audio id="FondoComercial_1" autoplay src="../audio/DarknessInMetropolis.mp3" loop></audio>
-		    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Versus_20</p>
+		    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Reavivados</p>
 		    </div>
 	    	</div>
 			<nav class="navegacion_2">

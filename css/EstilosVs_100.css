@@ -362,6 +362,10 @@ td{
 	background-color: red;
 	color: white;
 }
+.caption_lider{/*ultima.php*/
+	background-color: cyan;
+	color: black;
+}
 .cerrar{/*entrada.php*/ 
 	text-align: center; 
 	padding: 3%; 
@@ -468,17 +472,19 @@ td{
 	font-family:verdana;
 }
 .entrada_4{/*entrada.php*/
-	width: 30%;
-	margin:5% auto;
-	min-height: 280px;
+	width: 120%;
+	/*margin:5% auto;
+	min-height: 280px; */
 }
 .entrada_5{/*entrada.php*/ 
-	margin-top: -4%;
+	/* margin-top: -4%;*/
 	margin:auto;
-	padding-top: 2%;
-	display: flex;
+	margin-top: 2%; 
+	display: grid;
+	grid-template-columns: 140px 140px 140px 140px 140px ;
+	justify-content: space-between;
+	align-content: center;
 	width: 80%;
-	justify-content: center;
 }
 .entrada_6{
 	display: inline-block; 
@@ -729,13 +735,13 @@ td{
 	border-top-style: solid;
 	border-bottom-width: 1px;
 	padding-top: 3%;
+	width: 70%;
+	margin: auto;
 }
 .nav_4{/*entrada.php*/
-	background-color:#F4FCFB; 
-	color:  rgba(4, 7, 82, 0.2) !important;
-	border: none;
-	text-align: left;
-	padding-left: 60px;
+	background-color: #F4FCFB;
+	color:  rgba(4, 7, 82, 0.3) !important;
+	border:none;
 }
 .nav_5{/*registrarse.php*/
 	border-top-style: solid;
@@ -759,12 +765,12 @@ td{
 	margin-top: 3%;
 }
 .nav_7{/*entrada.php*/
-	background-color:#F4FCFB;
+	background-color: #F4FCFB;
 	cursor: pointer;
-	display: inline-block !important;
-	text-align: left;
-	margin-top: 3%;
-	margin-left: 25%;
+	display: block !important;
+	text-align: center;
+	margin-top: 5%;
+	margin-left: auto; 
 	margin-right: auto;
 	width: auto;
 	border:none;
@@ -930,6 +936,16 @@ td{
 	font-size: 30px; 
 	font-family:arial;
 }
+.p4{/*registro_Libre.php*/
+	font-size: 30px; 
+	width: 60%; 
+	margin:8% auto
+}
+.p_5{/*entrada.php*/
+	font-size: 17px; 
+	width: 60%; 
+	margin:2% auto
+}
 .Quinto{/*contenedor de opciones para responder (preguntaXxxxx_00.php)*/
 	/* padding-top: 1%; */
 	padding-bottom: 3%;
@@ -937,7 +953,7 @@ td{
 	height: 115px;
 	margin: auto;
 	border-top-color: #040652;
-	border-bottom-color: #040652;
+	border-bottom-color: rgb(4, 6, 82);
 	border-bottom-style: solid;
 	border-top-style: solid;
 }
@@ -997,6 +1013,11 @@ td{
 	font-size:31px;
 	margin: 3%;
 }
+.span_5{/*ultima.php*/
+	font-family:courier; 
+	font-size:35px !important; 
+	color:orange;
+}
 .super_in{/*entrada.php*/
 	font-size: 10px;
 }
@@ -1013,6 +1034,11 @@ td{
 }
 .tabla_3{/*ultima.php*/ 
 	width: 20%; 
+	margin: auto;
+	margin-top:  3%;
+}
+.tabla_4{/*ultima.php*/ 
+	width: 50%; 
 	margin: auto;
 	margin-top:  3%;
 }

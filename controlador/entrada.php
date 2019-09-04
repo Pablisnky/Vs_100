@@ -37,8 +37,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 					<?php include("../vista/modulos/header_usuario.html");?>   		   		
 				</header>
 				<br><br><br><br><br><br>
-				<div class="Secundario"  onclick="ocultarMenu()">
-					<p class="Inicio_9">Tus conocimientos valen, ganar no es cuestión de suerte.</p>	
+				<div class="Secundario"  onclick="ocultarMenu()">	
 					<?php
 					//Se verifica si el participante tiene pruebas pendientes por responder
 					$Consulta_0="SELECT ID_PP,ID_Prueba,Categoria,Tema,DATE_FORMAT(Fecha_pago, '%Y/%m/%d') AS Fecha_pago FROM participantes_pruebas WHERE ID_Participante='$participante' AND (Prueba_Activa = 1 AND Prueba_Pagada = 1 AND Prueba_Cerrada = 0 )";
@@ -66,7 +65,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									$Fecha= $Registro_2["Fecha_pago"];
 									?>
 									<div style="text-align: center; margin-top: 3%;">
-										<a href="../vista/pregunta.php?tema=<?php echo $Tema?>&ID_PP=<?php echo $ID_PP?>&fecha=<?php echo $Fecha?>&ID_Prueba=<?php echo $ID_Prueba;?>&Categoria=<?php echo $Categoria;?>"><?php echo $Registro_2["Categoria"] . "_" . $Registro_2["Tema"];?></a>
+	<a href="../vista/pregunta.php?tema=<?php echo $Tema?>&ID_PP=<?php echo $ID_PP?>&fecha=<?php echo $Fecha?>&ID_Prueba=<?php echo $ID_Prueba;?>"> <?php echo $Registro_2["Tema"];?></a>
 										<p class="entrada_6"> | Código</p>
 										<p class="entrada_6"><?php echo $Registro_2["ID_PP"];?></p>
 									</div>
@@ -76,39 +75,103 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 							<?php
 						}   
 						  ?>
-							<p class="entrada_1">Participación: $ 3.000 (COP)</p>
-							<div class="Premio" >
-								<div id="EntradaParticipante" class="entradaParticipante">
-									<p class="entrada_2">1<sup class="super_in">er</sup> Premio</p>  
-									<p class="entrada_3">$ 40.000 (COP)</p>
-								</div>
-								<div id="EntradaParticipante" class="entradaParticipante">
-									<p class="entrada_2">2<sup class="super_in">do</sup> Premio</p>  
-									<p class="entrada_3">$ 7.000 (COP)</p>
-								</div>
-								<div id="EntradaParticipante" class="entradaParticipante">
-									<p class="entrada_2">3<sup class="super_in">er</sup> Premio</p>  
-									<p class="entrada_3">$ 3.000 (COP)</p>
-								</div>
-							</div>
-							<p class="nav_2" >Seleccione una categoría para su prueba de 10 preguntas.</p>
+						  <p class="Inicio_9">¿Estudiaste el capitulo de hoy?</p>	
+						  <p class="Inicio_1">Participa en el reto diario de Reavivados por su palabra</p>
+							<!-- <p class="entrada_1">2 reyes 13</p> -->
+							<a class="nav_7" href="registro_Libre.php?Tema=Reavivados">Iniciemos</a> 
+							
+							<p class="Inicio_9">O si prefieres</p>
+							<p class="nav_2">Seleccione una tema para una prueba corta de 10 preguntas.</p>
 							<div class="entrada_5">
 								<div class="entrada_4 ">
-									<input type="text" class="nav_4" readonly="readonly" value="Ingenieria civil">
-									<input type="text" class="nav_4" readonly="readonly" value="Ingenieria Mecánica">
-									<input type="text" class="nav_7" readonly="readonly" value="Familia" onclick="SeleccionarFamilia()">
-									<input type="text" class="nav_4" readonly="readonly" value="Matematica">
-									<input type="text" class="nav_4" readonly="readonly" value="Geografia">
-									<input type="text" class="nav_4" readonly="readonly" value="Cultura general">
-									<input type="text" class="nav_7" readonly="readonly" value="Colombia" onclick="SeleccionarColombia()">
+									<p class="p_5">Libros del Pentateuco</p>
+									<a class="nav_7" href="registro_Libre.php?Tema=Genesis">Genesis</a>
+									<a class="nav_7" href="registro_Libre.php?Tema=Exodo">Éxodo</a>
+									<input type="text" class="nav_4" readonly="readonly" value="Levítico">
+									<input type="text" class="nav_4" readonly="readonly" value="Números">
+									<input type="text" class="nav_4" readonly="readonly" value="Deuteronomio">
 								</div>
 								<div class="entrada_4">
-									<input type="text" class="nav_4" readonly="readonly" value="Arte">
-									<input type="text" class="nav_4" readonly="readonly" value="Deporte">
-									<input type="text" class="nav_7" readonly="readonly" value="Musica" onclick="SeleccionarMusica()">
-									<input type="text" class="nav_4" readonly="readonly" value="Programación">
-									<input type="text" class="nav_7" readonly="readonly" value="Venezuela" onclick="SeleccionarVenezuela()">
-									<input type="text" class="nav_9" readonly="readonly" value="Biblia" onclick="SeleccionarBiblia()"> <span class="small">libre</span> 
+									<p class="p_5">Libros historicos</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Josué">
+									<input type="text" class="nav_4" readonly="readonly" value="Jueces">
+									<input type="text" class="nav_4" readonly="readonly" value="Rut">
+									<input type="text" class="nav_4" readonly="readonly" value="1 y 2 Samuel">
+									<input type="text" class="nav_4" readonly="readonly" value="1 y 2 Reyes">
+									<input type="text" class="nav_4" readonly="readonly" value="1 y 2 Crónicas">
+									<input type="text" class="nav_4" readonly="readonly" value="Esdras">
+									<input type="text" class="nav_4" readonly="readonly" value="Nehemías">
+									<input type="text" class="nav_4" readonly="readonly" value="Ester">
+								</div>
+								<div class="entrada_4">
+									<p class="p_5">Libros poeticos</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Job">
+									<input type="text" class="nav_4" readonly="readonly" value="Salmos">
+									<input type="text" class="nav_4" readonly="readonly" value="Proverbios">
+									<input type="text" class="nav_4" readonly="readonly" value="Eclesiastés">
+									<input type="text" class="nav_4" readonly="readonly" value="Venezuela">
+									<input type="text" class="nav_4" readonly="readonly" value="Cantar de los cantares">
+								</div>
+								<div class="entrada_4">
+									<p class="p_5">Libros de profetas mayores</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Isaías">
+									<a class="nav_7" href="registro_Libre.php?Tema=Jeremias>">Jeremías</a>
+									<input type="text" class="nav_4" readonly="readonly" value="Lamentaciones">
+									<input type="text" class="nav_4" readonly="readonly" value="Ezequiel">
+									<input type="text" class="nav_4" readonly="readonly" value="Daniel">
+								</div>
+								<div class="entrada_4">
+									<p class="p_5">Libros de profetas menores</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Oseas">
+									<input type="text" class="nav_4" readonly="readonly" value="Joel">
+									<input type="text" class="nav_4" readonly="readonly" value="Amós">
+									<input type="text" class="nav_4" readonly="readonly" value="Abdías">
+									<input type="text" class="nav_4" readonly="readonly" value="Jonás">
+									<input type="text" class="nav_4" readonly="readonly" value="Miqueas">
+									<input type="text" class="nav_4" readonly="readonly" value="Nahúm">
+									<input type="text" class="nav_4" readonly="readonly" value="Habacuc">
+									<input type="text" class="nav_4" readonly="readonly" value="Sofonías">
+									<input type="text" class="nav_4" readonly="readonly" value="Hageo">
+									<input type="text" class="nav_4" readonly="readonly" value="Zacarías">
+									<input type="text" class="nav_4" readonly="readonly" value="Malaquías">
+								</div>
+								<div class="entrada_4">
+									<p class="p_5">Libros de evangelios</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Mateo">
+									<input type="text" class="nav_4" readonly="readonly" value="Marcos">
+									<input type="text" class="nav_4" readonly="readonly" value="Lucas">
+									<input type="text" class="nav_4" readonly="readonly" value="Juan">
+								</div>
+								<div class="entrada_4">
+									<p class="p_5">Historia de la Iglesia Primitiva</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Hechos">
+								</div>
+								<div class="entrada_4">
+									<p class="p_5">Epistolas del apóstol Pablo</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Romanos">
+									<input type="text" class="nav_4" readonly="readonly" value="1 y 2 Corintios">
+									<input type="text" class="nav_4" readonly="readonly" value="Gálatas">
+									<input type="text" class="nav_4" readonly="readonly" value="Éfesios">
+									<input type="text" class="nav_4" readonly="readonly" value="Filipenses">
+									<input type="text" class="nav_4" readonly="readonly" value="Colosenses">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Tesalonicenses">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Tesalonicenses">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Timoteo">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Timoteo">
+									<input type="text" class="nav_4" readonly="readonly" value="Tito">
+									<input type="text" class="nav_4" readonly="readonly" value="Filemón">
+								</div>
+								<div class="entrada_4">
+									<p class="p_5">Epistolas generales y apocalipsis</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Hebreos">
+									<input type="text" class="nav_4" readonly="readonly" value="Santiago">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Pedro">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Pedro">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Juan">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Juan">
+									<input type="text" class="nav_4" readonly="readonly" value="3 Juan">
+									<input type="text" class="nav_4" readonly="readonly" value="Judas">
+									<input type="text" class="nav_4" readonly="readonly" value="Apocalipsis">
 								</div>
 							</div>
 							<a class="cerrar" href="cerrarSesion.php">Cerrar Sesión</a>
