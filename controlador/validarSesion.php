@@ -8,10 +8,9 @@ $Correo= $_POST["correo"];
     // echo "El correo es: " . $Correo . "<br>";
     // echo "Desea recordar es: " . $Recordar . "<br>";
 
-
-    include("../conexion/Conexion_BD.php");//con los datos recibidos se verifica en la BD si el usuario esta registrado
+    include("../conexion/Conexion_BD.php");
     
-    //2) meto la marca aleatoria en el registro correspondiente al usuario
+    //Se consulta el ID_Participante segun el correo recibido
     $Consulta="SELECT * FROM participante WHERE Correo='$Correo' ";
     $Recordset = mysqli_query($conexion, $Consulta);
     $Participante_2= mysqli_fetch_array($Recordset);
@@ -22,21 +21,20 @@ $Correo= $_POST["correo"];
 if(isset($_POST["recordar"]) && $_POST["recordar"] == 1){//si pidió memorizar el usuario, se recibe desde principal.php   
     //1) creo una marca aleatoria en el registro de este usuario
     //alimentamos el generador de aleatorios
-    mt_srand (time());
-    //generamos un número aleatorio
-    $Aleatorio = mt_rand(1000000,999999999);
+    // mt_srand (time());
+    // //generamos un número aleatorio
+    // $Aleatorio = mt_rand(1000000,999999999);
     // echo "Nº aleatorio= " . $aleatorio . "<br>"; 
-
 
     //3) ahora meto una cookie en el ordenador del usuario con el identificador del usuario y la cookie aleatoria porque el usuario marca la casilla de recordar
     setcookie("id_usuario", $ID_Participante_2, time()+365*24*60*60, "/");
-    setcookie("marcaAleatoria", $Aleatorio, time()+365*24*60*60, "/");
+    setcookie("clave", $Clave, time()+365*24*60*60, "/");
     // echo "Se han creado las Cookies en validarSesion" . "<br>";
-        // $Cookie_usuario = $_COOKIE["id_usuario"];
-        // $Cookie_marca_aleatoria = $_COOKIE["marcaAleatoria"];
-    // echo "La cookie ID_Usuario = " . $Cookie_usuario . "<br>";
-    // echo "La cookie marca aleatorio = " . $Cookie_marca_aleatoria . "<br>"; 
 
+    // echo "La cookie ID_Usuario = " . $_COOKIE["id_usuario"] . "<br>";
+    // echo "La cookie clave = " . $_COOKIE["clave"] . "<br>"; 
+    
+    //4) meto la marca aleatoria en el registro correspondiente al usuario
     $Actualizar="UPDATE participante SET Aleatorio='$Aleatorio' WHERE ID_Participante='$ID_Participante_2'";
     mysqli_query($conexion, $Actualizar);
 }

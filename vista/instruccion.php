@@ -22,19 +22,20 @@
 		</header>
 		<div onclick="ocultarMenu()">
 			<h2>Instrucciones para utilizar la plataforma.</h2>	
-			<p class="Inicio_6">¿Como participar?</p>
+			<p class="Inicio_6">Reglas generales</p>
 		    <ul>
-				<li class="Inicio_3">EL acceso a toda la plataforma es libre y gratuito</li>
-		        <li class="Inicio_3">Pueden participar personas de cualquier edad y ubicación geografica dentro de Colombia y Venezuela</li>
+				<li class="Inicio_3">El acceso a la plataforma es libre y gratuito</li>
+		        <li class="Inicio_3">Pueden participar personas de cualquier edad y ubicación geografica dentro de Colombia. (proximamente se expandira a otros paises)</li>
 		        <li class="Inicio_3">Debe estar registrado en la plataforma, e iniciar sesión con su cuenta de usuario.</li>
 		        <li class="Inicio_3">Seleccione el reto diario de "Reavivados" o un libro de la Biblia para ingresar a su prueba.</li>
 		    </ul>
-			<p class="Inicio_6">¿Como jugar?</p>
+			<p class="Inicio_6">¿Como participar?</p>
 		    <ul>
 		        <li class="Inicio_3">La plataforma plantea dos alternativas de participación, el reto diario llamado "Reavivados" y por otro lado existen pruebas de los libros de la Bilia seleccionado por usted.</li>
+				<li class="Inicio_3">Para el reto diario de "Reavivados" los puntos obtenidos por dia se suman a su puntaje diario.</li>				
+		        <li class="Inicio_3">Si participa todos los dias en el reto "Reavivados", obtendra un bono de 5 puntos.</li>
 		        <li class="Inicio_3">Se cuenta con dos minutos para responder cada pregunta.</li>
 		        <li class="Inicio_3">Las respuestas correctas dentro de los primeros 10 segundos suman la totalidad de los puntos, si respondes despues de este tiempo, los puntos comenzarán a disminuir hasta tener un valor de cero puntos al cumplir el tiempo establecido de la pregunta.</li>
-		        <li class="Inicio_3">Si participas en el reto "Reavivados" se daran resultados parciales de su actuación al finalizar la prueba; solo al cierre (8:00 pm) se publicara una tabla con los resultados generales de todos los participantes en la prueba.</li>
 		        <li class="Inicio_3">Una vez abierta una pregunta comienza a correr el tiempo que es tomado en cuenta para los resultados, luego de ser respondida el cronometro para hasta que decida abrir la proxima preguntar.</li>
 		        <li class="Inicio_3">Solo es posible sumar puntos si acierta la respuesta en la primera respuesta que elija, luego ya no es posible sumar puntos aún contestado la respuesta correcta.</li>
 		    </ul>

@@ -58,7 +58,7 @@
 		            <li><a href="vista/principal.php">Entrar</a></li>
 		            <li><a href="vista/registro.php">Registrarse</a></li>
 		            <!-- <li><a href="vista/creditos.php">Creditos</a></li> -->
-		            <li><a href="../vista/club.php">Club de lectura</a></li>
+		            <!-- <li><a href="../vista/club.php">Club de lectura</a></li> -->
 		            <li><a href="vista/contacto.php">Contacto</a></li>
 		            <li><a href="vista/demo.php">Demo</a></li> 
 		        </ul>
@@ -67,8 +67,8 @@
 		<div class="Secundario" onclick="ocultarMenu()"><!--en este contenedor se hace click y se oculta el menu responsive-->
 			<div class="n00"><!--Menu responsive-->
 				<a class="buttonTres" href="vista/principal.php">inicia sesión</a>	
-				<a class="buttonTres" href="vista/club.php">Club de lectura</a>	
-				<a class="buttonTres" href="vista/demo.php">Prueba Demo</a>					
+				<!-- <a class="buttonTres" href="vista/club.php">Club de lectura</a>	 -->
+				<a class="buttonTres" href="vista/demo.php">Prueba Demo</a>	
 			</div>
 			<div class="n20">
 				<h5>¿Que es Reavivados?</h5>				

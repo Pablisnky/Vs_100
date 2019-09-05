@@ -13,6 +13,9 @@ a {/*index.php    principal.php    preguntaXxxxx_00.php*/
 body{
 	background-color:#F4FCFB;
 }
+.body_1{
+	background-image: url("images/index_1.jpg");
+}
 button{
 	cursor: pointer;
 }
@@ -215,7 +218,7 @@ td{
 	margin-top: -5% !important;
 	margin-bottom: 2%;
 }
-.Afiliacion_4{/*todos los formularios*/
+.Afiliacion_4{/*datos_personales*/
 	border-radius: 15px;
 	padding: 10px;
 	box-sizing: border-box;
@@ -223,6 +226,15 @@ td{
 	margin-bottom: 40px;
 	width: 90%;
 	font-size: 14px;
+}
+.Afiliacion_4 label{/*datos_personales*/
+	font-size: 16px;
+	margin-left: 15px;
+	margin-right: 15px;
+	padding: 2px;
+	float: left;
+	width: 170px;
+	font-family:verdana;
 }
 .agradecimientos{/*registrarse.php*/
 	padding: 0px 10px;
@@ -505,6 +517,20 @@ td{
 	font-family:verdana;
 	width: 60%;
 }
+.etiqueta_3{/*FotoPerfil.php*/
+	margin-bottom:2%;
+	text-align: center;
+	font-size: 16px !important;
+	height:24px;
+	width: 90% !important;
+}
+.etiqueta_32{/*datos_Persoanles.php*/
+	margin-bottom:2%;
+	font-size: 16px !important;
+	text-align-last: center;
+	height:24px;
+	width: 49%;
+}
 .grafico{/*pregunta.php*/
 	width: 40%;
 	height: 100px !important;
@@ -692,6 +718,7 @@ td{
 }
 .n00{/*index.php*/
 	width: 50%;
+	height: 500px;
 	float: left;
 	padding-left: 3%;
 	box-sizing: border-box;
@@ -983,13 +1010,13 @@ td{
 	width: 48%;
 }
 .recordar{/*principal.php*/
-	font-size: 12px; 
+	font-size: 14px; 
 	font-family:verdana;
-	font-weight: 100;
+	font-weight: bold;
 }
 .recordar_1{/*principal.php*/
-	margin-left: -5%;
-	padding: 0px;
+	margin-left: 0px !important;
+	margin-top:20px;
 }
 .respuestaPreguntas{/*pregunta.php*/
 	margin-top: 1%;

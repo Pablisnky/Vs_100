@@ -2,23 +2,25 @@
 	include("../conexion/Conexion_BD.php");
 	
 	//Se verifica si el usuario esta memorizado en las cookie de su computadora y las compara con la BD, para recuperar sus datos y autorellenar el formulario de inicio de sesion, las cookies de registro de usuario se crearon en validarSesion.php
-	if(isset($_COOKIE["id_usuario"]) AND isset($_COOKIE["marcaAleatoria"])){//Si la variable $_COOKIE esta establecida o creada
+	if(isset($_COOKIE["id_usuario"]) AND isset($_COOKIE["clave"])){//Si la variable $_COOKIE esta establecida o creada
 	    $Cookie_usuario = $_COOKIE["id_usuario"];
-	    $Cookie_marca_aleatoria = $_COOKIE["marcaAleatoria"];
+		$Cookie_clave = $_COOKIE["clave"];
+		// echo "Cookie usuario =" . $Cookie_usuario ."<br>";
+		// echo "Cookie clave =" .  $Cookie_clave ."<br>";
 		
 		//se entra aqui para recuperar la informacion del usuario y autorellenar el formulario
-    	if($_COOKIE["id_usuario"]!="" || $_COOKIE["marcaAleatoria"]!=""){
-			$Consulta_1 = "SELECT * FROM participante INNER JOIN usuarios ON participante.ID_Participante=usuarios.ID_Participante WHERE participante.ID_Participante= '$Cookie_usuario' AND Aleatorio='$Cookie_marca_aleatoria' ";
+    	if($_COOKIE["id_usuario"]!="" || $_COOKIE["clave"]!=""){
+			$Consulta_1 = "SELECT * FROM participante WHERE ID_Participante= '$Cookie_usuario' ";
 			$Recordset= mysqli_query($conexion, $Consulta_1);
 			$Autorizado= mysqli_fetch_array($Recordset);
 			$email = $Autorizado["Correo"];
-			$clave = $Autorizado["clave"];
+			// echo "Correo guardado en cookie= " . $email ."<br>";
 		}	?>
 
 		<!DOCTYPE html>
 		<html lang="es">
 			<head>
-				<title>Versus_20 login</title>
+				<title>horebi login</title>
 
 				<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 				<meta name="description" content="Juego de preguntas biblicas."/>
@@ -39,17 +41,17 @@
 						<?php include("modulos/header.html");?>
 					</header>
 					<div onclick="ocultarMenu()">
-						<div>
+						<div class="Inicio_2">
 							<h2>Inicia sesión</h2>									
 							<form action="../controlador/validarSesion.php" method="POST">
 								<fieldset class="Afiliacion_4">
 									<!-- el formulario se autorellena con la informacion recuperada de la BD porque existian las cookies-->
 									<br>
-									<input style="margin-bottom: 2%; " type="email" name="correo" id="Correo" placeholder="e-mail" autocomplete="off" value="<?php if (isset($email)) echo $email;?>">
+									<input style="margin-bottom: 2%; " type="email" name="correo" id="Correo" value="<?php if (isset($email)) echo $email;?>">
 
-									<input style="margin-bottom: 1%; " type="password" name="clave" id="Clave" placeholder="Contraseña" autocomplete="off" value="<?php if (isset($clave)) echo $clave;?>">
+									<input style="margin-bottom: 1%; " type="password" name="clave" id="Clave" value="<?php if (isset($Cookie_clave )) echo $Cookie_clave ;?>">
 												
-									<input  type="checkbox" id="Recordar" name="recordar" value="1">
+									<input  type="checkbox" class="recordar_1" id="Recordar" name="recordar" value="1">
 									<label for="Recordar"><span class="recordar">Recordar e-mail y contraseña en este equipo.</span></label>
 									<br>
 									<input type="submit" name="Boton_Sesion" value="Entrar">

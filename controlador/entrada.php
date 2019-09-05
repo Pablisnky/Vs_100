@@ -34,7 +34,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 			</head>	
 			<body onload="toTop()">
 				<header style="position: fixed;  width: 100%; margin-top:; ">
-					<input class="input_1" type="text" name="nombre" value="<?php echo $ParticipanteNombre;?>">
+					<input class="input_1" type="text" readonly name="nombre" value="<?php echo $ParticipanteNombre;?>">
 					<?php include("../vista/modulos/header_usuario.html");?>   		   		
 				</header>
 				<br><br><br><br><br><br>
