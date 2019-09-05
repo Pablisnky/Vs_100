@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Versus_20 Final <?php echo $Tema;?></title>
+		<title>Reavivados Final <?php echo $Tema;?></title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas sobre suramerica."/>
@@ -43,18 +43,15 @@
 			$Recordset = mysqli_query($conexion,$Consulta);
 			$Participante= mysqli_fetch_array($Recordset);
 		?>
-		<input type="text" class="ocultar" id="ID_Pregunta" value= "10">
-		<input type="text" class="ocultar" id="ID_Participante" value="<?php echo $participante;?>"><!-- se utiliza para enviar a puntaje.js-->
-
-		<div class="Secundario">
 			<h4 class="ultima_1"><?php echo $Participante["Nombre"];?></h4>
 			<?php 				
 				if($Tema == "Reavivados"){ ?>
-					<h4 class="ultima_1">Has concluido tu prueba diaria sobre <br> <span class="span_5">"Reavivados por su palabra"</span></h4>  <?php
+					<h4 class="ultima_1">Has concluido tu prueba diaria sobre<h4>
+					<p class="span_5">"Reavivados por su palabra"</p>  <?php
 				} 
 				else{  ?>           				
 					<h4 class="ultima_1">Has concluido tu prueba sobre:</h4>
-					<h4 class="ultima_1"><?php echo $Categoria . "_" . $Tema;?></h4>  <?php
+					<h4 class="ultima_1"><?php echo $Tema;?></h4>  <?php
 				}  
 			?>
 			<div class="tabla_3">
@@ -85,7 +82,7 @@
 						</tbody>
 				</table>
 				<?php
-					 // puntos descontados por cada pregunta incorre
+					 // puntos descontados por cada pregunta incorrecta
 						$Consulta_3="SELECT ID_Pregunta, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo, SUM(puntoGanado) As penalizacion FROM respuestas WHERE ID_PP='$CodigoPrueba' AND puntoGanado <= 0.000 GROUP BY ID_Pregunta ";
 						$Recordset_3 = mysqli_query($conexion, $Consulta_3);
 					if(mysqli_num_rows($Recordset_3)!=0){
@@ -115,17 +112,24 @@
 			}
 			?>
 		</div>
+		<input type="text" class="ocultar" id="ID_Pregunta" value= "10">
+		<input type="text" class="ocultar" id="ID_Participante" value="<?php echo $participante;?>"><!-- se utiliza para enviar a puntaje.js-->
+
+		<div class="Secundario">
 			<div class="ultimaPregunta">
 				<?php
-			    	//se realiza una consulta para obtener los puntos del participante
+			    	//se obtienen los puntos ganados por el participante en la actual prueba
 			    	$Consulta="SELECT * FROM participantes_pruebas WHERE ID_Participante='$participante' AND Tema='$Tema' AND ID_PP = '$CodigoPrueba'";
 					$Recordset = mysqli_query($conexion, $Consulta);
 					$Participante= mysqli_fetch_array($Recordset);
-					
+
 					//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
-					$Decimal = str_replace('.', ',', $Participante["Puntos"]); 
+					$Decimal = str_replace('.', ',', $Participante["Puntos"]);
 					
-					//(Reavivados)se consulta los puntos acumulados en todas las pruebas
+					//Puntos ganados en la prueba
+					// echo "Puntos ganados en la prueba: " . $Decimal . "<br>";
+					
+					//(Reavivados)se consulta los puntos acumulados en todas las pruebas diarias
 			    	$Consulta_0="SELECT SUM(Puntos) AS Acumulado FROM participantes_pruebas WHERE ID_Participante='$participante' AND Tema='$Tema'";
 					$Recordset_0= mysqli_query($conexion, $Consulta_0);
 					$Participante_0= mysqli_fetch_array($Recordset_0);
@@ -190,7 +194,7 @@
 					//  echo "El total de participantes son= " . $Participante_4a . "<br>";
 
 					//Se consulta cuantos participantes faltan por responder la prueba
-			    	$Consulta_6="SELECT DISTINCT(ID_Participante) FROM participantes_pruebas WHERE  ID_Participante != ALL (SELECT ID_Participante FROM `participantes_pruebas` WHERE ID_Prueba= 5 and DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE())";
+			    	$Consulta_6="SELECT DISTINCT(ID_Participante) FROM participantes_pruebas WHERE  ID_Participante != ALL (SELECT ID_Participante FROM `participantes_pruebas` WHERE ID_Prueba= 5 AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE())";
 					$Recordset_6 = mysqli_query($conexion, $Consulta_6);
 					$Participante_6= mysqli_num_rows($Recordset_6);
 					// echo "Faltan por responder " . $Participante_6 . " participantes";
@@ -208,18 +212,41 @@
 					// echo "El total de participantes es= " . $Participante_4 . "<br>";
 
 					//Se consulta el nombre del lider de la prueba
-					$Consulta_11="SELECT participantes_pruebas.ID_Participante, participante.Nombre, ID_PP FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE ID_Prueba=  '$ID_Prueba' ORDER BY Puntos DESC LIMIT 1";
+					$Consulta_11="SELECT participantes_pruebas.ID_Participante, participantes_pruebas.Puntos, participante.Nombre,  participante.Apellido, participante.Iglesia, participante.SubRegion, ID_PP FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE ID_Prueba=  '$ID_Prueba' ORDER BY Puntos DESC LIMIT 1";
 					$Recordset_11= mysqli_query($conexion, $Consulta_11);
 					$Resultado_11= mysqli_fetch_array($Recordset_11);
 					$Participante_11= $Resultado_11["Nombre"];
 
 					if($Tema != "Reavivados"){	?>
 						<p class="Inicio_5">Tu posición es de Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4a;?> participantes.</p> 		
-						<p class="Inicio_5">Actualmente el lider de la prueba es: <?php echo $Participante_11;?></p> 
+						<p class="Inicio_5"> </p> 
+						<div class="tabla_4">
+							<table>
+								<caption class="caption_lider">Actualmente el lider de la prueba es:</caption>
+										<thead>
+											<th>Nombre</th>
+											<th>Apellido</th>
+											<th>Iglesia</th>
+											<th>Región</th>
+										</thead>
+										<tbody>	
+											<tr>
+												<td class="tabla_0"><?php echo $Participante_11;?></td>
+												<td class="tabla_0"><?php echo $Resultado_11["Apellido"];?></td>
+												<td class="tabla_0"><?php echo $Resultado_11["Iglesia"];?></td>
+												<td class="tabla_0"><?php echo $Resultado_11["SubRegion"];?></td>
+											</tr>
+											<tr>
+												<td colspan="3" class="tabla_1">Puntos totales</td>
+												<td class="tabla_1"><?php echo $Resultado_11["Puntos"];?></td>
+											</tr>
+										</tbody>
+									</table>		
+								</div>
 
 						<?php
 					}
-						if($Prueba["Categoria"] == "Biblia"){
+						
 							if($Tema == "Reavivados"){  		
 								//(Reavivados)Se consulta su posicion del dia segun sus puntos
 								$Consulta_5="SELECT DISTINCT(ID_Participante), COUNT(ID_Participante) AS Pus FROM participantes_pruebas WHERE Puntos >= '$Puesto' AND ID_Prueba='$ID_Prueba' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE()";
@@ -233,10 +260,17 @@
 								// echo "Ocupas el puesto Número= " . $Posicion['PusRea'] . "<br>";
 
 								//Se consulta el nombre del lider de la prueba
-								$Consulta_11="SELECT participantes_pruebas.ID_Participante, participante.Nombre, participante.Iglesia, participante.SubRegion, ID_PP FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE ID_Prueba=  '$ID_Prueba' ORDER BY Puntos DESC LIMIT 1";
-								$Recordset_11= mysqli_query($conexion, $Consulta_11);
-								$Resultado_11= mysqli_fetch_array($Recordset_11);
-								$Participante_11= $Resultado_11["Nombre"];
+								$Consulta_31="SELECT participante.ID_Participante, posicion_general_rea.PuntosTotales, participante.Nombre, participante.Apellido, participante.Iglesia, participante.SubRegion FROM participante INNER JOIN posicion_general_rea ON participante.ID_participante=posicion_general_rea.ID_participante INNER JOIN participantes_pruebas ON posicion_general_rea.ID_Participante=participante.ID_Participante WHERE ID_Prueba= 5 ORDER BY PuntosTotales  DESC LIMIT 1";
+								$Recordset_31= mysqli_query($conexion, $Consulta_31);
+								$Resultado_31= mysqli_fetch_array($Recordset_31);
+								$Participante_31= $Resultado_31["Nombre"];
+								$Participante_32= $Resultado_31["Apellido"];
+								$Participante_33= $Resultado_31["Iglesia"];
+								$Participante_34= $Resultado_31["SubRegion"];
+								// echo "Nombre lider: " . $Participante_31 . "<br>";
+								// echo "Apellido lider: " . $Participante_32 . "<br>";
+								// echo "Iglesia lider: " . $Participante_33 . "<br>";
+								// echo "SubRegion lider: " . $Participante_34 . "<br>";
 										?>							
 								<p class="Inicio_5">Tu posición hoy es de Nº <?php echo $PosicionBiblia['Pus'];?> de <?php echo $Participante_4;?> participantes.</p>  
 								
@@ -248,12 +282,10 @@
 									<strong class="Inicio_8"><?php echo $Participante_6;?> participante aún no ha respondido esta prueba</strong>  <?php 
 								}  
 								?>
-
-								<!-- <small class="small_1">Resultados definitivos del dia, al cierre de la prueba. (8:00 pm)</small> -->
 								<p class="Inicio_5">Tu posición general es de Nº <?php echo $Posicion['PusRea'];?> de <?php echo $Participante_4;?> participantes.</p> 
 								<div class="tabla_4">
 									<table>
-										<caption class="caption_lider">lider general de la prueba</caption>
+										<caption class="caption_lider">Maximo puntaje en <span class="span_7">Reavivados</span></caption>
 										<thead>
 											<th>Nombre</th>
 											<th>Apellido</th>
@@ -262,17 +294,30 @@
 										</thead>
 										<tbody>	
 											<tr>
-												<td class="tabla_0"><?php echo $Participante_11;?></td>
-												<td class="tabla_0">Diaz</td>
-												<td class="tabla_0"><?php echo $Resultado_11["Iglesia"];?></td>
-												<td class="tabla_0"><?php echo $Resultado_11["SubRegion"];?></td>
+												<td class="tabla_0"><?php echo $Participante_31;?></td>
+												<td class="tabla_0"><?php echo $Participante_32;?></td>
+												<td class="tabla_0"><?php echo $Participante_33;?></td>
+												<td class="tabla_0"><?php echo $Participante_34;?></td>
+											</tr> <?php
+											//Se consulta el putaje global del lider
+											$Consulta_20="SELECT PuntosTotales FROM posicion_general_rea ORDER BY PuntosTotales DESC LIMIT 1";
+											$Recordset_20= mysqli_query($conexion, $Consulta_20);
+											$Participante_20= mysqli_fetch_array($Recordset_20);
+											$Acumulado_2= $Participante_20["PuntosTotales"];
+											// echo "Puntos globales= " . $Acumulado . "<br>";
+											
+											//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
+											$Decimal_2 = str_replace('.', ',', $Acumulado_2);  ?>
+											<tr>
+												<td colspan="3" class="tabla_1">Puntos totales</td>
+												<td class="tabla_1"><?php echo  $Decimal_2;?></td>
 											</tr>
 										</tbody>
 									</table>		
 								</div>
 										<?php
 								}	
-						} 
+						
 						else{ 
 						}  ?>
 		    <div class="Gratis_2">

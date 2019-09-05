@@ -28,6 +28,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
 				<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css"> 
 			   	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'> 
+				<link rel="shortcut icon" type="image/png" href="../images/logo.png">
 
 				<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
 			</head>	
@@ -37,7 +38,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 					<?php include("../vista/modulos/header_usuario.html");?>   		   		
 				</header>
 				<br><br><br><br><br><br>
-				<div class="Secundario"  onclick="ocultarMenu()">	
+				<div class="Secundario" onclick="ocultarMenu()">	
 					<?php
 					//Se verifica si el participante tiene pruebas pendientes por responder
 					$Consulta_0="SELECT ID_PP,ID_Prueba,Categoria,Tema,DATE_FORMAT(Fecha_pago, '%Y/%m/%d') AS Fecha_pago FROM participantes_pruebas WHERE ID_Participante='$participante' AND (Prueba_Activa = 1 AND Prueba_Pagada = 1 AND Prueba_Cerrada = 0 )";
@@ -65,7 +66,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									$Fecha= $Registro_2["Fecha_pago"];
 									?>
 									<div style="text-align: center; margin-top: 3%;">
-	<a href="../vista/pregunta.php?tema=<?php echo $Tema?>&ID_PP=<?php echo $ID_PP?>&fecha=<?php echo $Fecha?>&ID_Prueba=<?php echo $ID_Prueba;?>"> <?php echo $Registro_2["Tema"];?></a>
+										<a href="../vista/pregunta.php?tema=<?php echo $Tema?>&ID_PP=<?php echo $ID_PP?>&fecha=<?php echo $Fecha?>&ID_Prueba=<?php echo $ID_Prueba;?>"> <?php echo $Registro_2["Tema"];?></a>
 										<p class="entrada_6"> | Código</p>
 										<p class="entrada_6"><?php echo $Registro_2["ID_PP"];?></p>
 									</div>
@@ -76,15 +77,16 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 						}   
 						  ?>
 						  <p class="Inicio_9">¿Estudiaste el capitulo de hoy?</p>	
-						  <p class="Inicio_1">Participa en el reto diario de Reavivados por su palabra</p>
+						  <p class="Inicio_1">Participa en el reto diario de</p> 
+						  <p class="span_8">"Reavivados por su palabra"</p>
 							<!-- <p class="entrada_1">2 reyes 13</p> -->
-							<a class="nav_7" href="registro_Libre.php?Tema=Reavivados">Iniciemos</a> 
-							
-							<p class="Inicio_9">O si prefieres</p>
-							<p class="nav_2">Seleccione una tema para una prueba corta de 10 preguntas.</p>
+							<a class="buttonCuatro a_3" href="registro_Libre.php?Tema=Reavivados">Iniciemos</a> 
+							<hr style="border-color: #040652; border-style: solid; border-width: 2px;">
+							<p class="Inicio_9 p_6">O si prefieres</p>
+							<p class="Inicio_1">Seleccione una tema para una prueba corta de 10 preguntas.</p>
 							<div class="entrada_5">
-								<div class="entrada_4 ">
-									<p class="p_5">Libros del Pentateuco</p>
+								<div class="entrada_4">
+									<p class="p_5">Libros del pentateuco</p>
 									<a class="nav_7" href="registro_Libre.php?Tema=Genesis">Genesis</a>
 									<a class="nav_7" href="registro_Libre.php?Tema=Exodo">Éxodo</a>
 									<input type="text" class="nav_4" readonly="readonly" value="Levítico">
@@ -96,9 +98,12 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<input type="text" class="nav_4" readonly="readonly" value="Josué">
 									<input type="text" class="nav_4" readonly="readonly" value="Jueces">
 									<input type="text" class="nav_4" readonly="readonly" value="Rut">
-									<input type="text" class="nav_4" readonly="readonly" value="1 y 2 Samuel">
-									<input type="text" class="nav_4" readonly="readonly" value="1 y 2 Reyes">
-									<input type="text" class="nav_4" readonly="readonly" value="1 y 2 Crónicas">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Samuel">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Samuel">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Reyes">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Reyes">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Crónicas">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Crónicas">
 									<input type="text" class="nav_4" readonly="readonly" value="Esdras">
 									<input type="text" class="nav_4" readonly="readonly" value="Nehemías">
 									<input type="text" class="nav_4" readonly="readonly" value="Ester">
@@ -115,7 +120,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 								<div class="entrada_4">
 									<p class="p_5">Libros de profetas mayores</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Isaías">
-									<a class="nav_7" href="registro_Libre.php?Tema=Jeremias>">Jeremías</a>
+									<a class="nav_7" href="registro_Libre.php?Tema=Jeremias">Jeremías</a>
 									<input type="text" class="nav_4" readonly="readonly" value="Lamentaciones">
 									<input type="text" class="nav_4" readonly="readonly" value="Ezequiel">
 									<input type="text" class="nav_4" readonly="readonly" value="Daniel">
@@ -135,6 +140,50 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<input type="text" class="nav_4" readonly="readonly" value="Zacarías">
 									<input type="text" class="nav_4" readonly="readonly" value="Malaquías">
 								</div>
+								<div class="entrada_4 ocultar">
+									<p class="p_5">Libros de evangelios</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Mateo">
+									<input type="text" class="nav_4" readonly="readonly" value="Marcos">
+									<input type="text" class="nav_4" readonly="readonly" value="Lucas">
+									<input type="text" class="nav_4" readonly="readonly" value="Juan">
+								</div>
+								<div class="entrada_4 ocultar">
+									<p class="p_5">Historia de la Iglesia Primitiva</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Hechos">
+								</div>
+								<div class="entrada_4 ocultar">
+									<p class="p_5">Epistolas del apóstol Pablo</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Romanos">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Corintios">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Corintios">
+									<input type="text" class="nav_4" readonly="readonly" value="Gálatas">
+									<input type="text" class="nav_4" readonly="readonly" value="Éfesios">
+									<input type="text" class="nav_4" readonly="readonly" value="Filipenses">
+									<input type="text" class="nav_4" readonly="readonly" value="Colosenses">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Tesalonicenses">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Tesalonicenses">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Timoteo">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Timoteo">
+									<input type="text" class="nav_4" readonly="readonly" value="Tito">
+									<input type="text" class="nav_4" readonly="readonly" value="Filemón">
+								</div>
+								<div class="entrada_4 ocultar">
+									<p class="p_5">Epistolas generales</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Hebreos">
+									<input type="text" class="nav_4" readonly="readonly" value="Santiago">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Pedro">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Pedro">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Juan">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Juan">
+									<input type="text" class="nav_4" readonly="readonly" value="3 Juan">
+									<input type="text" class="nav_4" readonly="readonly" value="Judas">
+								</div>
+								<div class="entrada_4 ocultar">
+									<p class="p_5">Apocalipsis</p>
+									<input type="text" class="nav_4" readonly="readonly" value="Apocalipsis">
+								</div>
+							</div>
+							<div class="entrada_5 ocultar_1">
 								<div class="entrada_4">
 									<p class="p_5">Libros de evangelios</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Mateo">
@@ -149,7 +198,8 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 								<div class="entrada_4">
 									<p class="p_5">Epistolas del apóstol Pablo</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Romanos">
-									<input type="text" class="nav_4" readonly="readonly" value="1 y 2 Corintios">
+									<input type="text" class="nav_4" readonly="readonly" value="1 Corintios">
+									<input type="text" class="nav_4" readonly="readonly" value="2 Corintios">
 									<input type="text" class="nav_4" readonly="readonly" value="Gálatas">
 									<input type="text" class="nav_4" readonly="readonly" value="Éfesios">
 									<input type="text" class="nav_4" readonly="readonly" value="Filipenses">
@@ -162,7 +212,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<input type="text" class="nav_4" readonly="readonly" value="Filemón">
 								</div>
 								<div class="entrada_4">
-									<p class="p_5">Epistolas generales y apocalipsis</p>
+									<p class="p_5">Epistolas generales</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Hebreos">
 									<input type="text" class="nav_4" readonly="readonly" value="Santiago">
 									<input type="text" class="nav_4" readonly="readonly" value="1 Pedro">
@@ -171,6 +221,9 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<input type="text" class="nav_4" readonly="readonly" value="2 Juan">
 									<input type="text" class="nav_4" readonly="readonly" value="3 Juan">
 									<input type="text" class="nav_4" readonly="readonly" value="Judas">
+								</div>
+								<div class="entrada_4">
+									<p class="p_5">Apocalipsis</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Apocalipsis">
 								</div>
 							</div>

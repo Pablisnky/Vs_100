@@ -8,20 +8,21 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">La ciudad de Samaria donde reino Joacaz hijo de Jehú, estaba ubicada en:</p>
+			<p class="pregunta">Cuando Israel se enfrentó con Judá ¿Quien resultó victorioso?</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
 				<p id="principiantes_01c" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia();llamar_sombrear(); setTimeout(llamar_puntaje,100)">Israel</p>
-				<p id="principiantes_01d" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Sidom</p>
+				<p id="principiantes_01d" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Judá</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_01b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Judá</p>
-				<p id="principiantes_01a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Siria</p>
+				<p id="principiantes_01b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Estos pueblos nunca se enfretaron</p>
+				<p id="principiantes_01a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Quedaron empatados</p>
 			</div>
 		</div
 		<?php
-    }  
-	// 2 reyes 13:1
-	// 03 de septiembre de 2019
+	}  
+	// 2  reyes 14:12
+	// 04 de septiembre de 2019
+	
     ?>

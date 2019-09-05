@@ -24,14 +24,15 @@
 		<script type="text/javascript" src="../javascript/Funciones_varias.js"></script>
         <script type="text/javascript" src="../javascript/validarFormularios.js"></script>	
     </head>	
-	<body onload="autofocusContacto()">
+    <body>
+		<audio autoplay loop src="../audio/Powerful_Startup.mp3"></audio>
         <header>
             <?php include("modulos/header.html");?>
         </header>
         <div onclick= "ocultarMenu()">
-            <h2>Creditos</h2>
+            <h2>Nuestro equipo</h2>
             <div class="contacto_2">
-                <p class="Inicio_1">Este proyecto a contado con el apoyo de personas que lo han podido hacer realidad, quienes han aportado ideas, animo, estusiamo y tiempo. A todos ellos muchas gracias.</p>
+                <p class="Inicio_1">.</p>
             </div>
 		    <div class="Inicio_2">
             </div>

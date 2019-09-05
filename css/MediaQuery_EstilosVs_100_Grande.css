@@ -1,13 +1,18 @@
 @media screen and (min-width: 1500px){/*las reglas se aplicarán cuando la pantalla tenga una anchura mayor de la indicada.*/
 
+
+.Inicio_2{/*todos los formularios*/
+	background-color: blue !important;
+	width: 70%;
+}
 .n00{/*index.php*/
-	width: 55%;
+	width: 45%;
 	float: left;
 	padding-left: 10%;
 	box-sizing: border-box;
 	margin-top: 5%;
 }
-.n10{/*index.php*/
+/* .n10{index.php
 	background: -webkit-linear-gradient(bottom, white 65%, #040652 35%);
 	border:2px solid #000;
 	border-radius:15px;
@@ -17,9 +22,14 @@
  	width: 50%;
 	margin: 0% 10%;
 	margin-bottom: 7%;
+} */
+.n20{
+	background: -webkit-linear-gradient(bottom, white 88%, #040652 12%);
+	line-height: 40px;
 }
-.Secundario{/*principal.php pregunta.php contacto.php  registro.php    registrarse.php*/
+.Secundario{/*principal.php pregunta.php contacto.php  registro.php  index.php  registrarse.php*/
 	width: 80%;
+	margin-top: 10% !important;
 	margin: auto;
 }
 

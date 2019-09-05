@@ -39,6 +39,7 @@
                         <fieldset class="Afiliacion_4">
                         	<legend>Datos personales</legend> 
 							<input type="text" name="nombre" id="Nombre" placeholder="Nombre" onchange="return literal()" autocomplete="off"><!-- literal() se encuentra en validarFormulario.js -->
+							<input type="text" name="apellido" id="Apellido" placeholder="Apellido" onchange="return literal()" autocomplete="off"><!-- literal() se encuentra en validarFormulario.js -->
 							<input type="text" name="cedula" id="Cedula" placeholder="Cedula" onchange="llamar_verificaCedula()" autocomplete="off">
                         	<div class="contenedor_11" id="Mostrar_verificaCedula"></div><!-- recibe respuesta de ajax llamar_verificaCedula()-->
 							<input type="text" name="correo" id="Correo" placeholder="Correo electronico"  onchange="validarFormatoCorreo(); setTimeout(llamar_verificaCorreo,200);" autocomplete="off">

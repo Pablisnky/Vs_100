@@ -99,9 +99,9 @@
 								<input type="checkbox" class="recordar_1" id="Recordar" name="recordar" value="1">
 								<label for="Recordar"><span class="recordar">Recordar e-mail y contraseña en este equipo.</span></label>
 								<input type="submit" value="Entrar" onclick=""><!-- validar_02() se encuentra en return validar_02()validarFormularios.js -->
-								<br><hr>
-								<br>
-								<a class="p_2" href="registro.php">¿No tienes cuenta en reavivados?</a>
+								<hr>
+								<p class="Inicio_1  Inicio_1a">¿No tienes cuenta en <span class="span_7">Reavivados</span> ?<br>
+								<a href="registro.php">Registrate aqui.</a></p> 
 								<!--<a style="height: 10px; text-align: left;" href="controlador/llamarcookie.php">Ver cookie</a>En este archivo se pueden ver las cookies que se crearon en una visita anterior al sitio web por medio de validarSesion.php-->
 								</fieldset>
 							</form>

@@ -57,7 +57,7 @@
 		        <ul id="MenuContenedor">
 		            <li><a href="vista/principal.php">Entrar</a></li>
 		            <li><a href="vista/registro.php">Registrarse</a></li>
-		            <li><a href="vista/creditos.php">Creditos</a></li>
+		            <!-- <li><a href="vista/creditos.php">Creditos</a></li> -->
 		            <li><a href="../vista/club.php">Club de lectura</a></li>
 		            <li><a href="vista/contacto.php">Contacto</a></li>
 		            <li><a href="vista/demo.php">Demo</a></li> 
@@ -72,8 +72,8 @@
 			</div>
 			<div class="n20">
 				<h5>¿Que es Reavivados?</h5>				
-				<p class="Inicio_1">Son pruebas basadas en el programa "Reavivados por su palabra de la Iglesia Adventista del Septimo Dia" en las que se plantean 5 preguntas del tema diario.</p>
-				<p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en la respuesta penalizará, dejandote a merced de tus contrincantes y alejandote del premio.</p>	
+				<p class="Inicio_1">Es una prueba diaria basada en el programa <span class="span_6">"Reavivados por su palabra"</span> de la Iglesia Adventista del Séptimo Día, en la que se plantean 5 preguntas del capitulo diario estudiado.</p>
+				<p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en tu respuesta te penalizará, dejandote un paso atras de la sabiduría.</p>	
 				<a class="Inicio_3  buttonCuatro" href="vista/instruccion.php">Instrucciones</a>
 			</div>
 		</div>

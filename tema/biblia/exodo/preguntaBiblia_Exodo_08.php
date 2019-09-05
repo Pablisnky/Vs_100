@@ -13,7 +13,7 @@
 		<div class="Quinto">
 			<div class="Quinto_2">
 				<p id="principiantes_08a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Moises.</p>
-				<p id="principiantes_08b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_sombrear(); setTimeout(llamar_puntaje,200);">Aarón.</p>
+				<p id="principiantes_08b" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia(); llamar_sombrear(); setTimeout(llamar_puntaje,200);">Aarón.</p>
 			</div>
 			<div class="Quinto_2">
 				<p id="principiantes_08c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">El Faraon.</p>

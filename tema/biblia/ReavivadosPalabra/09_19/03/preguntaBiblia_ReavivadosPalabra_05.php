@@ -23,5 +23,5 @@
 		<?php
     }  
 	// 2 reyes 13:18
-	// 03 de agosto de 2019
+	// 03 de septiembre de 2019
     ?>

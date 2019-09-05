@@ -1,15 +1,16 @@
 <?php   
     session_start();  
 
-   	// $verifica = $_SESSION["verifica"];
-    // if($verifica == 1906){// Anteriormente en Registro.php se generó la variable $_SESSION["verfica"] con un valor de 1906; aqui se constata que se halla pasado por la pagina de registro de usuario Registro.php, si no es asi no se puede entrar en esta página.
- 		// unset($_SESSION['verifica']);//se borra la $_SESSION verifica.
+   	$verifica = $_SESSION["verifica"];
+    if($verifica == 1906){// Anteriormente en Registro.php se generó la variable $_SESSION["verfica"] con un valor de 1906; aqui se constata que se halla pasado por la pagina de registro de usuario Registro.php, si no es asi no se puede entrar en esta página.
+ 		unset($_SESSION['verifica']);//se borra la $_SESSION verifica.
  
     	//se verifica la sesion para evitar que refresquen la pagina que procesa el formulario o entren directamente a la pagina que procesa el formulario y asi nos envien multiples veces el formulario; 
     	//echo $verifica;
 		// se reciben los datos enviados del formulario de registro-
 					
 		$Nombre = htmlspecialchars($_POST["nombre"]);
+		$Apellido = htmlspecialchars($_POST["apellido"]);
 		$Cedula = htmlspecialchars($_POST["cedula"]);
 		$Correo = htmlspecialchars($_POST["correo"]);
 		$Pais = htmlspecialchars($_POST["pais"]);
@@ -30,6 +31,7 @@
 		$ConfirmarClave = $_POST["confirmarClave"];
 
 		// echo "Nombre: " . $Nombre . "<br>" ;
+		// echo "Apellido: " . $Apellido . "<br>" ;
 		// echo "Cedula: " . $Cedula . "<br>";
 		// echo "Correo: " .  $Correo . "<br>";
 		// echo "Pais: " .  $Pais . "<br>";
@@ -49,7 +51,7 @@
 	    	$ClaveCifrada= password_hash($Clave, PASSWORD_DEFAULT);
 			
 			//Se insertan los datos del participante en la tabla participante, la información privada de su cuenta entra en la tabla usuarios 
-			$insertar= "INSERT INTO participante(Nombre, Cedula, Correo, Pais, Region, SubRegion, Iglesia, FechaRegistro) VALUES('$Nombre','$Cedula','$Correo','$Pais','$Region','$SubRegion','$Iglesia', NOW())";
+			$insertar= "INSERT INTO participante(Nombre, Apellido, Cedula, Correo, Pais, Region, SubRegion, Iglesia, FechaRegistro) VALUES('$Nombre','$Apellido','$Cedula','$Correo','$Pais','$Region','$SubRegion','$Iglesia', NOW())";
 			mysqli_query($conexion, $insertar) or die ("Algo ha dio mal en la consulta a la BD");
 
 			//Se consulta en la tabla participante el ID_Usuario del usuario que se esta afiliando
@@ -99,10 +101,10 @@
 				</div>
 			</body>
 		</html>	<?php 
-	// }   
-	// else{ // Si no viene del formulario de registro Registro.php o trata de recargar página lo enviamos al formulario de registro  
-	// 	echo "<META HTTP-EQUIV='Refresh' CONTENT='0; url=Registro.php'>";  
-	// } 
+	}   
+	else{ // Si no viene del formulario de registro Registro.php o trata de recargar página lo enviamos al formulario de registro  
+		echo "<META HTTP-EQUIV='Refresh' CONTENT='0; url=Registro.php'>";  
+	} 
 ?>
 
 

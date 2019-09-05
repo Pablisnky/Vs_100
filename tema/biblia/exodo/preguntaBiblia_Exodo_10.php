@@ -16,8 +16,8 @@
 				<p id="principiantes_10b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Aaron.</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_10c" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia(); llamar_sombrear(); setTimeout(llamar_puntaje,200);">Ninguno de los anteriores.</p>
 				<p id="principiantes_10d" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Sefora.</p>
+				<p id="principiantes_10c" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia(); llamar_sombrear(); setTimeout(llamar_puntaje,200);">Ninguno de los anteriores.</p>
 			</div>
 		</div>
 		<?php

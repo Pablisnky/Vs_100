@@ -16,6 +16,10 @@ body{
 button{
 	cursor: pointer;
 }
+caption{
+	height: 30px;
+	line-height: 30px;
+}
 footer{
 	background:rgba(4, 6, 82, 0.1);
 	text-align:center;
@@ -207,6 +211,10 @@ td{
 	top: 55%; 
 	left: 45%;
 }
+.a_3{/*entrada.php*/
+	margin-top: -5% !important;
+	margin-bottom: 2%;
+}
 .Afiliacion_4{/*todos los formularios*/
 	border-radius: 15px;
 	padding: 10px;
@@ -307,6 +315,9 @@ td{
 	color: yellow; 
 	border-radius: 15px; 
 	padding: 0.5%
+}
+.br{/*club.php*/
+	margin-bottom:10%;
 }
 .buttonTres{/*index.php*/
 	background:#040652;
@@ -478,10 +489,10 @@ td{
 }
 .entrada_5{/*entrada.php*/ 
 	/* margin-top: -4%;*/
+	grid-template-columns: 140px 140px 140px 140px 140px ;
 	margin:auto;
 	margin-top: 2%; 
 	display: grid;
-	grid-template-columns: 140px 140px 140px 140px 140px ;
 	justify-content: space-between;
 	align-content: center;
 	width: 80%;
@@ -731,16 +742,13 @@ td{
 }
 .nav_2{/*entrada.php */
 	font-size: 21px;
-	border-top-color: #040652;
-	border-top-style: solid;
-	border-bottom-width: 1px;
-	padding-top: 3%;
+	padding-top: 1%;
 	width: 70%;
 	margin: auto;
 }
 .nav_4{/*entrada.php*/
 	background-color: #F4FCFB;
-	color:  rgba(4, 7, 82, 0.3) !important;
+	color:  rgba(4, 7, 82, 0.2) !important;
 	border:none;
 }
 .nav_5{/*registrarse.php*/
@@ -772,9 +780,11 @@ td{
 	margin-top: 5%;
 	margin-left: auto; 
 	margin-right: auto;
+	margin-bottom: 4%;
 	width: auto;
 	border:none;
 	color:#040652; 
+	font-weight: bold;
 }
 .nav_7:hover{/*entrada.php*/
 	background-color:#040652;
@@ -916,6 +926,9 @@ td{
 	font-size: 26px;
 	box-sizing: border-box;
 }
+.prox{/*club.php*/
+	margin-top: 15%;
+}
 .p_1{/*preguntaXxxxx.php*/
 	width: 200px;
 	color: yellow;
@@ -1017,6 +1030,20 @@ td{
 	font-family:courier; 
 	font-size:35px !important; 
 	color:orange;
+}
+.span_6{/*index.php*/
+	font-family:courier; 
+	font-weight: bold; 
+	color:orange;
+}
+.span_7{/*demo.php*/
+	font-family:'Caveat', cursive;
+}
+.span_8{/*entrada.php*/
+	font-family:courier; 
+	font-size:35px !important; 
+	color:orange;
+	margin: -2% 0% 8% 0%;
 }
 .super_in{/*entrada.php*/
 	font-size: 10px;

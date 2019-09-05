@@ -43,7 +43,7 @@
 						</fieldset>
 					</form>
 				</div>			
-				<p class="Inicio_1">¿No tienes cuenta en Versus_20?<br>
+				<p class="Inicio_1">¿No tienes cuenta en <span class="span_7">Reavivados</span> ?<br>
 				<a href="registro.php">Registrate aqui.</a></p> 
 				<!--<a style="height: 10px; text-align: left;" href="controlador/llamarcookie.php">Ver cookie</a>En este archivo se pueden ver las cookies que se crearon en una visita anterior al sitio web por medio de validarSesion.php-->
 			</div>

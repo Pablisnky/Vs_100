@@ -79,7 +79,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>POSICION</th>
+                                <th>Nº</th>
                                 <th>PARTICIPANTE</th>
                                 <th>PUNTOS</th>
                                 <th>FECHA</th>
@@ -100,7 +100,7 @@
                         <tbody>
                             <tr>
                                 <td class="tabla_2"><?php echo $i;?></td>
-                                <td class="tabla_0"><?php echo $participantes["usuario"];?></td>
+                                <td class="tabla_00"><?php echo $participantes["usuario"];?></td>
                                 <td class="tabla_1"><?php echo $Decimal;?></td> 
                                 <td class="tabla_1"><?php echo date("d-m-Y", strtotime($participantes["fecha_Registro"])); ?></td><!--se cambia el formato de la fecha de registro-->
                                 <!--<td><?php// echo date("d-m-Y", strtotime($participantes[0])); ?></td>se cambia el formato de la fecha de ultima participacion-->           

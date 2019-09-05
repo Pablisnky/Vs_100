@@ -126,7 +126,7 @@ function recargaInput(){
                 }
             else if(A.style.marginLeft = "0%"){
                     //alert("hola");
-                    A.style.marginLeft = "-35%";
+                    A.style.marginLeft = "-43%";
                 }
         }
 
@@ -137,7 +137,7 @@ function ocultarMenu(){
     if(window.screen.width<=800){//solo funciona si la pantalla es menor a 800px          
         var A= document.getElementById("MenuResponsive");
         if(A.style.marginLeft = "0%"){
-            A.style.marginLeft = "-35%";
+            A.style.marginLeft = "-43%";
         }
     }
 }   
