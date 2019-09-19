@@ -2,7 +2,7 @@
 session_start();//se inicia sesion para llamar las variables $_SESSION creadas en otros archivos, o para crear una.
 
     //Muestra los errores en local e impide mostrarlos en remoto
-    include("../modulos/muestraError.php");
+	include("../modulos/muestraError.php");
 
  	if(!isset($_SESSION["ID_Participante"])){//sino hay nada almacenado en la variable superglobal devuelve a principal.php
     	//con esto se garantiza que el usuario entro por login

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Versus_20 Registro</title>
+		<title>Registro</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas sobre suramerica."/>
@@ -18,6 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
         <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
 		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
+		<link rel="shortcut icon" type="image/png" href="../images/logo.png">
 
 		<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
 		<script type="text/javascript" src="../javascript/validarFormularios.js" ></script>
@@ -40,9 +41,7 @@
                         	<legend>Datos personales</legend> 
 							<input type="text" name="nombre" id="Nombre" placeholder="Nombre" onchange="return literal()" autocomplete="off"><!-- literal() se encuentra en validarFormulario.js -->
 							<input type="text" name="apellido" id="Apellido" placeholder="Apellido" onchange="return literal()" autocomplete="off"><!-- literal() se encuentra en validarFormulario.js -->
-							<input type="text" name="cedula" id="Cedula" placeholder="Cedula" onchange="llamar_verificaCedula()" autocomplete="off">
-                        	<div class="contenedor_11" id="Mostrar_verificaCedula"></div><!-- recibe respuesta de ajax llamar_verificaCedula()-->
-							<input type="text" name="correo" id="Correo" placeholder="Correo electronico"  onchange="validarFormatoCorreo(); setTimeout(llamar_verificaCorreo,200);" autocomplete="off">
+							<input type="text" name="correo" id="Correo" placeholder="Correo electronico" onchange="validarFormatoCorreo(); setTimeout(llamar_verificaCorreo,200);" onclick="validarFormatoCorreo()"; autocomplete="off">
                         	<div class="contenedor_11" id="Mostrar_verificaCorreo"></div><!-- recibe respuesta de ajax llamar_verificaCorreo()-->
 						</fieldset>        
                         <fieldset class="Afiliacion_4">
@@ -59,7 +58,7 @@
 										<option></option>                            
 									</select>                  
 								<!-- <label>Municipio:</label> -->
-									<select class="etiqueta_24" name="municipio_Col"> 
+									<select class="etiqueta_24" name="municipio_Col" id="Municipio_Col"> 
 										<option></option>
 									</select>     
 							</div> 
@@ -83,7 +82,7 @@
 								<div class="contenedor_11" id="Mostrar_verificaClave"></div><!-- recibe respuesta de ajax llamar_verificaClave()-->
 								<input type="password" name="confirmarClave" id="ConfirmarClave" placeholder="Repetir contraseña">
 							</div>                               
-                        	<input type="submit" name="Registrarse" value="Registrarse" style=" display: block; width: 120px;"  onclick="return validar_01();">
+                        	<input type="submit" name="Registrarse" value="Registrarse" style=" display: block; width: 120px;">
                     	</fieldset> 
 					</form>
 				</div>

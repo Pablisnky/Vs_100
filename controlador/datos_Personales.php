@@ -5,6 +5,7 @@
             $Usuario= mysqli_fetch_array($Recordset_1);
 
         ?>
+        <a id="marcador_02" class="ancla_2"></a>
         <fieldset class="Afiliacion_4">
             <legend>Datos personales</legend>
             <label>Nombre:</label>
@@ -12,9 +13,10 @@
             <label>Apellido:</label>
             <input class="etiqueta_32" type="text" name="apellido" id="Apellido" value="<?php echo $Usuario['Apellido'];?>" style="text-transform: capitalize;"/>
             <label>Cédula:</label>
-            <input class="etiqueta_32" type="text" name="cedula" id="Cedula" value="<?php echo $Usuario['Cedula'];?>"/>
+            <input class="etiqueta_32" type="text" name="cedula" id="Cedula" value="<?php echo $Usuario['Cedula'];?>" onchange="llamar_verificaCedula()" autocomplete="off"/>
+            <div class="contenedor_11" id="Mostrar_verificaCedula"></div><!-- recibe respuesta de ajax llamar_verificaCedula()-->
             <label>Teléfono:</label>
-            <input class="etiqueta_32" type="text" name="telefonoMovil" id="TelefonoMovil" value="<?php echo $Usuario['Telefono'];?>"/> <!--  onclick="limpiarColorTelefonoMovil()"  onblur="validarFormatotelefonoMovil(this.value)"-->
+            <input class="etiqueta_32" type="text" name="telefono" id="Telefono" value="<?php echo $Usuario['Telefono'];?>"/> <!--  onclick="limpiarColorTelefonoMovil()"  onblur="validarFormatotelefonoMovil(this.value)"-->
             </select> 
             <label>Correo electronico:</label>
             <input class="etiqueta_32" type="text" name="correo" id="Correo" value="<?php echo $Usuario['Correo'];?>" style="text-transform: lowercase;"/> 
@@ -22,28 +24,28 @@
     <fieldset class="Afiliacion_4"> 
         <legend>Datos de congregación</legend>
         <label>Pais:</label>
-        <select style="width: 49% !important;" name="pais" id="Pais" onclick="SeleccionarRegiones(this.form); ocultaRegion();"> <!-- SeleccionarRegiones() se encuentra en Funciones_varias.js.js-->
+        <select class="etiqueta_33" name="pais" id="Pais" onclick="SeleccionarRegiones(this.form); ocultaRegion();"> <!-- SeleccionarRegiones() se encuentra en Funciones_varias.js.js-->
             <option><?php echo $Usuario['Pais'];?></option>
             <option>Colombia</option>
             <option>Venezuela</option>
         </select>                    
         <div id="Region_1B" style="display: none;"><!--Aplica solo a Colombia-->
             <label>Departamento:</label>
-            <select style="width: 49% !important;" class="etiqueta_24" name="departamento" id="Departamento" onclick="SeleccionarMunicipio_Colombia(this.form)">
+            <select class="etiqueta_33" class="etiqueta_24" name="departamento" id="Departamento" onclick="SeleccionarMunicipio_Colombia(this.form)">
                 <option></option>                            
             </select>                     
             <label>Municipio:</label>
-            <select style="width: 49% !important;" class="etiqueta_24" name="municipio_Col" id="Municipio_Col"> 
+            <select class="etiqueta_33" class="etiqueta_24" name="municipio_Col" id="Municipio_Col"> 
                 <option></option>
             </select>           
         </div> 
         <div id="Region_1C" style="display: none;"><!--Aplica solo a Venezuela-->
             <label>Estado:</label>
-            <select style="width: 49% !important;" class="etiqueta_24" name="estado" id="Estado" onclick="SeleccionarMunicipio(this.form)">
+            <select  class="etiqueta_33" class="etiqueta_24" name="estado" id="Estado" onclick="SeleccionarMunicipio(this.form)">
                 <option></option>                            
             </select>                                   
             <label>Municipio:</label>
-            <select style="width: 49% !important;" class="etiqueta_24" name="municipio" id="Municipio"> 
+            <select class="etiqueta_33" class="etiqueta_24" name="municipio" id="Municipio"> 
                 <option></option>
             </select>                  
         </div>   
@@ -52,9 +54,9 @@
             <?php
             if($Usuario['Pais'] == "Venezuela"){ ?>
                 <label>Estado:</label>
-                <input class="etiqueta_32" type="text" name="estado_BD" readonly="readonly" value="<?php echo $Usuario['region_Afi']?>"> 
+                <input class="etiqueta_32" type="text" name="estado_BD" readonly="readonly" value="<?php echo $Usuario['Region']?>"> 
                 <label>Municipio:</label>
-                <input class="etiqueta_32" type="text" name="municipio_BD" readonly="readonly" value="<?php echo $Usuario['subRegion_Afi']?>">
+                <input class="etiqueta_32" type="text" name="municipio_BD" readonly="readonly" value="<?php echo $Usuario['SubRegion']?>">
                 <?php       
             }  
             else if($Usuario['Pais'] == "Colombia"){ ?>
@@ -65,7 +67,7 @@
             }   ?>
         </div>   
             <label>Iglesia o grupo:</label>
-            <input class="etiqueta_32" type="text" name="correo" id="Correo" value="<?php echo $Usuario['Iglesia'];?>" style="text-transform: lowercase;"/>                  
+            <input class="etiqueta_32" type="text" name="iglesia" id="Iglesia" value="<?php echo $Usuario['Iglesia'];?>""/>                  
     </fieldset>
 
 <script>

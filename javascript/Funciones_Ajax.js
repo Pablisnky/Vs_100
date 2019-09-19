@@ -250,3 +250,28 @@ function respuesta_bloqueo_trivia(){
 
 //-----------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------
+//Envia el codigo para cambiar contraseña, llamada desde principal.php y perfil.php
+function llamar_EnviarCodigo(){
+
+    C=document.getElementById("ID_Par_Tri").value;//se inserta el ID_Participante
+    E=document.getElementById("ID_Pregunta").value;//se inserta el ID de la pregunta 
+    H=document.getElementById("ID_PTD").value;//se toma el ID de la prueba diaria.
+    
+    var url="../controlador/bloquearPregunta_trivia.php?val_4=" + C + "&val_5=" + E + "&val_6=" + H;
+    http_request.open('GET',url,true);     
+    peticion.onreadystatechange = respuesta_bloqueo_trivia;
+    peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    peticion.send("null");
+}                                                           
+function respuesta_bloqueo_trivia(){
+    if (peticion.readyState == 4){
+         if (peticion.status == 200){
+           document.getElementById('RespuestaPreguntas').innerHTML=peticion.responseText;//envia respuesta a preguntaXxxxx_00.php
+        } 
+        else{
+            alert('Hubo problemas con la petición.');
+        }
+    }
+}
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------

@@ -12,7 +12,7 @@ session_start();    //se inicia sesion para llamar a una variable
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Vs_100 Final <?php echo $Tema;?></title>
+		<title>Final <?php echo $Tema;?></title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas sobre suramerica."/>
@@ -55,7 +55,7 @@ session_start();    //se inicia sesion para llamar a una variable
 	    	?>
 			<div class="Secundario">
 				<div class="encabezado">
-		    		<h1 class="anula">Vs_100.com</h1>
+		    		<h1 class="anula">Reavivados</h1>
 		    	</div>
 		    <h4 class="ultima_1"><?php echo $ParticipanteDemo["usuario"];?></h4>
 			<h4 class="ultima_1">Has concluido tu prueba Demo</h4>

@@ -20,8 +20,9 @@
 			</div>
 		</div
 		<?php
+		$_SESSION["Versiculo"] = "";
 	}  
-
+	//
 	?>
 
 	 

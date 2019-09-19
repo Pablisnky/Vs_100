@@ -11,12 +11,15 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
         // echo "ID_Participante:" .  $participante . "<br>";
 
         $ParticipanteNombre=$_SESSION["Nombre_Participante"];//en esta sesion se tiene guardado el nombre del participante, sesion creada en validarSesion.php
-         // echo "Nombre Participante:" .  $ParticipanteNombre . "<br>";
+		 // echo "Nombre Participante:" .  $ParticipanteNombre . "<br>";
+		 
+		//Se llama a la sesioon Capitulo, creada en Index.php
+    	$CapituloHoy = $_SESSION["Capitulo"]; 
 		?>
 		<!DOCTYPE html>
 		<html lang="es">
 			<head>
-				<title>Reavivados Inicio</title>
+				<title>Reavivados</title>
 
 				<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 				<meta name="description" content="Juego de preguntas para ganar dinero."/>
@@ -40,7 +43,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				<br><br><br><br><br><br>
 				<div class="Secundario" onclick="ocultarMenu()">	
 					<?php
-					//Se verifica si el participante tiene pruebas pendientes por responder
+					//Se verifica si el participante tiene pruebas pendientes por responder que sean de la semana actual
 					$Consulta_0="SELECT ID_PP,ID_Prueba,Categoria,Tema,DATE_FORMAT(Fecha_pago, '%Y/%m/%d') AS Fecha_pago FROM participantes_pruebas WHERE ID_Participante='$participante' AND (Prueba_Activa = 1 AND Prueba_Pagada = 1 AND Prueba_Cerrada = 0 )";
 					$Recordset_0 = mysqli_query($conexion, $Consulta_0); 
 					if(mysqli_num_rows($Recordset_0) != 0){  ?>
@@ -76,10 +79,9 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 							<?php
 						}   
 						  ?>
-						  <p class="Inicio_9">¿Estudiaste el capitulo de hoy?</p>	
-						  <p class="Inicio_1">Participa en el reto diario de</p> 
-						  <p class="span_8">"Reavivados por su palabra"</p>
-							<!-- <p class="entrada_1">2 reyes 13</p> -->
+						  	<p class="Inicio_9">¿Estudiaste el capitulo de hoy?</p>
+							<p class="Inicio_14"><?php echo $CapituloHoy;?></p> 
+						  	<p class="span_8">"Reavivados por su palabra"</p>
 							<a class="buttonCuatro a_3" href="registro_Libre.php?Tema=Reavivados">Iniciemos</a> 
 							<hr style="border-color: #040652; border-style: solid; border-width: 2px;">
 							<p class="Inicio_9 p_6">O si prefieres</p>

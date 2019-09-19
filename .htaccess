@@ -14,3 +14,5 @@
 #Mejorar la compatibilidad de los caracteres; Con esta medida evitamos mostrar el famoso error 500. 
 	AddDefaultCharset utf-8
 
+#Para evitar que el navedor solicite descargar archivos
+AddType / x-httpd-php .php .htm .html AddHandler x-httpd-php .php .htm .html

@@ -1,96 +1,110 @@
 /*Validar formulario de registro en registro.php*/
 function validar_01(){
     var nombre = document.registroGratis.nombre;
-    var cedula = document.registroGratis.cedula;
+    var apellido = document.registroGratis.apellido;
     var correo = document.registroGratis.correo;
+    var pais = document.registroGratis.pais;
+    var departamento = document.registroGratis.departamento;
+    var municipio_Col = document.registroGratis.municipio_Col;
+    var iglesia = document.registroGratis.iglesia;
     var clave = document.registroGratis.clave;
     var confirmarClave = document.registroGratis.confirmarClave;
-    // var contenidoDiv = (document.getElementById("recibir").innerHTML);  
+    // var contenidoDiv = document.getElementById("Mostrar_verificaCorreo").innerText; 
 
-    if(nombre.value =="" || (isNaN(nombre.value)==false) || nombre.value.length>13){
+    if(nombre.value =="" || nombre.value.indexOf(" ") == 0  || (isNaN(nombre.value)==false) || nombre.value.length>20){
        alert ("Indique su nombre");
        document.getElementById("Nombre").value = "";
        document.getElementById("Nombre").focus();
        return false;
     }
-    else if(cedula.value =="" || cedula.value.indexOf(" ") == 0 || (isNaN(cedula.value)==true) || cedula.value.length>15){
-       alert ("Indique su cedula");
-       document.getElementById("Cedula").value = "";
-       document.getElementById("Cedula").focus();
+    else if(apellido.value =="" || apellido.value.indexOf(" ") == 0 || (isNaN(apellido.value)==false) || apellido.value.length>20){
+       alert ("Indique su apellido");
+       document.getElementById("Apellido").value = "";
+       document.getElementById("Apellido").focus();
        return false;
     }
-    else if(correo.value =="" || correo.value.indexOf(" ") == 0 || (isNaN(correo.value)==false) || correo.value.length>3000){
+    else if(correo.value =="" || correo.value.indexOf(" ") == 0 || (isNaN(correo.value)==false) || correo.value.length > 70){
        alert ("Necesita introducir un correo electronico");
        document.getElementById("Correo").value = "";
        document.getElementById("Correo").focus();
        return false;
     }
-     else if(clave.value =="" || clave.value.indexOf(" ") == 0 || clave.value.length>20){
-       alert ("Introduzca una clave de acceso");
-       document.getElementById("Clave").value = "";
-       document.getElementById("Clave").focus();
-       return false;
+    else if(pais.value =="" || pais.value == null || pais.value == 0 || pais.value == "Pais"){
+      alert ("Indique su pais");
+      document.getElementById("Pais").value = "";
+      // document.getElementById("Pais").focus();
+      return false;
+   }
+  //  else if(departamento.value =="" || departamento.value == null || departamento.value == 0 || departamento.value == "Departamento"){
+  //    alert("Indique su departamento");
+  //    document.getElementById("Departamento").value = "";
+  //    // document.getElementById("Departamento").focus();
+  //    return false;
+  // }
+  // else if(municipio_Col.value =="" || municipio_Col.value == null || municipio_Col.value == 0 || municipio_Col.value == "Municipio"){
+  //   alert("Indique su municipio");
+  //   document.getElementById("Municipio_Col").value = "";
+  //   // document.getElementById("Municipio_Col").focus();
+  //   return false;
+  // }
+  else if(iglesia.value =="" || iglesia.value.indexOf(" ") == 0 || (isNaN(iglesia.value)==false) || iglesia.value.length > 20){
+    alert ("Indique su iglesia o grupo");
+    document.getElementById("Iglesia").value = "";
+    // document.getElementById("iglesia").focus();
+    return false;
+  }
+    else if(clave.value =="" || clave.value.indexOf(" ") == 0 || clave.value.length > 20){
+      alert ("Introduzca una clave de acceso");
+      document.getElementById("Clave").value = "";
+      document.getElementById("Clave").focus();
+      return false;
     }
-     else if(confirmarClave.value =="" || confirmarClave.value.indexOf(" ") == 0 || confirmarClave.value.length>20){
-       alert ("Repita para confirmar clave de acceso");
-       document.getElementById("ConfirmarClave").value = "";
-       document.getElementById("ConfirmarClave").focus();
-       return false;
+    else if(confirmarClave.value =="" || confirmarClave.value.indexOf(" ") == 0 || confirmarClave.value.length>20){
+      alert ("Repita para confirmar clave de acceso");
+      document.getElementById("ConfirmarClave").value = "";
+      document.getElementById("ConfirmarClave").focus();
+      return false;
     }
-    //verifica que las contraseñas sean iguales, invocada desde registroProfesional.php
-    if(clave.value != confirmarClave.value){
+    //verifica que las contraseñas sean iguales, invocada desde registro.php
+    else if(clave.value != confirmarClave.value){
       alert("La contraseña no coincide");
       document.getElementById("ConfirmarClave").value = "";
       document.getElementById("ConfirmarClave").focus();
       return false;
     }
-    else if((contenidoDiv =="La dirección de correo electronico ya existe")) {
-      alert ("Necesita introducir un correo electronico");
-      document.getElementById("Correo").value = "";
-      document.getElementById("Correo").focus();
-      document.getElementById("recibir").innerHTML="";
-      //document.getElementById("recibir").style.color="black";
-      //document.getElementById("Clave").value = "";
-      return false;
-    }
+    // else if(contenidoDiv.innerText != ""){
+    //     alert ("Correo electronico, ya existe");
+    //     // document.getElementById("Correo").value = "";
+    //     // document.getElementById("Correo").focus();
+    //     // document.getElementById("recibir").innerHTML="";
+    //     //document.getElementById("recibir").style.color="black";
+    //     //document.getElementById("Clave").value = "";
+    //     return false;      
+    // }
 }
 
 //Impide que se inserte un correo invalido invocada desde registro.php
     function validarFormatoCorreo(){ 
-        if(document.getElementById("Clave").style.backgroundColor == 'red'){//este if solo se hace para evitar el ciclo repetitivo que hace el evento onblur cuando existen más de dos en un formulario
-            if(avisado== false){
-                avisado= true; 
-                setTimeout("avisado= false",50);
-                document.getElementById("Correo").blur();           
-            }
-        }  
-        else{
             campo = event.target;
             var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+            
+          if(document.getElementById("Correo").style.backgroundColor == "red"){
+            document.getElementById("Correo").value = "";        
+            document.getElementById("Correo").style.backgroundColor = "white";
+            document.getElementById("Correo").focus();
+          }
+          else{
             if(emailRegex.test(campo.value)){      
                return true;
             } 
             else{
                 alert("Correo no aceptado");      
                 document.getElementById("Correo").style.backgroundColor="red"; 
-                document.getElementById("Correo").value = "";
-                //document.getElementById("Registro").blur();
+                // document.getElementById("Correo").value = "";
             }
-        }
+          }
+        
     }
-
-//corrige el color del campo correo, invocada desde registro.php
-        function limpiarColorCorreo(){
-            document.getElementById("Correo").value = "";        
-            document.getElementById("Correo").style.backgroundColor = "white";
-
-            var A= document.getElementById("Mostrar_verificaCorreo");
-                if(A.style.display == "block"){
-                    alert("si");
-            }
-        }
-
-// ----------------------------------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------------------------------------------
 
 

@@ -11,7 +11,6 @@
 					
 		$Nombre = htmlspecialchars($_POST["nombre"]);
 		$Apellido = htmlspecialchars($_POST["apellido"]);
-		$Cedula = htmlspecialchars($_POST["cedula"]);
 		$Correo = htmlspecialchars($_POST["correo"]);
 		$Pais = htmlspecialchars($_POST["pais"]);
 		if(!empty($_POST["departamento"])){
@@ -32,7 +31,6 @@
 
 		// echo "Nombre: " . $Nombre . "<br>" ;
 		// echo "Apellido: " . $Apellido . "<br>" ;
-		// echo "Cedula: " . $Cedula . "<br>";
 		// echo "Correo: " .  $Correo . "<br>";
 		// echo "Pais: " .  $Pais . "<br>";
 		// echo "Region: " .  $Region . "<br>";
@@ -48,18 +46,23 @@
 			include("../conexion/Conexion_BD.php");
 
 	    	//se cifra la contraseña con un algoritmo de encriptación
-	    	$ClaveCifrada= password_hash($Clave, PASSWORD_DEFAULT);
+			$ClaveCifrada= password_hash($Clave, PASSWORD_DEFAULT);
+			
+			//Se genera un numero aleatorio para identificar al usuario
+            mt_srand (time());
+            $Aleatorio = mt_rand(1000000,999999999);
+            //echo "Aleatorio= " . $Aleatorio . "<br>";
 			
 			//Se insertan los datos del participante en la tabla participante, la información privada de su cuenta entra en la tabla usuarios 
-			$insertar= "INSERT INTO participante(Nombre, Apellido, Cedula, Correo, Pais, Region, SubRegion, Iglesia, FechaRegistro) VALUES('$Nombre','$Apellido','$Cedula','$Correo','$Pais','$Region','$SubRegion','$Iglesia', NOW())";
+			$insertar= "INSERT INTO participante(Nombre, Apellido, Correo, Pais, Region, SubRegion, Iglesia, Aleatorio, FechaRegistro) VALUES('$Nombre','$Apellido','$Correo','$Pais','$Region','$SubRegion','$Iglesia','$Aleatorio',NOW())";
 			mysqli_query($conexion, $insertar) or die ("Algo ha dio mal en la consulta a la BD");
 
 			//Se consulta en la tabla participante el ID_Usuario del usuario que se esta afiliando
-			$Consulta= "SELECT ID_Participante FROM participante WHERE Cedula ='$Cedula'";
+			$Consulta= "SELECT ID_Participante FROM participante WHERE Aleatorio ='$Aleatorio'";
 			$Recordset= mysqli_query($conexion, $Consulta); 
 			$Resultado= mysqli_fetch_array($Recordset);
 			$ID_Participante= $Resultado["ID_Participante"];
-			// echo "El ID_Afiliado es= " . $ID_Participante . "<br>";
+			//echo "El ID_Afiliado es= " . $ID_Participante . "<br>";
 
 			//Se insertan los datos de la cuenta del participante en la base de datos. 
 			$insertar_2= "INSERT INTO usuarios(ID_Participante, clave) VALUES('$ID_Participante', '$ClaveCifrada')";
@@ -67,6 +70,9 @@
 		}
 		else{
 			echo "Fallo la confirmación de la contraseña";
+			echo "<br>";
+            echo "<a class='label buttonCuatro' href='javascript:history.go(-1)'>Regresar</a>"; 
+			exit();
 		}	?>
 
 		<!DOCTYPE html>
@@ -83,6 +89,7 @@
 				<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
 				<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
 				<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
+				<link rel="shortcut icon" type="image/png" href="../images/logo.png">
 
 				<script type="text/javascript" src="javascript/Funciones_varias.js" ></script>
 			</head>
@@ -103,7 +110,7 @@
 		</html>	<?php 
 	}   
 	else{ // Si no viene del formulario de registro Registro.php o trata de recargar página lo enviamos al formulario de registro  
-		echo "<META HTTP-EQUIV='Refresh' CONTENT='0; url=Registro.php'>";  
+		echo "<META HTTP-EQUIV='Refresh' CONTENT='0; url=registro.php'>";  
 	} 
 ?>
 

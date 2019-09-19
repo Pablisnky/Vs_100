@@ -9,7 +9,7 @@
     $Recordset= mysqli_query($conexion, $Consulta);
     while($Correo= mysqli_fetch_array($Recordset)){
         if($Correo["Correo"] == $Verifica){
-        	echo "El correo que introdujo ya existe en nuestros registros";  ?>
+        	echo "La dirección de correo electronico ya existe";  ?>
              <style>
                 .contenedor_11{
                 	background-color:yellow;  
@@ -19,11 +19,7 @@
             </style>
             <?php
         }
-        else{
-
-        }
     }
-
 ?>
 
 

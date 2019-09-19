@@ -106,10 +106,13 @@ input:focus{/*donde se encuentre el foco de un formulario*/
   	background-color: #EAF1FA;
 } 
 input[type=checkbox]{/*principal.php*/
-	width: 10%;
-	margin-left: 10%;
-	display: inline-block;
-	margin-bottom: 8%;
+	margin-left: -15%;
+	margin-right: -32%;
+	display:inline;
+}
+input[type=file]{/*fotoPerfil.php*/
+	font-size: 14px;
+	height: 30px;
 }
 input[type=radio]{/*temas.php*/
 	width: 10%;
@@ -215,8 +218,23 @@ td{
 	left: 45%;
 }
 .a_3{/*entrada.php*/
-	margin-top: -5% !important;
+	margin-top: 5% !important;
 	margin-bottom: 2%;
+}
+.a_5{/*instruccion.php*/
+	display: block;
+	text-align: center;
+	margin-top: -2%;
+	margin-bottom: 5%;
+	font-size: 20px;
+}
+.a_6{/*perfil.php*/
+	box-sizing:border-box; 
+	margin-top:1% !important; 
+	height:24px  !important;
+	width: 90px !important; 
+	line-height: 20px !important;
+	color:rgba(194, 245, 19,1);
 }
 .Afiliacion_4{/*datos_personales*/
 	border-radius: 15px;
@@ -226,6 +244,17 @@ td{
 	margin-bottom: 40px;
 	width: 90%;
 	font-size: 14px;
+}
+.Afiliacion_4 .a_4{/*perfil.php*/
+	color:  #040652;
+	display: block;
+	margin-bottom: 3%;
+	font-size: 18px;
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+	padding: 0px;
+	margin-left: 0px;
 }
 .Afiliacion_4 label{/*datos_personales*/
 	font-size: 16px;
@@ -313,7 +342,7 @@ td{
 	font-size: 22px;  
 	display: inline-block; 
 	position: absolute;
-	top: 60%;
+	top: 62%;
 	left: 35%;
 	width: 20%;
 	padding: 4% 5%;
@@ -358,8 +387,7 @@ td{
 	background:#040652;
 	color: rgba(194, 245, 19,1);
 	text-decoration:none;
-	/* font-size:18px; */
-	line-height: 24px;
+	line-height: 23px !important;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -396,7 +424,7 @@ td{
 }
 .contacto_2{/*contacto.php*/
 	margin:auto ;
-	margin-top: -6%;
+	margin-top: -3%;
 	width: 35%;
  	line-height: 30px;
 }
@@ -441,6 +469,69 @@ td{
 	width: 10%;
 	font-family:verdana;
 	text-align: center;
+}
+.contenedor_8{/*perfil.php*/
+	background-color:; 
+	width: 20%; 
+	margin-left: 65%; 
+	margin-top: 3%; 
+	float: right; 
+	position: fixed;
+}
+.contenedor_9{/*perfil.php*/
+	position: fixed; 
+	width: 20%; 
+	margin-left: 65%; 
+	display: flex; 
+	justify-content: center; 
+	margin-top: 17%
+}
+.contenedor_10{/*perfil.php*/
+	float: left; 
+	width: 40%; 
+	margin-left: 10%;
+}
+.contenedor_11{ /*registro.php*/
+	display: none;    
+}
+.contenedor_12{/*participacionHoy.php*/
+	grid-template-columns: 130px 130px 130px ;
+	margin:3% 0% 3% 7%;
+	display: grid;
+	justify-content: space-around;
+	align-content: center;
+	width: 80%;
+}
+.contenedor_12_a{/*participacionHoy.php*/
+	grid-template-columns: 130px 130px 130px ;
+	margin:3% 0% 3% 7%;
+	display: grid;
+	justify-content: space-around;
+	align-content: center;
+	width: 80%;
+}
+.contenedor_13_a{/*participacionHoy.php*/
+	margin-top: 70%;
+	width: 170% !important;
+	margin-top: -30%;
+}
+.contenedor_13_b{/*participacionHoy.php*/
+	margin-top: 60%;
+	width: 170% !important;
+	margin-top: 40%;
+}
+.contenedor_13_c{/*participacionHoy.php*/
+	margin-top: 70%;
+	width: 170% !important;
+	margin-top: 70%;
+}
+.contenedor_14{/*participacionHoy.php*/
+	width: 40%;
+	margin: auto;
+	text-align: center;
+}
+.contenedor_15{/*principal.php*/
+	display: none;
 }
 .contenido_2{/*contacto.php*/
 	width: 90%;
@@ -500,7 +591,6 @@ td{
 	min-height: 280px; */
 }
 .entrada_5{/*entrada.php*/ 
-	/* margin-top: -4%;*/
 	grid-template-columns: 140px 140px 140px 140px 140px ;
 	margin:auto;
 	margin-top: 2%; 
@@ -517,24 +607,42 @@ td{
 	font-family:verdana;
 	width: 60%;
 }
-.etiqueta_3{/*FotoPerfil.php*/
+.etiqueta_3{/*FotoPerfil.php   perfil.php*/
 	margin-bottom:2%;
 	text-align: center;
 	font-size: 16px !important;
 	height:24px;
 	width: 90% !important;
 }
-.etiqueta_32{/*datos_Persoanles.php*/
+.etiqueta_32{/*datos_Personales.php*/
 	margin-bottom:2%;
 	font-size: 16px !important;
 	text-align-last: center;
 	height:24px;
 	width: 49%;
 }
+.etiqueta_33{/*datos_personales.php*/
+	width: 50% !important
+}
 .grafico{/*pregunta.php*/
 	width: 40%;
 	height: 100px !important;
 	float: right;
+}
+.h_1{/*participacionHoy.php*/
+	margin-top:0%
+}
+.imagen_7{/*participacionHoy.php*/
+	width: 100%; 
+	object-fit:contain ;/* deseado cover */
+	filter: brightness(110%);
+	height: 150px;
+}
+.imagen_8{/*FotoPerfil.php*/
+	width: 70%; 
+	object-fit:contain ;/* deseado cover */
+	filter: brightness(110%);
+	height: 250px;
 }
 .Inicio_0{/*instruccion.php*/
 	width: 80%;
@@ -546,7 +654,7 @@ td{
 	margin-bottom: 4%;
 	line-height: 140%;
 }
-.Inicio_1{/*index.php*/ 
+.Inicio_1{/*index.php  principal.php*/ 
 	font-family: 'Raleway', sans-serif;
 	font-size:16px !important;
 	width: 90%;
@@ -557,7 +665,7 @@ td{
 	width: 40%;
 	margin-left:auto;
 	margin-right: auto;
-	margin-bottom: 6%;
+	margin-bottom: -4%;
 	border-radius: 15px;
 	padding: 2%;
 	padding-bottom: 1%;
@@ -565,11 +673,11 @@ td{
 }
 .Inicio_3{/*instruccion.php    index.php*/ 
 	font-family: 'Raleway', sans-serif;
-	width: 80%;
+	width: 70%;
 	font-size:20px;
 	margin: auto;
 	margin-bottom: 4%;
-	line-height: 135%;
+	line-height: 150%;
 }	
 .Inicio_4{/*entrada*/ 
 	font-family: 'Raleway', sans-serif;
@@ -592,11 +700,11 @@ td{
 	font-weight: bold;
 	font-family: 'Raleway', sans-serif;
 }
-.Inicio_7{/*recibePago.php*/ 
+.Inicio_7{/*entrada.php*/ 
 	font-family: 'Raleway', sans-serif;
-	font-size:18px;
+	font-size:25px;
 	width: 90%;
-	margin:2% auto;
+	margin:3% auto;
 }
 .Inicio_8{/*ultima.php*/
 	background-color:yellow; 
@@ -620,6 +728,57 @@ td{
 	margin-bottom: 4%;
 	margin-top: 5%;
 }	
+.Inicio_10{/*participacionHoy.php*/
+	display: block;
+	text-align: center;
+	color:#040652 ;
+	width: 100%;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
+}
+.Inicio_11{/*participacionHoy.php*/ 
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	display: block;
+	width: 100%;
+	font-size:16px;
+	margin: auto;
+	margin-top: 4%;
+}	
+.Inicio_12{/*index.php*/ 
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	display: block;
+	width: 31%;
+	font-size:18px;
+	margin: auto;
+	margin-top: 10%;
+}		
+.Inicio_13{/*index.php*/
+	text-align: center;
+	margin-bottom: 2%;
+	margin-top:2%;
+	color:#040652 ;
+	width: 98%;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
+}
+.Inicio_14{/*index.php  participacionHoy.php*/ 
+	font-family: 'Montserrat', sans-serif;
+	width: 100%;
+	display: block;
+	font-size:38px !important;
+	font-weight: bold;
+	margin: 2% auto;
+	color:orange;
+	text-align: center;
+}	
+.Inicio_15{/*participacionHoy.php*/
+	margin-top: -65px !important;
+	margin-bottom: 80px !important;
+}
 .input_1{/*entrada.php*/
 	position: absolute; 
 	top: 10%; 
@@ -645,6 +804,9 @@ td{
 	font-size: 19px;
 	font-weight: bold;
 }
+.input_3{/*principal.php*/
+	margin-top: 5%;
+}
 .label{/*registro_Libre.php*/
 	font-size:  25px !important;
 }
@@ -662,7 +824,8 @@ td{
 	padding: 0.5% 5px;
 	text-align: center;
 }
-.marcador{/*reglas_Trivia.php*/ 
+.marcador{/*perfil.php*/ 
+	text-align: center;
 	line-height: 30px;
 	display: inline-block;
 	width: 100%;
@@ -696,11 +859,11 @@ td{
 .menuResponsive li{/*Todas las páginas*/
 	padding-bottom: 0.5%;
 	flex-grow: 1;/*distribuye proporcionalmente los elementos internos en el eje horizontal, es necesario que el elemento padre tenga la propiedad display con el valor flex*/
-	/*width: 80%;*/
+	width: 80%;
 }
 .menuResponsive li a{/*Todas las páginas*/
 	display: block;
-	width: 160px;
+	width: 150px;
 	margin: auto;
 	color: white;
 	font-size: 16px;
@@ -711,7 +874,7 @@ td{
 }
 .menuResponsive li a:hover{/*Todas las páginas*/
 	font-size: 19px;
-	width: 200px;
+	width: 185px;
 }
 .modal_2{/*participantes.php*/
 	padding: 1% !important;
@@ -838,27 +1001,39 @@ td{
 	background-color:#040652;
 	color: white; 
 }
-.nav_10{/*pregunta.php   ultima.php*/
+.nav_10{/*ultima.php  */
 	background-color:#F4FCFB;
 	cursor: pointer;
 	display: inline-block;
 	text-align: center;
 	margin-top: 3%;
 	margin-left: 0%;
-	margin-right: auto;
+	margin-right: 1%;;
+	width: 100%;
+	border:none;
+	color:#040652; 
+}
+.nav_10_a{/*ultima.php  */
+	background-color:#F4FCFB;
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	margin-top: 3%;
+	margin-left: 0%;
+	margin-right: 1%;;
 	width: 100%;
 	border:none;
 	color:#040652; 
 }
 .navegacion_2{/*ultima.php*/
-	position: absolute;
 	margin-left: 30%;
-	padding-bottom: 4%;
+	margin-bottom: 5% !important;
 	width: 40%;
 	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
 	font-family:verdana;
+	font-size: 18px;
 }
 .nueva_Prueba{/*entrada.php*/
 	background-color:rgba(255, 255, 0, 0.7) ;
@@ -921,6 +1096,9 @@ td{
 }
 .piePagina_3{/*todas las páginas*/
 	bottom: -120pt;
+}
+.piePagina_4{
+	top:125% !important;
 }
 .popup{/*tema.php*/
 	cursor: default; 
@@ -986,6 +1164,18 @@ td{
 	width: 60%; 
 	margin:2% auto
 }
+.p_6{/*entrada.php*/
+	text-align: center; 
+	width: 100%;
+	margin-bottom: 2%; 
+}
+.p_7{/*perfil.php*/
+	background-color: #BEBFDD; 
+	text-align: center; 
+	margin-left: 0%; 
+	margin-bottom: 2%; 
+	font-size: 18px;
+}
 .Quinto{/*contenedor de opciones para responder (preguntaXxxxx_00.php)*/
 	/* padding-top: 1%; */
 	padding-bottom: 3%;
@@ -1009,14 +1199,17 @@ td{
 	padding: 3% 0%;
 	width: 48%;
 }
-.recordar{/*principal.php*/
-	font-size: 14px; 
-	font-family:verdana;
+.radio{/*participacionHoy.php*/
+	cursor: pointer;
+	margin-left: -2%;
+	font-family: 'Courier New', Courier, monospace;
 	font-weight: bold;
 }
-.recordar_1{/*principal.php*/
-	margin-left: 0px !important;
-	margin-top:20px;
+.recordar{/*principal.php*/
+	font-size: 14px; 
+	font-family: verdana;
+	font-weight: bold;
+	width: 200px;
 }
 .respuestaPreguntas{/*pregunta.php*/
 	margin-top: 1%;
@@ -1035,6 +1228,7 @@ td{
 }
 .Secundario{/*principal.php   preguntaXxxxx_00.php     contacto.php  registro.php    registrarse.php #040652*/
 	width: 100%;
+	margin-bottom: 8%;
 }
 .small{/*entrada*/
 	color: #040652; 
@@ -1069,8 +1263,16 @@ td{
 .span_8{/*entrada.php*/
 	font-family:courier; 
 	font-size:35px !important; 
+	font-weight: bold;
 	color:orange;
-	margin: -2% 0% 8% 0%;
+	margin: -2% 0% 3% 0%;
+}
+.span_8_a{/*entrada.php*/
+	font-family:courier; 
+	font-size:30px !important; 
+	font-weight: bold;
+	color:orange;
+	margin: -2% 0% 3% 0%;
 }
 .super_in{/*entrada.php*/
 	font-size: 10px;

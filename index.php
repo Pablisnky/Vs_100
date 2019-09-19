@@ -1,3 +1,27 @@
+<?php
+session_start();
+
+	//se evita guardar memoria cache
+	// include("modulos/noCache.php");
+
+	//Se utiliza la hora de Colombia
+	date_default_timezone_set('America/Bogota');
+	$FechaServidorPHP =date("Y-m-d");
+	//  echo "Fecha PHP= " . $FechaServidorPHP . "<br>";
+
+	// Se cambia el formato de la fecha
+	$newFecha = date("d-m-Y", strtotime($FechaServidorPHP));
+
+	if($FechaServidorPHP == "2019-09-18"){
+		$CapituloHoy = "1 Cronicas 3";
+		$_SESSION["Capitulo"] = $CapituloHoy;
+	}
+	else{
+		$CapituloHoy = "1 Cronicas 4";
+		$_SESSION["Capitulo"] = $CapituloHoy;
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -8,7 +32,11 @@
 		<meta name="keywords" content="preguntas, ganar, dinero, juego, concurso"/>
 		<meta name="author" content="Pablo Cabeza"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="expires" content="07 de mayo de 2018"><!--Inicio de construcción de la página-->
+
+		<meta http-equiv="Expires" content="0"><!--evita guardar en cache-->
+		<meta http-equiv="Last-Modified" content="0"><!--evita guardar en cache-->
+ 		<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate"><!--evita guardar en cache-->
+		<meta http-equiv="Pragma" content="no-cache"><!--evita guardar en cache-->
 		<meta name="MobileOptimized" content="width">
 		<meta name="HandheldFriendly" content="true">
 
@@ -22,13 +50,17 @@
 		<link rel="manifest" href="./manifest.json">
 
 		<script type="text/javascript" src="javascript/Funciones_varias.js" ></script>
-		<script>
-		  	window.dataLayer = window.dataLayer || [];
-		  	function gtag(){dataLayer.push(arguments);}
-		  	gtag('js', new Date());
 
-		  	gtag('config', 'UA-117655324-5');
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117655324-5"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-117655324-5');
 		</script>
+
 	</head>	
 	<body> 
 		<!--Construcion de ventanan modal-->
@@ -55,29 +87,40 @@
     		<label id="ComandoMenu" class="comandoMenu" onclick="mostrarMenu()"><span class="icon-menu"></span></label>
 		    <nav id="MenuResponsive" class="menuResponsive">
 		        <ul id="MenuContenedor">
-		            <li><a href="vista/principal.php">Entrar</a></li>
+		            <li><a href="vista/principal.php">Inicio sesión</a></li>
 		            <li><a href="vista/registro.php">Registrarse</a></li>
-		            <!-- <li><a href="vista/creditos.php">Creditos</a></li> -->
 		            <!-- <li><a href="../vista/club.php">Club de lectura</a></li> -->
 		            <li><a href="vista/contacto.php">Contacto</a></li>
+		            <li><a href="vista/instruccion.php">¿Reavivados?</a></li>
+		            <li><a href="vista/participacionHoy.php">Sabios</a></li>
 		            <li><a href="vista/demo.php">Demo</a></li> 
 		        </ul>
 		    </nav>
 		</header>
 		<div class="Secundario" onclick="ocultarMenu()"><!--en este contenedor se hace click y se oculta el menu responsive-->
-			<div class="n00"><!--Menu responsive-->
-				<a class="buttonTres" href="vista/principal.php">inicia sesión</a>	
+			<p class="Inicio_13">Capitulo para hoy <?php echo $newFecha;?></p> 
+			<a class="Inicio_14" href="vista/principal.php"><?php echo $CapituloHoy;?></a>
+			<div class="n00">
+				<div>
+					<a class="buttonTres" href="vista/principal.php">inicia sesión</a>
+				</div>	
 				<!-- <a class="buttonTres" href="vista/club.php">Club de lectura</a>	 -->
-				<a class="buttonTres" href="vista/demo.php">Prueba Demo</a>	
-			</div>
+				<div>
+					<a class="buttonTres" href="vista/demo.php">Prueba Demo</a>	
+				</div>
+				<div>
+					<a class="buttonTres" href="vista/participacionHoy.php">Sabios de hoy</a>
+				</div>	
+			</div>			
 			<div class="n20">
 				<h5>¿Que es Reavivados?</h5>				
-				<p class="Inicio_1">Es una prueba diaria basada en el programa <span class="span_6">"Reavivados por su palabra"</span> de la Iglesia Adventista del Séptimo Día, en la que se plantean 5 preguntas del capitulo diario estudiado.</p>
+				<p class="Inicio_1">Es un test diario basado en el programa <span class="span_6">"Reavivados por su palabra"</span> de la Iglesia Adventista del Séptimo Día, en el que se plantean 5 preguntas del capitulo biblico diario estudiado.</p>
 				<p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en tu respuesta te penalizará, dejandote un paso atras de la sabiduría.</p>	
-				<a class="Inicio_3  buttonCuatro" href="vista/instruccion.php">Instrucciones</a>
+				<a class="Inicio_3  buttonCuatro" href="vista/instruccion.php">¿ Que es reavivados ?</a>
 			</div>
 		</div>
-	    <footer class="piePagina_3">
+		
+	    <footer class="piePagina_3 piePagina_4">
 	        <?php include("vista/modulos/footer.php");?>
 	    </footer> 
 	</body>

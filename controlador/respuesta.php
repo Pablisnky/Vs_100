@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 	$Participante = $_GET["val_1"];//se recibe el ID_Participante desde pregunta.php
 	$Tema = $_GET["val_2"];//se recibe el nombre del Tema desde pregunta.php
 	$Pregunta = $_GET["val_3"];//se recibe el numero de la pregunta desde pregunta.php
@@ -65,7 +67,12 @@
 			mysqli_query($conexion,$Actualizar_4);
 		}
 		else{
-			echo "<h3 class='bloqueo_2'>Correcto. Felicitaciones</h3>";
+			echo "<h3 class='bloqueo_2'>" . "Correcto. Felicitaciones" . "<br>" .  $_SESSION['Versiculo'] . "<br>" . "</h3>";
+			//Se inserta el numero del versiculo por medio de sesion creada en cada pregunta
+			// echo "<h3 class='bloqueo_2'>"  . $_SESSION['Versiculo'] . "</h3>";
+			//Se destruye la session creada en cada pregunta, para que vuelva a ser creada en la proxima pregunta
+			unset($_SESSION["Versiculo"]);
+
 			//se actualiza en la BD la hora a la que respondio la pregunta
 			$Actualizar_5= "UPDATE respuestas SET correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Participante='$Participante' AND ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PP = '$CodigoPrueba'";
 			mysqli_query($conexion,$Actualizar_5);
@@ -81,7 +88,7 @@
 		//Se consulta la hora en la que se realizó la pregunta para introducirlo nuevamente en la consulta $insertar
 		$Hora_Pregunta= $Verificar["Hora_Pregunta"];
 
-		echo "<h3 class='bloqueo_3'>Su repuesta es correcta, pero no sumará puntos porque anteriormente falló en su respuesta</h3>";
+		echo "<h3 class='bloqueo_3'>" . "Su repuesta es correcta, pero no sumará puntos porque anteriormente falló en su respuesta" . "<br>" . $_SESSION['Versiculo'] . "<br>" . "</h3>";
 		
 		$insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Correcto, Hora_Pregunta, Hora_Respuesta) VALUES('$Pregunta', '$Participante', '$CodigoPrueba', '$Tema', 1, '$Hora_Pregunta', '$HoraServidorPHP')";
 		mysqli_query($conexion, $insertar);

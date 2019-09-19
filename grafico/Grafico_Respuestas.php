@@ -46,7 +46,7 @@ Highcharts.chart('container', {
   }, 
   xAxis:[{  
     title: {
-      // text: 'Preguntas',
+     text: 'Preguntas',
     },
     min:1,
     categories: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],

@@ -231,3 +231,23 @@ function pauseAudioBiblia(){
 } 
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
+//llamada desde participacionHoy.php
+function Lideres_D(){
+    if(document.getElementById("Diario").checked == true){
+        document.getElementById("Contenedor_12_a").style.display="none";
+        document.getElementById("Contenedor_12_a1").style.display="none";
+        document.getElementById("Contenedor_12").style.display="grid";
+        document.getElementById("Contenedor_12_b").style.display="grid";
+    }
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//llamada desde participacionHoy.php
+function Lideres_S(){
+    if(document.getElementById("Semanal").checked == true){
+        document.getElementById("Contenedor_12").style.display="none";
+        document.getElementById("Contenedor_12_b").style.display="none";
+        document.getElementById("Contenedor_12_a").style.display="grid";
+        document.getElementById("Contenedor_12_a1").style.display="grid";
+    }
+}

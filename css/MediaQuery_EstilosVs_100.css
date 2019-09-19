@@ -25,17 +25,17 @@ h3{
 	width: 90%;
 }
 h4{/*pregunta.php  Ultima.php*/
- 	background-color: ;
  	padding: 4% 0%;
  	font-size: 18px;
 }
 h5{/*index.html*/
 	text-align: center;
-	font-size: 15px;
+	font-size: 18px;
 	font-weight: bold;
 	font-family:verdana;
 	padding-top: 0%;
 	margin-bottom: 8%;
+	line-height: 30px;
 }
 header label{
 	padding:1% 2%;	
@@ -55,10 +55,8 @@ input{/*principal.php  demo.php*/
 	margin-bottom: 7% !important;
 }
 input[type=checkbox]{/*principal.php*/
-	width: 10%;
-	margin-left: 3%;
-	display: inline;
-	margin-bottom: 8%;
+	margin-left: -35%;
+	margin-right: -40%;
 }
 input[type=radio]{/*temas.php*/
 	margin-bottom: 7% !important;
@@ -125,9 +123,24 @@ th{/*participantes.php*/
 	left: 38%;
 }
 .a_3{/*entrada.php*/
-	margin-top: 0% !important;
+	margin-top: 10% !important;
 	margin-bottom: 5%;
 	font-size: 20px !important;
+}
+.a_5{/*instruccion.php*/
+	display: block;
+	text-align: center;
+	margin-top: -8%;
+	margin-bottom: 9%;
+	font-size: 17px;
+}
+.a_6{/*perfil.php*/ 
+	margin-top:10%  !important;  
+	font-size: 14px;
+	height:20px !important;
+	line-height: 15px !important;
+	width: 110px !important;
+	color:rgba(194, 245, 19,1);
 }
 .agradecimientos{/*registrarse.php*/
 	font-size: 14px;
@@ -155,7 +168,7 @@ th{/*participantes.php*/
 	width: 100%;
 	padding: 3%;
 	box-sizing: border-box;
-	height: 14%;
+	height: 18%;
 	line-height: 180%;
 }
 .bloqueo_2_a{/*bloquearPreguntaDemo.php  respuestaDemo.php*/
@@ -209,10 +222,10 @@ th{/*participantes.php*/
 .bloqueo_3_a{/*prorroteoPuntos.php*/
 	color:  rgba(194, 245, 19,1);
 	font-size: 18px;  
-	top: 59%;
+	top: 67%;
 	left: 0%;
 	width: 90%;
-	padding: 4% 5%;
+	padding: 0% 5%;
 }
 .botonDemo{/*participantes.php*/
 	width: 55%;
@@ -283,6 +296,78 @@ th{/*participantes.php*/
 	left:2%;
 	font-size: 14px;
 }
+.contenedor_8{/*perfil.php*/
+	display: none;
+}
+.contenedor_9{/*perfil.php*/
+	position: static; 
+	width: 100%; 
+	margin-left: 0%; 
+	display: flex; 
+	justify-content: center; 
+	margin-top: 0%
+}
+.contenedor_10{/*perfil.php*/
+	float: none; 
+	width: 95%;
+	margin: auto; 
+	/* margin-left: 0%; */
+}
+.contenedor_12{/*participacionHoy.php*/
+	grid-template-columns:100% ;
+	margin:0%;
+	display: grid;
+	justify-content: space-around;
+	align-content: center;
+	width: 100%;
+}
+.contenedor_12_a{/*participacionHoy.php*/
+	grid-template-columns:100% ;
+	margin:0%;
+	display: grid;
+	justify-content: space-around;
+	align-content: center;
+	width: 100%;
+}
+.contenedor_14{/*participacionHoy.php*/
+	width: 100%;
+	margin-left: -6%;
+	margin-bottom: -2%;
+	height: 25px;
+}
+.n00{/*index.php*/
+	width: 100%;
+	height: 50px;
+	padding-left: 0%;
+	margin-top: 0%;
+	margin-bottom: 8%;
+	justify-content: space-around;
+} 
+/*saca a un elemento hijo de la alineacion flex que tiene el padre*/
+/* .n00>div{index.php
+   	flex: 1 0 50%;
+   	text-align: center;
+   	padding: 10px;
+}
+.n00>div:first-child{/*index.php*/
+    /* flex: 0 1 50%;
+}  */
+/* *{
+    box-sizing: border-box;
+} */
+.contenedor_13_a{/*participacionHoy.php*/
+	margin: auto !important;
+	width: 100% !important;
+}
+.contenedor_13_b{/*participacionHoy.php*/
+	margin-top: 8%;
+	width: 100% !important;
+}
+.contenedor_13_c{/*participacionHoy.php*/
+	margin-top: 8%;
+	margin-bottom: 15%;
+	width: 100% !important;
+}
 .contenido_2{/*contacto.php*/
 	width: 85% !important;
 }
@@ -300,7 +385,6 @@ th{/*participantes.php*/
 .efecto{/*pregunta.php*/
 	display: inline;
 	font-size: 15px !important;
-	width: 45%;
 }
 .efecto:hover{/*preguntaXxxxx_00.php#040652*/
 	color:white;
@@ -309,7 +393,7 @@ th{/*participantes.php*/
 	display: block; 
 	margin-bottom: 20px; 
 	width: 200px; 
-	margin: auto;"
+	margin: auto;
 }
 .encabezado{/*preguntaXxxx_00.php*/
 	color: white; 
@@ -372,7 +456,26 @@ th{/*participantes.php*/
 	text-align: center;
 	font-size: 13px;
 }
-.etiquetaEspeciale{
+.etiqueta_3{/*FotoPerfil.php   perfil.php*/
+	margin-bottom:15%;
+	text-align: center;
+	font-size: 16px !important;
+	height:24px;
+	width: 90% !important;
+}
+.etiqueta_32{/*datos_Personales.php*/
+	margin-bottom:2%;
+	font-size: 16px !important;
+	text-align-last: center;
+	height:24px;
+	width: 90%;
+}
+.etiqueta_33{/*datos_personales.php*/
+	width: 90% !important
+}
+.h_1{/*participacionHoy.php*/
+	margin:5% auto 8% auto;
+	width: 90%;
 }
 .icon{
   font-size: 10px;
@@ -382,6 +485,12 @@ th{/*participantes.php*/
 	left: 75%; 
 	width:20%; 
 	font-size: 17px;
+}
+.imagen_8{/*FotoPerfil.php*/
+	width: 100%; 
+	object-fit:contain ;/* deseado cover */
+	filter: brightness(110%);
+	height: 200px;
 }
 .imagenTamaño{
 	width: 35%;
@@ -396,9 +505,9 @@ th{/*participantes.php*/
 	width: 90%; 
 	text-align: center;
 }
-.Inicio_1a{
+/* .Inicio_1a{
 	width: 95% !important;
-}
+} */
 .Inicio_2{/*demo.php    principal.php   */
 	width: 100%;
 	text-align: center;
@@ -411,10 +520,10 @@ th{/*participantes.php*/
 	box-sizing: border-box;
 }
 .Inicio_3{/*instruccion.php*/
-	color: ; 
 	width: 85%;
 	font-size:15px;
 	margin-bottom: 10%;
+	line-height: 155%;
 }
 .Inicio_4{/*entrada.php*/
 	font-size: 15px;
@@ -434,7 +543,7 @@ th{/*participantes.php*/
 	margin: 5%;
 }
 .Inicio_7{/*recibePago.php*/
-	font-size: 14px;
+	font-size: 18px;
 	width: 100%;
 	margin-bottom: 8%;
 }
@@ -451,6 +560,30 @@ th{/*participantes.php*/
 	text-align: center; 
 	font-size: 18px;  
 	display: block;
+}
+.Inicio_11{/*participacionHoy.php*/ 
+	margin-top: 1%;
+	font-size:14px;
+}	
+.Inicio_12{/*index.php*/ 
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	display: block;
+	width: 40%;
+	font-size:14px;
+	margin-top: 10%;
+}			
+.Inicio_13{/*index.php*/
+	font-size: 17px;
+	margin-top:0%;
+	margin-bottom: 6%;
+}
+.Inicio_14{/*index.php     participacionHoy.php*/ 
+	font-size:34px !important;
+}	
+.Inicio_15{/*participacionHoy.php*/
+	margin-top: -25px !important;
+	margin-bottom: 50px !important;
 }
 .inputDestino{
 	background-color: blue;
@@ -523,9 +656,6 @@ th{/*participantes.php*/
 	font-weight: bold;
 	font-size: 15px;
 }
-.modal{
-	display: ;
-}
 .modal_2{/*participantes.php*/
 	width: 90% !important;
 }
@@ -533,12 +663,9 @@ th{/*participantes.php*/
 	display: block;
 }
 .n00{/*index.php*/
-	width: 100%;
-	height: 80px;
-	display: flex;
-	padding-left: 0%;
-    justify-content:center;
-	margin: 0% auto 3% auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 /* .n10{index.html
 	background: -webkit-linear-gradient(bottom, white 70%, #040652 30%);
@@ -556,8 +683,8 @@ th{/*participantes.php*/
 	padding-top: 0.5%;
 	padding-bottom: 0%;
 	box-sizing: border-box;
-	margin: 2% auto;
- 	margin-right: 5%;
+	margin: 3% auto;
+	margin-right: 5%;
  	width: 90%;
  	display: block;
  	line-height: 25px;
@@ -580,8 +707,8 @@ th{/*participantes.php*/
 .nav_5 a{/*registrarse.php*/
 	color:#040652; 
 	font-size:16px;
-	font-weight: ; 
-	text-align: center;"
+	text-align: center;
+	margin-top: 8%;
 }
 .nav_7{/*entrada.php*/
 	font-size: 15px;
@@ -600,7 +727,17 @@ th{/*participantes.php*/
 	margin-left: 30%;
 	width: 30%;
 }
-.nav_10{/*pregunta.php   ultima.php*/
+.nav_10_a{/*ultima.php  */
+	background-color:#F4FCFB;
+	cursor: pointer;
+	display: inline-block;
+	text-align: left;
+	margin-top: 3%;
+	margin-left: 0%;
+	margin-right: 1%;;
+	width: 100%;
+	border:none;
+	color:#040652; 
 }
 .navegacion_1{/*pregunta.php*/
 	margin-left: 0%;
@@ -609,9 +746,8 @@ th{/*participantes.php*/
 	justify-content: space-around;
 }
 .navegacion_2{/*ultima.php*/
-	position: absolute;
 	margin-left: 0%;
-	padding-bottom: 4%;
+	margin-bottom: 5% !important;
 	width: 100%;
 	box-sizing: border-box;
 	display: flex;
@@ -629,6 +765,7 @@ th{/*participantes.php*/
 .nueva_Prueba{/*entrada.php*/
 	width: 90%;
 	margin-bottom: 8%;
+	margin-top: 0%;
 }
 .ocultarMenu{/*index.html*/
 	display: block;
@@ -689,6 +826,9 @@ th{/*participantes.php*/
 .piePagina_3{/*todas las páginas*/
 	bottom: -140pt;
 }
+.piePagina_4{
+	top:125% !important;
+}
 .participaciones{/*participaciones.php*/
 	width: 100%;
 	margin: 8% auto;
@@ -719,14 +859,14 @@ th{/*participantes.php*/
 }
 .Quinto{/*preguntaXxxxx_00.php*/
 	padding-top: 1%;
-	padding-bottom: 6%;
 	width: 90%;
-	height: 90px;
+	height: 140px;
 	margin-top: 2%;
+	margin-bottom: 2%;
 }
 .Quinto_2{/*contenedor de opciones para responder (preguntaXxxxx_00.php)*/
 	width: 100%;
-	height: 40px;
+	height: 55px;
 	margin-top: 2%;
 	margin-bottom: 1%;
 	display: flex;
@@ -734,8 +874,10 @@ th{/*participantes.php*/
 }
 .Quinto_2 .efecto{/*preguntaXxxxx_00.php*/
 	display: inline;
-	width: 50%;
 	font-size: 13px;
+}
+.radio{/*participacionHoy.php*/
+	font-size: 14px;
 }
 .recordar{/*principal.php*/
 	font-size: 12px; 
@@ -745,9 +887,6 @@ th{/*participantes.php*/
 	width: 80%;
 	text-align: left;
 	font-family:verdana;
-}
-.recordar_1{/*principal.php*/
-	margin-top:-10px !important;
 }
 .RegistroPago_1{/*registro_Pago.php*/
 	background-color: red !important;
@@ -810,7 +949,24 @@ th{/*participantes.php*/
 	color:orange;
 	display: inline-block;
 	font-weight: bold;
-	margin: -8% 0% 8% 0%;
+	margin: 0%;
+	width: 100%;
+}
+.span_8_a{/*entrada.php*/
+	font-family:courier; 
+	font-size:17px !important; 
+	font-weight: bold;
+	color:orange;
+	margin: -2% 0% 3% 0%;
+}
+.span_9{/*participacionHoy.php*/
+	font-family:courier; 
+	text-align: center;
+	font-size:21px !important; 
+	color:orange;
+	font-weight: bold;
+	margin-top: -5% !important;
+	margin-bottom: 12%;
 	width: 100%;
 }
 .tabla_0{/*ultima.php*/
@@ -834,7 +990,6 @@ th{/*participantes.php*/
 	font-size: 15px;
 }
 .tabla_2{/*participantes.php*/
-    background-color;
     width: 5%;
     font-size: 12px; 
     text-align: center;
@@ -851,7 +1006,6 @@ th{/*participantes.php*/
 	margin-top: 10% !important;
 }
 .tablaPrecio{
-    background-color: ;
     width: 110%;
     font-size: 10px;
 }
@@ -877,7 +1031,6 @@ th{/*participantes.php*/
 	 font-size:11px;
 }
 .ultima_1{/*Ultima.php*/
- 	background-color: ;
  	padding: 1% 0%;
 }
 .ultimaPregunta{/*Ultima.php*/

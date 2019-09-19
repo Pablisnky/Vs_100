@@ -11,7 +11,11 @@
 	// echo "Codigo prueba= " . $CodigoPrueba . "<br>";
 
 	$ID_Prueba= $_SESSION["ID_Prueba"];
-	// echo "ID_Prueba= " . $ID_Prueba . "<br>";
+	//  echo "ID_Prueba= " . $ID_Prueba . "<br>";
+	
+	 //sesion creada en entrada.php
+	// $CapituloHoy = $_SESSION["Capitulo"];
+	// echo "Capitulo= " . $CapituloHoy . "<br>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -46,7 +50,7 @@
 			<h4 class="ultima_1"><?php echo $Participante["Nombre"];?></h4>
 			<?php 				
 				if($Tema == "Reavivados"){ ?>
-					<h4 class="ultima_1">Has concluido tu prueba diaria sobre<h4>
+					<h4 class="ultima_1">Has concluido tu prueba diaria<h4>
 					<p class="span_5">"Reavivados por su palabra"</p>  <?php
 				} 
 				else{  ?>           				
@@ -129,8 +133,8 @@
 					//Puntos ganados en la prueba
 					// echo "Puntos ganados en la prueba: " . $Decimal . "<br>";
 					
-					//(Reavivados)se consulta los puntos acumulados en todas las pruebas diarias
-			    	$Consulta_0="SELECT SUM(Puntos) AS Acumulado FROM participantes_pruebas WHERE ID_Participante='$participante' AND Tema='$Tema'";
+					//(Reavivados)se consulta los puntos acumulados en la semana
+			    	$Consulta_0="SELECT SUM(Puntos) AS Acumulado FROM participantes_pruebas WHERE ID_Participante='$participante' AND Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK(CUrdate()) GROUP BY WEEK(Fecha_pago))";
 					$Recordset_0= mysqli_query($conexion, $Consulta_0);
 					$Participante_0= mysqli_fetch_array($Recordset_0);
 					$Acumulado= $Participante_0["Acumulado"];
@@ -169,7 +173,7 @@
 				<?php
 					if($Tema == "Reavivados"){  ?>	
 						<p class="Inicio_5">Puntos ganados hoy: <?php echo $Decimal;?></p> 
-						<p class="Inicio_5">Puntos acumulados: <?php echo $Decimal_0;?></p><?php
+						<p class="Inicio_5">Puntos semanales: <?php echo $Decimal_0;?></p><?php
 					}
 					else{	?>
 						<p class="Inicio_5">Puntos acumulados: <?php echo $Decimal;?></p>
@@ -259,8 +263,14 @@
 								$Posicion=  mysqli_fetch_array($Recordset_5);
 								// echo "Ocupas el puesto Número= " . $Posicion['PusRea'] . "<br>";
 
-								//Se consulta el nombre del lider de la prueba
-								$Consulta_31="SELECT participante.ID_Participante, posicion_general_rea.PuntosTotales, participante.Nombre, participante.Apellido, participante.Iglesia, participante.SubRegion FROM participante INNER JOIN posicion_general_rea ON participante.ID_participante=posicion_general_rea.ID_participante INNER JOIN participantes_pruebas ON posicion_general_rea.ID_Participante=participante.ID_Participante WHERE ID_Prueba= 5 ORDER BY PuntosTotales  DESC LIMIT 1";
+								//(reavivados)Se consulta su posicion semanal segun sus puntos
+								// $Consulta_5="SELECT COUNT(*) AS PusRea FROM posicion_general_rea WHERE PuntosTotales >= '$Acumulado' ";
+								// $Recordset_5 = mysqli_query($conexion, $Consulta_5);
+								// $Posicion=  mysqli_fetch_array($Recordset_5);
+								// echo "Ocupas el puesto Número= " . $Posicion['PusRea'] . "<br>";
+
+								//Se consulta el nombre del lider de hoy 
+								$Consulta_31="SELECT * FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE Tema='Reavivados' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() ORDER BY Puntos DESC LIMIT 1";
 								$Recordset_31= mysqli_query($conexion, $Consulta_31);
 								$Resultado_31= mysqli_fetch_array($Recordset_31);
 								$Participante_31= $Resultado_31["Nombre"];
@@ -282,10 +292,11 @@
 									<strong class="Inicio_8"><?php echo $Participante_6;?> participante aún no ha respondido esta prueba</strong>  <?php 
 								}  
 								?>
-								<p class="Inicio_5">Tu posición general es de Nº <?php echo $Posicion['PusRea'];?> de <?php echo $Participante_4;?> participantes.</p> 
+								<!-- <p class="Inicio_5">Tu posición esta semana es de Nº <?php //echo $Posicion['PusRea'];?> de <?php// echo $Participante_4;?> participantes.</p>  -->
 								<div class="tabla_4">
 									<table>
-										<caption class="caption_lider">Maximo puntaje en <span class="span_7">Reavivados</span></caption>
+										<!-- <caption class="caption_lider">Maximo puntaje en <span class="span_7">Reavivados</span></caption> -->
+										<caption>Lider de hoy</caption>
 										<thead>
 											<th>Nombre</th>
 											<th>Apellido</th>
@@ -299,17 +310,62 @@
 												<td class="tabla_0"><?php echo $Participante_33;?></td>
 												<td class="tabla_0"><?php echo $Participante_34;?></td>
 											</tr> <?php
-											//Se consulta el putaje global del lider
-											$Consulta_20="SELECT PuntosTotales FROM posicion_general_rea ORDER BY PuntosTotales DESC LIMIT 1";
+											//Se consulta el puntaje del dia del lider
+											$Consulta_20="SELECT * FROM participantes_pruebas WHERE Tema='Reavivados' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() ORDER BY Puntos DESC LIMIT 1";
 											$Recordset_20= mysqli_query($conexion, $Consulta_20);
 											$Participante_20= mysqli_fetch_array($Recordset_20);
-											$Acumulado_2= $Participante_20["PuntosTotales"];
+											$Acumulado_2= $Participante_20["Puntos"];
 											// echo "Puntos globales= " . $Acumulado . "<br>";
 											
 											//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
 											$Decimal_2 = str_replace('.', ',', $Acumulado_2);  ?>
 											<tr>
-												<td colspan="3" class="tabla_1">Puntos totales</td>
+												<td colspan="3" class="tabla_1">Puntos hoy</td>
+												<td class="tabla_1"><?php echo  $Decimal_2;?></td>
+											</tr>
+										</tbody>
+									</table>
+									<table>
+										<caption>Lider de la semana</caption>
+										<thead>
+											<th>Nombre</th>
+											<th>Apellido</th>
+											<th>Iglesia</th>
+											<th>Región</th>
+										</thead>
+										<tbody>	<?php
+											//Se consulta el nombre del lider de la semana 
+											$Consulta_31="SELECT SUM(Puntos) AS acumulado, participante.ID_Participante, participante.Nombre, participante.Apellido, participante.Iglesia, participante.SubRegion FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK(CURDATE()) GROUP BY WEEK(Fecha_pago)) GROUP BY participante.ID_Participante ORDER BY acumulado DESC LIMIT 1";
+											$Recordset_31= mysqli_query($conexion, $Consulta_31);
+											$Resultado_31= mysqli_fetch_array($Recordset_31);
+											$Participante_30= $Resultado_31["ID_Participante"];
+											$Participante_31= $Resultado_31["Nombre"];
+											$Participante_32= $Resultado_31["Apellido"];
+											$Participante_33= $Resultado_31["Iglesia"];
+											$Participante_34= $Resultado_31["SubRegion"];
+											// echo "ID lider: " . $Participante_30 . "<br>";
+											// echo "Nombre lider: " . $Participante_31 . "<br>";
+											// echo "Apellido lider: " . $Participante_32 . "<br>";
+											// echo "Iglesia lider: " . $Participante_33 . "<br>";
+											// echo "SubRegion lider: " . $Participante_34 . "<br>";
+											?>
+											<tr>
+												<td class="tabla_0"><?php echo $Participante_31;?></td>
+												<td class="tabla_0"><?php echo $Participante_32;?></td>
+												<td class="tabla_0"><?php echo $Participante_33;?></td>
+												<td class="tabla_0"><?php echo $Participante_34;?></td>
+											</tr> <?php
+											//Se consulta el puntaje de la semana del lider
+											$Consulta_20="SELECT SUM(Puntos) AS Acumulado FROM participantes_pruebas WHERE ID_Participante='$Participante_30' AND Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK(CURDATE()) GROUP BY WEEK(Fecha_pago))";
+											$Recordset_20= mysqli_query($conexion, $Consulta_20);
+											$Participante_20= mysqli_fetch_array($Recordset_20);
+											$Acumulado_2 = $Participante_20["Acumulado"];
+											// echo "Puntos semanales Lider= " . $Acumulado_2 . "<br>";
+											
+											//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
+											$Decimal_2 = str_replace('.', ',', $Acumulado_2);  ?>
+											<tr>
+												<td colspan="3" class="tabla_1">Puntos en la semana</td>
 												<td class="tabla_1"><?php echo  $Decimal_2;?></td>
 											</tr>
 										</tbody>
@@ -330,10 +386,13 @@
 		    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Reavivados</p>
 		    </div>
 	    	</div>
-			<nav class="navegacion_2">
+			<div class="navegacion_2">
 				<a class="nav_10" href="../controlador/entrada.php">Inicio</a>
-				<a class="nav_10" href="../controlador/cerrarSesion.php">Cerrar Sesión</a>
-			</nav>
+				<a class="nav_10_a" href="../controlador/cerrarSesion.php">Cerrar Sesión</a>
+			</div>
 		</div>
+		<footer>
+		    <?php include("modulos/footer.php");?>
+		</footer>
 	</body>
 </html>	

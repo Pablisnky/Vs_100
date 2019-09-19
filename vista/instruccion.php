@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Vs_100 Instrucciones</title>
+		<title>Instrucciones</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas biblicas."/>
@@ -13,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
        	<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
        	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'> 
+        <link rel="shortcut icon" type="image/png" href="../images/logo.png">
 
 		<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
 	</head>	
@@ -21,11 +22,17 @@
 			<?php include("modulos/header.html");?>
 		</header>
 		<div onclick="ocultarMenu()">
-			<h2>Instrucciones para utilizar la plataforma.</h2>	
+			<h2>¿Que es Reavivados?</h2>	 
+			<p class="Inicio_3">Es un ministerio desarrollado para incentivar la lectura bíblica diaria y recordar el sábado como día de reposo para honrar a Dios; dejándonos una lección de sabiduría para mejorar nuestro comportamiento en sociedad.</p> 
+
+			<p class="Inicio_3">La dinamica diaria consiste en un sencillo test de cinco preguntas sobre el capitulo biblico estudiado, al finalizarlo se le notifica su resultado y actuación junto con un reporte del status general con toda la comunidad.</p> 
+
+			<p class="Inicio_3">Al finalizar la semana, el día sabado a las seis de la tarde se entregan los resultados generales de la misma y se hacen publico las tres mejores posiciones. De esta manera despedimos el sabado para iniciar la semana con una nueva prueba el domingo a las 00:00</p> 
+
 			<p class="Inicio_6">Reglas generales</p>
 		    <ul>
 				<li class="Inicio_3">El acceso a la plataforma es libre y gratuito</li>
-		        <li class="Inicio_3">Pueden participar personas de cualquier edad y ubicación geografica dentro de Colombia. (proximamente se expandira a otros paises)</li>
+		        <li class="Inicio_3">Pueden participar personas de cualquier edad y ubicación geografica dentro de Colombia y Venezuela. (El proposito es expandirse a otros paises)</li>
 		        <li class="Inicio_3">Debe estar registrado en la plataforma, e iniciar sesión con su cuenta de usuario.</li>
 		        <li class="Inicio_3">Seleccione el reto diario de "Reavivados" o un libro de la Biblia para ingresar a su prueba.</li>
 		    </ul>

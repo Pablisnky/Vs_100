@@ -34,7 +34,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Versus_20 Pregunta Nº <?php echo $Num_Pregunta;?></title>
+		<title>Pregunta Nº <?php echo $Num_Pregunta;?></title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas sobre suramerica."/>
@@ -64,7 +64,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 	    <input type="text" class="ocultar" id="Pregunta_Num" value="<?php echo $Num_Pregunta;?>"><!-- se utiliza para enviar a puntaje.js-->
 			<div class="Secundario">
 				<div class="encabezado">
-					<h1 class="anula">Versus_20</h1>
+					<h1 class="anula">Reavivados</h1>
 			    </div>
 			    <div class="encabezado_2">
 				    <div id="mostrarPuntos"></div><!-- recibe el puntaje del participante por medio de llamar_puntaje() llamada al cargar el documento desde sumaPuntaje.php-->

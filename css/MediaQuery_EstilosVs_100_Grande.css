@@ -1,9 +1,23 @@
 @media screen and (min-width: 1500px){/*las reglas se aplicarán cuando la pantalla tenga una anchura mayor de la indicada.*/
 
-
+input[type=checkbox]{/*principal.php*/
+	margin-left: -5%;
+	margin-right: -40%;
+}
 .Inicio_2{/*todos los formularios*/
 	background-color: blue !important;
 	width: 70%;
+}
+.Inicio_3{/*instruccion.php    index.php*/ 
+	font-family: 'Raleway', sans-serif;
+	width: 60%;
+	font-size:20px;
+	margin: auto;
+	margin-bottom: 4%;
+	line-height: 135%;
+}		
+.Inicio_13{/*index.php*/
+	margin-top:-10%;
 }
 .n00{/*index.php*/
 	width: 45%;
@@ -12,25 +26,21 @@
 	box-sizing: border-box;
 	margin-top: 5%;
 }
-/* .n10{index.php
-	background: -webkit-linear-gradient(bottom, white 65%, #040652 35%);
-	border:2px solid #000;
-	border-radius:15px;
-	padding-top: 0.5%;
-	padding-bottom: 5%;
-	box-sizing: border-box;
- 	width: 50%;
-	margin: 0% 10%;
-	margin-bottom: 7%;
-} */
 .n20{
+	background-color: red;
+	width: 30%;
 	background: -webkit-linear-gradient(bottom, white 88%, #040652 12%);
 	line-height: 40px;
+	margin-right: 18%;
 }
-.Secundario{/*principal.php pregunta.php contacto.php  registro.php  index.php  registrarse.php*/
-	width: 80%;
+.nueva_Prueba{/*entrada.php*/
+	margin-top: 60% !important;
+}
+.Secundario{/*principal.php  pregunta.php  contacto.php  registro.php  index.php  registrarse.php*/
+	width: 100%;
 	margin-top: 10% !important;
 	margin: auto;
+	min-height: 1080px !important;
 }
 
 }

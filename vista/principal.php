@@ -32,8 +32,10 @@
 				<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
 				<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
 				<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'> 
+				<link rel="shortcut icon" type="image/png" href="../images/logo.png">
 
 				<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
+				<script type="text/javascript" src="../javascript/Funciones_Ajax.js"></script>
 			</head>	
 			<body onload="autofocusInicioSesion()">
 				<div class="Secundario">
@@ -49,25 +51,37 @@
 									<br>
 									<input style="margin-bottom: 2%; " type="email" name="correo" id="Correo" value="<?php if (isset($email)) echo $email;?>">
 
-									<input style="margin-bottom: 1%; " type="password" name="clave" id="Clave" value="<?php if (isset($Cookie_clave )) echo $Cookie_clave ;?>">
+									<input style="margin-bottom: 2%; " type="password" name="clave" id="Clave" value="<?php if (isset($Cookie_clave )) echo $Cookie_clave ;?>">
 												
-									<input  type="checkbox" class="recordar_1" id="Recordar" name="recordar" value="1">
-									<label for="Recordar"><span class="recordar">Recordar e-mail y contraseña en este equipo.</span></label>
-									<br>
-									<input type="submit" name="Boton_Sesion" value="Entrar">
+									<input  type="checkbox" id="Recordar" name="recordar" value="1">
+									
+									<span class="recordar">Recordar datos en este equipo.</span>
+									
+									<input class="input_3" type="submit" name="Boton_Sesion" value="Entrar">
+									<!--<a style="height: 10px; text-align: left;" href="Sesiones_Cookies/llamarcookie.php">Ver cookie</a> En este archivo se pueden ver las cookies que se crearon en una visita anterior al sitio web por medio de validarSesion.php-->	
 									<hr>
-									<p class="p_2">¿No tienes cuenta en reavivados?<a href="Registro.php">Registrate aqui.</a></p>
-									<!--<a style="height: 10px; text-align: left;" href="Sesiones_Cookies/llamarcookie.php">Ver cookie</a> En este archivo se pueden ver las cookies que se crearon en una visita anterior al sitio web por medio de validarSesion.php-->		
+									<p class="Inicio_1">¿Olvidaste tu contraseña <span class="span_7">Reavivados</span> ?<br>
+									<label class="a_4" onclick="llamar_EnviarCodigo()">Recuperala aqui.</label>	
+									<div class="contenedor_15" id="CodigoRecuperacion">
+										<p>Ingrese el código que hemos enviado a tu correo electronico</p>
+										<input type="text" placeholder="Código">
+									</div>
 								</fieldset>
 							</form>			
 						</div>	
+								<p class="Inicio_1">¿No tienes cuenta en <span class="span_7">Reavivados</span> ?<br>
+								<a href="registro.php">Registrate aqui.</a></p> 
 					</div>
-				</div   <?php
+				</div >  
+				<footer>
+					<?php include("modulos/footer.php");?>
+				</footer>
+			</body>
+		</html>		<?php
    	} 
    	else{ // Si el participante no esta recordado en el equipo entra aqui.
 		// echo "No se crearon las Cookies";
 		?>
-
 		<!DOCTYPE html>
 		<html lang="es">
 			<head>
@@ -83,6 +97,7 @@
 				<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
 				<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
 				<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'> 
+				<link rel="shortcut icon" type="image/png" href="../images/logo.png">
 
 				<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script> 
 			</head>	
@@ -99,23 +114,20 @@
 								<input style="margin-bottom: 2%;" type="email" name="correo" id="Correo" placeholder="e-mail" autocomplete="off">
 								<input style="margin-bottom: 1%;" type="password" name="clave" id="Clave" placeholder="Contraseña" autocomplete="off">		
 								<input type="checkbox" class="recordar_1" id="Recordar" name="recordar" value="1">
-								<label for="Recordar"><span class="recordar">Recordar e-mail y contraseña en este equipo.</span></label>
+								<label for="Recordar"><span class="recordar">Recordar datos en este equipo.</span></label>
 								<input type="submit" value="Entrar" onclick=""><!-- validar_02() se encuentra en return validar_02()validarFormularios.js -->
-								<hr>
-								<p class="Inicio_1  Inicio_1a">¿No tienes cuenta en <span class="span_7">Reavivados</span> ?<br>
-								<a href="registro.php">Registrate aqui.</a></p> 
-								<!--<a style="height: 10px; text-align: left;" href="controlador/llamarcookie.php">Ver cookie</a>En este archivo se pueden ver las cookies que se crearon en una visita anterior al sitio web por medio de validarSesion.php-->
 								</fieldset>
 							</form>
-						</div>			
+						</div>	
+								<p class="Inicio_1">¿No tienes cuenta en <span class="span_7">Reavivados</span> ?<br>
+								<a href="registro.php">Registrate aqui.</a></p> 		
 					</div>
 				</div>
 				<footer>
 					<?php include("modulos/footer.php");?>
 				</footer>
 			</body>
-		</html>
-		<?php 
+		</html>		<?php 
 	}	?>
 
 <script type="text/javascript" src="../javascript/validarFormularios.js"></script>
