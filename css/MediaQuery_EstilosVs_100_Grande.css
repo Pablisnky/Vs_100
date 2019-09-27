@@ -1,24 +1,30 @@
 @media screen and (min-width: 1500px){/*las reglas se aplicarán cuando la pantalla tenga una anchura mayor de la indicada.*/
 
+
+h5{/*index.php*/
+	font-size: 1.8vw;
+}
+.Afiliacion_4{/*principal*/
+	width: 70%;
+}
+.contenedor_12{/*participacionHoy.php*/
+	min-height: 1000px;
+}
+.contenedor_12_a{/*participacionHoy.php*/
+	margin:5% 0% 3% 7%;
+}
 input[type=checkbox]{/*principal.php*/
 	margin-left: -5%;
 	margin-right: -40%;
 }
-.Inicio_2{/*todos los formularios*/
-	background-color: blue !important;
-	width: 70%;
-}
 .Inicio_3{/*instruccion.php    index.php*/ 
 	font-family: 'Raleway', sans-serif;
-	width: 60%;
+	width: 50%;
 	font-size:20px;
 	margin: auto;
 	margin-bottom: 4%;
 	line-height: 135%;
 }		
-.Inicio_13{/*index.php*/
-	margin-top:-10%;
-}
 .n00{/*index.php*/
 	width: 45%;
 	float: left;
@@ -38,9 +44,9 @@ input[type=checkbox]{/*principal.php*/
 }
 .Secundario{/*principal.php  pregunta.php  contacto.php  registro.php  index.php  registrarse.php*/
 	width: 100%;
-	margin-top: 10% !important;
+	/* margin-top: 10% !important; */
 	margin: auto;
-	min-height: 1080px !important;
+	min-height: 900px;
 }
 
 }

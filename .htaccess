@@ -1,3 +1,9 @@
+
+#Redirige el sitio web aún sino se escribe el www
+	RewriteEngine On
+	RewriteCond %{HTTP_HOST} ^horebi.com
+	RewriteRule ^(.*)$ https://www.horebi.com/$1 [R=301,L]
+
 #Evita que se pueda entrar a las carpetas que componen el sitio web escibiendo en la dirección url
 	Options -Indexes 
 
@@ -6,13 +12,15 @@
 	RewriteCond %{HTTPS} !=on
 	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
-#Redirige el sitio web aún sino se escribe el www
-	RewriteEngine On
-	RewriteCond %{HTTP_HOST} ^consultamedica.com.ve.com [NC]
-	RewriteRule ^(.*)$ http://www.consultamedica.com.ve/$1 [L,R=301]
-
 #Mejorar la compatibilidad de los caracteres; Con esta medida evitamos mostrar el famoso error 500. 
 	AddDefaultCharset utf-8
 
 #Para evitar que el navedor solicite descargar archivos
-AddType / x-httpd-php .php .htm .html AddHandler x-httpd-php .php .htm .html
+	AddType / x-httpd-php .php .htm .html AddHandler x-httpd-php .php .htm .html
+
+#Para evitar que se coloquen las extenciones .php y .html
+#	RewriteBase /
+#	RewriteEngine on
+#	RewriteCond %{REQUEST_FILENAME} !-d
+#	RewriteCond %{REQUEST_FILENAME}.php -f
+#	RewriteRule ^(.*)$ $1.php

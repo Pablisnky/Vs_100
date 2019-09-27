@@ -238,6 +238,7 @@ function Lideres_D(){
         document.getElementById("Contenedor_12_a1").style.display="none";
         document.getElementById("Contenedor_12").style.display="grid";
         document.getElementById("Contenedor_12_b").style.display="grid";
+        document.getElementById("Contenedor_18").style.display="none";
     }
 }
 // -------------------------------------------------------------------------------------------
@@ -249,5 +250,21 @@ function Lideres_S(){
         document.getElementById("Contenedor_12_b").style.display="none";
         document.getElementById("Contenedor_12_a").style.display="grid";
         document.getElementById("Contenedor_12_a1").style.display="grid";
+        document.getElementById("Contenedor_18").style.display="block";
     }
 }
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//llamada desde principal.php 
+function NotificarContrasena(){
+    var A= document.getElementById("Contenedor_16");
+    var B= document.getElementById("Tapa_2");
+
+    if(A.style.display = "none"){
+        A.style.display = "block";
+
+        B.style.display = "block";
+    }
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------

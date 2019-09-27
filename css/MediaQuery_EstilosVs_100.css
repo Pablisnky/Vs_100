@@ -55,7 +55,7 @@ input{/*principal.php  demo.php*/
 	margin-bottom: 7% !important;
 }
 input[type=checkbox]{/*principal.php*/
-	margin-left: -35%;
+	margin-left: -40%;
 	margin-right: -40%;
 }
 input[type=radio]{/*temas.php*/
@@ -317,6 +317,7 @@ th{/*participantes.php*/
 	grid-template-columns:100% ;
 	margin:0%;
 	display: grid;
+	min-height: 600px !important;
 	justify-content: space-around;
 	align-content: center;
 	width: 100%;
@@ -329,11 +330,35 @@ th{/*participantes.php*/
 	align-content: center;
 	width: 100%;
 }
+.contenedor_13_a{/*participacionHoy.php*/
+	margin: auto !important;
+	width: 100% !important;
+}
+.contenedor_13_b{/*participacionHoy.php*/
+	margin-top: 8%;
+	width: 100% !important;
+}
+.contenedor_13_c{/*participacionHoy.php*/
+	margin-top: 8%;
+	margin-bottom: 15%;
+	width: 100% !important;
+}
 .contenedor_14{/*participacionHoy.php*/
 	width: 100%;
 	margin-left: -6%;
 	margin-bottom: -2%;
 	height: 25px;
+}
+.contenedor_16{/*principal.php */
+	width: 100%;
+	left: 0%;
+}
+.contenedor_17{/*participacionHoy.php*/
+	margin: -4% auto 8% auto !important;
+	width: 95%;
+}
+.contenedor_19{/*reicbeCorreo.php  InsertarCodigo.php*/
+	padding-bottom: 28%;
 }
 .n00{/*index.php*/
 	width: 100%;
@@ -355,19 +380,6 @@ th{/*participantes.php*/
 /* *{
     box-sizing: border-box;
 } */
-.contenedor_13_a{/*participacionHoy.php*/
-	margin: auto !important;
-	width: 100% !important;
-}
-.contenedor_13_b{/*participacionHoy.php*/
-	margin-top: 8%;
-	width: 100% !important;
-}
-.contenedor_13_c{/*participacionHoy.php*/
-	margin-top: 8%;
-	margin-bottom: 15%;
-	width: 100% !important;
-}
 .contenido_2{/*contacto.php*/
 	width: 85% !important;
 }
@@ -584,6 +596,21 @@ th{/*participantes.php*/
 .Inicio_15{/*participacionHoy.php*/
 	margin-top: -25px !important;
 	margin-bottom: 50px !important;
+}
+.Inicio_16{/*recibeCorreo.php*/
+	font-size:16px !important;
+	margin-top: 10%;
+	margin-bottom: 15%;
+}
+.Inicio_17{/*pregunta.php*/
+	font-size:22px !important;
+	margin-top: 5%;
+}
+.input_5{/*recibeCorreo.php   InsertarCodigo.php*/
+	width: 90%;
+	font-size: 23px;
+	height: 40px;
+	color: rgba(4, 6, 82,0.5) ;
 }
 .inputDestino{
 	background-color: blue;
@@ -884,7 +911,7 @@ th{/*participantes.php*/
 	margin-top: 2%;
 	margin-left: 1%;
 	display: inline-block;
-	width: 80%;
+	width: 65%;
 	text-align: left;
 	font-family:verdana;
 }
@@ -959,15 +986,10 @@ th{/*participantes.php*/
 	color:orange;
 	margin: -2% 0% 3% 0%;
 }
-.span_9{/*participacionHoy.php*/
-	font-family:courier; 
-	text-align: center;
-	font-size:21px !important; 
-	color:orange;
-	font-weight: bold;
-	margin-top: -5% !important;
-	margin-bottom: 12%;
-	width: 100%;
+.span_9{/*principal.php*/
+	line-height: 150%; 
+	font-size: 18px;
+	width: 95% !important;
 }
 .tabla_0{/*ultima.php*/
     padding: 1% 5%; 

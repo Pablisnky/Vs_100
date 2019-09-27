@@ -1,3 +1,7 @@
+<?php
+session_start();
+$CapituloHoy = $_SESSION["Capitulo"];
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -25,9 +29,9 @@
 			<h2>¿Que es Reavivados?</h2>	 
 			<p class="Inicio_3">Es un ministerio desarrollado para incentivar la lectura bíblica diaria y recordar el sábado como día de reposo para honrar a Dios; dejándonos una lección de sabiduría para mejorar nuestro comportamiento en sociedad.</p> 
 
-			<p class="Inicio_3">La dinamica diaria consiste en un sencillo test de cinco preguntas sobre el capitulo biblico estudiado, al finalizarlo se le notifica su resultado y actuación junto con un reporte del status general con toda la comunidad.</p> 
+			<p class="Inicio_3">La dinamica consiste en un sencillo test de cinco preguntas sobre el capitulo biblico estudiado el dia de hoy &nbsp"<?php echo $CapituloHoy;?>", al finalizarlo se le notifica su resultado junto con un reporte del status general de su actuación con respecto a todos los miembros de la comunidad de reavivados.</p> 
 
-			<p class="Inicio_3">Al finalizar la semana, el día sabado a las seis de la tarde se entregan los resultados generales de la misma y se hacen publico las tres mejores posiciones. De esta manera despedimos el sabado para iniciar la semana con una nueva prueba el domingo a las 00:00</p> 
+			<p class="Inicio_3">Al terminar la semana el día sábado a las seis de la tarde, se entregan los resultados generales de la misma y se hacen publico las tres mejores posiciones. De esta manera despedimos el sábado para iniciar la semana con una nueva prueba el domingo a las 00:00</p> 
 
 			<p class="Inicio_6">Reglas generales</p>
 		    <ul>

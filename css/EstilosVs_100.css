@@ -221,6 +221,9 @@ td{
 	margin-top: 5% !important;
 	margin-bottom: 2%;
 }
+.a_4{/*principal.php*/
+	color:#040652 !important;
+}
 .a_5{/*instruccion.php*/
 	display: block;
 	text-align: center;
@@ -471,7 +474,6 @@ td{
 	text-align: center;
 }
 .contenedor_8{/*perfil.php*/
-	background-color:; 
 	width: 20%; 
 	margin-left: 65%; 
 	margin-top: 3%; 
@@ -531,6 +533,26 @@ td{
 	text-align: center;
 }
 .contenedor_15{/*principal.php*/
+	display: none;
+}
+.contenedor_16{/*principal.php */
+	background-color:  rgba(0,0,0,0);
+	width: 40%;
+	float: right;
+	position: absolute;
+	top: 50%;
+	left: 30%;
+	display: none;
+	z-index: 4;
+	margin-top: 0%; 
+}
+.contenedor_17{/*participacionHoy.php*/
+	margin: -4% auto 8% auto !important;
+	width: 60%;
+	display: flex;
+	justify-content: center;
+}
+.contenedor_18{/*participacionHoy.php*/
 	display: none;
 }
 .contenido_2{/*contacto.php*/
@@ -632,6 +654,9 @@ td{
 .h_1{/*participacionHoy.php*/
 	margin-top:0%
 }
+.hr_1{/*pregunta.php*/
+	margin-top: -2%;
+}
 .imagen_7{/*participacionHoy.php*/
 	width: 100%; 
 	object-fit:contain ;/* deseado cover */
@@ -654,7 +679,7 @@ td{
 	margin-bottom: 4%;
 	line-height: 140%;
 }
-.Inicio_1{/*index.php  principal.php*/ 
+.Inicio_1{/*index.php    principal.php*/ 
 	font-family: 'Raleway', sans-serif;
 	font-size:16px !important;
 	width: 90%;
@@ -765,7 +790,7 @@ td{
 	font-weight: bold;
 	font-family: 'Raleway', sans-serif;
 }
-.Inicio_14{/*index.php  participacionHoy.php*/ 
+.Inicio_14{/*index.php  participacionHoy.php  pregunta.php*/ 
 	font-family: 'Montserrat', sans-serif;
 	width: 100%;
 	display: block;
@@ -778,6 +803,12 @@ td{
 .Inicio_15{/*participacionHoy.php*/
 	margin-top: -65px !important;
 	margin-bottom: 80px !important;
+}
+.Inicio_16{/*recibeCorreo.php*/
+	font-size:22px !important;
+	margin: 8% auto;
+	display: block;
+	text-align: center;
 }
 .input_1{/*entrada.php*/
 	position: absolute; 
@@ -806,6 +837,12 @@ td{
 }
 .input_3{/*principal.php*/
 	margin-top: 5%;
+}
+.input_5{/*recibeCorreo.php   InsertarCodigo.php*/
+	width: 20%;
+	font-size: 30px;
+	height: 45px;
+	color: rgba(4, 6, 82,0.5) ;
 }
 .label{/*registro_Libre.php*/
 	font-size:  25px !important;
@@ -1025,6 +1062,25 @@ td{
 	border:none;
 	color:#040652; 
 }
+.nav_11{/*participacionHoy.php*/
+	background-color: #F4FCFB;
+	color:  rgba(4, 7, 82, 0.2)!important;
+	font-family: 'Raleway', sans-serif;
+	/* display:inline-block; */
+	width: 10%;
+	/* text-align: center;
+	flex-grow: 1;distribuye proporcionalmente los elementos internos en el eje horizontal, es necesario que el elemento padre tenga la propiedad display con el valor flex */
+}
+.nav_12{/*participacionHoy.php*/
+	background-color: #F4FCFB;
+	color:  rgba(4, 7, 82, 1);
+	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
+	/* display:inline-block; */
+	width: 10%;
+	/* text-align: center;
+	flex-grow: 1;distribuye proporcionalmente los elementos internos en el eje horizontal, es necesario que el elemento padre tenga la propiedad display con el valor flex */
+}
 .navegacion_2{/*ultima.php*/
 	margin-left: 30%;
 	margin-bottom: 5% !important;
@@ -1210,6 +1266,7 @@ td{
 	font-family: verdana;
 	font-weight: bold;
 	width: 200px;
+	cursor: pointer;
 }
 .respuestaPreguntas{/*pregunta.php*/
 	margin-top: 1%;
@@ -1274,6 +1331,13 @@ td{
 	color:orange;
 	margin: -2% 0% 3% 0%;
 }
+.span_9{/*principal.php*/
+	line-height: 150%;
+	font-family: 'Raleway', sans-serif; 
+	font-size: 18px;
+	text-align: center;
+	color:#040652;
+}
 .super_in{/*entrada.php*/
 	font-size: 10px;
 }
@@ -1297,6 +1361,16 @@ td{
 	width: 50%; 
 	margin: auto;
 	margin-top:  3%;
+}
+.tapa_2{/*principal.php*/
+	background-color: rgba(0,0,0,0.85) ;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
 }
 .tema_1{/*temas.php*/ 
 	margin:auto; 

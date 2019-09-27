@@ -2,25 +2,28 @@
 session_start();
 
 	//se evita guardar memoria cache
-	// include("modulos/noCache.php");
+	include("modulos/noCache.php");
 
 	//Se utiliza la hora de Colombia
 	date_default_timezone_set('America/Bogota');
 	$FechaServidorPHP =date("Y-m-d");
-	//  echo "Fecha PHP= " . $FechaServidorPHP . "<br>";
+//  echo "Fecha PHP= " . $FechaServidorPHP . "<br>";
 
 	// Se cambia el formato de la fecha
 	$newFecha = date("d-m-Y", strtotime($FechaServidorPHP));
 
-	if($FechaServidorPHP == "2019-09-18"){
-		$CapituloHoy = "1 Cronicas 3";
+	if($FechaServidorPHP == "2019-09-26"){
+		$CapituloHoy = "1 Crónicas 11";
+		$_SESSION["Capitulo"] = $CapituloHoy;
+	}
+	else if($FechaServidorPHP == "2019-09-24"){
+		$CapituloHoy = "1 Crónicas 9";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
 	else{
-		$CapituloHoy = "1 Cronicas 4";
+		$CapituloHoy = "1 Crónicas 12";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,8 +31,8 @@ session_start();
 		<title>horebi</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
-		<meta name="description" content="Juego de preguntas para ganar dinero."/>
-		<meta name="keywords" content="preguntas, ganar, dinero, juego, concurso"/>
+		<meta name="description" content="Test de capitulos biblicos"."/>
+		<meta name="keywords" content="preguntas, puntos, Dios, Biblia, capitulo, reavivados"/>
 		<meta name="author" content="Pablo Cabeza"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -81,25 +84,27 @@ session_start();
 		
 		<!--Termina ventana modal-->
 	
-		<header>
-			<h1 class="anula">Reavivados</h1>
-		    <input type="checkbox" id="MenuRes">
-    		<label id="ComandoMenu" class="comandoMenu" onclick="mostrarMenu()"><span class="icon-menu"></span></label>
-		    <nav id="MenuResponsive" class="menuResponsive">
-		        <ul id="MenuContenedor">
-		            <li><a href="vista/principal.php">Inicio sesión</a></li>
-		            <li><a href="vista/registro.php">Registrarse</a></li>
-		            <!-- <li><a href="../vista/club.php">Club de lectura</a></li> -->
-		            <li><a href="vista/contacto.php">Contacto</a></li>
-		            <li><a href="vista/instruccion.php">¿Reavivados?</a></li>
-		            <li><a href="vista/participacionHoy.php">Sabios</a></li>
-		            <li><a href="vista/demo.php">Demo</a></li> 
-		        </ul>
-		    </nav>
-		</header>
-		<div class="Secundario" onclick="ocultarMenu()"><!--en este contenedor se hace click y se oculta el menu responsive-->
-			<p class="Inicio_13">Capitulo para hoy <?php echo $newFecha;?></p> 
-			<a class="Inicio_14" href="vista/principal.php"><?php echo $CapituloHoy;?></a>
+		<div class="Secundario"><!--en este contenedor se hace click y se oculta el menu responsive-->
+			<header>
+				<h1 class="anula">Reavivados</h1>
+				<input type="checkbox" id="MenuRes">
+				<label id="ComandoMenu" class="comandoMenu" onclick="mostrarMenu()"><span class="icon-menu"></span></label>
+				<nav id="MenuResponsive" class="menuResponsive">
+					<ul id="MenuContenedor">
+						<li><a href="vista/principal.php">Inicio sesión</a></li>
+						<li><a href="vista/registro.php">Registrarse</a></li>
+						<!-- <li><a href="../vista/club.php">Club de lectura</a></li> -->
+						<li><a href="vista/contacto.php">Contacto</a></li>
+						<li><a href="vista/instruccion.php">¿Reavivados?</a></li>
+						<li><a href="vista/participacionHoy.php">Sabios</a></li>
+						<li><a href="vista/demo.php">Demo</a></li> 
+					</ul>
+				</nav>
+			</header>
+			<div onclick="ocultarMenu()">
+				<p class="Inicio_13">Capítulo para hoy <?php echo $newFecha;?></p> 
+				<label class="Inicio_14" href=""><?php echo $CapituloHoy;?></label>
+			</div>
 			<div class="n00">
 				<div>
 					<a class="buttonTres" href="vista/principal.php">inicia sesión</a>
@@ -112,7 +117,7 @@ session_start();
 					<a class="buttonTres" href="vista/participacionHoy.php">Sabios de hoy</a>
 				</div>	
 			</div>			
-			<div class="n20">
+			<div class="n20" onclick="ocultarMenu()">
 				<h5>¿Que es Reavivados?</h5>				
 				<p class="Inicio_1">Es un test diario basado en el programa <span class="span_6">"Reavivados por su palabra"</span> de la Iglesia Adventista del Séptimo Día, en el que se plantean 5 preguntas del capitulo biblico diario estudiado.</p>
 				<p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en tu respuesta te penalizará, dejandote un paso atras de la sabiduría.</p>	
@@ -125,6 +130,5 @@ session_start();
 	    </footer> 
 	</body>
 </html>
-
 
 <script src="convoca_SW.js"></script> 

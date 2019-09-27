@@ -45,6 +45,10 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 	    $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
 		// echo "ID_Participante: " . $participante . "<br>";
 
+		
+		$CapituloHoy = $_SESSION["Capitulo"];//en esta sesion se tiene guardado el nombre del capitulo estudiado, sesion creada en index.php
+		// echo "Capitulo de hoy: " . $CapituloHoy . "<br>"; 
+
 		//Se consulta en la BD que preguntas a respondido para saber el Nº de la pregunta a responder
 		//Consulta realizada para obtener la cantidad de respuestas correctas y posicionar al participante en la que le corresponde
 		$Consulta="SELECT * FROM respuestas WHERE ID_Participante='$participante' AND Correcto='1' AND Tema='$Tema' AND ID_PP ='$ID_PP'";
@@ -113,7 +117,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Versus_20 - <?php echo $Num_Pregunta;?></title>
+		<title>Reavivados - Pregunta Nº <?php echo $Num_Pregunta;?></title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas biblicas."/>
@@ -128,6 +132,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
 		<link rel="stylesheet" type="text/css" href="../iconos/icono_siguiente/style_siguiente.css"/> <!--galeria icomoon.io  -->
 		<link rel="stylesheet" type="text/css" href="../iconos/icono_repetir/style_repetir.css"/> <!--galeria icomoon.io  -->
+		<link rel="shortcut icon" type="image/png" href="../images/logo.png">
 		
 		<script src="../javascript/puntaje.js"></script>
 		<script src="../javascript/bloqueo.js"></script>
@@ -148,6 +153,8 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			<div class="encabezado">
 	    		<h1 class="anula">Reavivados</h1>
 	    	</div>
+				<span class="Inicio_14  Inicio_17"><?php echo $CapituloHoy;?></span>
+				<hr class="hr_1">
 				<?php
 					if($Tema == "Reavivados"){
 						if($Puntaje<5){ //No se muestra si se encuentra en la ultima pregunta  ?>

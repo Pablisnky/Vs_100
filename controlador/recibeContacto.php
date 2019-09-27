@@ -20,7 +20,7 @@
 
  
         $email_to = "pcabeza7@gmail.com";
-        $email_subject = "Mensaje de usuario de Vs_100";  
+        $email_subject = "Mensaje de usuario de Reavivados";  
         $email_message = $Contenido;
         $headers = 'From: '.$correo."\r\n".
  

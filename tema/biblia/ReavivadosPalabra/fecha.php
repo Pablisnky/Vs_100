@@ -1,4 +1,7 @@
 <?php
+	//se evita guardar memoria cache
+    include("../modulos/noCache.php");
+    
     //Sino viene de entrada.php no recibe "fecha"
     if(empty($_GET["fecha"])){
         //Se consulta la fecha actual en Colombia 
@@ -15,9 +18,12 @@
         // echo "ID_PP: " . $ID_PP . "<br>";
     }
 
-    if($Fecha == "2019/09/18"){
-       include("09_19/18/posicionReavivadosPalabra.php");
+    if($Fecha == "2019/09/26"){
+       include("09_19/26/posicionReavivadosPalabra.php");
     }
-    else if($Fecha == "2019/09/19"){
-        include("09_19/19/posicionReavivadosPalabra.php");
+    else if($Fecha == "2019/09/24"){
+        include("09_19/24/posicionReavivadosPalabra.php");
+    }
+    else if($Fecha == "2019/09/27"){
+        include("09_19/27/posicionReavivadosPalabra.php");
     }

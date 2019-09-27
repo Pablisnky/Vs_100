@@ -67,7 +67,7 @@ session_start();
 			mysqli_query($conexion,$Actualizar_4);
 		}
 		else{
-			echo "<h3 class='bloqueo_2'>" . "Correcto. Felicitaciones" . "<br>" .  $_SESSION['Versiculo'] . "<br>" . "</h3>";
+			echo "<h3 class='bloqueo_2'>" . "Correcto" . "<br>" .  $_SESSION['Versiculo'] . "<br>" . "</h3>";
 			//Se inserta el numero del versiculo por medio de sesion creada en cada pregunta
 			// echo "<h3 class='bloqueo_2'>"  . $_SESSION['Versiculo'] . "</h3>";
 			//Se destruye la session creada en cada pregunta, para que vuelva a ser creada en la proxima pregunta

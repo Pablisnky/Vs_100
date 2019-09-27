@@ -17,6 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
    		<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
    		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'> 
+        <link rel="shortcut icon" type="image/png" href="../images/logo.png">
 
 		<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
         <script type="text/javascript" src="../javascript/Funciones_Ajax.js"></script>   
