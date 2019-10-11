@@ -24,7 +24,8 @@
 		<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
 		<script type="text/javascript" src="../javascript/validarFormularios.js" ></script>
 		<script type="text/javascript" src="../javascript/Funciones_Ajax.js" ></script>	
-		<script type="text/javascript" src="../javascript/Regiones.js" ></script>	
+		<script type="text/javascript" src="../javascript/Regiones.js" ></script> 
+        <script type="text/javascript" src="../javascript/canton.js"></script>  	
         <script type="text/javascript" src="../javascript/Municipios.js"></script> 
         <script type="text/javascript" src="../javascript/Municipios_Colombia.js"></script>  	
 	</head>	
@@ -40,19 +41,33 @@
 					<form action="registrarse.php" method="POST" name="registroGratis" onsubmit="return validar_01()">
                         <fieldset class="Afiliacion_4">
                         	<legend>Datos personales</legend> 
-							<input type="text" name="nombre" id="Nombre" placeholder="Nombre" onchange="return literal()" autocomplete="off"><!-- literal() se encuentra en validarFormulario.js -->
-							<input type="text" name="apellido" id="Apellido" placeholder="Apellido" onchange="return literal()" autocomplete="off"><!-- literal() se encuentra en validarFormulario.js -->
-							<input type="text" name="correo" id="Correo" placeholder="Correo electronico" onchange="validarFormatoCorreo(); setTimeout(llamar_verificaCorreo,200);" onclick="validarFormatoCorreo()"; autocomplete="off">
+							<input type="text" name="nombre" id="Nombre" placeholder="Nombre" onchange="" autocomplete="off"><!-- return literal() se encuentra en validarFormulario.js -->
+							<input type="text" name="apellido" id="Apellido" placeholder="Apellido" onchange="" autocomplete="off"><!--  return literal() se encuentra en validarFormulario.js -->
+							<input type="text" name="correo" id="Correo" placeholder="Correo electronico" onchange="validarFormatoCorreo(); setTimeout(llamar_verificaCorreo,200);" onclick="ColorearCorreo()"; autocomplete="off">
                         	<div class="contenedor_11" id="Mostrar_verificaCorreo"></div><!-- recibe respuesta de ajax llamar_verificaCorreo()-->
-						</fieldset>        
+						</fieldset>      
+						  
                         <fieldset class="Afiliacion_4">
                         	<legend>Datos de congregación</legend>
 							<!-- <label>Pais:</label> -->
 							<select class="etiqueta_24" name="pais" id="Pais" onchange="SeleccionarRegiones(this.form)"> 
 								<option>Pais</option>
 								<option>Colombia</option>
+                                <option>Ecuador</option>
 								<option>Venezuela</option>
 							</select>  
+							<div id="Region_1A" style="display: none;"><!--Aplica solo a Ecuador-->
+								<!-- <label>Provincia:</label> -->
+									<select class="etiqueta_24" name="provincia" id="Provincia" onchange="SeleccionarCanton(this.form)"><!--SeleccionarCanton() se encuentra en -->
+										<option></option>                            
+									</select>                  
+									
+								<!-- <label>Canton:</label> -->
+									<select class="etiqueta_24" name="canton" id="Canton"> 
+										<option></option>
+									</select>                  
+								<br>
+							</div>  
 							<div id="Region_1B" style="display: none;"><!--Aplica solo a Colombia-->
 								<!-- <label>Departamento:</label> -->
 									<select class="etiqueta_24" name="departamento" id="Departamento" onchange="SeleccionarMunicipio_Colombia(this.form)">

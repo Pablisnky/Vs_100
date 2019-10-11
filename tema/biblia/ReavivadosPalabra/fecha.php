@@ -18,12 +18,12 @@
         // echo "ID_PP: " . $ID_PP . "<br>";
     }
 
-    if($Fecha == "2019/09/26"){
-       include("09_19/26/posicionReavivadosPalabra.php");
+    if($Fecha == "2019/10/09"){
+       include("10_19/09/posicionReavivadosPalabra.php");
     }
-    else if($Fecha == "2019/09/24"){
-        include("09_19/24/posicionReavivadosPalabra.php");
+    else if($Fecha == "2019/10/10"){
+        include("10_19/10/posicionReavivadosPalabra.php");
     }
-    else if($Fecha == "2019/09/27"){
-        include("09_19/27/posicionReavivadosPalabra.php");
+    else if($Fecha == "2019/10/11"){
+        include("10_19/11/posicionReavivadosPalabra.php");
     }

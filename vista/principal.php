@@ -52,11 +52,14 @@
 									<input style="margin-bottom: 2%; " type="email" name="correo" id="Correo" value="<?php if (isset($email)) echo $email;?>">
 
 									<input style="margin-bottom: 2%; " type="password" name="clave" id="Clave" value="<?php if (isset($Cookie_clave )) echo $Cookie_clave ;?>">
-												
-									<input  type="checkbox" id="Recordar" name="recordar" value="1">
-									
-									<span class="recordar">Recordar datos en este equipo.</span>
-									
+									<div class="contenedor_21">
+										<div>
+											<input type="checkbox" id="Recordar" name="recordar" value="1">	
+										</div>
+										<div>
+											<label class="recordar" for="Recordar">Recordar datos en este equipo.</label>
+										</div>
+									</div>									
 									<input class="input_3" type="submit" name="Boton_Sesion" value="Entrar">
 									<hr>
 									<p class="Inicio_1">¿Olvidaste tu contraseña <span class="span_7">Reavivados</span> ?
@@ -121,10 +124,14 @@
 									<br>
 								<input style="margin-bottom: 2%;" type="email" name="correo" id="Correo" placeholder="e-mail" autocomplete="off">
 								<input style="margin-bottom: 1%;" type="password" name="clave" id="Clave" placeholder="Contraseña" autocomplete="off">
-												
-								<input  type="checkbox" id="Recordar" name="recordar" value="1">
-												
-								<span class="recordar">Recordar datos en este equipo.</span>
+								<div class="contenedor_21">
+									<div>
+										<input type="checkbox" id="Recordar" name="recordar" value="1">	
+									</div>
+									<div>
+										<label class="recordar" for="Recordar">Recordar datos en este equipo.</label>
+									</div>
+								</div>
 				
 								<input class="input_3" type="submit" value="Entrar" onclick=""><!-- validar_02() se encuentra en return validar_02()validarFormularios.js -->
 								<hr>

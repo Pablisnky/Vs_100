@@ -8,12 +8,12 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">Luego del saqueo al templo, Roboán reemplazo los escudos de oro que Salomón habia hecho por escudos de:</p>
+			<p class="pregunta">Luego del saqueo al templo de Jeruzalém, Roboán reemplazo los escudos de oro que Salomón habia hecho por escudos de:</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
 				<p id="principiantes_01a" class="efecto" onclick="llamar_bloqueo()">Madera de cedro</p>
-				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Plata pulda</p>
+				<p id="principiantes_01b" class="efecto" onclick="llamar_bloqueo()">Plata pulida</p>
 			</div>
 			<div class="Quinto_2">
 				<p id="principiantes_01d" class="efecto" onclick="llamar_bloqueo()">Niquel</p>

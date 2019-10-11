@@ -43,7 +43,12 @@ if(!isset($_POST["enviar_2"])){//sino se a pulsado el boton enviar de este archi
             </body>
             <?php
     }
-    else{//Si los códigos coinciden se permite hacer el cambio de contraseña    ?>
+    else{//Si los códigos coinciden se permite hacer el cambio de contraseña   
+    
+        //Se confirma en la BD que el codigo ha sido usado y verificado
+        $Actualizar= "UPDATE codigo_recuperacion SET codigoVerificado = 1 WHERE codigoAleatorio= $CodigoUsuario";
+        mysqli_query($conexion,$Actualizar); ?>
+
         <!DOCTYPE html>
         <html lang="es">
             <head>
@@ -89,9 +94,9 @@ if(!isset($_POST["enviar_2"])){//sino se a pulsado el boton enviar de este archi
 }  
 else{//Si se ha pulsado el boton enviar de este archivo se reciven las claves
     //Se reciben datos desde este mismo archivo
-    $ClaveNueva= $_POST["clave"];
+    $ClaveNueva=$_POST["clave"];
     $RepiteClaveNueva= $_POST["repiteClave"];
-    $Correo = $_POST["correo"];
+    $Correo = strtolower($_POST["correo"]);
 
     // echo "Clave nueva= " . $ClaveNueva . "<br>"; 
     // echo "Repite clave nueva= " . $RepiteClaveNueva . "<br>";

@@ -44,40 +44,41 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				<div class="Secundario" onclick="ocultarMenu()">	
 					<?php
 					//Se verifica si el participante tiene pruebas pendientes por responder que sean de la semana actual
-					$Consulta_0="SELECT ID_PP,ID_Prueba,Categoria,Tema,DATE_FORMAT(Fecha_pago, '%Y/%m/%d') AS Fecha_pago FROM participantes_pruebas WHERE ID_Participante='$participante' AND (Prueba_Activa = 1 AND Prueba_Pagada = 1 AND Prueba_Cerrada = 0 )";
-					$Recordset_0 = mysqli_query($conexion, $Consulta_0); 
-					if(mysqli_num_rows($Recordset_0) != 0){  ?>
-						<div id="EntradaParticipante_1" class="nueva_Prueba">
-							<p class="Inicio_4">Tienes pruebas pendientes por responder sobre el tema:</p>
+					//$Consulta_0="SELECT ID_PP,ID_Prueba,Categoria,Tema,DATE_FORMAT(Fecha_pago, '%Y/%m/%d') AS Fecha_pago FROM participantes_pruebas WHERE ID_Participante='$participante' AND (Prueba_Activa = 1 AND Prueba_Pagada = 1 AND Prueba_Cerrada = 0) AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE()";
+					//$Recordset_0 = mysqli_query($conexion, $Consulta_0); 
+					//if(mysqli_num_rows($Recordset_0) != 0){  ?>
+						<div id="EntradaParticipante_1">  <!--class="nueva_Prueba"-->
+							<!-- <p class="Inicio_4">Tienes pruebas pendientes por responder sobre el tema:</p> -->
 							<?php
 								// Se busca que pruebas tiene pendiente el participante
-								while($Registro_2= mysqli_fetch_array($Recordset_0)){ 
+								//while($Registro_2= mysqli_fetch_array($Recordset_0)){ 
 									// echo "el tema de la prueba es: " . $Registro_2['Tema'] . "<br>"; 
-									$Tema= $Registro_2['Tema'];
+									//$Tema= $Registro_2['Tema'];
 									// echo "el codigo de la prueba es: " . $Registro_2['ID_PP'] . "<br>";
-									$ID_PP= $Registro_2["ID_PP"];
+									//$ID_PP= $Registro_2["ID_PP"];
 									// echo "ID_PP = " . 	$ID_PP	 ."<br>";
 									//se verifica que pruebas tiene pendientes o pruebas activas
 									// $Pendiente= $Registro_2[0]; //campo "ID_PP" en tabla participantes_pruebas 
 									// $Activa= $Participante[14]; //campo "activa" en tabla participantes_pruebas 
 									// echo "Prueva pendiente= " . $Pendiente 
 									// echo "Prueva Activa= " . $Activa ."<br>";  
-									$ID_Prueba= $Registro_2["ID_Prueba"]; 
+									//$ID_Prueba= $Registro_2["ID_Prueba"]; 
 									// echo "ID_Prueba= " . $ID_Prueba ."<br>"; 
-									$Categoria= $Registro_2["Categoria"]; 
+									//$Categoria= $Registro_2["Categoria"]; 
 									// echo "ID_Prueba= " . $ID_Prueba ."<br>";
-									$Fecha= $Registro_2["Fecha_pago"];
+									//$Fecha= $Registro_2["Fecha_pago"];
 									?>
 									<div style="text-align: center; margin-top: 3%;">
-										<a href="../vista/pregunta.php?tema=<?php echo $Tema?>&ID_PP=<?php echo $ID_PP?>&fecha=<?php echo $Fecha?>&ID_Prueba=<?php echo $ID_Prueba;?>"> <?php echo $Registro_2["Tema"];?></a>
-										<p class="entrada_6"> | Código</p>
-										<p class="entrada_6"><?php echo $Registro_2["ID_PP"];?></p>
+										<!-- <a href="../vista/pregunta.php?tema=<?php// echo $Tema?>&ID_PP=<?php //echo $ID_PP?>&fecha=<?php //echo $Fecha?>&ID_Prueba=<?php //echo $ID_Prueba;?>"> <?php// echo $Registro_2["Tema"];?></a> -->
+										<!-- <p class="entrada_6"> | Código</p> -->
+										<!-- <p class="entrada_6"><?php// echo $Registro_2["ID_PP"];?></p> -->
 									</div>
 									<?php
-								}	?>
+								// }	
+								?>
 							</div>	
 							<?php
-						}   
+						//}   
 						  ?>
 						  	<p class="Inicio_9">¿Estudiaste el capitulo de hoy?</p>
 							<p class="Inicio_14"><?php echo $CapituloHoy;?></p> 

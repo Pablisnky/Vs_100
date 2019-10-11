@@ -70,7 +70,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 	    <div class="Secundario">
 			<div class="encabezado">
-	    		<h1 class="anula">Reavivados</h1>
+				<h1 class="anula">horebi</h1>
 	    	</div>
 	    	<div class="encabezado_2">
 	    	    <div id="mostrarPuntos"></div><!-- recibe el puntaje del participante desde Ajax en puntaje.js-->

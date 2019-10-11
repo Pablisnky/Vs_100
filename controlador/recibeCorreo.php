@@ -77,7 +77,6 @@ include("../modulos/muestraError.php");
 </html>
 
 <?php
-
 //  }
 //  else{   
 // // Si no viene del formulario de registro Registro.php o trata de recargar página lo enviamos al index.html  

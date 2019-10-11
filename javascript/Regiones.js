@@ -1,16 +1,16 @@
-function SeleccionarRegiones(form){
-    
+function SeleccionarRegiones(form){    
     var Pais = form.pais.options;//se captura el elemento select que contiene los Paises
-    var Provincia = form.departamento.options;//se captura el elemento select que contiene las regiones
-    Provincia.length = null;
+    // var Provincia = form.departamento.options;//se captura el elemento select que contiene las regiones
+    // Provincia.length = null;
 
     if(Pais[0].selected == true){//si la opcion cero del array select esta seleccionada, la opcion cero del array Provincia valdra 
         var destino0 = new Option("espere","");
-        Provincia[0] = destino0;
+        // Provincia[0] = destino0;
     }
     if(Pais[1].selected == true){//Colombia)
         document.getElementById("Region_1B").style.display = 'block';
         document.getElementById("Region_1C").style.display = 'none';
+        document.getElementById("Region_1A").style.display = 'none';
     }
     if(Pais[1].selected == true){//Colombia
         Departamento[0] = new Option("Departamento");
@@ -47,11 +47,44 @@ function SeleccionarRegiones(form){
         Departamento[31] = new Option("Vaupés"); // Mitú
         Departamento[32] = new Option("Vichada"); // Puerto Carreño
     }
-    if(Pais[2].selected == true){//Venezuela)
+    if(Pais[2].selected == true){//Ecuador)
+        document.getElementById("Region_1A").style.display = 'block';
+        document.getElementById("Region_1B").style.display = 'none';
+        document.getElementById("Region_1C").style.display = 'none';
+    }
+    if(Pais[2].selected == true){//Ecuador
+        Provincia[0] = new Option("Provincia");
+        Provincia[1] = new Option("Azuay");  
+        Provincia[2] = new Option("Bolívar");
+        Provincia[3] = new Option("Cañar");
+        Provincia[4] = new Option("Carchi");
+        Provincia[5] = new Option("Chimborazo");
+        Provincia[6] = new Option("Cotopaxi");
+        Provincia[7] = new Option("El Oro");
+        Provincia[8] = new Option("Esmeraldas"); 
+        Provincia[9] = new Option("Galápagos");
+        Provincia[10] = new Option("Imbabura");
+        Provincia[11] = new Option("Loja");
+        Provincia[12] = new Option("Los Ríos");
+        Provincia[13] = new Option("Manabí");
+        Provincia[14] = new Option("Morona Santiago");
+        Provincia[15] = new Option("Napo");
+        Provincia[16] = new Option("Orellana"); 
+        Provincia[17] = new Option("Pastaza");
+        Provincia[18] = new Option("Pichincha");
+        Provincia[19] = new Option("Santa Elena");
+        Provincia[20] = new Option("Santo Domingo de los Tsáchilas");
+        Provincia[21] = new Option("Sucumbíos"); //Lago Agrio
+        Provincia[22] = new Option("Tungurahua");
+        Provincia[23] = new Option("Zamora Chinchipe");
+        Provincia[24] = new Option("Guayas");  
+    }    
+    if(Pais[3].selected == true){//Venezuela)
         document.getElementById("Region_1C").style.display = 'block';
         document.getElementById("Region_1B").style.display = 'none';
+        document.getElementById("Region_1A").style.display = 'none';
     }
-    if(Pais[2].selected == true){//Venezuela
+    if(Pais[3].selected == true){//Venezuela
         Estado[0] = new Option("Estado");
         Estado[1] = new Option("Amazonas");  
         Estado[2] = new Option("Anzoátegui");

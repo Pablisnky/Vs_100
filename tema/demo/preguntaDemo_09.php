@@ -70,23 +70,23 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 	    <div class="Secundario">
 			<div class="encabezado">
-	    		<h1 class="anula">Reavivados</h1>
+				<h1 class="anula">horebi</h1>
 	    	</div>
 	    	<div class="encabezado_2">
 	    	    <div id="mostrarPuntos"></div><!-- recibe el puntaje del participante desde Ajax en puntaje.js-->
 			</div>
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">El día sábado es el día de reposo, este día debemos apartarlo para.</p>
+				<p class="pregunta">¿Qué profeta fue llevado al cielo en un carro de fuego?.</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">
-					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo();">Dormir lo suficiente</p>
-					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Adorar a los angeles.</p>
+					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo();">Eliseo</p>
+					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Moisés</p>
 				</div><!-- llamar_bloqueo_Demo() se encuentra en bloqueo.js  -->
 				<div class="Quinto_2">
-					<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">No agobiarse y no preocuparse</p>
-					<p id="respuesta_d" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">Recordar la creación de Dios.</p>
+					<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Enoc</p>
+					<p id="respuesta_d" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">Elias</p>
 				</div>
 			</div>
 			<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->

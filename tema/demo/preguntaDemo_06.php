@@ -70,14 +70,14 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 	    <div class="Secundario">
 			<div class="encabezado">
-	    		<h1 class="anula">Reavivados</h1>
+				<h1 class="anula">horebi</h1>
 	    	</div>
 	    	<div class="encabezado_2">
 	    	    <div id="mostrarPuntos"></div><!-- recibe el puntaje del participante desde Ajax en puntaje.js-->
 			</div>
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">En que lugar convoco Samuel a todo el pueblo, divididos en tribus para echar la suerte y elegir al primer rey de Israel:</p>
+				<p class="pregunta">En que lugar convoco Samuel a todo el pueblo, para echar la suerte y elegir al primer rey de Israel:</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">

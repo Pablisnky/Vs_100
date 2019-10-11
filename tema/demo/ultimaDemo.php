@@ -157,7 +157,7 @@ session_start();    //se inicia sesion para llamar a una variable
             </div>
 		    	<div class="Gratis_2">
 					<audio id="FondoComercial_1" autoplay src="../../audio/DarknessInMetropolis.mp3" loop></audio>
-			    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Vs_20</p>
+			    	<p class="Inicio_3">Gracias por acompañarnos, te invitamos a formar parte de la comunidad de Reavivados</p>
 					<a class="nav_7" href="../../vista/registro.php">Registra una cuenta</a>
 					<a class="nav_7" href="../../vista/participantes.php">Ver tabla de resultados</a>
 			    </div>

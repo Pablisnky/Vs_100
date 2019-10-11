@@ -70,23 +70,23 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 		    <div class="Secundario">
 		    	<div class="encabezado">
-		    		<h1 class="anula">Reavivados</h1>
+					<h1 class="anula">horebi</h1>
 		    	</div>
 		    	<div class="encabezado_2">
 				    <div id="mostrarPuntos"></div><!-- recibe el puntaje del participante desde Ajax en puntaje.js-->
 				</div>
 				<h4>Pregunta Nº <?php echo PREGUNTA_ACTUAL;?></h4>
 				<div>
-					<p class="pregunta">El pueblo de Israel en el desierto, solo podia recoger doble porción de Mana el día:</p>
+					<p class="pregunta">¿Quién oró para que uno de los apóstoles recobrara la vista?</p>
 				</div>
 				<div class="Quinto">
 					<div class="Quinto_2">
-						<p id="principiantes_01c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Lunes.</p>
-						<p id="principiantes_01b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Sabado.</p>
+						<p id="principiantes_01c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Bernabe</p>
+						<p id="principiantes_01b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Eneas</p>
 					</div>
 					<div class="Quinto_2">
-						<p id="principiantes_01a" class="efecto" onclick="sonidoCorrecto(); pauseAudio();llamar_sombrear_Demo(); setTimeout(llamar_puntaje,200);">Viernes.</p>				
-						<p id="principiantes_01d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Ninguno de los anteriores.</p>
+						<p id="principiantes_01a" class="efecto" onclick="sonidoCorrecto(); pauseAudio();llamar_sombrear_Demo(); setTimeout(llamar_puntaje,200);">Ananias.</p>				
+						<p id="principiantes_01d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Felipe</p>
 					</div>
 				</div>
 				<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->

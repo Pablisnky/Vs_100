@@ -44,7 +44,6 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 	    $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
 		// echo "ID_Participante: " . $participante . "<br>";
-
 		
 		$CapituloHoy = $_SESSION["Capitulo"];//en esta sesion se tiene guardado el nombre del capitulo estudiado, sesion creada en index.php
 		// echo "Capitulo de hoy: " . $CapituloHoy . "<br>"; 
@@ -132,7 +131,6 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
 		<link rel="stylesheet" type="text/css" href="../iconos/icono_siguiente/style_siguiente.css"/> <!--galeria icomoon.io  -->
 		<link rel="stylesheet" type="text/css" href="../iconos/icono_repetir/style_repetir.css"/> <!--galeria icomoon.io  -->
-		<link rel="shortcut icon" type="image/png" href="../images/logo.png">
 		
 		<script src="../javascript/puntaje.js"></script>
 		<script src="../javascript/bloqueo.js"></script>

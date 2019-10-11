@@ -23,7 +23,7 @@ function validar_01(){
        document.getElementById("Apellido").focus();
        return false;
     }
-    else if(correo.value =="" || correo.value.indexOf(" ") == 0 || (isNaN(correo.value)==false) || correo.value.length > 70){
+    else if(correo.value =="" || correo.value.indexOf(" ") == 0 || correo.value.length > 70){
        alert ("Necesita introducir un correo electronico");
        document.getElementById("Correo").value = "";
        document.getElementById("Correo").focus();
@@ -85,8 +85,8 @@ function validar_01(){
 
 //Impide que se inserte un correo invalido invocada desde registro.php
     function validarFormatoCorreo(){ 
-            campo = event.target;
-            var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+          campo = event.target;
+          var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
             
           if(document.getElementById("Correo").style.backgroundColor == "red"){
             document.getElementById("Correo").value = "";        
@@ -100,22 +100,25 @@ function validar_01(){
             else{
                 alert("Correo no aceptado");      
                 document.getElementById("Correo").style.backgroundColor="red"; 
-                // document.getElementById("Correo").value = "";
+                document.getElementById("Correo").value = "";
             }
           }
         
     }
-// ----------------------------------------------------------------------------------------------------------------------
 
-
+//---------------------------------------------------------------------------------------------
+//Coloca el campo correo en colr white
+function ColorearCorreo(){
+  document.getElementById("Correo").style.backgroundColor="white";
+}
+// ---------------------------------------------------------------------------------------------
 // llamada desde registro.php
 function literal() { 
   var m = document.getElementById("Nombre").value;
-  var expreg = /^[A-Za-z,Ñ-ñ]+$/; /*Solo acepta mayusculas la coma se salta el filtro*/
+  var expreg = /^[A-Za-z,Ñ-ñ]+$/; /*No permite escribir dos palabras, el espacio no es permitido*/
   
   if(!expreg.test(m)){
     alert("El nombre no es correcto");
-
         document.getElementById("Nombre").value = "";
         document.getElementById("Nombre").focus();
       }

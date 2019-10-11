@@ -11,17 +11,18 @@ session_start();
 
 	// Se cambia el formato de la fecha
 	$newFecha = date("d-m-Y", strtotime($FechaServidorPHP));
+	// echo $newFecha . "<br>";
 
-	if($FechaServidorPHP == "2019-09-26"){
-		$CapituloHoy = "1 Crónicas 11";
+	if($FechaServidorPHP == "2019-10-09"){
+		$CapituloHoy = "1 Crónicas 24";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
-	else if($FechaServidorPHP == "2019-09-24"){
-		$CapituloHoy = "1 Crónicas 9";
+	else if($FechaServidorPHP == "2019-10-10"){
+		$CapituloHoy = "1 Crónicas 25";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
 	else{
-		$CapituloHoy = "1 Crónicas 12";
+		$CapituloHoy = "1 Crónicas 26";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
 ?>
@@ -35,6 +36,7 @@ session_start();
 		<meta name="keywords" content="preguntas, puntos, Dios, Biblia, capitulo, reavivados"/>
 		<meta name="author" content="Pablo Cabeza"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Refresh" content="1;URL=vista/instruccion.php">
 
 		<meta http-equiv="Expires" content="0"><!--evita guardar en cache-->
 		<meta http-equiv="Last-Modified" content="0"><!--evita guardar en cache-->
@@ -68,19 +70,26 @@ session_start();
 	<body> 
 		<!--Construcion de ventanan modal-->
         
-			<!-- <input type="checkbox" id="Cerrar">
+			<input type="checkbox" id="Cerrar">
         	<label for="Cerrar" id="btnCerrar">Cerrar</label>
-			<div class="modal">
-				<article class="contenedor_modal modal_2">
+			<div class="modal"> 
+				<!-- <article class="contenedor_modal modal_2">
 					<p class="Inicio_1"><span></span></p>
 					<p>Este ministerio tiene el propósito de incentivar y promover la lectura de la biblia y los libros del espíritu de profecía, herramientas que nos hacen mejores personas para convivir en sociedad y asi complacer al Señor.</p>
 					<p>Pablo Cabeza</p>
 					<p class="Inicio_1"><span>Programador BackEnd de Desarrollos Web</span></p>
-				</article>
-				<aside>
-					<P>Hola</P>
-				</aside>
-			</div>      -->
+				</article> -->
+								
+				<!-- <form action="controlador/recibe_demo.php" method="POST">
+    				<img class="imagen_6" id="blah" src="images/Sabado_Joven.jpg">
+					<input style="display:none" type="text" id="Usuario" name="usuario" value="SabadoJoven_1" >	
+					<input type="submit" class="btn" style="display:none;" value="Entrar">
+				</form> -->
+				
+				<img class="imagen_6" id="blah" src="images/Notificacion_1a.jpg">
+				
+				<!-- <audio id="FondoComercial_1" autoplay src="audio/SabadoJoven.mp3" loop></audio> -->
+			</div>       
 		
 		<!--Termina ventana modal-->
 	

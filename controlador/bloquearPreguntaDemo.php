@@ -9,14 +9,14 @@
 	// echo "ID_Pregunta= " . $Pregunta . "<br>";//Esto se puede ver en preguntaxxxx_00.php porque es una solicitud ajax
 	// echo "ID_PD= " . $ID_PD . "<br>"; //Esto se puede ver en preguntaxxxx_00.php porque es una solicitud ajax realizada en ese archivo
 
-		  // ------------------------------------------------------------------------------------------------------
-		  // -------------------------------------------------------------------------------------------------------
+		  // ---------------------------------------------------------------------------------------
+		  // ---------------------------------------------------------------------------------------
 		    //Se corrige la hora que entrega el sistema, para que trabaje con la hora nacional colombiana
 		    date_default_timezone_set('America/Bogota');
 		    $HoraServidorPHP =date("Y-m-d  H:i:s");
 		    // echo "Hora PHP de respuesta" . $HoraServidorPHP . "<br>";
 
-		    //CUando se trabaje en local se utiliza la funcion NOW() para introducir la hora respuesta de mysql
+		    //Cuando se trabaje en local se utiliza la funcion NOW() para introducir la hora respuesta de mysql
 		  // --------------------------------------------------------------------------------------------
 		  // --------------------------------------------------------------------------------------------
 
@@ -50,7 +50,7 @@
 			<audio autoplay src="../../audio/Grafico.mp3" loop></audio>
 		<?php
 		
-		echo "<h3 class='bloqueo_2_b'>Nuevamente su respuesta fue equivocada, sera penalizado con 2,25 centesimas de sus puntos</h3>";
+		echo "<h3 class='bloqueo_2_b'>Nuevamente su respuesta fue equivocada</h3>";
 		?>
 		<!-- Se refresca la pagina -->
 		<div class="contenedor_6" id="Flecha">
@@ -77,7 +77,7 @@
 					<audio autoplay src="../../audio/Grafico.mp3" loop></audio>
 				<?php
 
-				 echo "<h3 class='bloqueo_2'>Respuesta incorrecta, fue penalizado con  2,25 centesimas de sus puntos.</h3>";
+				 echo "<h3 class='bloqueo_2'>Respuesta incorrecta.</h3>";
 				 ?>
 				 <!-- Se refresca la pagina -->
 				 <div class="contenedor_6" id="Flecha">

@@ -1,6 +1,6 @@
 <?php   
     //Este archivo calcula el tiempo de cada pregunta, que es de dos minutos, 
-    //session_start();
+    // session_start();
     //include("../conexion/Conexion_BD.php"); //No se incluye la conexion y la apertura de sesion porque a los archivos a donde va hacer incluido Temporizador_2.php ya tienen conexion a BD y sesion start.
 
     $Pregunta= $_SESSION["Pregunta"];//sesion creada en cada pregunta.
@@ -16,7 +16,7 @@
     }
 
     if($Tema != "Demo"){
-      $Tema= $_SESSION["Tema"];//sesion creada en preguntaXXXX_00.php.
+      $Tema= $_SESSION["Tema"];//sesion creada en pregunta.php
     }
     else{
       $Tema == "Demo";
@@ -63,7 +63,7 @@
       
         //se inserta en la BD la hora en la que el participante entro a una pregunta.
         $insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Hora_Pregunta, HoraMaximo) VALUES('$Pregunta', '$Participante', '$CodigoPrueba', '$Tema', '$HoraServidorPHP', '$PHPlocal')";
-          mysqli_query($conexion,$insertar) or DIE ('Falló conexión a la base de datos');;
+          mysqli_query($conexion,$insertar) or DIE ('Falló conexión a la base de datos (C1)');;
     
     }
     else{

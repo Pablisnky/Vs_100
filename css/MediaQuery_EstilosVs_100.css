@@ -78,6 +78,11 @@ input[type=submit]{
 .label{/*registro_Libre.php*/
 	font-size:  35px !important;
 }
+.label_1{/*bonos.php*/
+	text-align: center;
+	margin-top: -7%;
+	display: block;
+}
 legend{
 	font-size: 15px;
 }
@@ -97,8 +102,9 @@ small{
 span{
 	font-size: 17px;
 }
-table{/*participantes.php*/
+table{/*ultima.php     participantes.php*/
 	width:95%;
+    margin-bottom: 12%; 
 }
 textarea{
 	width: 50%;
@@ -253,6 +259,10 @@ th{/*participantes.php*/
 .buttonCuatro{/*entrada.php   index.php*/
 	width: 45%;
 }
+.buttonCinco{/*bonos.php*/
+	margin-top: 12%;
+	width: 300px;	
+}
 .celdas_th{
 	background-color: #F4FCFB; 
 	color:#040652; 
@@ -359,6 +369,9 @@ th{/*participantes.php*/
 }
 .contenedor_19{/*reicbeCorreo.php  InsertarCodigo.php*/
 	padding-bottom: 28%;
+}
+.contenedor_20{/*bono.php*/
+	padding-bottom: 5%;
 }
 .n00{/*index.php*/
 	width: 100%;
@@ -498,6 +511,12 @@ th{/*participantes.php*/
 	width:20%; 
 	font-size: 17px;
 }
+.imagen_6{/*index.php*/
+	margin-top: 35%;
+	width: 100%; 
+	height: 400px;
+	filter: brightness(110%);
+}
 .imagen_8{/*FotoPerfil.php*/
 	width: 100%; 
 	object-fit:contain ;/* deseado cover */
@@ -550,7 +569,7 @@ th{/*participantes.php*/
 	line-height: 140%;
 }
 .Inicio_6{/*instruccion.php*/ 
-	font-size:16px;
+	font-size:19px;
 	width: 70%;
 	margin: 5%;
 }
@@ -562,7 +581,7 @@ th{/*participantes.php*/
 .Inicio_8{/*ultima.php*/
 	font-size: 14px;
 	width: 90%;
-	margin-top: 3% !important;
+	margin-top: 10% !important;
 }
 .Inicio_9{/*entrada.php*/
 	margin-top: -1% !important;
@@ -597,7 +616,7 @@ th{/*participantes.php*/
 	margin-top: -25px !important;
 	margin-bottom: 50px !important;
 }
-.Inicio_16{/*recibeCorreo.php*/
+p .Inicio_16{/*recibeCorreo.php*/
 	font-size:16px !important;
 	margin-top: 10%;
 	margin-bottom: 15%;
@@ -606,6 +625,13 @@ th{/*participantes.php*/
 	font-size:22px !important;
 	margin-top: 5%;
 }
+.Inicio_18{/*bonos.php*/ 
+	font-family: 'Raleway', sans-serif;
+	display: block;
+	width: 60%;
+	font-size:13px;
+	line-height: 110%;
+}	
 .input_5{/*recibeCorreo.php   InsertarCodigo.php*/
 	width: 90%;
 	font-size: 23px;
@@ -911,7 +937,7 @@ th{/*participantes.php*/
 	margin-top: 2%;
 	margin-left: 1%;
 	display: inline-block;
-	width: 65%;
+	width: 180px !important;
 	text-align: left;
 	font-family:verdana;
 }
@@ -991,6 +1017,17 @@ th{/*participantes.php*/
 	font-size: 18px;
 	width: 95% !important;
 }
+.span_10{/*instruccion.php*/ 
+	width: 95%;
+	font-size:14px;
+	margin-top: -12% !important;
+	margin-bottom: 4%;
+	padding-left: 5%;
+}	
+.span_11{/*instruccion.php*/ 
+	margin-top: 0% !important;
+	padding-left: 17%;
+}
 .tabla_0{/*ultima.php*/
     padding: 1% 5%; 
     height: 20px;
@@ -1031,6 +1068,9 @@ th{/*participantes.php*/
     width: 110%;
     font-size: 10px;
 }
+.tapa_2{/*principal.php*/
+	height: 150%;
+}
 .tema_1{/*temas.php*/
 	margin-top: 7%;  
 	font-size: 16px;
@@ -1051,6 +1091,15 @@ th{/*participantes.php*/
 .temp_2{/*Temporizador*/
 
 	 font-size:11px;
+}
+.td_1{/*bonos.php*/
+	font-size: 11px !important;
+	padding: 0%;
+	margin-top: -10% !important;
+}
+.th_1{/*bonos.php*/
+	width:20px !important;
+	padding: 0% -5%;
 }
 .ultima_1{/*Ultima.php*/
  	padding: 1% 0%;

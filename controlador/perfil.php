@@ -61,7 +61,7 @@
                             include("FotoPerfil.php");
                         ?>
                         <!-- CAMBIAR CONTRASEÑA -->
-                        <a id="marcador_04" class="ancla_2"></a>
+                        <!-- <a id="marcador_04" class="ancla_2"></a>
                         <fieldset class="Afiliacion_4"> 
                             <legend>Cambiar contraseña</legend>
                             <p  class="etiqueta_3">Le enviaremos un codigo a su correo al solicitar cambio de contraseña.</p><br><br>
@@ -69,7 +69,7 @@
                             <label class="a_4" id="Codigo">Solicitar código</label> 
                             <br>
                             <input type="password" name="valorB"  id="ValorB"  placeholder="Insertar código">
-                        </fieldset>
+                        </fieldset> -->
                     </div>
                     <!-- INIDCE LATERAL DERECHO -->
                     <div class="contenedor_8">
@@ -77,7 +77,7 @@
                         <a class="marcador" href="#marcador_01">Datos personales</a><br>
                         <a class="marcador" href="#marcador_02">Datos de congregación</a><br>
                         <a class="marcador" href="#marcador_03">Fotografia</a><br>
-                        <a class="marcador" href="#marcador_04">Cambiar contraseña</a>
+                        <!-- <a class="marcador" href="#marcador_04">Cambiar contraseña</a> -->
                     </div>  
                     <div id="Perfil_06" class="contenedor_9">
                         <input type="submit" value= "Guardar" style="width: 30%; margin-right: 14%; color:rgba(194, 245, 19,1);"  onclick=""> <!--return validar_10()-->

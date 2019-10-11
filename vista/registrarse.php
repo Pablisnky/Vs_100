@@ -12,6 +12,7 @@
 		$Nombre = htmlspecialchars($_POST["nombre"]);
 		$Apellido = htmlspecialchars($_POST["apellido"]);
 		$Correo = htmlspecialchars($_POST["correo"]);
+		$Correo = strtolower($Correo );
 		$Pais = htmlspecialchars($_POST["pais"]);
 		if(!empty($_POST["departamento"])){
 			$Region= $_POST["departamento"];
@@ -38,7 +39,7 @@
 		// echo "Iglesia: " .  $Iglesia . "<br>";
 		// echo "Clave: " .  $Clave . "<br>";
 		// echo "Confirmar clave: " .  $ConfirmarClave . "<br>"; 
-
+		
 		$_SESSION["Usuario"]= $Nombre;//se crea una sesion que almacena el Nombre del usuario.
 
 		//Se comparan ambas contraseñas

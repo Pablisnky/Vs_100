@@ -1,6 +1,4 @@
-//solo esta cargado el municipio san felipe
-function SeleccionarMunicipio(form){
-    
+function SeleccionarMunicipio(form){    
     var Estado = form.estado.options;//se captura el elemento select que contiene los estados
     var Municipio = form.municipio.options;//se captura el elemento select que contiene los municipios
     Municipio.length = null;

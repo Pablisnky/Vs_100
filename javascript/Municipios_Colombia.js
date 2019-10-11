@@ -1,6 +1,4 @@
-//solo esta cargado el municipio san felipe
-function SeleccionarMunicipio_Colombia(form){
-    
+function SeleccionarMunicipio_Colombia(form){    
     var Departamento = form.departamento.options;//se captura el elemento select que contiene los Departamentos
     var Municipio = form.municipio_Col.options;//se captura el elemento select que contiene los municipios
     Municipio.length = null;

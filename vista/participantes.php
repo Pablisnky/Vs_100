@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Versus_20 Participantes</title>
+        <title>horebi Participantes</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="description" content="Juego de preguntas sobre suramerica."/>
         <meta name="keywords" content="conocimiento, preguntas, juego"/>
@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
         <link rel="stylesheet" type="text/css" href="../css/Modal.css">   
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>    
+		<link rel="shortcut icon" type="image/png" href="../images/logo.png">
 
         <script type="text/javascript" src="../javascript/Funciones_varias.js"></script>
     </head>

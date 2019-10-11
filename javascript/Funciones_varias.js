@@ -108,6 +108,9 @@ function recargaInput(){
             div = document.getElementById('Temporizador_2');
             div.style.display = '';
         }
+
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
         //Quita el temporizador en cada pregunta al seleccionar una respuesta
         function cerrar() {
             div = document.getElementById('Temporizador_2');
@@ -265,6 +268,26 @@ function NotificarContrasena(){
 
         B.style.display = "block";
     }
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Muestra texto en instruccion.php
+function mostrar(id){
+    var A= document.getElementById(id); 
+    A.className += "mostrarTexto";
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Abre ventana con contenido sobre los bonos, es llamada en ultima.php
+function verBonos(){
+    window.open("../controlador/detalle_bono.php", "ventana1", "width=340,height=550,scrollbars=NO");
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Cierra la ventana window.open(); es llamada desde detalle_bono.php
+function cerrarVentana(){
+    //se cierrar la ventana hijo
+    window.close();
 }
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------

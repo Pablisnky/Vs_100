@@ -52,7 +52,7 @@ function respuesta_puntaje(){
     }
 }
 //------------------------------------------------------------------------------------------------
-function llamar_puntaje_Demo(){//funcion invocada en preguntaXxxxxx_00.php
+ function llamar_puntaje_Demo(){//funcion invocada en preguntaXxxxxx_00.php
     var aleatorio = parseInt(Math.random()*999999999);
     D=document.getElementById("ID_PD").value;//se toma el ID de la prueba.
     var url="../../controlador/sumaPuntaje_Demo.php?val_3=" + D + "&r=" + aleatorio;

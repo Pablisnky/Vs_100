@@ -38,7 +38,7 @@ footer{
 header label{/*index.php*/
 	display: none;
 }
-h1{/*todas las páginas*/
+h1{/*todas las páginas*/ 
 	background-color:#040652;
 	font-family:'Caveat', cursive;
 	font-size:4vw; 
@@ -106,9 +106,8 @@ input:focus{/*donde se encuentre el foco de un formulario*/
   	background-color: #EAF1FA;
 } 
 input[type=checkbox]{/*principal.php*/
-	margin-left: -15%;
-	margin-right: -32%;
-	display:inline;
+	margin-left: -25%;
+	margin-right: 0%;
 }
 input[type=file]{/*fotoPerfil.php*/
 	font-size: 14px;
@@ -174,13 +173,13 @@ textarea{
 	width: 10%;
 	height: 60%;
 }
-table{
+table{/*ultima.php   participantes.php*/
     width: 90%;
     border-collapse: collapse;
     border:1px;
     text-align: center; 
     margin-top: 0%; 
-    margin-bottom: 10%; 
+    margin-bottom: 7%; 
     margin-left: auto; 
     margin-right: auto;
 } 
@@ -259,7 +258,7 @@ td{
 	padding: 0px;
 	margin-left: 0px;
 }
-.Afiliacion_4 label{/*datos_personales*/
+.Afiliacion_4 label{/*datos_personales principal.php*/
 	font-size: 16px;
 	margin-left: 15px;
 	margin-right: 15px;
@@ -278,7 +277,7 @@ td{
 	font-family:verdana;
 	margin-bottom: 1%;
 }
-.anula{/*pregunta.php*/
+.anula{/*preguntaDemo_XX.php*/
 	cursor: default;
 }
 .bloqueo_demo{/*respuestaDemo.php*/
@@ -363,6 +362,33 @@ td{
 .br{/*club.php*/
 	margin-bottom:10%;
 }
+.btn{/*index.php*/
+	position: absolute;
+	color:rgba(0,0,0,1) !important;
+	font-family: verdana;
+	z-index: 50;
+	font-size: 17px;
+	margin-left: 4% ;
+	top: 46%;
+
+	width: 90px;
+	height: 40px !important;
+	line-height: 20px;
+	background-color: rgba(255,255,0,1) !important;
+	/*background-color: #C7CFE4;*/
+	border-radius: 20%;
+	/* border-style: none; */
+	text-align: center;
+	padding-top: 0px;
+	cursor: pointer;
+	box-sizing: border-box;
+
+	animation: modal 1.5s;/*tiempo que tarda en formarse la animacion*/
+	animation-delay: 0s;/*tiempo que tarda en aparecer la animacion*/
+	animation-fill-mode: forwards;/*la animacion se queda fija*/
+	visibility: hidden;
+	opacity: 0;
+}
 .buttonTres{/*index.php*/
 	background:#040652;
 	color: rgba(194, 245, 19,1);
@@ -408,13 +434,28 @@ td{
 	box-shadow:0px 0px 0px;
 	color: white;			
 }
-.caption_correc{/*ultimaDemo*/	
-	background-color: green;
-	color: white;
+.buttonCinco{/*bonos.php*/
+	background:#040652;
+	color: rgba(194, 245, 19,1);
+	text-decoration:none;
+	line-height: 23px !important;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
+	padding:3px;
+	box-sizing: border-box;
+	width: 100px;
+	height: 30px;
+	box-shadow:0px 5px 5px #373c3c;
+	text-align:center;
+	border-radius:15px;
+	box-sizing:border-box;
+	cursor: pointer;
 }
-.caption_incorrec{/*ultimaDemo*/
-	background-color: red;
-	color: white;
+.buttonCinco:hover{/*index.php*/
+	box-shadow:0px 0px 0px;
+	color: white;			
 }
 .caption_lider{/*ultima.php*/
 	background-color: cyan;
@@ -536,7 +577,7 @@ td{
 	display: none;
 }
 .contenedor_16{/*principal.php */
-	background-color:  rgba(0,0,0,0);
+	background-color: rgba(0,0,0,0);
 	width: 40%;
 	float: right;
 	position: absolute;
@@ -554,6 +595,16 @@ td{
 }
 .contenedor_18{/*participacionHoy.php*/
 	display: none;
+}
+.contenedor_20{/*bonos.php*/
+	display: grid;
+	grid-template-columns:14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
+}
+.contenedor_21{/*principal.php*/
+	display: grid;
+	grid-template-columns: 10% 55%;
+	justify-content: center;
+	margin: 3% auto;
 }
 .contenido_2{/*contacto.php*/
 	width: 90%;
@@ -657,6 +708,13 @@ td{
 .hr_1{/*pregunta.php*/
 	margin-top: -2%;
 }
+.imagen_6{/*index.php*/
+	width: 40%; 
+	height: 640px;
+	display: block;
+	margin: auto;
+	filter: brightness(110%);
+}
 .imagen_7{/*participacionHoy.php*/
 	width: 100%; 
 	object-fit:contain ;/* deseado cover */
@@ -711,12 +769,16 @@ td{
 }
 .Inicio_5{/*ultima.php*/
 	background-color:#F4FCFB ;
+	color:#040652;
 	width: 40%;
-	margin:1% auto;
-	border-radius: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:3%;
+	margin-bottom: -0.5%;
+	/* border-radius: 15px; */
 	padding-bottom: 1%;
 }
-.Inicio_6{/*instruccion.php  reglas_Trivia.php*/
+.Inicio_6{/*instruccion.php*/
 	padding:2% 8%;
 	text-align: left;
 	color:#040652 ;
@@ -741,7 +803,7 @@ td{
 	display: block;
 	margin: auto;
 	padding: 1%;
-	margin-top: -20px !important;
+	margin-top: 3% !important;
 	text-align: center;
 }
 .Inicio_9{/*entrada.php*/ 
@@ -810,6 +872,15 @@ td{
 	display: block;
 	text-align: center;
 }
+.Inicio_18{/*bonos.php*/ 
+	font-family: 'Raleway', sans-serif;
+	display: block;
+	width: 35%;
+	font-size:15px;
+	margin-top: -3%;
+	margin-bottom: 15%;
+	line-height: 120%;
+}	
 .input_1{/*entrada.php*/
 	position: absolute; 
 	top: 10%; 
@@ -846,6 +917,10 @@ td{
 }
 .label{/*registro_Libre.php*/
 	font-size:  25px !important;
+}
+.label_1{/*bonos.php*/
+	font-family: arial;
+	color: black;
 }
 .listaDesordenada{
 	background-color:red;
@@ -915,6 +990,14 @@ td{
 }
 .modal_2{/*participantes.php*/
 	padding: 1% !important;
+}
+.mostrarTexto{/*Funciones_varias.js*/
+	color: yellow;
+	/* display: block;  */
+	/* transition-property: display;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition-delay: 0.2s; */
 }
 .n00{/*index.php*/
 	width: 50%;
@@ -1101,7 +1184,7 @@ td{
 	border-color: black;
 	padding: 1%;
 }
-.ocultar{/*pregunta.php*/
+.ocultar{/*pregunta.php   instruccion.php*/
 	display: none;
 }
 .parpadea{/*pregunta.php*/  
@@ -1192,7 +1275,7 @@ td{
 }
 .p_1{/*preguntaXxxxx.php*/
 	width: 200px;
-	color: yellow;
+	color:yellow;
 	display: block;
 	font-size: 1.1vw;
 	font-family:verdana;
@@ -1262,11 +1345,13 @@ td{
 	font-weight: bold;
 }
 .recordar{/*principal.php*/
-	font-size: 14px; 
+	font-size: 14px !important; 
 	font-family: verdana;
 	font-weight: bold;
-	width: 200px;
+	width: 250px !important;
 	cursor: pointer;
+	margin-left: -15px !important;
+	line-height: 10px;
 }
 .respuestaPreguntas{/*pregunta.php*/
 	margin-top: 1%;
@@ -1338,10 +1423,24 @@ td{
 	text-align: center;
 	color:#040652;
 }
+.span_10{/*instruccion.php*/ 
+	display: block;
+	font-family: courier;
+	font-weight: bold;
+	width: 70%;
+	font-size:16px;
+	margin-top: -3% !important;
+	margin-bottom: 1%;
+	padding-left: 15%;
+}	
+.span_11{/*instruccion.php*/ 
+	margin-top: 0% !important;
+	padding-left: 17%;
+}
 .super_in{/*entrada.php*/
 	font-size: 10px;
 }
-.tabla_0{/*participantes.php*/
+.tabla_0{/*participantes.php   ultima.php*/
     padding: 1% 5%; 
     height: 20px;
     width: 50px;
@@ -1353,14 +1452,24 @@ td{
     text-align: center;
 }
 .tabla_3{/*ultima.php*/ 
-	width: 20%; 
+	width: 50%; 
 	margin: auto;
-	margin-top:  3%;
+	margin-top:  5%;
 }
 .tabla_4{/*ultima.php*/ 
 	width: 50%; 
 	margin: auto;
 	margin-top:  3%;
+}
+.tabla_5{/*bonos.php*/
+	text-align: center;
+	font-size: 10px;
+}
+.tabla_6{/*ultima.php*/
+	display: block;
+	text-align: center;
+	font-size: 13px;
+	height: 20px;
 }
 .tapa_2{/*principal.php*/
 	background-color: rgba(0,0,0,0.85) ;
@@ -1383,6 +1492,9 @@ td{
 }
 .temp{/*Temporizador*/
 	 font-size:16px;
+}
+.th_1{/*bonos.php*/
+	width:120px;
 }
 #MenuRes{/*header.html*/
 	display:none ;

@@ -64,23 +64,23 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 	    <input type="text" class="ocultar" id="Pregunta_Num" value="<?php echo $Num_Pregunta;?>"><!-- se utiliza para enviar a puntaje.js-->
 			<div class="Secundario">
 				<div class="encabezado">
-					<h1 class="anula">Reavivados</h1>
+					<h1 class="anula">horebi</h1>
 			    </div>
 			    <div class="encabezado_2">
 				    <div id="mostrarPuntos"></div><!-- recibe el puntaje del participante por medio de llamar_puntaje() llamada al cargar el documento desde sumaPuntaje.php-->
 				</div>
 				<h4>Pregunta Nº <?php echo PREGUNTA_ACTUAL;?></h4>
 				<div>
-					<p class="pregunta">¿Quién traicionó a Jesús?</p>
+					<p class="pregunta">¿Cuántas tinajas de agua Jesús transformó en vino?</p>
 				</div>
 				<div class="Quinto">
 					<div class="Quinto_2">
-						<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Poncio Pilatos.</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
-						<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Pedro.</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
+						<p id="respuesta_d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Doce</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
+						<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Diez</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
 					</div>
 					<div class="Quinto_2">
-						<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Judas Tadeo.</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
-						<p id="respuesta_a" class="efecto" onclick="sonidoCorrecto(); pauseAudio();llamar_sombrear_Demo(); setTimeout(llamar_puntaje_Demo,200);">Judas iscariote.</p><!-- llamar_puntaje() se encuentra en puntaje.js -->
+						<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Siete</p><!-- llamar_bloqueo() se encuentra en bloqueo.js -->
+						<p id="respuesta_a" class="efecto" onclick="sonidoCorrecto(); pauseAudio();llamar_sombrear_Demo(); setTimeout(llamar_puntaje_Demo,200);">Seis</p><!-- llamar_puntaje() se encuentra en puntaje.js -->
 					</div>
 				</div>
 				<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->

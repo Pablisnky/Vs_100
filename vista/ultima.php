@@ -1,5 +1,5 @@
 <?php
-// session_start();    //se inicia sesion para llamar a una variable 
+// session_start();    //se inicia sesion para llamar a una variable x
 
 	$participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
 	// echo "ID_Participante= " . $participante . "<br>";
@@ -32,6 +32,7 @@
 		<link rel="stylesheet" type="text/css" href="../../css/EstilosVs_100.css"/>
         <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../../css/MediaQuery_EstilosVs_100.css">
    		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
+		<link rel="shortcut icon" type="image/png" href="../images/logo.png">
 
 		<script src="../../javascript/puntaje.js"></script>
 		<script src="../../javascript/bloqueo.js"></script>
@@ -50,8 +51,7 @@
 			<h4 class="ultima_1"><?php echo $Participante["Nombre"];?></h4>
 			<?php 				
 				if($Tema == "Reavivados"){ ?>
-					<h4 class="ultima_1">Has concluido tu prueba diaria<h4>
-					<p class="span_5">"Reavivados por su palabra"</p>  <?php
+					<h4 class="ultima_1">Has concluido tu test diario<h4> <?php
 				} 
 				else{  ?>           				
 					<h4 class="ultima_1">Has concluido tu prueba sobre:</h4>
@@ -60,7 +60,7 @@
 			?>
 			<div class="tabla_3">
 				<table>
-					<caption class="caption_correc">Respuestas correctas</caption>
+					<caption class="caption_lider">Respuestas correctas</caption>
 					<thead>
 						<tr>
 							<th>Pregunta</th>
@@ -92,7 +92,7 @@
 					if(mysqli_num_rows($Recordset_3)!=0){
 				?>
 					<table>
-						<caption class="caption_incorrec">Respuestas incorrectas</caption>
+						<caption class="caption_lider">Respuestas incorrectas</caption>
 						<thead>
 							<tr>
 								<th>Pregunta</th>
@@ -116,6 +116,10 @@
 			}
 			?>
 		</div>
+		<!-- Se incluyen la tabla de bonificación -->
+		<?php
+			include("bonos.php");
+		?>
 		<input type="text" class="ocultar" id="ID_Pregunta" value= "10">
 		<input type="text" class="ocultar" id="ID_Participante" value="<?php echo $participante;?>"><!-- se utiliza para enviar a puntaje.js-->
 
@@ -134,7 +138,7 @@
 					// echo "Puntos ganados en la prueba: " . $Decimal . "<br>";
 					
 					//(Reavivados)se consulta los puntos acumulados en la semana
-			    	$Consulta_0="SELECT SUM(Puntos) AS Acumulado FROM participantes_pruebas WHERE ID_Participante='$participante' AND Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK(CUrdate()) GROUP BY WEEK(Fecha_pago))";
+			    	$Consulta_0="SELECT SUM(Puntos) AS Acumulado FROM participantes_pruebas WHERE ID_Participante='$participante' AND Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK(CURDATE()) GROUP BY WEEK(Fecha_pago))";
 					$Recordset_0= mysqli_query($conexion, $Consulta_0);
 					$Participante_0= mysqli_fetch_array($Recordset_0);
 					$Acumulado= $Participante_0["Acumulado"];
@@ -149,7 +153,7 @@
 					$Tiempo= mysqli_fetch_array($Recordset_1);
 
 					if($Tema == "Reavivados"){
-						//Se consulta si el participant existe en la tabla de resultados gloales
+						//Se consulta si el participant existe en la tabla de resultados globales
 						$Consulta_9="SELECT ID_Participante FROM posicion_general_rea WHERE ID_Participante = '$participante'";
 						$Recordset_9 = mysqli_query($conexion, $Consulta_9);
 						if(mysqli_num_rows($Recordset_9) == 0){
@@ -166,14 +170,57 @@
 							$Actualizar= "UPDATE posicion_general_rea SET PuntosTotales= '$Acumulado' WHERE ID_Participante = '$participante'";
 							mysqli_query($conexion, $Actualizar);
 						}
+						
+						//se consulta si el participante sigue optando por el bono de constancia
 					}
-					
  				?>
-				<p class="Inicio_5">Tiempo total: <?php echo $Tiempo["TiempoTotal"];?></p>
+				<p class="Inicio_5">Tiempo en responder el test:</p>
+				<p><?php echo $Tiempo["TiempoTotal"];?></p>
 				<?php
 					if($Tema == "Reavivados"){  ?>	
-						<p class="Inicio_5">Puntos ganados hoy: <?php echo $Decimal;?></p> 
-						<p class="Inicio_5">Puntos semanales: <?php echo $Decimal_0;?></p><?php
+						<p class="Inicio_5">Puntos obtenidos hoy:</p>
+						<p><?php echo $Decimal;?></p>
+						 <p class="Inicio_5">Bono de prioridad:</p>
+						<?php
+						//se consulta si participo antes de las siete de la mañana
+						$Consulta_2= "SELECT ID_Participante, HOUR(TIME(Fecha_pago)) as hora FROM participantes_pruebas WHERE ID_Participante='$participante' AND HOUR(TIME(Fecha_pago)) < '7' AND Tema = 'Reavivados' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE()";
+						$Recordset_2 = mysqli_query($conexion,$Consulta_2);
+						$Resultado_2= mysqli_num_rows($Recordset_2);
+						// echo $Resultado_2["hora"];
+							if($Resultado_2 == 1){    ?>
+								<p>1,000 puntos</p>   <?php
+							}
+							else{    ?>
+								<p>Opción de bono perdida</p> 	<?php
+							}    ?>
+						<p class="Inicio_5">Bono de constancia:</p>
+						<?php
+						//se consulta cuales dias participo en el test
+							$Consulta_A="SELECT * FROM participacion_semanal WHERE ID_Participante='$participante' AND N_semana='$Semana'";
+							// $Rellenado[]="";
+							$Recordset_A = mysqli_query($conexion,$Consulta_A);
+							while($Resultado= mysqli_fetch_array($Recordset_A)){
+								$Rellenado[]= $Resultado["Dia_semana"];
+							}
+							// $Rellenado= array_pad($Dias,7,"a");
+							// var_dump($Rellenado) . "<br>";
+							
+							//Se recorre el array para ver que dias tiene, estos son los dias que el participante hizo el test
+							$long= count($Rellenado);
+							for($i=0; $i < $long; $i++){
+								$Rellenado[$i];
+								//  echo "El array contiene los numeros: " .  $Rellenado[$i] . "<br>";
+							}
+							
+							if(($IndiceDom == 1) AND ($IndiceLun == 1) AND ($IndiceMar == 1) AND ($IndiceMie == 1) AND ($IndiceJue == 1) AND ($IndiceVie == 1) AND ($IndiceSab == 1)){   ?>
+								<p>Opción de bono en curso</p>   <?php
+							}
+							else{
+								echo "<p>Opción de bono perdida</p>";
+							}    ?>
+
+						<p class="Inicio_5">Bono de liderazgo:</p>
+						<p>Código en desarrollo</p>   <?php
 					}
 					else{	?>
 						<p class="Inicio_5">Puntos acumulados: <?php echo $Decimal;?></p>
@@ -224,29 +271,29 @@
 					if($Tema != "Reavivados"){	?>
 						<p class="Inicio_5">Tu posición es de Nº <?php echo $Posicion['Pus'];?> de <?php echo $Participante_4a;?> participantes.</p> 		
 						<p class="Inicio_5"> </p> 
-						<div class="tabla_4">
+						<div class="tabla_3">
 							<table>
 								<caption class="caption_lider">Actualmente el lider de la prueba es:</caption>
-										<thead>
-											<th>Nombre</th>
-											<th>Apellido</th>
-											<th>Iglesia</th>
-											<th>Región</th>
-										</thead>
-										<tbody>	
-											<tr>
-												<td class="tabla_0"><?php echo $Participante_11;?></td>
-												<td class="tabla_0"><?php echo $Resultado_11["Apellido"];?></td>
-												<td class="tabla_0"><?php echo $Resultado_11["Iglesia"];?></td>
-												<td class="tabla_0"><?php echo $Resultado_11["SubRegion"];?></td>
-											</tr>
-											<tr>
-												<td colspan="3" class="tabla_1">Puntos totales</td>
-												<td class="tabla_1"><?php echo $Resultado_11["Puntos"];?></td>
-											</tr>
-										</tbody>
-									</table>		
-								</div>
+								<thead>
+									<th>Nombre</th>
+									<th>Apellido</th>
+									<th>Iglesia</th>
+									<th>Región</th>
+								</thead>
+								<tbody>	
+									<tr>
+										<td class="tabla_0"><?php echo $Participante_11;?></td>
+										<td class="tabla_0"><?php echo $Resultado_11["Apellido"];?></td>
+										<td class="tabla_0"><?php echo $Resultado_11["Iglesia"];?></td>
+										<td class="tabla_0"><?php echo $Resultado_11["SubRegion"];?></td>
+									</tr>
+									<tr>
+										<td colspan="3" class="tabla_1">Puntos totales</td>
+										<td class="tabla_1"><?php echo $Resultado_11["Puntos"];?></td>
+									</tr>
+								</tbody>
+							</table>		
+						</div>
 
 						<?php
 					}
@@ -282,7 +329,11 @@
 								// echo "Iglesia lider: " . $Participante_33 . "<br>";
 								// echo "SubRegion lider: " . $Participante_34 . "<br>";
 										?>							
-								<p class="Inicio_5">Tu posición hoy es de Nº <?php echo $PosicionBiblia['Pus'];?> de <?php echo $Participante_4;?> participantes.</p>  
+								<!-- <p class="Inicio_5">Total puntos ganados hoy</p>
+								<p>Se entrega suma de respuestas y bonos sino tiene liderazgo</p>
+								<p>Te encuentras entre los lideres, por lo que el bono de liderazgo esta activado, al cierre del test se dara tu puntuación final</p>
+								<p class="Inicio_5">Tu posición hoy es de Nº <?php echo $PosicionBiblia['Pus'];?> de <?php echo $Participante_4;?> participantes.</p> 
+								<small>A esta hora los resultados son parciales, pueden cambiar si otros usuarios participan en el test, a partir del 01-11-19 el test diario se cerrará a las 6:30 pm e inmediatamente se entregará un reporte con resultados absolutos</small>  -->
 								
 								<?php
 								if($Participante_6 >= 2){  ?>
@@ -295,8 +346,7 @@
 								<!-- <p class="Inicio_5">Tu posición esta semana es de Nº <?php //echo $Posicion['PusRea'];?> de <?php// echo $Participante_4;?> participantes.</p>  -->
 								<div class="tabla_4">
 									<table>
-										<!-- <caption class="caption_lider">Maximo puntaje en <span class="span_7">Reavivados</span></caption> -->
-										<caption>Lider de hoy</caption>
+										<caption class="caption_lider">Lider de hoy</caption>
 										<thead>
 											<th>Nombre</th>
 											<th>Apellido</th>
@@ -320,13 +370,13 @@
 											//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
 											$Decimal_2 = str_replace('.', ',', $Acumulado_2);  ?>
 											<tr>
-												<td colspan="3" class="tabla_1">Puntos hoy</td>
-												<td class="tabla_1"><?php echo  $Decimal_2;?></td>
+												<td colspan="4" class="tabla_1"><?php echo  $Decimal_2;?> Puntos</td>
 											</tr>
 										</tbody>
 									</table>
+									
 									<table>
-										<caption>Lider de la semana</caption>
+										<caption class="caption_lider">Lider de la semana</caption>
 										<thead>
 											<th>Nombre</th>
 											<th>Apellido</th>
@@ -365,8 +415,7 @@
 											//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
 											$Decimal_2 = str_replace('.', ',', $Acumulado_2);  ?>
 											<tr>
-												<td colspan="3" class="tabla_1">Puntos en la semana</td>
-												<td class="tabla_1"><?php echo  $Decimal_2;?></td>
+												<td colspan="4" class="tabla_1"><?php echo  $Decimal_2;?> Puntos</td>
 											</tr>
 										</tbody>
 									</table>		

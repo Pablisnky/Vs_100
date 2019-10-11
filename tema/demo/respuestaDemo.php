@@ -21,7 +21,7 @@
 		    $HoraServidorPHP =date("Y-m-d  H:i:s");
 		    // echo "Hora PHP de respuesta" . $HoraServidorPHP . "<br>";
 
-		    //CUando se trabaje en local se utiliza la funcion NOW() para introducir la hora respuesta de mysql
+		    //Cuando se trabaje en local se utiliza la funcion NOW() para introducir la hora respuesta de mysql
 		  
 		  // ---------------------------------------------------------------------------------------
 		  // ---------------------------------------------------------------------------------------
