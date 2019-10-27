@@ -18,6 +18,7 @@ $CapituloHoy = $_SESSION["Capitulo"];
        	<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
        	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'> 
         <link rel="shortcut icon" type="image/png" href="../images/logo.png">
+		<link rel="stylesheet" type="text/css" href="../iconos/icono_avion/style_avion.css"/> <!--galeria icomoon.io  -->
 
 		<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
 	</head>	
@@ -25,15 +26,8 @@ $CapituloHoy = $_SESSION["Capitulo"];
 	    <header>
 			<?php include("modulos/header.html");?>
 		</header>
-		<div onclick="ocultarMenu()">
-			<h2>¿Que es Reavivados?</h2>	 
-			<p class="Inicio_3">Es un ministerio desarrollado para incentivar la lectura bíblica diaria y recordar el sábado como día de reposo para honrar a Dios; dejándonos una lección de sabiduría para reflejar en nuestra sociedad.</p> 
-
-			<p class="Inicio_3">La dinamica consiste en un sencillo test de cinco preguntas sobre el capitulo biblico estudiado el dia de hoy &nbsp"<?php echo $CapituloHoy;?>", al finalizarlo se le notifica su resultado en un reporte general de su actuación, y su posicionamiento con respecto a todos los miembros de la comunidad de reavivados.</p> 
-
-			<p class="Inicio_3">Al terminar la semana el día sábado a las seis de la tarde, se entregan los resultados generales y de esta manera iniciamos la semana el domingo a las 00:00 con un nuevo ciclo de aprendizaje </p> 
-
-			<p class="Inicio_6">Reglas generales</p><!--onclick="mostrar('Lista_6')"-->
+		<div onclick="ocultarMenu()">	 
+			<h2 class="h2_2" id="ancla_1">Reglas generales</h2><!--onclick="mostrar('Lista_6')"-->
 		    <ul id="Lista_1"><!-- class="ocultar"-->
 				<li class="Inicio_3">El acceso a la plataforma es libre y gratuito</li>
 		        <li class="Inicio_3">Pueden participar personas de cualquier edad y ubicación geografica dentro de Colombia, Ecuador y Venezuela. (El proposito es expandirse a otros paises)</li>
@@ -54,7 +48,9 @@ $CapituloHoy = $_SESSION["Capitulo"];
 		    <ul id="Lista_4"><!-- class="ocultar"-->
 				<li class="Inicio_3">Al dar una respuesta correcta despues de haberse cumplido el tiempo establecido.</li>
 		        <li class="Inicio_3">Al dar una respuesta correcta despues de haber fallado el primer intento</li>
-		    </ul>
+			</ul>
+			
+			<h2 class="h2_2" id="ancla_2">Bonos</h2>
 			<p class="Inicio_6">Bono de constancia</p><!--onclick="mostrar('Lista_6')"-->
 		    <ul id="Lista_5"><!-- class="ocultar"-->
 				<li class="Inicio_3">Al participar todos los dias se otorga un bono de 4 puntos al puntaje semanal.</li>
@@ -89,8 +85,37 @@ $CapituloHoy = $_SESSION["Capitulo"];
 				<span class="span_10 span_11">Santiago 1:5</span> 
 		    </ul> -->
 		</div>
+		<div onclick="ocultarMenu()">
+			<h2 class="h2_2" id="ancla_3">Insignias</h2>
+			<p class="Inicio_6">Insignia de Maestro</p>
+            <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Maestro.png">
+			<p class="Inicio_3">Otorgada al participante que alcance cinco puntos en todas las respuesta de un test diario y participe antes de las 7 am.</p>
+			<p class="Inicio_20">A partir del 1 de noviembre de 2019</p>
+			
+			<p class="Inicio_6">Insignia de Especialista</p>
+            <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Especialista.png">
+			<p class="Inicio_3">Otorgada al lograr un puntaje mayor a 49 en un libro bíblico.</p>
+			<p class="Inicio_20">A partir del 1 de noviembre de 2019</p>
+
+			<p class="Inicio_6" >Insignia de Perseverancia</p>
+            <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Perseverancia.png">
+			<p class="Inicio_3">Otorgada a los participantes con participación continua durante un trimestre</p>
+			<p class="Inicio_20">A partir del 1 de noviembre de 2019</p>
+
+			<p class="Inicio_6" >Insignia de Liderazgo</p>
+            <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Liderazgo.png">
+			<p class="Inicio_3">Otorgada al participante que solo ha faltado un dia al mes en mantenerse en primer lugar.</p>
+			<p class="Inicio_20">A partir del 1 de noviembre de 2019</p>
+
+			<p class="Inicio_6" >Insignia Mayor</p>
+            <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Mayor.png">
+			<p class="Inicio_3">Otorgada al participante que entregue un pequeño proyecto viable sobre un tema o problema actual, que se implemente en nuestro entorno social y que solucione o demuestre que puede solucionar un problema.</p>
+			<p class="Inicio_20">A partir del 1 de noviembre de 2019</p>
+		</div>
+		<a href="#up" class="simplescrollup__button simplescrollup__button--hide"><span class="icon-airplane" style="transform: rotate(45deg); display: block;"></span></a>
+		<script src="../javascript/scrollUp.js"></script>
 	    <footer>
 	        <?php include("modulos/footer.php");?>
-	    </footer> 
+		</footer> 
    	</body>
 </html>

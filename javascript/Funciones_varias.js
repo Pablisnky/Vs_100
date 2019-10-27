@@ -129,7 +129,7 @@ function recargaInput(){
                 }
             else if(A.style.marginLeft = "0%"){
                     //alert("hola");
-                    A.style.marginLeft = "-43%";
+                    A.style.marginLeft = "-48%";
                 }
         }
 
@@ -140,7 +140,7 @@ function ocultarMenu(){
     if(window.screen.width<=800){//solo funciona si la pantalla es menor a 800px          
         var A= document.getElementById("MenuResponsive");
         if(A.style.marginLeft = "0%"){
-            A.style.marginLeft = "-43%";
+            A.style.marginLeft = "-48%";
         }
     }
 }   
@@ -278,9 +278,9 @@ function mostrar(id){
 }
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
-//Abre ventana con contenido sobre los bonos, es llamada en ultima.php
+//Abre ventana con contenido sobre los bonos e insignias, es llamada en ultima.php
 function verBonos(){
-    window.open("../controlador/detalle_bono.php", "ventana1", "width=340,height=550,scrollbars=NO");
+    window.open("../controlador/detalle_bono.php", "ventana1", "width=360,height=550,scrollbars=YES");
 }
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
@@ -288,6 +288,24 @@ function verBonos(){
 function cerrarVentana(){
     //se cierrar la ventana hijo
     window.close();
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Abre ventana con contenido sobre los valores, es llamada en cultura.php
+function verValor_Deuteronomio(){
+    window.open("../controlador/Valor_Deuteronomio.php", "ventana1", "width=360,height=550,scrollbars=YES");
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Abre ventana con contenido sobre los valores, es llamada en cultura.php
+function verValor_Colosenses(){
+    window.open("../controlador/Valor_Colosenses.php", "ventana1", "width=360,height=550,scrollbars=YES");
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Abre ventana con contenido sobre los valores, es llamada en cultura.php
+function verValor_Juan(){
+    window.open("../controlador/Valor_Juan.php", "ventana1", "width=360,height=550,scrollbars=YES");
 }
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------

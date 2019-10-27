@@ -55,7 +55,10 @@
 								<option>Colombia</option>
                                 <option>Ecuador</option>
 								<option>Venezuela</option>
+								<option>Otro</option>
 							</select>  
+							<input type="text" name="otroPais" id="OtroPais" placeholder="Indique su pais sino esta en la lista" disabled>
+
 							<div id="Region_1A" style="display: none;"><!--Aplica solo a Ecuador-->
 								<!-- <label>Provincia:</label> -->
 									<select class="etiqueta_24" name="provincia" id="Provincia" onchange="SeleccionarCanton(this.form)"><!--SeleccionarCanton() se encuentra en -->

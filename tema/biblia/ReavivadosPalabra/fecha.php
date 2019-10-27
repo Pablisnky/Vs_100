@@ -10,20 +10,18 @@
         // echo "Fecha PHP " . $Fecha . "<br>";
     }
     else{
-        //Se reciben datos desde ultima.php
+        //Se reciben datos desde .php
         $Fecha = $_GET["fecha"];
         $ID_PP = $_GET["ID_PP"];
 
-        // echo "Fecha: " . $Fecha ."<br>";
-        // echo "ID_PP: " . $ID_PP . "<br>";
+        //  echo "Fecha: " . $Fecha ."<br>";
+        //  echo "ID_PP: " . $ID_PP . "<br>";
+        
     }
 
-    if($Fecha == "2019/10/09"){
-       include("10_19/09/posicionReavivadosPalabra.php");
+    if($Fecha == "2019/10/26"){
+       include("10_19/26/posicionReavivadosPalabra.php");
     }
-    else if($Fecha == "2019/10/10"){
-        include("10_19/10/posicionReavivadosPalabra.php");
-    }
-    else if($Fecha == "2019/10/11"){
-        include("10_19/11/posicionReavivadosPalabra.php");
+    else{
+        include("10_19/27/posicionReavivadosPalabra.php");
     }

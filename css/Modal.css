@@ -64,7 +64,7 @@
 .contenedor_modal{/*#F4FCFB*/
 	background-color:rgba(244,252,251,0.9) ;
 	border-radius: 15px; 
-	width: 50%; 
+	width: 35%; 
 	margin: 10% auto; 
 	padding: 5% 2%;
 }
@@ -103,6 +103,19 @@
 	opacity: 0;
 }
 
+.contenedor_modal{/*#F4FCFB*/
+	margin: 8% auto; 
+}
+
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+@media screen and (min-width: 1500px){/*las reglas se aplicarán cuando la pantalla tenga una anchura mayor de la indicada.*/
+	#Cerrar + label{/*el + selecciona al elemento que esta inmediatamente despues de Cerrar*/
+	margin-left: 47% !important;
+	margin-top: 4% !important;
+}
 }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -119,8 +132,8 @@
 }
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
 @media(min-width: 1600px){/*las reglas se aplicarán cuando la pantalla tenga una anchura mayor de la indicada.*/
 .contenedor_modal{
 	width: 70%; 

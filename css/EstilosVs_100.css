@@ -6,7 +6,7 @@
  }
 /*------ fin de reset CSS-----*/
 
-a {/*index.php    principal.php    preguntaXxxxx_00.php*/
+a{/*index.php    principal.php    preguntaXxxxx_00.php*/
 	text-decoration: none;
 	font-family: 'Montserrat', sans-serif;
 }
@@ -82,6 +82,9 @@ h5{/*index.php*/
 hr{
 	margin-bottom: 2%;
 }
+.hr_3{/*header.php*/
+	display: none;
+}
 html{
 	height:100%;
 }
@@ -135,7 +138,6 @@ legend{/*temas.php*/
 	margin-bottom: 10px;
 }
 li{/*Todas las paginas del Responsive*/
-	width: 80%;
 	text-align:justify;
 	line-height:20px;
 }
@@ -445,7 +447,7 @@ td{
 	margin-top: 10%;
 	padding:3px;
 	box-sizing: border-box;
-	width: 100px;
+	width: 50% !important;
 	height: 30px;
 	box-shadow:0px 5px 5px #373c3c;
 	text-align:center;
@@ -705,8 +707,18 @@ td{
 .h_1{/*participacionHoy.php*/
 	margin-top:0%
 }
+.h2_2{/*instruccion.php*/
+	background-color: #040652;
+	color: white;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+}
 .hr_1{/*pregunta.php*/
 	margin-top: -2%;
+}
+.imagen_5{/*index.php*/
+	width: 10%; 
 }
 .imagen_6{/*index.php*/
 	width: 40%; 
@@ -880,7 +892,16 @@ td{
 	margin-top: -3%;
 	margin-bottom: 15%;
 	line-height: 120%;
-}	
+}
+.Inicio_19{/*cultura.php*/ 
+	font-family: 'Raleway', sans-serif;
+	width: 70%;
+	font-size:20px;
+	margin-left:43%;
+	margin-top: 5%;
+	margin-bottom: 4%;
+	cursor: pointer;
+}		
 .input_1{/*entrada.php*/
 	position: absolute; 
 	top: 10%; 
@@ -975,10 +996,10 @@ td{
 }
 .menuResponsive li a{/*Todas las páginas*/
 	display: block;
-	width: 150px;
+	width: 155px;
 	margin: auto;
 	color: white;
-	font-size: 16px;
+	font-size: 15px;
 	text-align: center;
 	padding:3% 0%;
 	height: 27px;
@@ -986,7 +1007,7 @@ td{
 }
 .menuResponsive li a:hover{/*Todas las páginas*/
 	font-size: 19px;
-	width: 185px;
+	width: 192px;
 }
 .modal_2{/*participantes.php*/
 	padding: 1% !important;
@@ -1008,7 +1029,7 @@ td{
 	margin-top: 5%;
 } 
 .n20{/*index.php*/
-	background: -webkit-linear-gradient(bottom, white 90%, #040652 10%);
+	background: -webkit-linear-gradient(bottom, white 89%, #040652 11%);
 	border:2px solid #000;
 	border-radius:15px;
 	padding-top: 0.5%;
@@ -1237,7 +1258,7 @@ td{
 	bottom: -120pt;
 }
 .piePagina_4{
-	top:125% !important;
+	top:120% !important;
 }
 .popup{/*tema.php*/
 	cursor: default; 
@@ -1372,6 +1393,19 @@ td{
 	width: 100%;
 	margin-bottom: 8%;
 }
+.simplescrollup__button {/*instruccion.php*/
+    position: fixed;
+    bottom: 1rem;/*3*/
+    right: 1rem;/*2*/
+    transition: 1s all;
+    z-index: 10000;
+}
+.simplescrollup__button--show {/*instruccion.php*/
+    transform: translateX(0);
+}
+.simplescrollup__button--hide {/*instruccion.php*/
+    transform: translateX(100px);
+}
 .small{/*entrada*/
 	color: #040652; 
 	padding: 1.2% 3% 0.2% 3%;
@@ -1496,6 +1530,37 @@ td{
 .th_1{/*bonos.php*/
 	width:120px;
 }
+.ul_2{/*cultura.php*/
+	margin-top: -5%;
+}
 #MenuRes{/*header.html*/
 	display:none ;
+}
+
+
+
+
+
+ul .menuContenedor_2{/*header.php   index.php*/
+	background-color: #040652;
+	display: none;
+	position: absolute;
+	width: 10%;
+	padding-top: 1%;
+}
+.menuLi_1:hover > ul{/*header.php   index.php*//*Se aplica un hover a un elemento seleccionando otro elemento distinto*/
+	display: block;
+	width: 180px !important;
+}
+.menuLi_2{/*header.php   index.php*/
+	padding: 20px 10px !important;
+	text-align: left !important;
+	display: block;
+	width: 180px !important;
+}
+.menuLi_2:hover{/*header.php   index.php*/
+	padding: 20px 10px !important;
+	text-align: left !important;
+	display: block;
+	width: 190px !important;
 }

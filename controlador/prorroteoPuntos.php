@@ -1,11 +1,13 @@
 <?php
 	session_start();
+	//Este archivo se incluye en respuesta.php
+
 	include("../conexion/Conexion_BD.php");
 
-    $Pregunta= $_SESSION["Pregunta"];//sesion creada en preguntaXXXX_00.php (en cada pregunta)
+    $Pregunta= $_SESSION["Pregunta"];//sesion creada en preguntaXXXX_XX.php (en cada pregunta)
     //echo $Pregunta . "<br>";
 
-  	$Participante= $_SESSION["ID_Participante"];
+  	$Participante= $_SESSION["ID_Participante"];//sesion creada en .php
 
   	$Tema= $_SESSION["Tema"];//sesion creada en preguntaXXXX_00.php
 

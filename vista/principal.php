@@ -26,7 +26,7 @@
 				<meta name="description" content="Juego de preguntas biblicas."/>
 				<meta name="keywords" content="citas biblicas, biblia"/>
 				<meta name="author" content="Pablo Cabeza"/>
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0">
 				<meta http-equiv="expires" content="07 de mayo de 2018"><!--Inicio de construcción de la página-->
 
 				<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>

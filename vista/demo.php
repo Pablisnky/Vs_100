@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Versus_20 Prueba Demo</title>
+		<title>Test Demo</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 		<meta name="description" content="Juego de preguntas biblicas."/>
@@ -32,7 +32,7 @@
 			</header>
 			<div onclick= "ocultarMenu()">
 				<div class="Inicio_2">
-					<h2>Prueba Demo</h2>
+					<h2>Test Demo</h2>
 					<form action="../controlador/recibe_demo.php" method="POST">
 						<fieldset class="Afiliacion_4">
 						<input style="margin-bottom: 4%;" type="text" id="Usuario" name="usuario" placeholder="Nombre o Nickname" autocomplete="off">	

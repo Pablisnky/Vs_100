@@ -34,6 +34,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
 				<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css"> 
 			   	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
+        		<link rel="shortcut icon" type="../image/png" href="../images/logo.png">
 
 				<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script> 
 			</head>	
@@ -59,7 +60,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 			                            <th></th>
 			                            <th>FECHA</th>
 			                            <th>CÓDIGO</th>
-			                            <th>TEMA</th>
+			                            <th>TEST</th>
 			                            <th>PUNTOS</th>
 			                            <th>DETALLES</th>
 			                        </tr>
@@ -68,18 +69,26 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				                    <?php
 				                        $i = 1;
 				                        //se consulta las pruebas en las que el participante se ha inscrito 
-									    $Consulta= "SELECT ID_Prueba, Tema, Puntos,  Fecha_pago FROM participantes_pruebas WHERE ID_Participante = '$participante' AND Prueba_Cerrada = 1 ORDER BY Fecha_pago DESC";
+									    $Consulta= "SELECT participantes_pruebas.Puntos, participantes_pruebas.Fecha_pago, participantes_pruebas.Tema, participantes_pruebas.ID_PP FROM participantes_pruebas  WHERE participantes_pruebas.ID_Participante = '$participante' AND Prueba_Cerrada = 1 ORDER BY Fecha_pago DESC";
 									    $Recordset=mysqli_query($conexion, $Consulta); 					            		
-				                        while($Pruebas= mysqli_fetch_array($Recordset)){                            
+				                        while($Pruebas= mysqli_fetch_array($Recordset)){  
+											
 					                        //Se cambia el formato de los puntos, la Pruebase decimal es recibida con punto desde la BD y se cambia a coma
 					                    	$Decimal = str_replace('.', ',', $Pruebas["Puntos"]); ?>
 					                        <tr>
-					                            <td class="tabla_2"><?php echo $i;?></td>
+												<td class="tabla_2"><?php echo $i;?></td>
+												
 												<td class="tabla_0"><?php echo date("d-m-Y", strtotime($Pruebas["Fecha_pago"])); ?></td>
-												<td><?php echo $Pruebas["ID_Prueba"];?></td>
-					                            <td class="tabla_1"><?php echo $Pruebas["Tema"];?></td> 
-					                            <td class="tabla_1"><?php echo $Decimal;?> </td> 
-												<td><a href="detallesResultados.php">O</a></td> <?php
+
+												<td><?php echo $Pruebas["ID_PP"];?></td>
+
+												<td class="tabla_1"><?php echo $Pruebas["Tema"];?></td> 
+												
+					                            <td class="tabla_1">
+													<?php echo $Decimal;?> </td> 
+
+												<td><a href="../vista/detalleTest.php?ID_Participante=<?php echo $participante?>&Tema=<?php echo $Pruebas['Tema'];?>&Capitulo=<?php echo $Pruebas['Capitulo'];?>&ID_Prueba=<?php echo $Pruebas['ID_Prueba'];?>&codigoPrueba=<?php echo $Pruebas['ID_PP']?>">O</a>
+												</td> <?php
 					                         $i++;
 					                        }   
 					                             

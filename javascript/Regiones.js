@@ -111,4 +111,8 @@ function SeleccionarRegiones(form){
         Estado[23] = new Option("Yaracuy"); // San Felipe
         Estado[24] = new Option("Zulia"); 
     }
+       
+    if(Pais[4].selected == true){//Otro)
+        document.getElementById("OtroPais").disabled=false;
+    }
 }

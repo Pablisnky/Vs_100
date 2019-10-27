@@ -8,7 +8,7 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">Quien ascendio al trono despues de Josías</p>
+			<p class="pregunta">¿Quien ascendio al trono despues de Josías?</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">

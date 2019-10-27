@@ -5,6 +5,12 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
   		header("location:../vista/principal.php");		
 	}
 	else{//si la varible $_SESSION["Participante"] esta declarada se entra al archivo, con esto se garantiza que el usuario entro por login
+		
+		//se crea una sesion llamada verifica_pregunta, esta sesión es exigida cuando se entra en ultima.php que entrega el resultado del test, para evitar que un usuario recarge la pagina que recibe y cargue los datos nuevamente a la BD, sumando puntos a su cuenta
+		$verifica = 2010;  
+		$_SESSION["verifica_pregunta"] = $verifica; 
+		// echo $_SESSION["verifica_pregunta"];
+
 		include("../conexion/Conexion_BD.php");
 
 		$participante=$_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php

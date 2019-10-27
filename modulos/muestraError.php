@@ -4,5 +4,5 @@
     ini_set('display_errors', '1');
 
     //No muestra los errores, activarlo para remoto para evitar que se muestre toda la ruta donde se cayó la aplicación,
-    // error_reporting(0);
+    //error_reporting(0);
 ?>

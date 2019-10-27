@@ -44,7 +44,7 @@
                         include("../conexion/Conexion_BD.php");
             
                         //Se busca el primer lugar
-                        $Consulta_1 = "SELECT participante.Nombre, participante.Apellido, participante.Iglesia, participante.SubRegion, participante.Fotografia,participantes_pruebas.Puntos FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() AND ID_Prueba=5  AND Prueba_Cerrada= 1 ORDER BY Puntos  DESC LIMIT 0,1";
+                        $Consulta_1 = "SELECT participante.Nombre, participante.Apellido, participante.Iglesia, participante.SubRegion, participante.Fotografia,participantes_pruebas.Puntos FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() AND ID_Prueba=5  AND Prueba_Cerrada= 1 ORDER BY Puntos DESC LIMIT 0,1";
                         $Recordset_1 = mysqli_query($conexion, $Consulta_1);
                         while($Resultado_1 =mysqli_fetch_array($Recordset_1)){
                             $Fotografia= $Resultado_1["Fotografia"];

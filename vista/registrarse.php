@@ -14,17 +14,47 @@
 		$Correo = htmlspecialchars($_POST["correo"]);
 		$Correo = strtolower($Correo );
 		$Pais = htmlspecialchars($_POST["pais"]);
+		if(!empty($_POST["otroPais"])){
+			$OtroPais= $_POST["otroPais"];
+		}
+		else{
+			$OtroPais= "indico pais de catalogo";
+		}
 		if(!empty($_POST["departamento"])){
 			$Region= $_POST["departamento"];
+		}
+		else{
+			$Region= "indico otro pais";
 		}
 		if(!empty($_POST["municipio_Col"])){
 			$SubRegion=  $_POST["municipio_Col"];
 		}
+		else{
+			$SubRegion= "indico otro pais";
+		}
 		if(!empty($_POST["estado"])){
 			$Region= $_POST["estado"];
 		}
+		else{
+			$Region= "indico otro pais";
+		}
 		if(!empty($_POST["municipio"])){
 			$SubRegion= $_POST["municipio"];
+		}
+		else{
+			$SubRegion= "indico otro pais";
+		}
+		if(!empty($_POST["provincia"])){
+			$Region= $_POST["provincia"];
+		}
+		else{
+			$Region= "indico otro pais";
+		}
+		if(!empty($_POST["canton"])){
+			$SubRegion= $_POST["canton"];
+		}
+		else{
+			$SubRegion= "indico otro pais";
 		}
 		$Iglesia = htmlspecialchars($_POST["iglesia"]);
 		$Clave = $_POST["clave"];
@@ -34,6 +64,7 @@
 		// echo "Apellido: " . $Apellido . "<br>" ;
 		// echo "Correo: " .  $Correo . "<br>";
 		// echo "Pais: " .  $Pais . "<br>";
+		// echo "Otro Pais: " .  $OtroPais . "<br>";
 		// echo "Region: " .  $Region . "<br>";
 		// echo "SubRegion: " .  $SubRegion . "<br>";
 		// echo "Iglesia: " .  $Iglesia . "<br>";
@@ -55,7 +86,7 @@
             //echo "Aleatorio= " . $Aleatorio . "<br>";
 			
 			//Se insertan los datos del participante en la tabla participante, la información privada de su cuenta entra en la tabla usuarios 
-			$insertar= "INSERT INTO participante(Nombre, Apellido, Correo, Pais, Region, SubRegion, Iglesia, Aleatorio, FechaRegistro) VALUES('$Nombre','$Apellido','$Correo','$Pais','$Region','$SubRegion','$Iglesia','$Aleatorio',NOW())";
+			$insertar= "INSERT INTO participante(Nombre, Apellido, Correo, Pais, Otro_Pais, Region, SubRegion, Iglesia, Aleatorio, FechaRegistro) VALUES('$Nombre','$Apellido','$Correo','$Pais','$OtroPais','$Region','$SubRegion','$Iglesia','$Aleatorio',NOW())";
 			mysqli_query($conexion, $insertar) or die ("Algo ha dio mal en la consulta a la BD");
 
 			//Se consulta en la tabla participante el ID_Usuario del usuario que se esta afiliando

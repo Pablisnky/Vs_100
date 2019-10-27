@@ -164,18 +164,18 @@ th{/*participantes.php*/
 	left: 0%;
 	width: 90%;
 	height: 15%;
-	line-height: 500%;
+	line-height: 500%; 
 }	
-.bloqueo_2{/*respuesta.php  respuestaDemo.php  */
+.bloqueo_2{/*respuesta.php  respuestaDemo.php   bloquearPregunta.php*/
 	background-color:rgba(0,0,0,0.85) ;
 	font-size: 18px; 
-	top: 53%;
+	top: 49%;
 	left: 0%;
 	width: 100%;
 	padding: 3%;
 	box-sizing: border-box;
 	height: 18%;
-	line-height: 180%;
+	line-height: 180%; 
 }
 .bloqueo_2_a{/*bloquearPreguntaDemo.php  respuestaDemo.php*/
 	font-size: 18px; 
@@ -228,7 +228,7 @@ th{/*participantes.php*/
 .bloqueo_3_a{/*prorroteoPuntos.php*/
 	color:  rgba(194, 245, 19,1);
 	font-size: 18px;  
-	top: 67%;
+	top: 64%;
 	left: 0%;
 	width: 90%;
 	padding: 0% 5%;
@@ -261,7 +261,7 @@ th{/*participantes.php*/
 }
 .buttonCinco{/*bonos.php*/
 	margin-top: 12%;
-	width: 300px;	
+	width: 80% !important;	
 }
 .celdas_th{
 	background-color: #F4FCFB; 
@@ -372,6 +372,13 @@ th{/*participantes.php*/
 }
 .contenedor_20{/*bono.php*/
 	padding-bottom: 5%;
+}
+.contenedor_22{/*detalle_bono.php*/
+	background-color: yellow;;
+	margin-bottom: 15%;
+}
+.contenedor_23{/*detalle_bono.php*/
+	margin-bottom: 15%;
 }
 .n00{/*index.php*/
 	width: 100%;
@@ -502,6 +509,14 @@ th{/*participantes.php*/
 	margin:5% auto 8% auto;
 	width: 90%;
 }
+.hr_2{/*header.php*/
+	color: rgba(244, 252, 251,0.4);
+	width: 80%;
+	margin: auto;
+}
+.hr_3{/*header.php*/
+	display: block;
+}
 .icon{
   font-size: 10px;
 }
@@ -568,10 +583,11 @@ th{/*participantes.php*/
 	width: 95%;
 	line-height: 140%;
 }
-.Inicio_6{/*instruccion.php*/ 
-	font-size:19px;
-	width: 70%;
+.Inicio_6{/*instruccion.php     detalle_bono.php    valor_Xxxxxxxx.php*/
+	font-size:26px !important;
+	width: 80% !important;
 	margin: 5%;
+	margin-left: 0%;
 }
 .Inicio_7{/*recibePago.php*/
 	font-size: 18px;
@@ -631,7 +647,25 @@ p .Inicio_16{/*recibeCorreo.php*/
 	width: 60%;
 	font-size:13px;
 	line-height: 110%;
-}	
+}
+.Inicio_19{/*cultura.php*/ 
+	font-family: 'Raleway', sans-serif;
+	width: 70%;
+	font-size:20px;
+	margin-left:15%;
+	margin-top: 5%;
+	margin-bottom: 4%;
+}		
+.Inicio_20{/*instruccion.php*/
+	background-color: yellow;
+	font-size:14px !important;
+	width: 80%; 
+	font-weight: bold;
+	margin-top: -9% !important;
+	margin-bottom: 15% !important;
+	margin:auto;
+	text-align: center;
+}
 .input_5{/*recibeCorreo.php   InsertarCodigo.php*/
 	width: 90%;
 	font-size: 23px;
@@ -685,8 +719,8 @@ p .Inicio_16{/*recibeCorreo.php*/
 }
 .menuResponsive{/*Todas las páginas*/
 	position: absolute;
-	width:43%;
-	margin-left: -43%;/*oculta el menu responsive*/
+	width:48%;
+	margin-left: -48%;/*oculta el menu responsive*/
 	transition: all 0.5s;
 	z-index: 50;
 }
@@ -694,7 +728,7 @@ p .Inicio_16{/*recibeCorreo.php*/
 	flex-direction: column;
 }
 .menuResponsive li{/*Todas las páginas*/
-	padding-left: 15%;
+	padding-left: 5%;
 	height: 40px;
 	padding-top: 5%;
 	flex-grow: 1;/*distribuye proporcionalmente los elementos internos en el eje horizontal, es necesario que el elemento padre tenga la propiedad display con el valor flex*/
@@ -702,7 +736,7 @@ p .Inicio_16{/*recibeCorreo.php*/
 }
 .menuResponsive li a{/*header*/
 	font-size: 15px;
-	width: 120px;
+	width: 170px;
 	text-align: left;
 }
 .menuResponsive li a:hover{/*Todas las páginas*/
@@ -880,7 +914,7 @@ p .Inicio_16{/*recibeCorreo.php*/
 	bottom: -140pt;
 }
 .piePagina_4{
-	top:125% !important;
+	top:115% !important;
 }
 .participaciones{/*participaciones.php*/
 	width: 100%;
@@ -1108,4 +1142,18 @@ p .Inicio_16{/*recibeCorreo.php*/
 	margin-top: 6%;
 }
 
+}
+
+
+
+
+@media screen and (max-width: 800px){/*header.php   index.php*/
+	ul .menuContenedor_2{
+	display: none;
+	position: absolute;
+	margin-left:92% !important;
+	margin-top: -15% !important;
+	width: 10%;
+	padding-bottom: 10%;
+}
 }

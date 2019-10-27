@@ -1,19 +1,26 @@
 <?php
 $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
-//   echo "ID_Participante= " . $participante . "<br>";
+//    echo "ID_Participante= " . $participante . "<br>";
 ?>
 
 <!--Se inserta en ultima.php linea 120 -->
 <link rel="stylesheet" type="text/css" href="../iconos/icono_tilde_exis/style_tilde_exis.css"/><!--galeria icomoon.io  -->
 
 <?php
+	// echo "EL capitulo de hoy es: " . $CapituloHoy;
 	//Se inserta la semana, el dia y numero de semana 
 	$Semana= date("W");
-	//date("w") regresa el dia de la semana, toma como primer dia el domingo = 0
-	$DiaSemana=  date("w");
-	//   echo "Semana:" . $Semana . "<br>";
-	//   echo "Dia de la semana:" . $DiaSemana . "<br>";
-	 $Insertar= "INSERT INTO participacion_semanal(ID_Participante, N_Semana, Dia_semana, Fecha_participacion) VALUES('$participante','$Semana', '$DiaSemana', NOW())";
+	// echo "Numero de Semana:" . $Semana . "<br>";
+	$DiaSemana=  date("w"); //regresa el dia de la semana, toma como primer dia el domingo = 0
+    // echo "Dia de la semana:" . $DiaSemana . "<br>";
+	
+	// Las semanas en PHP cominezan los dias lunes, por eso se le suma una unidad para que haga el cambio el dia domingo y muestre la semana por adelantado al servidor PHP
+	if($DiaSemana== 0){
+		$Semana = $Semana +1; 
+		// /echo "Semana modificada :" .  $Semana;
+	}
+
+	 $Insertar= "INSERT INTO participacion_semanal(ID_Participante, N_Semana, Dia_semana, Capitulo, Fecha_participacion) VALUES('$participante','$Semana', '$DiaSemana', '$CapituloHoy', NOW())";
 	 mysqli_query($conexion, $Insertar);
 	
 	//se consulta cuales dias participo en el test
@@ -21,7 +28,7 @@ $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado e
 	// $Rellenado[]="";
 	$Recordset_A = mysqli_query($conexion,$Consulta_A);
 	while($Resultado= mysqli_fetch_array($Recordset_A)){
-		$Rellenado[]= $Resultado["Dia_semana"];
+		$Rellenado[]= $Resultado["Dia_semana"];//Los dias estan dados en indice 0= dom 7= sab
 	}
 	// $Rellenado= array_pad($Dias,7,"a");
 	// var_dump($Rellenado) . "<br>";
@@ -135,7 +142,7 @@ $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado e
 						</div>
 						<div>
 							<?php
-							$IndiceSab = in_array(6, $Rellenado, true);
+							$IndiceSab = in_array('6', $Rellenado, true);
 							if($IndiceSab){  ?>
 							<label class="tabla_5">Sab</label><label class="tabla_6"><?php echo "<span class='icon icon-checkmark'></span>"?></label>  <?php   
 							}
@@ -165,11 +172,11 @@ $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado e
 				<td class="tabla_0">
 					<?php
 						//se consulta si participo antes de las siete de la mañana
-						$Consulta_2= "SELECT ID_Participante, HOUR(TIME(Fecha_pago)) as hora FROM participantes_pruebas WHERE ID_Participante='$participante' AND HOUR(TIME(Fecha_pago)) < '7' AND Tema = 'Reavivados' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE()";
+						$Consulta_2= "SELECT ID_Participante, HOUR(TIME(Fecha_pago)) as hora FROM participantes_pruebas WHERE ID_Participante='$participante' AND HOUR(TIME(Fecha_pago)) < '8' AND Tema = 'Reavivados' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE()";
 						$Recordset_2 = mysqli_query($conexion,$Consulta_2);
 						$Resultado_2= mysqli_num_rows($Recordset_2);
 						// echo $Resultado_2["hora"];
-						if($Resultado_2 == 1){    ?>
+						if($Resultado_2 != 0){    ?>
 							<label class="tabla_6"><span class='icon icon-checkmark'></span></label><?php
 						}
 						else{    ?>
@@ -183,6 +190,6 @@ $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado e
 			</tr>
 		</tbody>
 	</table>	
-			<label class="Inicio_18  buttonCinco" onclick="verBonos()">Conoce el sistema de bonos</label>	
+			<label class="Inicio_18  buttonCinco" onclick="verBonos()">Conoce el sistema de bonos e insignias</label>	
 </div>
 

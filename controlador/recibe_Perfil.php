@@ -75,10 +75,12 @@
                 // Ruta donde se guardarán las imágenes que subamos la variable superglobal 
                 //usar en remoto
                 // $_SERVER['DOCUMENT_ROOT'] nos coloca en la base de nuestro directorio en el servidor
-                // $directorio = $_SERVER['DOCUMENT_ROOT'] . '/images/usuarios/'; 
+
+                //Usar en remoto
+                $directorio = $_SERVER['DOCUMENT_ROOT'] . '/images/usuarios/'; 
 
                 //usar en local
-                $directorio = $_SERVER['DOCUMENT_ROOT'] . '/proyectos/Vs_100/Versus_20_2/images/usuarios/';
+                // $directorio = $_SERVER['DOCUMENT_ROOT'] . '/proyectos/Vs_100/Versus_20_2/images/usuarios/';
 
                 //se muestra el directorio temporal donde se guarda el archivo
                 //echo $_FILES['imagen']['tmp_name'];

@@ -10,17 +10,17 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
   		header("location:principal.php");
 	}
 	else{//se entra en esta seccion porque se tiene almacenado el ID_Participante en una variable SESSION
-
+		
 		include("../conexion/Conexion_BD.php");
 
 		$Tema= $_GET["tema"]; //Se recibe desde entrada.php
-		// echo "Tema: " . $Tema . "<br>";
+		//  echo "Tema: " . $Tema . "<br>";
 
 		$ID_PP = $_GET["ID_PP"]; //Se recibe desde entrada.php
-		// echo "ID_PP: " . $ID_PP . "<br>";
+		//  echo "ID_PP: " . $ID_PP . "<br>";
 
 		$Fecha = $_GET["fecha"]; //Se recibe desde entrada.php
-		// echo "Fecha: " . $Fecha . "<br>";
+		//  echo "Fecha: " . $Fecha . "<br>";
 
 		// Se consulta si es una prueba libre o una de pago
 		$Consulta_7= "SELECT Deposito FROM participantes_pruebas WHERE Deposito= 'Exonerado' AND Tema = '$Tema'";
@@ -151,15 +151,17 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			<div class="encabezado">
 	    		<h1 class="anula">Reavivados</h1>
 	    	</div>
-				<span class="Inicio_14  Inicio_17"><?php echo $CapituloHoy;?></span>
-				<hr class="hr_1">
 				<?php
 					if($Tema == "Reavivados"){
+						echo "<span class='Inicio_14 Inicio_17'>$CapituloHoy</span>";
+						echo "<hr class='hr_1'>";
 						if($Puntaje<5){ //No se muestra si se encuentra en la ultima pregunta  ?>
 							<h4>Pregunta Nº <?php echo $Num_Pregunta;?></h4> <?php
 						}
 					}
 					else{
+						echo "<span class='Inicio_14  Inicio_17'>$Tema</span>";
+						echo "<hr class='hr_1'>";
 						if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
 							<h4>Pregunta Nº <?php echo $Num_Pregunta;?></h4> <?php
 						}
@@ -182,7 +184,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 									if($Puntaje<10){
 										include("../audio/FondoBiblia_1.php");
 								    }
-			                    break;
+			                    break; 
 			                    case "Jeremias":
 			                       	include("../tema/biblia/jeremias/posicionJeremias.php");
 									if($Puntaje<10){

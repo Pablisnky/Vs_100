@@ -7,22 +7,18 @@ session_start();
 	//Se utiliza la hora de Colombia
 	date_default_timezone_set('America/Bogota');
 	$FechaServidorPHP =date("Y-m-d");
-//  echo "Fecha PHP= " . $FechaServidorPHP . "<br>";
+ 	// echo $FechaServidorPHP . "<br>";
 
 	// Se cambia el formato de la fecha
 	$newFecha = date("d-m-Y", strtotime($FechaServidorPHP));
 	// echo $newFecha . "<br>";
 
-	if($FechaServidorPHP == "2019-10-09"){
-		$CapituloHoy = "1 Crónicas 24";
-		$_SESSION["Capitulo"] = $CapituloHoy;
-	}
-	else if($FechaServidorPHP == "2019-10-10"){
-		$CapituloHoy = "1 Crónicas 25";
+	if($FechaServidorPHP == "2019-10-26"){
+		$CapituloHoy = "2 Crónicas 12";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
 	else{
-		$CapituloHoy = "1 Crónicas 26";
+		$CapituloHoy = "2 Crónicas 13";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
 ?>
@@ -36,7 +32,6 @@ session_start();
 		<meta name="keywords" content="preguntas, puntos, Dios, Biblia, capitulo, reavivados"/>
 		<meta name="author" content="Pablo Cabeza"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="Refresh" content="1;URL=vista/instruccion.php">
 
 		<meta http-equiv="Expires" content="0"><!--evita guardar en cache-->
 		<meta http-equiv="Last-Modified" content="0"><!--evita guardar en cache-->
@@ -70,15 +65,17 @@ session_start();
 	<body> 
 		<!--Construcion de ventanan modal-->
         
-			<input type="checkbox" id="Cerrar">
-        	<label for="Cerrar" id="btnCerrar">Cerrar</label>
-			<div class="modal"> 
-				<!-- <article class="contenedor_modal modal_2">
-					<p class="Inicio_1"><span></span></p>
-					<p>Este ministerio tiene el propósito de incentivar y promover la lectura de la biblia y los libros del espíritu de profecía, herramientas que nos hacen mejores personas para convivir en sociedad y asi complacer al Señor.</p>
-					<p>Pablo Cabeza</p>
-					<p class="Inicio_1"><span>Programador BackEnd de Desarrollos Web</span></p>
-				</article> -->
+			<!-- <input type="checkbox" id="Cerrar"> 
+        	<label for="Cerrar" id="btnCerrar">Cerrar</label> -->
+			<!-- <div class="modal">  -->
+				 <!-- <article class="contenedor_modal modal_2">
+				 	<img class="imagen_5"  src="images/logo.png">
+					<p class="Inicio_3">Hermanos.</p>
+					<p class="Inicio_3">La plataforma se suspendio</p>
+					<p class="Inicio_3">Por ahora el proyecto no continuará, aún y el sentir no sea dejarlo hasta aqui.</p>
+					<p class="Inicio_3">Continuemos aferrados a Dios,<br>
+					aún en la adversidad.</p>
+				</article>  -->
 								
 				<!-- <form action="controlador/recibe_demo.php" method="POST">
     				<img class="imagen_6" id="blah" src="images/Sabado_Joven.jpg">
@@ -86,10 +83,10 @@ session_start();
 					<input type="submit" class="btn" style="display:none;" value="Entrar">
 				</form> -->
 				
-				<img class="imagen_6" id="blah" src="images/Notificacion_1a.jpg">
+				<!-- <img class="imagen_6" id="blah" src="images/Notificacion_2a.png"> -->
 				
-				<!-- <audio id="FondoComercial_1" autoplay src="audio/SabadoJoven.mp3" loop></audio> -->
-			</div>       
+			 <!-- <audio id="FondoComercial_1" autoplay src="audio/SabadoJoven.mp3" loop></audio>  -->
+			<!-- </div>        -->
 		
 		<!--Termina ventana modal-->
 	
@@ -102,11 +99,26 @@ session_start();
 					<ul id="MenuContenedor">
 						<li><a href="vista/principal.php">Inicio sesión</a></li>
 						<li><a href="vista/registro.php">Registrarse</a></li>
-						<!-- <li><a href="../vista/club.php">Club de lectura</a></li> -->
-						<li><a href="vista/contacto.php">Contacto</a></li>
-						<li><a href="vista/instruccion.php">¿Reavivados?</a></li>
 						<li><a href="vista/participacionHoy.php">Sabios</a></li>
-						<li><a href="vista/demo.php">Demo</a></li> 
+						<li class="menuLi_1"><a>Instrucciones</a>
+							<ul class="menuContenedor_2">
+								<li><a class="menuLi_2" href="vista/instruccion.php#ancla_1">Reglas generales</a></li>
+								<li><a class="menuLi_2" href="vista/instruccion.php#ancla_2">Bonos</a></li>
+								<li><a class="menuLi_2" href="vista/instruccion.php#ancla_3">Insignias</a></li>
+							</ul>
+						</li>
+        				<hr class="hr_2  hr_3">
+						<!-- <li><a href="../vista/club.php">Club de lectura</a></li>  -->
+						<li><a href="vista/ministerio.php">¿Que es reavivados?</a></li>
+						<li class="menuLi_1"><a>Nuestro ADN</a>        
+							<ul class="menuContenedor_2">
+								<li><a class="menuLi_2" href="vista/cultura.php#ancla_4">Misión</a></li>
+								<li><a class="menuLi_2" href="vista/cultura.php#ancla_5">Visión</a></li>
+								<li><a class="menuLi_2" href="vista/cultura.php#ancla_6">Valores</a></li>
+								<li><a class="menuLi_2" href="vista/contacto.php">Contacto</a></li>
+								<li><a class="menuLi_2"  href="vista/demo.php">Demo</a></li> 
+							</ul>
+						</li>
 					</ul>
 				</nav>
 			</header>
@@ -125,14 +137,15 @@ session_start();
 				<div>
 					<a class="buttonTres" href="vista/participacionHoy.php">Sabios de hoy</a>
 				</div>	
-			</div>			
+			</div>			 
 			<div class="n20" onclick="ocultarMenu()">
-				<h5>¿Que es Reavivados?</h5>				
-				<p class="Inicio_1">Es un test diario basado en el programa <span class="span_6">"Reavivados por su palabra"</span> de la Iglesia Adventista del Séptimo Día, en el que se plantean 5 preguntas del capitulo biblico diario estudiado.</p>
-				<p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en tu respuesta te penalizará, dejandote un paso atras de la sabiduría.</p>	
-				<a class="Inicio_3  buttonCuatro" href="vista/instruccion.php">¿ Que es reavivados ?</a>
+				<h5>¿Que es horebi?</h5>				
+				<p class="Inicio_1">Es una plataforma en la que se plantea un test diario con 5 preguntas de un capitulo biblico, cada respuesta es premiada con puntos y al finalizar la semana el dia sábado tenemos un maestro ganador. Para hoy estudiamos <b>"<?php echo $CapituloHoy;?>"</b>, registra una cuenta, toma el test y pasa un momento ameno con los miembros de la comunidad.</p>
+				<a class="Inicio_3  buttonCuatro" href="vista/registro.php">Registrar cuenta</a>
+				<!-- <p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en tu respuesta te penalizará, dejandote un paso atras de la sabiduría.</p>	
+				<a class="Inicio_3  buttonCuatro" href="vista/instruccion.php">Mas detalles</a> -->
 			</div>
-		</div>
+		</div> 
 		
 	    <footer class="piePagina_3 piePagina_4">
 	        <?php include("vista/modulos/footer.php");?>
