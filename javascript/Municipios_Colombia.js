@@ -4,7 +4,7 @@ function SeleccionarMunicipio_Colombia(form){
     Municipio.length = null;
 
     if(Departamento[0].selected == true){//si la opcion cero del array select esta seleccionada, la opcion cero del array municipio valdra 
-        var destino0 = new Option("espere","");
+        var destino0 = new Option("");
         Municipio[0] = destino0;
     }
     if(Departamento[1].selected == true){//Amazonas - Leticia

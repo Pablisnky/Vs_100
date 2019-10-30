@@ -86,7 +86,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 				</div><!-- llamar_bloqueo_Demo() se encuentra en bloqueo.js  -->
 				<div class="Quinto_2">
 					<p id="respuesta_c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Enoc</p>
-					<p id="respuesta_d" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">Elias</p>
+					<p id="respuesta_d" class="efecto" onclick="sonidoCorrecto(); llamar_sombrear_Demo(); pauseAudio(); setTimeout(llamar_puntaje_Demo,200)">Elías</p>
 				</div>
 			</div>
 			<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->

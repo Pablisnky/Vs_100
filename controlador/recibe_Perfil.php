@@ -9,8 +9,6 @@
     //se capturan todos los campos del formulario perfil_ingeniero.php Seccion datos personales, se almacenará en la tabla afiliados
     $Nombre= ucfirst($_POST['nombre']);
     $Apellido=ucfirst($_POST['apellido']);
-	$Cedula=$_POST['cedula'];
-	$Telefono=$_POST['telefono'];
     $Correo=$_POST['correo'];   
     $Pais=$_POST['pais']; 
         if(!empty($_POST["departamento"])){
@@ -41,11 +39,15 @@
             $Sub_Region= $_POST["municipio_BD"];
         }
     $Iglesia= $_POST["iglesia"];
+    if(!empty($_POST["otra_iglesia"])){
+        $OtraIglesia=$_POST["otra_iglesia"];
+    }
+    else{
+        $OtraIglesia="Seleccionó iglesia catalogo";
+    }
 
     // echo "Nombre=" . $Nombre . "<br>";
     // echo "Apellido=" . $Apellido . "<br>";
-    // echo "Cedula=" . $Cedula . "<br>";
-    // echo "Telefono movil= " . $Telefono . "<br>";
     // echo "Correo=" . $Correo . "<br>";
     // echo "Pais=" . $Pais . "<br>";
     // echo "Region= " . $Region . "<br>";
@@ -80,7 +82,7 @@
                 $directorio = $_SERVER['DOCUMENT_ROOT'] . '/images/usuarios/'; 
 
                 //usar en local
-                // $directorio = $_SERVER['DOCUMENT_ROOT'] . '/proyectos/Vs_100/Versus_20_2/images/usuarios/';
+                //$directorio = $_SERVER['DOCUMENT_ROOT'] . '/proyectos/Vs_100/Versus_20_2/images/usuarios/';
 
                 //se muestra el directorio temporal donde se guarda el archivo
                 //echo $_FILES['imagen']['tmp_name'];
@@ -113,8 +115,8 @@
 // --------------------------------------------------------------------------------------
 
 //insercion de los datos capturados del formulario en la base de datos 
-//Datos para almacenar en la tabla doctores
-   $actualizar1= "UPDATE participante SET Nombre= '$Nombre', Apellido= '$Apellido', Cedula= '$Cedula',  Correo= '$Correo', Telefono= '$Telefono', Pais= '$Pais', Region= '$Region', SubRegion= '$Sub_Region', Iglesia='$Iglesia' WHERE ID_Participante= '$sesion'";
+//Datos para almacenar en la tabla 
+   $actualizar1= "UPDATE participante SET Nombre= '$Nombre', Apellido= '$Apellido', Correo= '$Correo', Pais= '$Pais', Region= '$Region', SubRegion= '$Sub_Region', Iglesia='$Iglesia', Otra_Iglesia='$OtraIglesia' WHERE ID_Participante= '$sesion'";
     mysqli_query($conexion,$actualizar1);
     
     header("location: perfil.php"); 

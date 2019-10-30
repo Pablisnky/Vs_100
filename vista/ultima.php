@@ -327,7 +327,7 @@
 								<p class="Inicio_5"> </p> 
 								<div class="tabla_3">
 									<table>
-										<caption class="caption_lider">Actualmente el lider de la prueba es:</caption>
+										<caption class="caption_lider">Actualmente el líder de la prueba es:</caption>
 										<thead>
 											<th>Nombre</th>
 											<th>Apellido</th>
@@ -400,7 +400,7 @@
 										<!-- <p class="Inicio_5">Tu posición esta semana es de Nº <?php //echo $Posicion['PusRea'];?> de <?php// echo $Participante_4;?> participantes.</p>  -->
 										<div class="tabla_4">
 											<table>
-												<caption class="caption_lider">Lider de hoy</caption>
+												<caption class="caption_lider">Líder de hoy</caption>
 												<thead>
 													<th>Nombre</th>
 													<th>Apellido</th>
@@ -430,7 +430,7 @@
 											</table>
 											
 											<table>
-												<caption class="caption_lider">Lider de la semana</caption>
+												<caption class="caption_lider">Líder de la semana</caption>
 												<thead>
 													<th>Nombre</th>
 													<th>Apellido</th>

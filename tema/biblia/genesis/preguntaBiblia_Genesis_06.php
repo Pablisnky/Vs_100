@@ -8,7 +8,7 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">¿El capitán egipcio que compró a Jose como esclavo se llamaba?</p>
+			<p class="pregunta">¿El capitán egipcio que compró a José como esclavo se llamaba?</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">

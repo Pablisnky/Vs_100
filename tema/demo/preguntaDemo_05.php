@@ -78,12 +78,12 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">¿Cuantos años le llevo a Salomón la construcción del templo?</p>
+				<p class="pregunta">¿Cuántos años le llevó a Salomón la construcción del templo?</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">
 					<p id="respuesta_a" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Tres años</p>
-					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Una decada</p>
+					<p id="respuesta_b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio(); llamar_bloqueo_Demo()">Una década</p>
 				</div>
 				<div class="Quinto_2">
 					<p id="respuesta_c" class="efecto" onclick="sonidoCorrecto(); pauseAudio(); llamar_sombrear_Demo(); setTimeout(llamar_puntaje_Demo,200);">Siete años</p>

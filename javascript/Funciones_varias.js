@@ -241,6 +241,7 @@ function Lideres_D(){
         document.getElementById("Contenedor_12_a1").style.display="none";
         document.getElementById("Contenedor_12").style.display="grid";
         document.getElementById("Contenedor_12_b").style.display="grid";
+        document.getElementById("Contenedor_12_c").style.display="none";
         document.getElementById("Contenedor_18").style.display="none";
     }
 }
@@ -251,9 +252,24 @@ function Lideres_S(){
     if(document.getElementById("Semanal").checked == true){
         document.getElementById("Contenedor_12").style.display="none";
         document.getElementById("Contenedor_12_b").style.display="none";
+        document.getElementById("Contenedor_12_c").style.display="none";
         document.getElementById("Contenedor_12_a").style.display="grid";
         document.getElementById("Contenedor_12_a1").style.display="grid";
         document.getElementById("Contenedor_18").style.display="block";
+    }
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//llamada desde participacionHoy.php
+function Salon(){
+    if(document.getElementById("Salon").checked == true){
+        document.getElementById("Contenedor_12_b").style.display="block";
+        document.getElementById("Contenedor_12").style.display="none";
+        document.getElementById("Contenedor_12_b").style.display="none";
+        document.getElementById("Contenedor_12_c").style.display="block";
+        document.getElementById("Contenedor_12_a").style.display="none";
+        document.getElementById("Contenedor_12_a1").style.display="none";
+        document.getElementById("Contenedor_18").style.display="none";
     }
 }
 // -------------------------------------------------------------------------------------------
@@ -309,3 +325,7 @@ function verValor_Juan(){
 }
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
+//Oculta el contenedor de regiones en datos_Personales.php
+    function ocultaRegion(){
+        document.getElementById("Regiones").style.display = 'none';
+    }

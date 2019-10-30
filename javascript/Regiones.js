@@ -9,11 +9,13 @@ function SeleccionarRegiones(form){
     }
     if(Pais[1].selected == true){//Colombia)
         document.getElementById("Region_1B").style.display = 'block';
+        document.getElementById("Region_1D").style.display = 'block';
         document.getElementById("Region_1C").style.display = 'none';
         document.getElementById("Region_1A").style.display = 'none';
+        document.getElementById("OtroPais").style.display="none";
     }
     if(Pais[1].selected == true){//Colombia
-        Departamento[0] = new Option("Departamento");
+        Departamento[0] = new Option("");
         Departamento[1] = new Option("Amazonas"); //Leticia
         Departamento[2] = new Option("Antioquía"); // Medellin
         Departamento[3] = new Option("Arauca"); // Arauca
@@ -51,9 +53,10 @@ function SeleccionarRegiones(form){
         document.getElementById("Region_1A").style.display = 'block';
         document.getElementById("Region_1B").style.display = 'none';
         document.getElementById("Region_1C").style.display = 'none';
+        document.getElementById("OtroPais").style.display="none";
     }
     if(Pais[2].selected == true){//Ecuador
-        Provincia[0] = new Option("Provincia");
+        Provincia[0] = new Option("");
         Provincia[1] = new Option("Azuay");  
         Provincia[2] = new Option("Bolívar");
         Provincia[3] = new Option("Cañar");
@@ -83,9 +86,10 @@ function SeleccionarRegiones(form){
         document.getElementById("Region_1C").style.display = 'block';
         document.getElementById("Region_1B").style.display = 'none';
         document.getElementById("Region_1A").style.display = 'none';
+        document.getElementById("OtroPais").style.display="none";
     }
     if(Pais[3].selected == true){//Venezuela
-        Estado[0] = new Option("Estado");
+        Estado[0] = new Option("");
         Estado[1] = new Option("Amazonas");  
         Estado[2] = new Option("Anzoátegui");
         Estado[3] = new Option("Apure");
@@ -113,6 +117,6 @@ function SeleccionarRegiones(form){
     }
        
     if(Pais[4].selected == true){//Otro)
-        document.getElementById("OtroPais").disabled=false;
+        document.getElementById("OtroPais").style.display="block";
     }
 }

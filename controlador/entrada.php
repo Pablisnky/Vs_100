@@ -86,9 +86,8 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 							<?php
 						//}   
 						  ?>
-						  	<p class="Inicio_9">¿Estudiaste el capitulo de hoy?</p>
+						  	<p class="Inicio_9">¿Estudiaste el capítulo de hoy?</p>
 							<p class="Inicio_14"><?php echo $CapituloHoy;?></p> 
-						  	<p class="span_8">"Reavivados por su palabra"</p>
 							<a class="buttonCuatro a_3" href="registro_Libre.php?Tema=Reavivados">Iniciemos</a> 
 							<hr style="border-color: #040652; border-style: solid; border-width: 2px;">
 							<p class="Inicio_9 p_6">O si prefieres</p>
@@ -96,14 +95,14 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 							<div class="entrada_5">
 								<div class="entrada_4">
 									<p class="p_5">Libros del pentateuco</p>
-									<a class="nav_7" href="registro_Libre.php?Tema=Genesis">Genesis</a>
-									<a class="nav_7" href="registro_Libre.php?Tema=Exodo">Éxodo</a>
+									<a class="nav_7" href="registro_Libre.php?Tema=Génesis">Génesis</a>
+									<a class="nav_7" href="registro_Libre.php?Tema=Éxodo">Éxodo</a>
 									<input type="text" class="nav_4" readonly="readonly" value="Levítico">
 									<input type="text" class="nav_4" readonly="readonly" value="Números">
 									<input type="text" class="nav_4" readonly="readonly" value="Deuteronomio">
 								</div>
 								<div class="entrada_4">
-									<p class="p_5">Libros historicos</p>
+									<p class="p_5">Libros históricos</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Josué">
 									<input type="text" class="nav_4" readonly="readonly" value="Jueces">
 									<input type="text" class="nav_4" readonly="readonly" value="Rut">
@@ -118,7 +117,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<input type="text" class="nav_4" readonly="readonly" value="Ester">
 								</div>
 								<div class="entrada_4">
-									<p class="p_5">Libros poeticos</p>
+									<p class="p_5">Libros poéticos</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Job">
 									<input type="text" class="nav_4" readonly="readonly" value="Salmos">
 									<input type="text" class="nav_4" readonly="readonly" value="Proverbios">
@@ -161,7 +160,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<input type="text" class="nav_4" readonly="readonly" value="Hechos">
 								</div>
 								<div class="entrada_4 ocultar">
-									<p class="p_5">Epistolas del apóstol Pablo</p>
+									<p class="p_5">Epístolas del apóstol Pablo</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Romanos">
 									<input type="text" class="nav_4" readonly="readonly" value="1 Corintios">
 									<input type="text" class="nav_4" readonly="readonly" value="2 Corintios">
@@ -177,7 +176,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<input type="text" class="nav_4" readonly="readonly" value="Filemón">
 								</div>
 								<div class="entrada_4 ocultar">
-									<p class="p_5">Epistolas generales</p>
+									<p class="p_5">Epístolas generales</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Hebreos">
 									<input type="text" class="nav_4" readonly="readonly" value="Santiago">
 									<input type="text" class="nav_4" readonly="readonly" value="1 Pedro">
@@ -205,7 +204,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<input type="text" class="nav_4" readonly="readonly" value="Hechos">
 								</div>
 								<div class="entrada_4">
-									<p class="p_5">Epistolas del apóstol Pablo</p>
+									<p class="p_5">Epístolas del apóstol Pablo</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Romanos">
 									<input type="text" class="nav_4" readonly="readonly" value="1 Corintios">
 									<input type="text" class="nav_4" readonly="readonly" value="2 Corintios">
@@ -221,7 +220,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 									<input type="text" class="nav_4" readonly="readonly" value="Filemón">
 								</div>
 								<div class="entrada_4">
-									<p class="p_5">Epistolas generales</p>
+									<p class="p_5">Epístolas generales</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Hebreos">
 									<input type="text" class="nav_4" readonly="readonly" value="Santiago">
 									<input type="text" class="nav_4" readonly="readonly" value="1 Pedro">

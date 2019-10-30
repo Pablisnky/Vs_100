@@ -8,15 +8,15 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">¿Quien construyo el becerro de oro que adoraban los israelitas en el desierto al salir de Egipto?</p>
+			<p class="pregunta">¿Quién construyó el becerro de oro que adoraban los israelitas en el desierto al salir de Egipto?</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_08a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Moises.</p>
+				<p id="principiantes_08a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Moisés.</p>
 				<p id="principiantes_08b" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia(); llamar_sombrear(); setTimeout(llamar_puntaje,200);">Aarón.</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_08c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">El Faraon.</p>
+				<p id="principiantes_08c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">El Faraón.</p>
 				<p id="principiantes_08d" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Ninguno de los anteriores.</p>
 			</div>
 		</div>

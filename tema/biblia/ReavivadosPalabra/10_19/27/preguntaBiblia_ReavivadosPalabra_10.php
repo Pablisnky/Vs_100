@@ -8,7 +8,7 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">Luego de haber vencido a Jeroboan, Roboam se:</p>
+			<p class="pregunta">Luego de haber vencido a Jeroboan, Abías se:</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2"> 

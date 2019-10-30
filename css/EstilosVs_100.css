@@ -240,7 +240,10 @@ td{
 	line-height: 20px !important;
 	color:rgba(194, 245, 19,1);
 }
-.Afiliacion_4{/*datos_personales*/
+.Afiliacion_3{/*datos_Personales.php*/
+	min-height: 220px !important;
+}
+.Afiliacion_4{/*datos_personales     registro.php*/
 	border-radius: 15px;
 	padding: 10px;
 	box-sizing: border-box;
@@ -249,7 +252,7 @@ td{
 	width: 90%;
 	font-size: 14px;
 }
-.Afiliacion_4 .a_4{/*perfil.php*/
+.Afiliacion_4 .a_4{/*perfil.php    */
 	color:  #040652;
 	display: block;
 	margin-bottom: 3%;
@@ -555,6 +558,12 @@ td{
 	align-content: center;
 	width: 80%;
 }
+.contenedor_12_c{/*participacionHoy.php*/
+	margin: auto;
+	align-content: center;
+	width: 80%;
+	min-height: 400px;
+}
 .contenedor_13_a{/*participacionHoy.php*/
 	margin-top: 70%;
 	width: 170% !important;
@@ -570,9 +579,12 @@ td{
 	width: 170% !important;
 	margin-top: 70%;
 }
-.contenedor_14{/*participacionHoy.php*/
-	width: 40%;
+.contenedor_14{/*participacionHoy.php*/	
+	display: grid;
+	grid-template-columns:33% 33% 33%;
+	width: 70%;
 	margin: auto;
+	margin-bottom: 2%;
 	text-align: center;
 }
 .contenedor_15{/*principal.php*/
@@ -696,8 +708,12 @@ td{
 	height:24px;
 	width: 49%;
 }
-.etiqueta_33{/*datos_personales.php*/
+.etiqueta_33{/*datos_personales.php     registro.php*/
 	width: 50% !important
+}
+.etiqueta_34{/*registro.php*/
+	display: inline-block;
+	width: 170px !important;
 }
 .grafico{/*pregunta.php*/
 	width: 40%;
@@ -876,7 +892,7 @@ td{
 }	
 .Inicio_15{/*participacionHoy.php*/
 	margin-top: -65px !important;
-	margin-bottom: 80px !important;
+	margin-bottom: -30px !important;
 }
 .Inicio_16{/*recibeCorreo.php*/
 	font-size:22px !important;

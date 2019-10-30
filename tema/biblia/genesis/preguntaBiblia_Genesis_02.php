@@ -13,10 +13,10 @@
 		<div class="Quinto">
 			<div class="Quinto_2">
 				<p id="principiantes_02a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Abraham.</p>
-				<p id="principiantes_02b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Cáin.</p>
+				<p id="principiantes_02b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Caín.</p>
 			</div>
 			<div class="Quinto_2">
-				<p id="principiantes_02c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Moises.</p>
+				<p id="principiantes_02c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Moisés.</p>
 				<p id="principiantes_02d" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia();llamar_sombrear(); setTimeout(llamar_puntaje,200);">Noé.</p>
 			</div>
 		</div>

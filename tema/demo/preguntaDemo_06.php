@@ -77,7 +77,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">En que lugar convoco Samuel a todo el pueblo, para echar la suerte y elegir al primer rey de Israel:</p>
+				<p class="pregunta">En que lugar convocó Samuel a todo el pueblo, para echar la suerte y elegir al primer rey de Israel:</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">

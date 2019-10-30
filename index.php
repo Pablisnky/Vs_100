@@ -13,12 +13,12 @@ session_start();
 	$newFecha = date("d-m-Y", strtotime($FechaServidorPHP));
 	// echo $newFecha . "<br>";
 
-	if($FechaServidorPHP == "2019-10-26"){
-		$CapituloHoy = "2 Crónicas 12";
+	if($FechaServidorPHP == "2019-10-30"){
+		$CapituloHoy = "2 Crónicas 16";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
 	else{
-		$CapituloHoy = "2 Crónicas 13";
+		$CapituloHoy = "2 Crónicas 15";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
 ?>
@@ -28,8 +28,8 @@ session_start();
 		<title>horebi</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
-		<meta name="description" content="Test de capitulos biblicos"."/>
-		<meta name="keywords" content="preguntas, puntos, Dios, Biblia, capitulo, reavivados"/>
+		<meta name="description" content="Test biblico"/>
+		<meta name="keywords" content="preguntas, juego, Dios, Biblia, capitulo, reavivados"/>
 		<meta name="author" content="Pablo Cabeza"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,7 +41,8 @@ session_start();
 		<meta name="HandheldFriendly" content="true">
 
 		<link rel="stylesheet" type="text/css" href="css/EstilosVs_100.css"/>      
-		<link rel="stylesheet" type="text/css" href="css/Modal.css">   
+		<link rel="stylesheet" type="text/css" href="css/Modal.css">  
+        <link rel="stylesheet" type="text/css" media="(max-width: 350px)" href="css/MediaQuery_EstilosVs_100_350px.css">   
         <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="css/MediaQuery_EstilosVs_100.css">
         <link rel="stylesheet" type="text/css" media="(min-width: 1500px)" href="css/MediaQuery_EstilosVs_100_Grande.css">
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>    
@@ -139,8 +140,8 @@ session_start();
 				</div>	
 			</div>			 
 			<div class="n20" onclick="ocultarMenu()">
-				<h5>¿Que es horebi?</h5>				
-				<p class="Inicio_1">Es una plataforma en la que se plantea un test diario con 5 preguntas de un capitulo biblico, cada respuesta es premiada con puntos y al finalizar la semana el dia sábado tenemos un maestro ganador. Para hoy estudiamos <b>"<?php echo $CapituloHoy;?>"</b>, registra una cuenta, toma el test y pasa un momento ameno con los miembros de la comunidad.</p>
+				<h5>Lo que hacemos</h5>				
+				<p class="Inicio_1">Todos los días planteamos un test con 5 preguntas de un capítulo bíblico, en el que cada respuesta acertada es premiada con puntos, al finalizar la semana el día sábado, tenemos un maestro ganador que pasa a nuestro magno salón de los sabios. Para hoy estudiamos <b>"<?php echo $CapituloHoy;?>"</b>, registra una cuenta, toma el test, diviértete y pasa un momento ameno con los miembros de la comunidad.</p>
 				<a class="Inicio_3  buttonCuatro" href="vista/registro.php">Registrar cuenta</a>
 				<!-- <p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en tu respuesta te penalizará, dejandote un paso atras de la sabiduría.</p>	
 				<a class="Inicio_3  buttonCuatro" href="vista/instruccion.php">Mas detalles</a> -->

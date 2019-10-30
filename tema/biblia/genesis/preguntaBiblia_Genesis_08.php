@@ -13,7 +13,7 @@
 		<div class="Quinto">
 			<div class="Quinto_2">
 				<p id="principiantes_08a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Su esposa.</p>
-				<p id="principiantes_08b" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia();llamar_sombrear(); setTimeout(llamar_puntaje,200);">Su unico hijo.</p>
+				<p id="principiantes_08b" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia();llamar_sombrear(); setTimeout(llamar_puntaje,200);">Su único hijo.</p>
 			</div>
 			<div class="Quinto_2">
 				<p id="principiantes_08c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Al hijo mayor</p>

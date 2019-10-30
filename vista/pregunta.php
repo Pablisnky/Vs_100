@@ -112,66 +112,66 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 
 	    $_SESSION["Pregunta"] = $Num_Pregunta;//se crea la SESION pregunta, necesaria en Temporizador_2
 	    // echo "Pregunta Nº " . $_SESSION["Pregunta"];
-?>
-<!DOCTYPE html>
-<html lang="es">
-	<head>
-		<title>Reavivados - Pregunta Nº <?php echo $Num_Pregunta;?></title>
+		?>
+		<!DOCTYPE html>
+		<html lang="es">
+			<head>
+				<title>Reavivados - Pregunta Nº <?php echo $Num_Pregunta;?></title>
 
-		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
-		<meta name="description" content="Juego de preguntas biblicas."/>
-		<meta name="keywords" content="citas biblicas, biblia"/>
-		<meta name="author" content="Pablo Cabeza"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="expires" content="07 de mayo de 2018"><!--Inicio de construcción de la página-->
+				<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
+				<meta name="description" content="Juego de preguntas biblicas."/>
+				<meta name="keywords" content="citas biblicas, biblia"/>
+				<meta name="author" content="Pablo Cabeza"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta http-equiv="expires" content="07 de mayo de 2018"><!--Inicio de construcción de la página-->
 
-		<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
-        <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="
-        ../css/MediaQuery_EstilosVs_100.css">
-		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
-		<link rel="stylesheet" type="text/css" href="../iconos/icono_siguiente/style_siguiente.css"/> <!--galeria icomoon.io  -->
-		<link rel="stylesheet" type="text/css" href="../iconos/icono_repetir/style_repetir.css"/> <!--galeria icomoon.io  -->
+				<link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
+				<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="
+				../css/MediaQuery_EstilosVs_100.css">
+				<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
+				<link rel="stylesheet" type="text/css" href="../iconos/icono_siguiente/style_siguiente.css"/> <!--galeria icomoon.io  -->
+				<link rel="stylesheet" type="text/css" href="../iconos/icono_repetir/style_repetir.css"/> <!--galeria icomoon.io  -->
 		
-		<script src="../javascript/puntaje.js"></script>
-		<script src="../javascript/bloqueo.js"></script>
-		<script src="../javascript/Funciones_varias.js"></script>
-		<script src="../javascript/Funciones_Ajax.js"></script>
-		<script language="JavaScript">//impide regresar a esta pagina nuevamente con el boton de atras
-			javascript:window.history.forward(1)
-		</script>
-   	</head>
-	<body onload="llamar_puntaje()"><!--funcion Ajax en puntaje.js que accede a BD para sumar el puntaje del participante -->
-		<input type="text" class="ocultar" id="Tema" value="<?php echo $Tema;?>"><!-- se utiliza para enviar a puntaje.js-->
-		<input type="text" class="ocultar" id="ID_Pregunta" value= "<?php echo $Num_Pregunta;?>">
-	    <input type="text" class="ocultar" id="ID_Participante" value="<?php echo $participante;?>"><!-- se utiliza para enviar a puntaje.js-->
-	    <input type="text" class="ocultar" id="ID_PP" value="<?php echo $ID_PP;?>"><!-- se utiliza para enviar a puntaje.js-->
-	    <input type="text" class="ocultar" id="Pregunta_Num" value="<?php echo $Num_Pregunta;?>"><!-- se utiliza para enviar a puntaje.js-->
+				<script src="../javascript/puntaje.js"></script>
+				<script src="../javascript/bloqueo.js"></script>
+				<script src="../javascript/Funciones_varias.js"></script>
+				<script src="../javascript/Funciones_Ajax.js"></script>
+				<script language="JavaScript">//impide regresar a esta pagina nuevamente con el boton de atras
+					javascript:window.history.forward(1)
+				</script>
+			</head>
+			<body onload="llamar_puntaje()"><!--funcion Ajax en puntaje.js que accede a BD para sumar el puntaje del participante -->
+				<input type="text" class="ocultar" id="Tema" value="<?php echo $Tema;?>"><!-- se utiliza para enviar a puntaje.js-->
+				<input type="text" class="ocultar" id="ID_Pregunta" value= "<?php echo $Num_Pregunta;?>">
+				<input type="text" class="ocultar" id="ID_Participante" value="<?php echo $participante;?>"><!-- se utiliza para enviar a puntaje.js-->
+				<input type="text" class="ocultar" id="ID_PP" value="<?php echo $ID_PP;?>"><!-- se utiliza para enviar a puntaje.js-->
+				<input type="text" class="ocultar" id="Pregunta_Num" value="<?php echo $Num_Pregunta;?>"><!-- se utiliza para enviar a puntaje.js-->
 
-		<div class="Secundario">
-			<div class="encabezado">
-	    		<h1 class="anula">Reavivados</h1>
-	    	</div>
-				<?php
-					if($Tema == "Reavivados"){
-						echo "<span class='Inicio_14 Inicio_17'>$CapituloHoy</span>";
-						echo "<hr class='hr_1'>";
-						if($Puntaje<5){ //No se muestra si se encuentra en la ultima pregunta  ?>
-							<h4>Pregunta Nº <?php echo $Num_Pregunta;?></h4> <?php
+				<div class="Secundario">
+					<div class="encabezado">
+						<h1 class="anula">Reavivados</h1>
+					</div>
+					<?php
+						if($Tema == "Reavivados"){
+							echo "<span class='Inicio_14 Inicio_17'>$CapituloHoy</span>";
+							echo "<hr class='hr_1'>";
+							if($Puntaje<5){ //No se muestra si se encuentra en la ultima pregunta  ?>
+								<h4>Pregunta Nº <?php echo $Num_Pregunta;?></h4> <?php
+							}
 						}
-					}
-					else{
-						echo "<span class='Inicio_14  Inicio_17'>$Tema</span>";
-						echo "<hr class='hr_1'>";
-						if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
-							<h4>Pregunta Nº <?php echo $Num_Pregunta;?></h4> <?php
+						else{
+							echo "<span class='Inicio_14  Inicio_17'>$Tema</span>";
+							echo "<hr class='hr_1'>";
+							if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
+								<h4>Pregunta Nº <?php echo $Num_Pregunta;?></h4> <?php
+							}
 						}
-					}
-				?>
-	    	<div class="encabezado_2">
-			    <div id="mostrarPuntos"></div><!-- recibe el puntaje y el nombre del participante por medio de llamar_puntaje() llamada al cargar el documento desde sumaPuntaje.php-->
-			</div>
-			<div>
-				<?php
+					?>
+					<div class="encabezado_2">
+						<div id="mostrarPuntos"></div><!-- recibe el puntaje y el nombre del participante por medio de llamar_puntaje() llamada al cargar el documento desde sumaPuntaje.php-->
+					</div>
+					<div>
+						<?php
 							switch($Tema){
 			                    case "Exodo":
 									include("../tema/biblia/exodo/posicionExodo.php");
@@ -201,47 +201,46 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			                        include("../tema/biblia/ReavivadosPalabra/fecha.php");
 									
 			                    break;
-			                }
-	            ?>
-			</div>
-			<?php
-			if($Tema == "Reavivados"){
-				if($Puntaje<5){//No se muestra si se encuentra en la ultima pregunta de reavivados ?>
-					<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
-						<div id="Temporizador_2">
-							<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
-								<?php include("../controlador/Temporizador_2.php");?>
-						</div>
-					</div>
-					<div class="contenedor_7">
-						<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
-					</div>
-					<div class="contenedor_6" id="Flecha">
-						<a href='javascript:history.go(0)'><span class="icon-arrow-right parpadea"  title="Siguiente"></span></a>
+							}	
+						?>
 					</div>
 					<?php
-				}
-			}
-			else{
-				if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
-					<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
-						<div id="Temporizador_2">
-							<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
-								<?php include("../controlador/Temporizador_2.php");?>
-						</div>
-					</div>
-					<div class="contenedor_7">
-						<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
-					</div>
-					<div class="contenedor_6" id="Flecha">
-						<a  href='javascript:history.go(0)'><span class="icon-arrow-right parpadea" title="Siguiente"></span></a>
-					</div>
-					<?php
-				}
-			}  ?>
-	</body>
-</html>
-
-	<?php
-		}
-	?>
+					if($Tema == "Reavivados"){
+						if($Puntaje<5){//No se muestra si se encuentra en la ultima pregunta de reavivados ?>
+							<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
+								<div id="Temporizador_2">
+									<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
+										<?php include("../controlador/Temporizador_2.php");?>
+								</div>
+							</div>
+							<div class="contenedor_7">
+								<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
+							</div>
+							<div class="contenedor_6" id="Flecha">
+								<a href='javascript:history.go(0)'><span class="icon-arrow-right parpadea"  title="Siguiente"></span></a>
+							</div>
+							<?php
+						}
+					}
+					else{
+						if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
+							<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
+								<div id="Temporizador_2">
+									<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
+										<?php include("../controlador/Temporizador_2.php");?>
+								</div>
+							</div>
+							<div class="contenedor_7">
+								<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
+							</div>
+							<div class="contenedor_6" id="Flecha">
+								<a  href='javascript:history.go(0)'><span class="icon-arrow-right parpadea" title="Siguiente"></span></a>
+							</div>
+							<?php
+						}
+					}  ?>
+				</div>
+			</body>
+		</html>			
+		<?php
+	}	?>

@@ -77,7 +77,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">Se desempeñaba como agricultor antes de ser rey, provenia de la tribu de Benjamín, pertenecía a la familia de Matri, nos referimos a:</p>
+				<p class="pregunta">Se desempeñaba como agricultor antes de ser rey, provenía de la tribu de Benjamín, pertenecía a la familia de Matri, nos referimos a:</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">

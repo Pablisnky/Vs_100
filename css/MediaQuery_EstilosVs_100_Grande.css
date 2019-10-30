@@ -13,6 +13,9 @@ h5{/*index.php*/
 .contenedor_12_a{/*participacionHoy.php*/
 	margin:5% 0% 3% 7%;
 }
+.contenedor_24{/*ministerio.php*/
+	text-align: justify;
+}
 .imagen_6{/*index.php*/
 	margin: 10% auto;
 }
@@ -44,6 +47,9 @@ input[type=checkbox]{/*principal.php*/
 }
 .nueva_Prueba{/*entrada.php*/
 	margin-top: 60% !important;
+}
+.piePagina_5{/*registro.php*/
+	margin-top: 5% !important; 
 }
 .Secundario{/*principal.php  pregunta.php  contacto.php  registro.php  index.php  registrarse.php*/
 	width: 100%;

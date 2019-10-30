@@ -77,7 +77,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">El pueblo de israel en el desierto, solo podia recoger doble porción de maná el día</p>
+				<p class="pregunta">El pueblo de Israel en el desierto, solo podía recoger doble porción de maná el día</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">

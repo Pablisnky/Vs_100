@@ -8,7 +8,7 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">Cuando llego al poder un nuevo rey egipcio que no conocio a Jose, al pueblo de Israel se le ordeno:</p>
+			<p class="pregunta">Cuando llegó al poder un nuevo rey egipcio que no conoció a José, al pueblo de Israel se le ordenó:</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">

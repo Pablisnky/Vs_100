@@ -29,10 +29,18 @@
 			</header>
 			<div onclick="ocultarMenu()">
                 <div class="contenedor_14">
-                    <input type="radio" name="lideres" id="Diario" checked onclick="Lideres_D()">
-                    <label class="radio"  for="Diario" onclick="Lideres_D()">Del día</label>
-                    <input type="radio" name="lideres" id="Semanal" onclick="Lideres_S()">
-                    <label class="radio"  for="Semanal" onclick="Lideres_S()">De la semana</label>
+                    <div>
+                        <input type="radio" name="lideres" id="Diario" checked onclick="Lideres_D()"><br>
+                        <label class="radio" for="Diario" onclick="Lideres_D()">Del día</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="lideres" id="Semanal" onclick="Lideres_S()"><br>
+                        <label class="radio" for="Semanal" onclick="Lideres_S()">De la semana</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="lideres" id="Salon" onclick="Salon()"><br>
+                        <label class="radio" for="Salon" onclick="Salon()">Salón de la sabiduría</label>
+                    </div>
                 </div>
                 <div id="Contenedor_12_b">
                     <h2 class="h_1">Los tres más sabios estudiando</h2>
@@ -111,67 +119,10 @@
                             <?php } ?>
                     </div>
                 </div>
+
                     <!-- De la semana -->
                 <div class="contenedor_18" id="Contenedor_18">
                     <h2 class="h_1" id="Contenedor_12_a1">Los tres más sabios de esta semana</h2>
-                    <div class="contenedor_17">
-                    <!-- <p class='nav_12'>Dom</p>
-                    <p class='nav_11'>Lun</p>
-                    <p class='nav_11'>Mar</p>
-                    <p class='nav_11'>Mie</p>
-                    <p class='nav_11'>Jue</p>
-                    <p class='nav_11'>Vie</p>
-                    <p class='nav_11'>Sab</p> -->
-                    <?php
-                        // setlocale(LC_ALL,"es_ES");
-                        // $dias = array("domingo","lunes","martes","miercoles","jueves","viernes","sábado");
-                        // $Hoy= $dias[date("w")];
-                        // // echo "Buenos días, hoy es ". $Hoy . "<br>";
-                        
-                        // if($Hoy >= "domingo"){
-                        //     echo "<p class='nav_12'>Dom</p>";
-                        // }
-                        // else{
-                        //     echo "<p class='nav_11'>Dom</p>";
-                        // }
-                        // if($Hoy >= "lunes"){ 
-                        //     echo "<p class='nav_12'>Lun</p>";
-                        // }
-                        // else{ 
-                        //     echo "<p class='nav_11'</p>Lun</p>";
-                        // }
-                        // if($Hoy >= "martes"){ 
-                        //     echo "<p class='nav_12'>Mar</p>";
-                        // }
-                        // else{ 
-                        //     echo "<p class='nav_11'>Mar</p>";
-                        // }
-                        // if($Hoy >= "miercoles"){
-                        //     echo "<p class='nav_12'>Mie</p>";
-                        // }
-                        // else{
-                        //     echo "<p class='nav_11'>Mie</p>";
-                        // }
-                        // if($Hoy >= "jueves"){
-                        //     echo "<p class='nav_11'>Jue</p>";
-                        // }
-                        // else{
-                        //     echo "<p class='nav_11'>Jue</p>";
-                        // }
-                        // if($Hoy >= "viernes"){
-                        //     echo "<p class='nav_12'>Vie</p>";
-                        // }
-                        // else{
-                        //     echo "<p class='nav_11'>Vie</p>";
-                        // }
-                        // if($Hoy >= "sábado"){
-                        //     echo "<p class='nav_12'>Sab</p>";
-                        // }
-                        // else{
-                        //     echo "<p class='nav_11'>Sab</p>";
-                        // }
-                    ?>
-                </div>
                 </div>
                 <div class="contenedor_12_a" id="Contenedor_12_a">
                     <div class="contenedor_13_a">
@@ -244,6 +195,13 @@
                             <?php } ?>
                     </div>
                 </div>	
+
+                <!-- Salon del sabio -->
+                <div class="contenedor_12_c" id="Contenedor_12_c">
+                    <h2 class="h_1" id="Contenedor_12_a1">Salón de la sabiduría</h2>
+                    <p class="Inicio_3">Proximamente, en nuestro salón de la sabiduría, podrás conocer los participantes más sobresalientes de la plataforma semana a semana, y organizados por país, región e iglesia.</p>
+                </div>	
+
 			</div> 
 		<footer>
 			<?php include("modulos/footer.php");?>

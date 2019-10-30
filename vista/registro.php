@@ -27,7 +27,8 @@
 		<script type="text/javascript" src="../javascript/Regiones.js" ></script> 
         <script type="text/javascript" src="../javascript/canton.js"></script>  	
         <script type="text/javascript" src="../javascript/Municipios.js"></script> 
-        <script type="text/javascript" src="../javascript/Municipios_Colombia.js"></script>  	
+        <script type="text/javascript" src="../javascript/Municipios_Colombia.js"></script>  
+        <script type="text/javascript" src="../javascript/Iglesia.js"></script> 	
 	</head>	
 	<body onload= "autofocusRegistroGratis()">
 		<div class="Secundario">
@@ -47,53 +48,69 @@
                         	<div class="contenedor_11" id="Mostrar_verificaCorreo"></div><!-- recibe respuesta de ajax llamar_verificaCorreo()-->
 						</fieldset>      
 						  
+
+
+
+						
                         <fieldset class="Afiliacion_4">
                         	<legend>Datos de congregación</legend>
 							<!-- <label>Pais:</label> -->
-							<select class="etiqueta_24" name="pais" id="Pais" onchange="SeleccionarRegiones(this.form)"> 
-								<option>Pais</option>
+							<label class="etiqueta_34">Pais:</label>
+							<select class="etiqueta_33" name="pais" id="Pais" onchange="SeleccionarRegiones(this.form)"> 
+								<option></option>
 								<option>Colombia</option>
                                 <option>Ecuador</option>
 								<option>Venezuela</option>
 								<option>Otro</option>
 							</select>  
-							<input type="text" name="otroPais" id="OtroPais" placeholder="Indique su pais sino esta en la lista" disabled>
+							<input type="text" name="otroPais" id="OtroPais" placeholder="Indique su pais sino esta en la lista" style="display:none">
 
 							<div id="Region_1A" style="display: none;"><!--Aplica solo a Ecuador-->
 								<!-- <label>Provincia:</label> -->
-									<select class="etiqueta_24" name="provincia" id="Provincia" onchange="SeleccionarCanton(this.form)"><!--SeleccionarCanton() se encuentra en -->
+								
+									<label class="etiqueta_34">Provincia:</label>
+									<select class="etiqueta_33" name="provincia" id="Provincia" onchange="SeleccionarCanton(this.form)">
 										<option></option>                            
 									</select>                  
 									
-								<!-- <label>Canton:</label> -->
-									<select class="etiqueta_24" name="canton" id="Canton"> 
+									<label class="etiqueta_34">Cantón:</label>
+									<select class="etiqueta_33" name="canton" id="Canton"> 
 										<option></option>
 									</select>                  
 								<br>
 							</div>  
 							<div id="Region_1B" style="display: none;"><!--Aplica solo a Colombia-->
 								<!-- <label>Departamento:</label> -->
-									<select class="etiqueta_24" name="departamento" id="Departamento" onchange="SeleccionarMunicipio_Colombia(this.form)">
+									<label class="etiqueta_34">Departamento:</label>
+									<select class="etiqueta_33" name="departamento" id="Departamento" onchange="SeleccionarMunicipio_Colombia(this.form)">
 										<option></option>                            
 									</select>                  
 								<!-- <label>Municipio:</label> -->
-									<select class="etiqueta_24" name="municipio_Col" id="Municipio_Col"> 
+									<label class="etiqueta_34">Municipio:</label>
+									<select class="etiqueta_33" name="municipio_Col" id="Municipio_Col" onchange="SeleccionarIglesia_Col(this.form)">  
 										<option></option>
 									</select>     
 							</div> 
 							<div id="Region_1C" style="display: none;"><!--Aplica solo a Venezuela-->
 								<!-- <label>Estado:</label> -->
-									<select class="etiqueta_24" name="estado" id="Estado" onchange="SeleccionarMunicipio(this.form)">
+									<label class="etiqueta_34">Estado:</label>
+									<select class="etiqueta_33" name="estado" id="Estado" onchange="SeleccionarMunicipio(this.form)">
 										<option></option>                            
 									</select>                  
 									
-								<!-- <label>Municipio:</label> -->
-									<select class="etiqueta_24" name="municipio" id="Municipio"> 
+									<label class="etiqueta_34">Municipio:</label>
+									<select class="etiqueta_33" name="municipio" id="Municipio"  onchange="SeleccionarIglesia(this.form)"> 
 										<option></option>
 									</select>  
 							</div>   
-							<input type="text" name="iglesia" id="Iglesia" placeholder="Iglesia o grupo" onchange="return literal()" autocomplete="off"><!-- literal() se encuentra en validarFormulario.js -->
-						</fieldset>       
+							<div id="Region_1D" style="display: none;">
+									<label class="etiqueta_34">Iglesia de congregación:</label>
+									<select class="etiqueta_33" name="iglesia" id="Iglesia" onchange="Iglesia(this.form)">
+										<option></option>                            
+									</select>                 
+							</div>   
+						</fieldset>        
+						<input type="text" name="otraIglesia" id="OtraIglesia" placeholder="Indique su iglesia sino esta en la lista" style="display:none">
 						<fieldset class="Afiliacion_4">
 							<legend>Datos de accceso a la plataforma</legend>  
 							<div>
@@ -107,8 +124,11 @@
 				</div>
 			</div>
 		</div>
-    	<footer>
+    	<footer class="piePagina_5">
         	<?php include("modulos/footer.php");?>
     	</footer>
 	</body>
 </html>
+
+
+<script type="text/javascript" src="../javascript/otraIglesia.js"></script> 

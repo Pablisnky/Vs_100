@@ -8,7 +8,7 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">En una oportunidad, Aarón levanto su vara y golpeó las aguas del Rio Nilo. En ese momento, por el poder de Dios el agua del río se convirtio en:</p>
+			<p class="pregunta">En una oportunidad, Aarón levantó su vara y golpeó las aguas del Río Nilo. En ese momento, por el poder de Dios el agua del río se convirtió en:</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">

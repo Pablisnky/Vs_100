@@ -19,9 +19,9 @@
         
     }
 
-    if($Fecha == "2019/10/26"){
-       include("10_19/26/posicionReavivadosPalabra.php");
+    if($Fecha == "2019/10/30"){
+       include("10_19/30/posicionReavivadosPalabra.php");
     }
     else{
-        include("10_19/27/posicionReavivadosPalabra.php");
+        include("10_19/29/posicionReavivadosPalabra.php");
     }

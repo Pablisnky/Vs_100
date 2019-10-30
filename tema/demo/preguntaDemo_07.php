@@ -77,7 +77,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			</div>
 			<h4>Pregunta Nº <?PHP echo PREGUNTA_ACTUAL;?></h4>
 			<div>
-				<p class="pregunta">¿Quien fue el que pretendia esclavizar a los habitantes de Jabes de Galaad y les exigio sacarse el ojo derecho sino querían morir?</p>
+				<p class="pregunta">¿Quién fue el que pretendía esclavizar a los habitantes de Jabes de Galaad y les exigió sacarse el ojo derecho sino querían morir?</p>
 			</div>
 			<div class="Quinto">
 				<div class="Quinto_2">

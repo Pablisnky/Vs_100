@@ -8,12 +8,12 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">Cuando Moises estaba en Madián, ¿Quien le dijo que regresara a Egipto porque ya habían muerto todos los que querían matarle?</p>
+			<p class="pregunta">Cuando Moisés estaba en Madián, ¿Quién le dijo que regresara a Egipto porque ya habían muerto todos los que querían matarle?</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_05a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Sefora.</p>
-				<p id="principiantes_05b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Aaron.</p>
+				<p id="principiantes_05a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Séfora.</p>
+				<p id="principiantes_05b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Aarón.</p>
 			</div>
 			<div class="Quinto_2">
 				<p id="principiantes_05c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Un egipcio.</p>

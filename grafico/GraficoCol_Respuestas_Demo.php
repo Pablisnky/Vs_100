@@ -19,7 +19,7 @@ Highcharts.chart('container', {
     backgroundColor: '#F4FCFB',
   },
   title: {
-    text: 'Tu Versus El Lider'
+    text: 'Tu Versus El Líder'
   },
   legend: {
         align: 'left',

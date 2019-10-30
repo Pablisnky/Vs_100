@@ -28,7 +28,7 @@ Highcharts.chart('container', {
     backgroundColor: '#F4FCFB',
   },
   title: {
-    text: 'Tu versus el lider de hoy'
+    text: 'Tu versus el líder de hoy'
   },
   // subtitle: {
   //   text: 'Tu actuación versus al lider de la prueba'

@@ -8,12 +8,12 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">Quien fue conocido como el primer gran guerrero de la tierra y como un valiente cazador ante el Señor:</p>
+			<p class="pregunta">Quién fue conocido como el primer gran guerrero de la tierra y como un valiente cazador ante el Señor:</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_09a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Samson.</p>
-				<p id="principiantes_09b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Salomon.</p>
+				<p id="principiantes_09a" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Sansón.</p>
+				<p id="principiantes_09b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">Salomón.</p>
 			</div>
 			<div class="Quinto_2">
 				<p id="principiantes_09c" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia();llamar_bloqueo()">El rey David.</p>

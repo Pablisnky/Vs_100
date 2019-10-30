@@ -27,11 +27,11 @@ $CapituloHoy = $_SESSION["Capitulo"];
 		</header>
 		<div onclick="ocultarMenu()">          
 			<h2>Misión</h2>
-			<p class="Inicio_3">Cultivar la honestidad, el respeto y  la responsabilidad en las personas, para mejorar nuestro entorno social y nuestra convivencia en comunidad, valiéndonos de las herramientas que Dios nos ha dado.</p>
+			<p class="Inicio_3">Cultivar la honestidad, el respeto y  la responsabilidad en las personas, para mejorar nuestro entorno social y nuestra convivencia en comunidad, valiéndonos de las herramientas que Dios nos ha dado a través de su santa palabra.</p>
 			<h2 id="ancla_5">Visión</h2>
-			<p class="Inicio_3">Que todos los miembros de nuestra plataforma reflejemos el poder de Dios por medio de nuestro caracter transformado, y seamos una comunidad cristiana en la que según nuestros talentos, trabajemos por el porvenir de todos; de modo que seamos un pilar para el resto de nuestros hermanos</p>
+			<p class="Inicio_3">Reavivados busca convertirse en una red social con participantes de diferentes países, donde se comparta la pasión por el estudio de la palabra de Dios, e incentivar el crecimiento espiritual promoviendo los principios bíblicos.</p>
 			<h2 id="ancla_6">Valores</h2>
-			<p class="Inicio_3">Nuestro valores etán enmarcados en las santas escrituras y nos identificamos absolutamento con los siguientes versiculos:</p>
+			<p class="Inicio_3">Nuestro valores etán enmarcados en las santas escrituras y nos identificamos absolutamento con los siguientes versículos:</p>
 			<ul class="ul_2">
 				<li class="Inicio_19" onclick="verValor_Deuteronomio()">Deuteronomio 5:6-21</li>
 				<li class="Inicio_19" onclick="verValor_Colosenses()">Colosenses 3:23 </li>

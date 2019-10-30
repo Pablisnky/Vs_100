@@ -8,7 +8,7 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">Dios había dado a David el reino de Israel para siempre; Abías hablando e ese tema dijo sobre el monte de Zemaraim que eso fue:</p>
+			<p class="pregunta">Dios había dado a David el reino de Israel para siempre; Abías hablando de ese tema dijo sobre el monte de Zemaraim que eso fue:</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">       

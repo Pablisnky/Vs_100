@@ -8,7 +8,7 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">¿Quien ayudo a Moises cuando tenia que hablar con el pueblo, debido a que él tenia dificultades para expresarse en publico?</p>
+			<p class="pregunta">¿Quién ayudó a Moisés cuando tenía que hablar con el pueblo, debido a que él tenía dificultades para expresarse en lengua egipcia?</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">

@@ -81,11 +81,11 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 				</div>
 				<div class="Quinto">
 					<div class="Quinto_2">
-						<p id="principiantes_01c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Bernabe</p>
+						<p id="principiantes_01c" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Bernabé</p>
 						<p id="principiantes_01b" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Eneas</p>
 					</div>
 					<div class="Quinto_2">
-						<p id="principiantes_01a" class="efecto" onclick="sonidoCorrecto(); pauseAudio();llamar_sombrear_Demo(); setTimeout(llamar_puntaje,200);">Ananias.</p>				
+						<p id="principiantes_01a" class="efecto" onclick="sonidoCorrecto(); pauseAudio();llamar_sombrear_Demo(); setTimeout(llamar_puntaje,200);">Ananías.</p>				
 						<p id="principiantes_01d" class="efecto" onclick="sonidoInCorrecto(); pauseAudio();llamar_bloqueo_Demo()">Felipe</p>
 					</div>
 				</div>

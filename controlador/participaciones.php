@@ -18,11 +18,11 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 	    $Recordset=mysqli_query($conexion,$Consulta); 
 	    $participantes= mysqli_fetch_array($Recordset);
 	    $Participaciones= $participantes["Participacion"];
- 	?>
+?>
 		<!DOCTYPE html>
 		<html lang="es">
 			<head>
-				<title>Versus_20 Inicio</title>
+				<title>Inicio</title>
 
 				<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
 				<meta name="description" content="Juego de preguntas para ganar dinero."/>
@@ -39,7 +39,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script> 
 			</head>	
 			<body>
-				<header style="position: fixed;  width: 100%; margin-top:; ">
+				<header style="position: fixed;  width: 100%; ">
 			   		<input class="input_1" type="text" name="nombre" value="<?php echo $ParticipanteNombre;?>">
 					<?php include("../vista/modulos/header_usuario.html");?>   		
 				</header>
@@ -91,7 +91,6 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 												</td> <?php
 					                         $i++;
 					                        }   
-					                             
 			                        	  ?>      			                        	
 			                        </tr>
 			                    </tbody>

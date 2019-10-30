@@ -8,11 +8,11 @@
 	}
 	else{  ?>
 		<div>
-			<p class="pregunta">¿En la batalla contra los Amalecitas, mientras Moises mantenia los brazos alzados para que los israelitas salieran victoriosos, ¿Quien dirigia a los soldados en el campo de batalla?</p>
+			<p class="pregunta">En la batalla contra los Amalecitas, mientras Moisés mantenía los brazos alzados para que los israelitas salieran victoriosos, ¿Quién dirigía a los soldados en el campo de batalla?</p>
 		</div>
 		<div class="Quinto">
 			<div class="Quinto_2">
-				<p id="principiantes_09a" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia(); llamar_sombrear(); setTimeout(llamar_puntaje,200);">Josue.</p>
+				<p id="principiantes_09a" class="efecto" onclick="sonidoCorrecto(); pauseAudioBiblia(); llamar_sombrear(); setTimeout(llamar_puntaje,200);">Josué.</p>
 				<p id="principiantes_09b" class="efecto" onclick="sonidoInCorrecto(); pauseAudioBiblia(); llamar_bloqueo()">Aarón.</p>
 			</div>
 			<div class="Quinto_2">

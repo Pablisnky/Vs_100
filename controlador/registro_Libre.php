@@ -12,13 +12,13 @@
     //   echo "ID_Participante= " . $Participante . "<br>";
 
     switch($Tema){
-        case 'Genesis': 
+        case 'Génesis': 
         	$ID_Prueba = 1;
        	break;
-        case 'Exodo': 
+        case 'Éxodo': 
             $ID_Prueba = 2;
        	break;
-        case 'Jeremias': 
+        case 'Jeremías': 
         	$ID_Prueba = 3;
        	break;
         case 'Doctrina': 
