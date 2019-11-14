@@ -16,9 +16,14 @@
 		$_SESSION["PuntosPais"]= $Puntaje["Puntos"];//se crea una sesion que almacena el puntaje del usuario
 
 		//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
- 		$Decimal = str_replace('.', ',', $Puntaje["Puntos"]); 
+		$Decimal = str_replace('.', ',', $Puntaje["Puntos"]); 
 		
-		echo "<p class='p_1'>$Puntaje[1]</p>";
+		//Se separa el nombre del participante si introdujo dos nombres al registrarse, para mostrar solo el primer nombre
+		$PrimerNombre  = $Puntaje[1];
+		$PrimerNombre = explode(" ", $PrimerNombre);
+		// echo $PrimerNombre[0];  
+		
+		echo "<p class='p_1'>$PrimerNombre[0]</p>";
 		echo "<p class='p_1'>$Decimal</p>";
 		echo "<p class='p_1'>Puntos</p>";
 		//Respuesta es mostrada en preguntaXxxxxx_00.php porque alli se realizó la petición al servidor utilizando AJAX

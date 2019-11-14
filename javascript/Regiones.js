@@ -53,6 +53,7 @@ function SeleccionarRegiones(form){
         document.getElementById("Region_1A").style.display = 'block';
         document.getElementById("Region_1B").style.display = 'none';
         document.getElementById("Region_1C").style.display = 'none';
+        document.getElementById("Region_1D").style.display = 'block';
         document.getElementById("OtroPais").style.display="none";
     }
     if(Pais[2].selected == true){//Ecuador
@@ -83,9 +84,10 @@ function SeleccionarRegiones(form){
         Provincia[24] = new Option("Guayas");  
     }    
     if(Pais[3].selected == true){//Venezuela)
-        document.getElementById("Region_1C").style.display = 'block';
-        document.getElementById("Region_1B").style.display = 'none';
         document.getElementById("Region_1A").style.display = 'none';
+        document.getElementById("Region_1B").style.display = 'none';
+        document.getElementById("Region_1C").style.display = 'block';
+        document.getElementById("Region_1D").style.display = 'block';
         document.getElementById("OtroPais").style.display="none";
     }
     if(Pais[3].selected == true){//Venezuela

@@ -63,12 +63,11 @@
       
         //se inserta en la BD la hora en la que el participante entro a una pregunta.
         $insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Hora_Pregunta, HoraMaximo) VALUES('$Pregunta', '$Participante', '$CodigoPrueba', '$Tema', '$HoraServidorPHP', '$PHPlocal')";
-          mysqli_query($conexion,$insertar) or DIE ('Falló conexión a la base de datos (C1)');;
+          mysqli_query($conexion,$insertar) or DIE ('Falló conexión a la base de datos (C1)');
     
     }
     else{
       // echo "Pregunta respondida" , "<br>";
-      
     }
 //-----------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------

@@ -1,4 +1,11 @@
 <?php
+session_start();
+if(empty($_SESSION["Capitulo"])){
+    header("location:../index.php");
+}
+else{
+    $CapituloHoy = $_SESSION["Capitulo"];
+		
 	include("../conexion/Conexion_BD.php");
 	
 	//Se verifica si el usuario esta memorizado en las cookie de su computadora y las compara con la BD, para recuperar sus datos y autorellenar el formulario de inicio de sesion, las cookies de registro de usuario se crearon en validarSesion.php
@@ -83,6 +90,10 @@
         			<div class="tapa_2" id="Tapa_2" onclick="quitarTapa_2()"></div><!--Este Div es la parte oscura, quitarTapa_2() esta al final de este archivo-->
 				</div >  
 				<footer>
+                    <img class="imagen_3" alt="Logotipo horebi.com" src="../images/logo.png">
+                    <label class="Inicio_23">horebi.com</label>
+                    <!-- <span class="span_7">Reavivados</span>  -->
+                    <p class="p_8">El propósito de esta plataforma es incentivar la lectura bíblica y exaltar el sábado como día especial de dedicación a Jehová.</p>
 					<?php include("modulos/footer.php");?>
 				</footer>
 			</body>
@@ -156,10 +167,15 @@
         			<div class="tapa_2" id="Tapa_2" onclick="quitarTapa_2()"></div><!--Este Div es la parte oscura, quitarTapa_2() esta al final de este archivo-->
 				</div>
 				<footer>
+                    <img class="imagen_3" alt="Logotipo horebi.com" src="../images/logo.png">
+                    <label class="Inicio_23">horebi.com</label>
+                    <!-- <span class="span_7">Reavivados</span>  -->
+                    <p class="p_8">El propósito de esta plataforma es incentivar la lectura bíblica y exaltar el sábado como día especial de dedicación a Jehova.</p>
 					<?php include("modulos/footer.php");?>
 				</footer>
 			</body>
 		</html>		<?php 
-	}	?>
+	}	
+}	?>
 
 <script type="text/javascript" src="../javascript/validarFormularios.js"></script>

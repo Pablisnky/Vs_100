@@ -26,8 +26,8 @@ caption{
 footer{
 	background:rgba(4, 6, 82, 0.1);
 	text-align:center;
-	height: 20%;
-	font-size: 8px;
+	height: 30%;
+	/* font-size: 7px; */
 	width: 100%;
 	color:#040652;
 	position: absolute; 
@@ -81,9 +81,6 @@ h5{/*index.php*/
 }
 hr{
 	margin-bottom: 2%;
-}
-.hr_3{/*header.php*/
-	display: none;
 }
 html{
 	height:100%;
@@ -284,6 +281,10 @@ td{
 }
 .anula{/*preguntaDemo_XX.php*/
 	cursor: default;
+}
+.b_1{/*participacionHoy.php*/
+	display: inline-block;
+	margin-bottom: -3% !important;
 }
 .bloqueo_demo{/*respuestaDemo.php*/
 	color:  rgba(194, 245, 19,1);
@@ -587,6 +588,14 @@ td{
 	margin-bottom: 2%;
 	text-align: center;
 }
+.contenedor_14_a{/*participacionHoy.php*/
+	display: grid;
+	grid-template-columns:50% 50%;
+	width: 70%;
+	margin: auto;
+	margin-bottom: 2%;
+	text-align: center;
+}
 .contenedor_15{/*principal.php*/
 	display: none;
 }
@@ -619,6 +628,9 @@ td{
 	grid-template-columns: 10% 55%;
 	justify-content: center;
 	margin: 3% auto;
+}
+.contenedor_25{/*participacionHoy.php      participacionHoy_Cont.php*/
+	margin-top: 10%;
 }
 .contenido_2{/*contacto.php*/
 	width: 90%;
@@ -733,6 +745,26 @@ td{
 .hr_1{/*pregunta.php*/
 	margin-top: -2%;
 }
+.hr_3{/*header.php*/
+	display: none;
+}
+.hr_4{/*participacionHoy*/
+	margin: 10% auto;
+}
+.imagen_3{/*footer*/
+	width: 3%; 
+	object-fit:contain ;/* deseado cover */
+	filter: brightness(110%);
+	margin-left: -88%;
+	margin-top: 1%;
+}
+.imagen_4{/*Sabios.php*/
+	width: 30%; 
+	height: 640px;
+	display: block;
+	margin: auto;
+	filter: brightness(110%);
+}
 .imagen_5{/*index.php*/
 	width: 10%; 
 }
@@ -754,6 +786,7 @@ td{
 	object-fit:contain ;/* deseado cover */
 	filter: brightness(110%);
 	height: 250px;
+	z-index: -1 !important;
 }
 .Inicio_0{/*instruccion.php*/
 	width: 80%;
@@ -917,7 +950,32 @@ td{
 	margin-top: 5%;
 	margin-bottom: 4%;
 	cursor: pointer;
+}	
+.Inicio_21{/*participacionHoy.php   participacionHoy_Cont.php*/ 
+	font-family: 'Raleway', sans-serif;
+	width: 70%;
+	font-size:20px;
+	margin: auto;
+	margin-top: -4%;;
+	margin-bottom: 4%;
+	line-height: 150%;
 }		
+.Inicio_22{/*participacionHoy.php*/ 
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	display: block;
+	width: 100%;
+	font-size:16px;
+	margin: auto;
+	margin-top: 0%;
+}	
+.Inicio_23{/*index.php*/
+	font-family: 'Raleway', sans-serif;
+	font-size: 14px;;
+}
+.Inicio_24{/*participacionHoy.php   participacionHoy_Cont.php*/ 
+	background-color: yellow;
+}
 .input_1{/*entrada.php*/
 	position: absolute; 
 	top: 10%; 
@@ -1262,19 +1320,23 @@ td{
 	width:95%;
 }
 .piePagina{/*footer.php*/
+	background:rgba(4, 6, 82, 0.2);
+	height: 20px;
 	font-size: 11px;
+	padding-top: 0.5%;
+	font-weight: bold;
 }
 .piePagina_2{/*footer.php*/
 	position: absolute; 
 	bottom: 0pt; 
 	width: 100%; 
-	padding-bottom: 0.5%;
+	padding-bottom: 0%;
 }
 .piePagina_3{/*todas las páginas*/
 	bottom: -120pt;
 }
-.piePagina_4{
-	top:120% !important;
+.piePagina_4{/*index.php*/
+	top:130%;
 }
 .popup{/*tema.php*/
 	cursor: default; 
@@ -1310,14 +1372,6 @@ td{
 .prox{/*club.php*/
 	margin-top: 15%;
 }
-.p_1{/*preguntaXxxxx.php*/
-	width: 200px;
-	color:yellow;
-	display: block;
-	font-size: 1.1vw;
-	font-family:verdana;
-	text-align: center;
-}
 .p_2{/*principal.php*/
 	display: block;
 	text-align: center !important;
@@ -1352,6 +1406,18 @@ td{
 	margin-bottom: 2%; 
 	font-size: 18px;
 }
+.p_8{/*footer*/
+	width: 24%;
+	color:rgba(4, 6, 82, 0.7);
+	display: block;
+	font-size: 1.1vw;
+	font-family:verdana;
+	position: absolute; 
+	top: 17%; 
+	left: 72%; 
+	text-align: justify;
+	line-height: 25px;
+}
 .Quinto{/*contenedor de opciones para responder (preguntaXxxxx_00.php)*/
 	/* padding-top: 1%; */
 	padding-bottom: 3%;
@@ -1371,6 +1437,12 @@ td{
 	justify-content: space-between;
 }
 .Quinto_2 .efecto{/*pregunta.php*/
+	display: inline-block;
+	padding: 3% 0%;
+	width: 48%;
+}
+.Quinto_2 .efecto_2{/*pregunta.php*/
+	background-color: green;
 	display: inline-block;
 	padding: 3% 0%;
 	width: 48%;
@@ -1496,7 +1568,7 @@ td{
     width: 50px;
     text-align: center;
 }
-.tabla_1{/*participantes.php*/
+.tabla_1{/*participantes.php      ultima.php*/
     height: 20px;
     width: 20px;
     text-align: center;
@@ -1520,6 +1592,12 @@ td{
 	text-align: center;
 	font-size: 13px;
 	height: 20px;
+}
+.tabla_7{/*ultima.php*/
+    height: 20px;
+    width: 20px;
+	text-align: center;
+	cursor: pointer;
 }
 .tapa_2{/*principal.php*/
 	background-color: rgba(0,0,0,0.85) ;

@@ -29,9 +29,9 @@ $CapituloHoy = $_SESSION["Capitulo"];
 			<h2>Misión</h2>
 			<p class="Inicio_3">Cultivar la honestidad, el respeto y  la responsabilidad en las personas, para mejorar nuestro entorno social y nuestra convivencia en comunidad, valiéndonos de las herramientas que Dios nos ha dado a través de su santa palabra.</p>
 			<h2 id="ancla_5">Visión</h2>
-			<p class="Inicio_3">Reavivados busca convertirse en una red social con participantes de diferentes países, donde se comparta la pasión por el estudio de la palabra de Dios, e incentivar el crecimiento espiritual promoviendo los principios bíblicos.</p>
+			<p class="Inicio_3">Reavivados busca convertirse en una red social, donde se comparta la pasión por el estudio de la palabra de Dios, y floresca el crecimiento espiritual promoviendo los principios bíblicos.</p>
 			<h2 id="ancla_6">Valores</h2>
-			<p class="Inicio_3">Nuestro valores etán enmarcados en las santas escrituras y nos identificamos absolutamento con los siguientes versículos:</p>
+			<p class="Inicio_3">Nuestro valores están enmarcados en las santas escrituras y nos identificamos absolutamento con los siguientes versículos:</p>
 			<ul class="ul_2">
 				<li class="Inicio_19" onclick="verValor_Deuteronomio()">Deuteronomio 5:6-21</li>
 				<li class="Inicio_19" onclick="verValor_Colosenses()">Colosenses 3:23 </li>
@@ -39,6 +39,10 @@ $CapituloHoy = $_SESSION["Capitulo"];
 			</ul>
 		</div>
 	    <footer>
+                    <img class="imagen_3" alt="Logotipo horebi.com" src="../images/logo.png">
+                    <label class="Inicio_23">horebi.com</label>
+                    <!-- <span class="span_7">Reavivados</span>  -->
+                    <p class="p_8">El propósito de esta plataforma es incentivar la lectura bíblica y exaltar el sábado como día especial de dedicación a Jehová.</p>
 	        <?php include("modulos/footer.php");?>
 	    </footer> 
    	</body>

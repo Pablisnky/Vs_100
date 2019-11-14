@@ -455,7 +455,7 @@
 						echo "<h4>Mañana continuamos.</h4>";
 					}
 				?>
-				<audio id="FondoComercial_1" autoplay src="../audio/DarknessInMetropolis.mp3" loop></audio>
+				<!-- <audio id="FondoComercial_1" autoplay src="../audio/DarknessInMetropolis.mp3" loop></audio> -->
 		    	<p class="Inicio_3">Gracias por acompañarnos y ser parte de la comunidad de Reavivados</p>
 		    </div>
 	    	</div>

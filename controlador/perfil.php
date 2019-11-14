@@ -4,9 +4,6 @@
 	$participante=$_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
     // echo "ID_Participante:" .  $participante . "<br>";
 
-    $ParticipanteNombre=$_SESSION["Nombre_Participante"];//en esta sesion se tiene guardado el nombre del participante, sesion creada en validarSesion.php
-    // echo "Nombre Participante:" .  $ParticipanteNombre . "<br>";
-
     //Se accede al servidor de base de datos
     include("../conexion/Conexion_BD.php");
     //Administra los errores del sistema e impide mostrarlos en remoto
@@ -25,7 +22,7 @@
         
         <link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/> 
        	<link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
-        <!-- <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>     -->
+        <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>  
         <link rel="shortcut icon" type="image/png" href="../images/logo.png">
 
         <!-- <script type="text/javascript" src="../javascript/Ciudades.js"></script>  -->
@@ -40,10 +37,10 @@
         <!-- <script>document.getElementById("Codigo").addEventListener("click", llamar_EnviarCodigo, false);</script> -->
     </head>     
     <body>
-        <header>
-			<input class="input_1" type="text" readonly name="nombre" value="<?php echo $ParticipanteNombre;?>">
-            <?php include("../vista/modulos/header_usuario.html");?>
+        <header style="position: fixed;  width: 100%; ">
+            <?php include("../vista/modulos/header_usuario.php");?>
         </header>
+		<br><br>
         <div class="Secundario" onclick="ocultarMenu()"> 
             <section style="margin-top: 5%;"> 
                 <h2>Editar perfil</h2>                
@@ -62,6 +59,12 @@
                             //Muestra la seccion del formulario que contiene la fotografia de perfil del afiliado
                             include("FotoPerfil.php");
                         ?>
+                        <!-- INSIGNIAS GANADAS-->
+                        <a id="marcador_04" class="ancla_2"></a>
+                        <fieldset class="Afiliacion_4  Afiliacion_3"> 
+                            <legend>Insignias</legend>
+                            <P class="etiqueta_3">Aún no has ganado insignias, en <b>"instrucciones"</b> del menu principal están los detallles para obtenerlas.</P>
+                        </fieldset>
                         <!-- CAMBIAR CONTRASEÑA -->
                         <!-- <a id="marcador_04" class="ancla_2"></a>
                         <fieldset class="Afiliacion_4"> 
@@ -79,6 +82,7 @@
                         <a class="marcador" href="#marcador_01">Datos personales</a><br>
                         <a class="marcador" href="#marcador_02">Datos de congregación</a><br>
                         <a class="marcador" href="#marcador_03">Fotografia</a><br>
+                        <a class="marcador" href="#marcador_04">Insignias</a><br>
                         <!-- <a class="marcador" href="#marcador_04">Cambiar contraseña</a> -->
                     </div>  
                     <div id="Perfil_06" class="contenedor_9">

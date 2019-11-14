@@ -106,7 +106,7 @@ Highcharts.chart('container', {
           $Participante_4= $Resultado_3["ID_PP"];
           $Participante_5= $Resultado_3["Nombre"];
         }?>         
-        '<?php echo "Lider: " . $Participante_5;?>', 
+        '<?php echo "Líder: " . $Participante_5;?>', 
     data: [<?php
         //consulta para buscar los puntos ganados en cada pregunta por el participante lider
         // $Consulta_4="SELECT puntoGanado FROM respuestas WHERE ID_Participante= $Participante_3 AND ID_PP =$Participante_4 AND Correcto = 1";

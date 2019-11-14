@@ -39,8 +39,8 @@
             $Sub_Region= $_POST["municipio_BD"];
         }
     $Iglesia= $_POST["iglesia"];
-    if(!empty($_POST["otra_iglesia"])){
-        $OtraIglesia=$_POST["otra_iglesia"];
+    if(!empty($_POST["otraIglesia"])){
+        $OtraIglesia=$_POST["otraIglesia"];
     }
     else{
         $OtraIglesia="Seleccionó iglesia catalogo";

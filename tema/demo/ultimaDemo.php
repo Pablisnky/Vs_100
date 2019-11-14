@@ -1,5 +1,5 @@
 <?php
-session_start();    //se inicia sesion para llamar a una variable 
+session_start();   
 
 	$participanteDemo= $_SESSION["ID_PD"];//en esta sesion se guarda el id del participante, sesion creada en recibe_demo.php
 	// echo "ID_Participante: " . $participanteDemo . "<br>";
@@ -15,7 +15,7 @@ session_start();    //se inicia sesion para llamar a una variable
 		<title>Final <?php echo $Tema;?></title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
-		<meta name="description" content="Juego de preguntas sobre suramerica."/>
+		<meta name="description" content="Juego de preguntas sobre la biblia."/>
 		<meta name="keywords" content="suramerica, latinoamerica"/>
 		<meta name="author" content="Pablo Cabeza"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,9 +54,9 @@ session_start();    //se inicia sesion para llamar a una variable
 				mysqli_query($conexion,$Actualiza);
 	    	?>
 			<div class="Secundario">
-				<div class="encabezado">
-		    		<h1 class="anula">Reavivados</h1>
-		    	</div>
+            <header>
+                <?php include("../../vista/modulos/header_demo.html");?>
+            </header>
 		    <h4 class="ultima_1"><?php echo $ParticipanteDemo["usuario"];?></h4>
 			<h4 class="ultima_1">Has concluido tu prueba Demo</h4>
 			<div class="ultimaPregunta">

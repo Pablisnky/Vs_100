@@ -170,6 +170,45 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 					<div class="encabezado_2">
 						<div id="mostrarPuntos"></div><!-- recibe el puntaje y el nombre del participante por medio de llamar_puntaje() llamada al cargar el documento desde sumaPuntaje.php-->
 					</div>
+					<div style="background-color:red; position:absolute; top:90%; margin:auto">
+						<?php
+						if($Tema == "Reavivados"){
+							if($Puntaje<5){//No se muestra si se encuentra en la ultima pregunta de reavivados ?>
+								<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
+									<div id="Temporizador_2">
+										<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
+											<?php include("../controlador/Temporizador_2.php");?>
+									</div>
+								</div>
+								<div class="contenedor_7">
+									<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
+								</div>
+								<div class="contenedor_6" id="Flecha">
+									<!-- se actualiza la página -->
+									<a href='javascript:history.go(0)'><span class="icon-arrow-right parpadea"  title="Siguiente"></span></a>
+								</div>
+								<?php
+							}
+						}
+						else{
+							if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
+								<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
+									<div id="Temporizador_2">
+										<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
+											<?php include("../controlador/Temporizador_2.php");?>
+									</div>
+								</div>
+								<div class="contenedor_7">
+									<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
+								</div>
+								<div class="contenedor_6" id="Flecha">
+									<!-- se actualiza la página -->
+									<a  href='javascript:history.go(0)'><span class="icon-arrow-right parpadea" title="Siguiente"></span></a>
+								</div>
+								<?php
+							}
+						}  ?>
+					</div>
 					<div>
 						<?php
 							switch($Tema){
@@ -204,41 +243,6 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 							}	
 						?>
 					</div>
-					<?php
-					if($Tema == "Reavivados"){
-						if($Puntaje<5){//No se muestra si se encuentra en la ultima pregunta de reavivados ?>
-							<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
-								<div id="Temporizador_2">
-									<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
-										<?php include("../controlador/Temporizador_2.php");?>
-								</div>
-							</div>
-							<div class="contenedor_7">
-								<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
-							</div>
-							<div class="contenedor_6" id="Flecha">
-								<a href='javascript:history.go(0)'><span class="icon-arrow-right parpadea"  title="Siguiente"></span></a>
-							</div>
-							<?php
-						}
-					}
-					else{
-						if($Puntaje<10){ //No se muestra si se encuentra en la ultima pregunta  ?>
-							<div class="respuestaPreguntas" id="RespuestaPreguntas"><!--con el id recibe informacion desde ajax-->
-								<div id="Temporizador_2">
-									<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
-										<?php include("../controlador/Temporizador_2.php");?>
-								</div>
-							</div>
-							<div class="contenedor_7">
-								<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
-							</div>
-							<div class="contenedor_6" id="Flecha">
-								<a  href='javascript:history.go(0)'><span class="icon-arrow-right parpadea" title="Siguiente"></span></a>
-							</div>
-							<?php
-						}
-					}  ?>
 				</div>
 			</body>
 		</html>			

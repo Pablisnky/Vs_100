@@ -1,4 +1,3 @@
-<!--Formulario de registro de usuarios, aqui se cargan los datos de los nuevos participantes.-->
 <?php
 	session_start(); //se crea una sesion llamada verifica, esta sesión es exigida cuando se entra en la pagina que recibe los datos del formulario de registro, para evitar que un usuario recarge la pagina que recibe y cargue los datos nuevamente a la BD
 	$verificar_1 = 44;  

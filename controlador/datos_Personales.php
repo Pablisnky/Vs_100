@@ -13,12 +13,6 @@
         <label>Correo electronico:</label>
         <input class="etiqueta_32" type="text" name="correo" id="Correo" value="<?php echo $Usuario['Correo'];?>" style="text-transform: lowercase;"/> 
     </fieldset>
-
-
-
-
-
-
     <fieldset class="Afiliacion_4  Afiliacion_3"> 
         <legend>Datos de congregación</legend>
         <label class="etiqueta_34">Pais:</label>
@@ -60,15 +54,16 @@
                     <option></option>                            
                 </select>                                   
                 <label>Municipio:</label>
-                <select class="etiqueta_33" name="municipio" id="Municipio"> 
+                <select class="etiqueta_33" name="municipio" id="Municipio" onchange="SeleccionarIglesia_Ven(this.form)"> 
                     <option></option>
                 </select>                  
             </div>  
 			<div id="Region_1D" style="display: none;">
 				<label class="etiqueta_34">Iglesia de congregación:</label>
-				<select class="etiqueta_33" name="iglesia" id="Iglesia" onchange="Iglesia(this.form)">
+				<select class="etiqueta_33" name="iglesia" id="Iglesia" onchange="if(this.value=='Otro'){document.getElementById('Otra_Iglesia').style.display='block';}">
 					<option></option>                            
-				</select>             
+				</select>    
+				<input type="text" name="otraIglesia" id="Otra_Iglesia" style="display:none" placeholder="Indique nombre de grupo o iglesia">       
 			</div>   
         
         <!-- Muestra la region y sub region que existe en la base de datos-->
@@ -88,6 +83,13 @@
                 <input class="etiqueta_32" type="text" name="municipioCol_BD" readonly="readonly" value="<?php echo $Usuario['SubRegion']?>">   <?php       
             }   ?> 
             <label>Iglesia o grupo:</label>
-            <input class="etiqueta_32" type="text" name="otra_iglesia" id="Iglesia" value="<?php echo $Usuario['Iglesia'];?>"/>  
+            <?php
+                if($Usuario['Iglesia']=="Otro"){ ?>
+                    <input class="etiqueta_32" type="text" name="otra_iglesia" id="Iglesia" value="<?php echo $Usuario['Otra_Iglesia'];?>"/>     <?php
+                }
+                else{   ?>
+                    <input class="etiqueta_32" type="text" name="otra_iglesia" id="Iglesia" value="<?php echo $Usuario['Iglesia'];?>"/>     <?php
+                }  
+            ?>
         </div>                  
     </fieldset>

@@ -13,12 +13,12 @@ session_start();
 	$newFecha = date("d-m-Y", strtotime($FechaServidorPHP));
 	// echo $newFecha . "<br>";
 
-	if($FechaServidorPHP == "2019-10-30"){
-		$CapituloHoy = "2 Crónicas 16";
+	if($FechaServidorPHP == "2019-11-13"){
+		$CapituloHoy = "2 Crónicas 30";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
 	else{
-		$CapituloHoy = "2 Crónicas 15";
+		$CapituloHoy = "2 Crónicas 29";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
 ?>
@@ -61,10 +61,9 @@ session_start();
 
 			gtag('config', 'UA-117655324-5');
 		</script>
-
 	</head>	
 	<body> 
-		<!--Construcion de ventanan modal-->
+		<!-- Construcion de ventanan modal -->
         
 			<!-- <input type="checkbox" id="Cerrar"> 
         	<label for="Cerrar" id="btnCerrar">Cerrar</label> -->
@@ -143,12 +142,14 @@ session_start();
 				<h5>Lo que hacemos</h5>				
 				<p class="Inicio_1">Todos los días planteamos un test con 5 preguntas de un capítulo bíblico, en el que cada respuesta acertada es premiada con puntos, al finalizar la semana el día sábado, tenemos un maestro ganador que pasa a nuestro magno salón de los sabios. Para hoy estudiamos <b>"<?php echo $CapituloHoy;?>"</b>, registra una cuenta, toma el test, diviértete y pasa un momento ameno con los miembros de la comunidad.</p>
 				<a class="Inicio_3  buttonCuatro" href="vista/registro.php">Registrar cuenta</a>
-				<!-- <p class="Inicio_1">Con cada pregunta acertada se ganan puntos, pero cuidado, equivocarse traerá sus concecuencias, un fallo en tu respuesta te penalizará, dejandote un paso atras de la sabiduría.</p>	
-				<a class="Inicio_3  buttonCuatro" href="vista/instruccion.php">Mas detalles</a> -->
 			</div>
 		</div> 
 		
 	    <footer class="piePagina_3 piePagina_4">
+			<img class="imagen_3" alt="Logotipo horebi.com" src="images/logo.png">
+			<label class="Inicio_23">horebi.com</label>
+			<!-- <span class="span_7">Reavivados</span>  -->
+			<p class="p_8">El propósito de esta plataforma es incentivar la lectura bíblica y exaltar el sábado como día especial de dedicación a Jehová.</p>
 	        <?php include("vista/modulos/footer.php");?>
 	    </footer> 
 	</body>

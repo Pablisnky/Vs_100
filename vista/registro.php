@@ -46,12 +46,7 @@
 							<input type="text" name="apellido" id="Apellido" placeholder="Apellido" onchange="" autocomplete="off"><!--  return literal() se encuentra en validarFormulario.js -->
 							<input type="text" name="correo" id="Correo" placeholder="Correo electronico" onchange="validarFormatoCorreo(); setTimeout(llamar_verificaCorreo,200);" onclick="ColorearCorreo()"; autocomplete="off">
                         	<div class="contenedor_11" id="Mostrar_verificaCorreo"></div><!-- recibe respuesta de ajax llamar_verificaCorreo()-->
-						</fieldset>      
-						  
-
-
-
-						
+						</fieldset>      						
                         <fieldset class="Afiliacion_4">
                         	<legend>Datos de congregación</legend>
 							<!-- <label>Pais:</label> -->
@@ -99,18 +94,18 @@
 									</select>                  
 									
 									<label class="etiqueta_34">Municipio:</label>
-									<select class="etiqueta_33" name="municipio" id="Municipio"  onchange="SeleccionarIglesia(this.form)"> 
+									<select class="etiqueta_33" name="municipio" id="Municipio"  onchange="SeleccionarIglesia_Ven(this.form)"> 
 										<option></option>
 									</select>  
 							</div>   
 							<div id="Region_1D" style="display: none;">
 									<label class="etiqueta_34">Iglesia de congregación:</label>
-									<select class="etiqueta_33" name="iglesia" id="Iglesia" onchange="Iglesia(this.form)">
+									<select class="etiqueta_33" name="iglesia" id="Iglesia" onchange="if(this.value=='Otro'){document.getElementById('Otra_Iglesia').style.display='block';}">
 										<option></option>                            
-									</select>                 
+									</select>    
+									<input type="text" name="otraIglesia" id="Otra_Iglesia" style="display:none" placeholder="Indique nombre de grupo o iglesia">            
 							</div>   
 						</fieldset>        
-						<input type="text" name="otraIglesia" id="OtraIglesia" placeholder="Indique su iglesia sino esta en la lista" style="display:none">
 						<fieldset class="Afiliacion_4">
 							<legend>Datos de accceso a la plataforma</legend>  
 							<div>
@@ -125,6 +120,10 @@
 			</div>
 		</div>
     	<footer class="piePagina_5">
+            <img class="imagen_3" alt="Logotipo horebi.com" src="../images/logo.png">
+            <label class="Inicio_23">horebi.com</label>
+            <!-- <span class="span_7">Reavivados</span>  -->
+            <p class="p_8">El propósito de esta plataforma es incentivar la lectura bíblica y exaltar el sábado como día especial de dedicación a Jehová.</p>
         	<?php include("modulos/footer.php");?>
     	</footer>
 	</body>

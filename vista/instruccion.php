@@ -30,7 +30,7 @@ $CapituloHoy = $_SESSION["Capitulo"];
 			<h2 class="h2_2" id="ancla_1">Reglas generales</h2><!--onclick="mostrar('Lista_6')"-->
 		    <ul id="Lista_1"><!-- class="ocultar"-->
 				<li class="Inicio_3">El acceso a la plataforma es libre y gratuito</li>
-		        <li class="Inicio_3">Pueden participar personas de cualquier edad y ubicación geográfica dentro de Colombia, Ecuador y Venezuela. (El propósito es expandirse a otros países)</li>
+		        <li class="Inicio_3">Pueden participar personas de cualquier edad y ubicación geográfica</li>
 		        <li class="Inicio_3">Debe estar registrado en la plataforma, e iniciar sesión con su cuenta de usuario.</li>
 		        <li class="Inicio_3">Seleccione el reto diario de "Reavivados" o un libro de la Biblia para ingresar a su prueba.</li>
 		    </ul>
@@ -90,31 +90,30 @@ $CapituloHoy = $_SESSION["Capitulo"];
 			<p class="Inicio_6">Insignia de Maestro</p>
             <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Maestro.png">
 			<p class="Inicio_3">Otorgada al participante que alcance cinco puntos en todas las respuesta de un test diario y participe antes de las 7 am.</p>
-			<p class="Inicio_20">A partir del 1 de noviembre de 2019</p>
-			
+						
 			<p class="Inicio_6">Insignia de Especialista</p>
             <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Especialista.png">
 			<p class="Inicio_3">Otorgada al lograr un puntaje mayor a 49 en un libro bíblico.</p>
-			<p class="Inicio_20">A partir del 1 de noviembre de 2019</p>
-
+			
 			<p class="Inicio_6" >Insignia de Perseverancia</p>
             <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Perseverancia.png">
 			<p class="Inicio_3">Otorgada a los usuarios con participación contínua durante un trimestre</p>
-			<p class="Inicio_20">A partir del 1 de noviembre de 2019</p>
-
+			
 			<p class="Inicio_6" >Insignia de Liderazgo</p>
             <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Liderazgo.png">
 			<p class="Inicio_3">Otorgada al participante que solo ha faltado un día al mes en mantenerse en primer lugar.</p>
-			<p class="Inicio_20">A partir del 1 de noviembre de 2019</p>
-
+			
 			<p class="Inicio_6" >Insignia Mayor</p>
             <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Mayor.png">
 			<p class="Inicio_3">Otorgada al participante que entregue un pequeño proyecto viable sobre un tema o problema actual, que se implemente en nuestro entorno social y que solucione o demuestre que puede solucionar un problema.</p>
-			<p class="Inicio_20">A partir del 1 de noviembre de 2019</p>
-		</div>
+					</div>
 		<a href="#up" class="simplescrollup__button simplescrollup__button--hide"><span class="icon-airplane" style="transform: rotate(45deg); display: block;"></span></a>
 		<script src="../javascript/scrollUp.js"></script>
 	    <footer>
+                    <img class="imagen_3" alt="Logotipo horebi.com" src="../images/logo.png">
+                    <label class="Inicio_23">horebi.com</label>
+                    <!-- <span class="span_7">Reavivados</span>  -->
+                    <p class="p_8">El propósito de esta plataforma es incentivar la lectura bíblica y exaltar el sábado como día especial de dedicación a Jehová.</p>
 	        <?php include("modulos/footer.php");?>
 		</footer> 
    	</body>

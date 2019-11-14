@@ -166,8 +166,10 @@ $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado e
 					?>
 				</td>
 				<div>
+
 				<!-- Bono de liderazgo -->
 				<td class="tabla_0 td_1">Código en desarrollo</td>
+				
 				<!-- Bono de prioridad -->
 				<td class="tabla_0">
 					<?php

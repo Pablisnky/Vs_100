@@ -47,12 +47,12 @@ function validar_01(){
   //   // document.getElementById("Municipio_Col").focus();
   //   return false;
   // }
-  else if(iglesia.value =="" || iglesia.value.indexOf(" ") == 0 || (isNaN(iglesia.value)==false) || iglesia.value.length > 20){
-    alert ("Indique su iglesia o grupo");
-    document.getElementById("Iglesia").value = "";
-    // document.getElementById("iglesia").focus();
-    return false;
-  }
+  // else if(iglesia.value =="" || iglesia.value.indexOf(" ") == 0 || (isNaN(iglesia.value)==false) || iglesia.value.length > 20){
+  //   alert ("Indique su iglesia o grupo");
+  //   document.getElementById("Iglesia").value = "";
+  //   // document.getElementById("iglesia").focus();
+  //   return false;
+  // }
     else if(clave.value =="" || clave.value.indexOf(" ") == 0 || clave.value.length > 20){
       alert ("Introduzca una clave de acceso");
       document.getElementById("Clave").value = "";

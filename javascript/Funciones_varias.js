@@ -256,6 +256,8 @@ function Lideres_S(){
         document.getElementById("Contenedor_12_a").style.display="grid";
         document.getElementById("Contenedor_12_a1").style.display="grid";
         document.getElementById("Contenedor_18").style.display="block";
+        document.getElementById("Contenedor_24").style.display="block";
+        document.getElementById("Contenedor_25").style.display="none";
     }
 }
 // -------------------------------------------------------------------------------------------
@@ -270,6 +272,38 @@ function Salon(){
         document.getElementById("Contenedor_12_a").style.display="none";
         document.getElementById("Contenedor_12_a1").style.display="none";
         document.getElementById("Contenedor_18").style.display="none";
+        document.getElementById("Contenedor_24").style.display="none";
+        document.getElementById("Contenedor_25").style.display="none";
+    }
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//llamada desde participacionHoy.php
+function Insignias(){
+    if(document.getElementById("Salon").checked == true){
+        document.getElementById("Contenedor_12").style.display="none";
+        document.getElementById("Contenedor_12_b").style.display="none";
+        document.getElementById("Contenedor_12_c").style.display="block";
+        document.getElementById("Contenedor_12_a").style.display="none";
+        document.getElementById("Contenedor_12_a1").style.display="none";
+        document.getElementById("Contenedor_18").style.display="none";
+        document.getElementById("Contenedor_24").style.display="none";
+        document.getElementById("Contenedor_25").style.display="block";
+    }
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//llamada desde participacionHoy.php
+function Lideres_Sem(){
+    if(document.getElementById("Semanal_2").checked == true){
+        document.getElementById("Contenedor_12").style.display="none";
+        document.getElementById("Contenedor_12_b").style.display="none";
+        document.getElementById("Contenedor_12_c").style.display="block";
+        document.getElementById("Contenedor_12_a").style.display="none";
+        document.getElementById("Contenedor_12_a1").style.display="none";
+        document.getElementById("Contenedor_18").style.display="none";
+        document.getElementById("Contenedor_24").style.display="block";
+        document.getElementById("Contenedor_25").style.display="none";
     }
 }
 // -------------------------------------------------------------------------------------------
@@ -329,3 +363,5 @@ function verValor_Juan(){
     function ocultaRegion(){
         document.getElementById("Regiones").style.display = 'none';
     }
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------

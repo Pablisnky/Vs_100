@@ -10,15 +10,12 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 		$participante=$_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
         // echo "ID_Participante:" .  $participante . "<br>";
 
-        $ParticipanteNombre=$_SESSION["Nombre_Participante"];//en esta sesion se tiene guardado el nombre del participante, sesion creada en validarSesion.php
-         // echo "Nombre Participante:" .  $ParticipanteNombre . "<br>";
-
-	    //se consulta en cuantas  pruebas el participante se ha inscrito y se obtiene (fecha,puntos y tema)
+	    //se consulta en cuantas pruebas el participante se ha inscrito y se obtiene (fecha,puntos y tema)
 	    $Consulta= "SELECT COUNT(*) AS Participacion FROM participantes_pruebas WHERE ID_Participante = '$participante' AND Prueba_Cerrada = 1";
 	    $Recordset=mysqli_query($conexion,$Consulta); 
 	    $participantes= mysqli_fetch_array($Recordset);
 	    $Participaciones= $participantes["Participacion"];
-?>
+		?>
 		<!DOCTYPE html>
 		<html lang="es">
 			<head>
@@ -40,8 +37,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 			</head>	
 			<body>
 				<header style="position: fixed;  width: 100%; ">
-			   		<input class="input_1" type="text" name="nombre" value="<?php echo $ParticipanteNombre;?>">
-					<?php include("../vista/modulos/header_usuario.html");?>   		
+					<?php include("../vista/modulos/header_usuario.php");?>   		
 				</header>
 					<br><br><br><br><br><br>
 				<div class="Secundario" onclick="ocultarMenu()">
@@ -59,7 +55,6 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 			                        <tr>
 			                            <th></th>
 			                            <th>FECHA</th>
-			                            <th>CÓDIGO</th>
 			                            <th>TEST</th>
 			                            <th>PUNTOS</th>
 			                            <th>DETALLES</th>
@@ -69,28 +64,32 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				                    <?php
 				                        $i = 1;
 				                        //se consulta las pruebas en las que el participante se ha inscrito 
-									    $Consulta= "SELECT participantes_pruebas.Puntos, participantes_pruebas.Fecha_pago, participantes_pruebas.Tema, participantes_pruebas.ID_PP FROM participantes_pruebas  WHERE participantes_pruebas.ID_Participante = '$participante' AND Prueba_Cerrada = 1 ORDER BY Fecha_pago DESC";
+									    $Consulta= "SELECT participantes_pruebas.Puntos, participantes_pruebas.Fecha_pago, participantes_pruebas.Tema, reavi_capitulo.capitulo FROM participantes_pruebas INNER JOIN reavi_capitulo ON participantes_pruebas.DATE_FORMAT(Fecha_pago, '%Y/%m/%d')=reavi_capitulo.fecha WHERE participantes_pruebas.ID_Participante = '$participante' AND Prueba_Cerrada = 1 ORDER BY Fecha_pago DESC";
 									    $Recordset=mysqli_query($conexion, $Consulta); 					            		
 				                        while($Pruebas= mysqli_fetch_array($Recordset)){  
 											
 					                        //Se cambia el formato de los puntos, la Pruebase decimal es recibida con punto desde la BD y se cambia a coma
 					                    	$Decimal = str_replace('.', ',', $Pruebas["Puntos"]); ?>
-					                        <tr>
+					                        <tr class="tabla_10">
 												<td class="tabla_2"><?php echo $i;?></td>
 												
-												<td class="tabla_0"><?php echo date("d-m-Y", strtotime($Pruebas["Fecha_pago"])); ?></td>
+												<td class="tabla_7"><?php echo date("d-m-Y", strtotime($Pruebas["Fecha_pago"])); ?></td>
+												<?php
+													if($Pruebas["Tema"]=="Reavivados"){	?>
+														<td class="tabla_8"><?php echo $Pruebas["capitulo"];?></td> 	<?php
+													}
+													else{	?>
+														<td class="tabla_8"><?php echo $Pruebas["Tema"];?></td>
 
-												<td><?php echo $Pruebas["ID_PP"];?></td>
-
-												<td class="tabla_1"><?php echo $Pruebas["Tema"];?></td> 
-												
-					                            <td class="tabla_1">
+														<?php
+													}    ?>												
+					                            <td class="tabla_9">
 													<?php echo $Decimal;?> </td> 
 
-												<td><a href="../vista/detalleTest.php?ID_Participante=<?php echo $participante?>&Tema=<?php echo $Pruebas['Tema'];?>&Capitulo=<?php echo $Pruebas['Capitulo'];?>&ID_Prueba=<?php echo $Pruebas['ID_Prueba'];?>&codigoPrueba=<?php echo $Pruebas['ID_PP']?>">O</a>
+												<td class="tabla_2"><a href="../vista/detalleTest.php?ID_Participante=<?php echo $participante?>&Tema=<?php echo $Pruebas['Tema'];?>&Capitulo=<?php echo $Pruebas['Capitulo'];?>&ID_Prueba=<?php echo $Pruebas['ID_Prueba'];?>&codigoPrueba=<?php echo $Pruebas['ID_PP']?>">O</a>
 												</td> <?php
 					                         $i++;
-					                        }   
+					                    }   
 			                        	  ?>      			                        	
 			                        </tr>
 			                    </tbody>

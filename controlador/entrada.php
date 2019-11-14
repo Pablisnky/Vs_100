@@ -14,10 +14,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 		include("../conexion/Conexion_BD.php");
 
 		$participante=$_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
-        // echo "ID_Participante:" .  $participante . "<br>";
-
-        $ParticipanteNombre=$_SESSION["Nombre_Participante"];//en esta sesion se tiene guardado el nombre del participante, sesion creada en validarSesion.php
-		 // echo "Nombre Participante:" .  $ParticipanteNombre . "<br>";
+        // echo "ID_Participante:" .  $participante . "<br>";     
 		 
 		//Se llama a la sesioon Capitulo, creada en Index.php
     	$CapituloHoy = $_SESSION["Capitulo"]; 
@@ -42,9 +39,8 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
 			</head>	
 			<body onload="toTop()">
-				<header style="position: fixed;  width: 100%; margin-top:; ">
-					<input class="input_1" type="text" readonly name="nombre" value="<?php echo $ParticipanteNombre;?>">
-					<?php include("../vista/modulos/header_usuario.html");?>   		   		
+				<header style="position: fixed;  width: 100%;">
+					<?php include("../vista/modulos/header_usuario.php");?>   		   		
 				</header>
 				<br><br><br><br><br><br>
 				<div class="Secundario" onclick="ocultarMenu()">	

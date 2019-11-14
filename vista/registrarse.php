@@ -56,6 +56,7 @@
 		// echo "Region: " .  $Region . "<br>";
 		// echo "SubRegion: " .  $SubRegion . "<br>";
 		// echo "Iglesia: " .  $Iglesia . "<br>";
+		// echo "Otra iglesia:" . $OtraIglesia . "<br>";
 		// echo "Clave: " .  $Clave . "<br>";
 		// echo "Confirmar clave: " .  $ConfirmarClave . "<br>"; 
 		
@@ -111,7 +112,7 @@
 				<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
 				<link rel="shortcut icon" type="image/png" href="../images/logo.png">
 
-				<script type="text/javascript" src="javascript/Funciones_varias.js" ></script>
+				<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
 			</head>
 			<body style="height: 140%">
 				<div class="Secundario"> 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>horebi Participantes</title>
+        <title>Participantes</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="description" content="Juego de preguntas sobre suramerica."/>
         <meta name="keywords" content="conocimiento, preguntas, juego"/>

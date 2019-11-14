@@ -2,8 +2,8 @@
 // session_start();    //se inicia sesion para llamar a una variable x
 
 	$verifica = $_SESSION["verifica_pregunta"];
-	if($verifica == 2010){// Anteriormente en pregunta.php se generó la variable $_SESSION["verifica_pregunta"] con un valor de 1906; aqui se constata que se halla pasado por la pagina de registro de usuario Registro.php, si no es asi no se puede entrar en esta página.
-	 	unset($_SESSION['verifica_pregunta']);//se borra la $_SESSION verifica_pregunta.
+	// if($verifica == 2010){// Anteriormente en pregunta.php se generó la variable $_SESSION["verifica_pregunta"] con un valor de 1906; aqui se constata que se halla pasado por la pagina de registro de usuario Registro.php, si no es asi no se puede entrar en esta página.
+	 	// unset($_SESSION['verifica_pregunta']);//se borra la $_SESSION verifica_pregunta.
 	
 		//se verifica la sesion para evitar que refresquen la pagina que procesa el formulario o entren directamente a la pagina que procesa el formulario y asi nos envien multiples veces el formulario; 
 
@@ -72,20 +72,27 @@
 									<th>Pregunta</th>
 									<th>Puntos</th>
 									<th>Tiempo</th>
+									<th>Ver pregunta</th>
 								</tr>
 							</thead>
 							<?php
 							//Se consulta el tiempo que tardo en responder una pregunta  
 							$Consulta_2="SELECT ID_Pregunta, puntoGanado, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo FROM respuestas WHERE ID_PP='$CodigoPrueba' AND Correcto = 1 AND puntoGanado > 0 GROUP BY ID_Pregunta ";
 							$Recordset_2 = mysqli_query($conexion, $Consulta_2);					
-							while($TiempoPregunta= mysqli_fetch_array($Recordset_2)){  ?>
+							while($TiempoPregunta= mysqli_fetch_array($Recordset_2)){ 
+								$Pregunta_Alea= $TiempoPregunta['ID_Pregunta']; 
+								// echo $Pregunta_Alea;
+								?>
 								<tbody>
 									<tr>
 										<td class="tabla_0"><?php echo $TiempoPregunta["ID_Pregunta"];?></td>
 										<td class="tabla_1"><?php echo $TiempoPregunta["puntoGanado"];?></td> 
-										<td class="tabla_0"><?php echo $TiempoPregunta["tiempo"];?></td> 
-										<!-- <td class="tabla_1"><?php// echo date("d-m-Y", strtotime($participantes["fecha_Registro"])); ?></td><!se cambia el formato de la fecha de registro--> 
-										<!--<td><?php// echo date("d-m-Y", strtotime($participantes[0])); ?></td>se cambia el formato de la fecha de ultima participacion-->           
+										<td class="tabla_0"><?php echo $TiempoPregunta["tiempo"];?></td>
+										<script>
+											//Se cambia la varible php a javascript
+											var jsvar= '<?php echo $Pregunta_Alea; ?>'; 
+										</script>
+										<td class="tabla_7"><a href="../controlador/MostrarPregunta.php?pregunta=<?php echo $Pregunta_Alea;?>" target="_blank">O</a></td>         
 									</tr>
 									<?php  
 							}   ?> 
@@ -213,7 +220,6 @@
 
 
 								<p class="Inicio_5">Bono de constancia:</p>
-										<p>Opción de bono curso</p> 
 								<?php
 							// $Semana= date("W");
 							// echo "Numero de Semana:" . $Semana . "<br>";
@@ -222,7 +228,10 @@
 								// Las semanas en PHP comienzann los dias lunes, por eso se le suma una unidad para que haga el cambio el dia domingo y muestre la semana por adelantado al servidor PHP
 								if($DiaSemana== 0){
 									$Semana = $Semana + 1; 
-									//  echo "Semana modificada :" .  $Semana;
+									  echo "Semana modificada :" .  $Semana;
+								}
+								else{
+									echo "Semana :" .  $Semana . "<br>";
 								}
 								
 								//se consulta si ha participado todos los dias en el test
@@ -233,14 +242,16 @@
 									$Rellenado[]= $Resultado["Dia_semana"];
 								}
 								// $Rellenado= array_pad($Dias,7,"a");
+								echo "el array contiene los numeros:";
 								//   var_dump($Rellenado) . "<br>";
 								
-								//Se recorre el array para ver que dias tiene, estos son los dias que el participante hizo el test
-								$long= count($Rellenado);
-								for($i=0; $i < $long; $i++){
-									$Rellenado[$i];
-									//   echo "El array contiene los numeros: " .  $Rellenado[$i] . "<br>";
-								}
+								// --------
+								// $long= count($Rellenado);
+								// for($i=0; $i < $long; $i++){
+								// 	$Rellenado[$i];
+								// 	//   echo "El array contiene los numeros: " .  $Rellenado[$i] . "<br>";
+								// }
+// ---------
 								// echo "Dia de la semana: " . $DiaSemana;
 								if($DiaSemana == 0){ 
 									if(in_array(1, $Rellenado)){ ?>
@@ -250,6 +261,14 @@
 										echo "<p>Opción de bono perdida</p>";
 									}
 								}
+
+								//Se recorre el array hasta el lunes
+								for($i=0; $i < 1; $i++){
+									$Rellenado[$i];
+									// echo "El array contiene los numeros: " .  $Rellenado[$i] . "<br>";
+									
+								}
+								
 								if($DiaSemana == 1){ 
 									if(in_array(1, $Rellenado)){ ?>
 										<p>Opción de bono curso</p>   <?php
@@ -279,6 +298,11 @@
 								$TotalDecimal = str_replace('.', ',', $Total_Puntos);?>
 								<p class="Inicio_5">Total puntos acumulados hoy:</p>    <?php
 								echo $TotalDecimal;
+
+								
+								//Se actualizan los puntos obtenidos tomando en cuenta los bonos
+								$Actualizar_8="UPDATE participantes_pruebas SET Puntos= '$Total_Puntos' WHERE ID_Participante='$participante' AND Tema='$Tema' AND ID_PP = '$CodigoPrueba'";
+								mysqli_query($conexion, $Actualizar_8);
 							}
 						
 							//Se busca en que posicion quedo el participante
@@ -338,7 +362,15 @@
 											<tr>
 												<td class="tabla_0"><?php echo $Participante_11;?></td>
 												<td class="tabla_0"><?php echo $Resultado_11["Apellido"];?></td>
-												<td class="tabla_0"><?php echo $Resultado_11["Iglesia"];?></td>
+												<td class="tabla_0"><?php							
+													//Si el nombre de la iglesia es "Otro" se cambia la información a mostrar
+													if($Resultado_11["Iglesia"]== "Otro"){
+														echo $Resultado_11["Otra_Iglesia"];
+													}
+													else{
+														echo $Resultado_11["Iglesia"];
+													}	?>
+												</td>
 												<td class="tabla_0"><?php echo $Resultado_11["SubRegion"];?></td>
 											</tr>
 											<tr>
@@ -376,7 +408,6 @@
 										$Resultado_31= mysqli_fetch_array($Recordset_31);
 										$Participante_31= $Resultado_31["Nombre"];
 										$Participante_32= $Resultado_31["Apellido"];
-										$Participante_33= $Resultado_31["Iglesia"];
 										$Participante_34= $Resultado_31["SubRegion"];
 										// echo "Nombre lider: " . $Participante_31 . "<br>";
 										// echo "Apellido lider: " . $Participante_32 . "<br>";
@@ -411,7 +442,15 @@
 													<tr>
 														<td class="tabla_0"><?php echo $Participante_31;?></td>
 														<td class="tabla_0"><?php echo $Participante_32;?></td>
-														<td class="tabla_0"><?php echo $Participante_33;?></td>
+														<td class="tabla_0"><?php				
+															//Si el nombre de la iglesia es "Otro" se cambia la información a mostrar
+															if($Resultado_31["Iglesia"]== "Otro"){
+																echo $Resultado_31["Otra_Iglesia"];
+															}
+															else{
+																echo $Resultado_31["Iglesia"];
+															}	?>
+														</td>
 														<td class="tabla_0"><?php echo $Participante_34;?></td>
 													</tr> <?php
 													//Se consulta el puntaje del dia del lider
@@ -445,7 +484,6 @@
 													$Participante_30= $Resultado_31["ID_Participante"];
 													$Participante_31= $Resultado_31["Nombre"];
 													$Participante_32= $Resultado_31["Apellido"];
-													$Participante_33= $Resultado_31["Iglesia"];
 													$Participante_34= $Resultado_31["SubRegion"];
 													// echo "ID lider: " . $Participante_30 . "<br>";
 													// echo "Nombre lider: " . $Participante_31 . "<br>";
@@ -456,7 +494,15 @@
 													<tr>
 														<td class="tabla_0"><?php echo $Participante_31;?></td>
 														<td class="tabla_0"><?php echo $Participante_32;?></td>
-														<td class="tabla_0"><?php echo $Participante_33;?></td>
+														<td class="tabla_0"><?php				
+															//Si el nombre de la iglesia es "Otro" se cambia la información a mostrar
+															if($Resultado_31["Iglesia"]== "Otro"){
+																echo $Resultado_31["Otra_Iglesia"];
+															}
+															else{
+																echo $Resultado_31["Iglesia"];
+															}	?>
+														</td>
 														<td class="tabla_0"><?php echo $Participante_34;?></td>
 													</tr> <?php
 													//Se consulta el puntaje de la semana del lider
@@ -495,14 +541,18 @@
 					</div>
 				</div>
 				<footer>
+					<img class="imagen_3" alt="Logotipo horebi.com" src="../images/logo.png">
+					<label class="Inicio_23">horebi.com</label>
+					<!-- <span class="span_7">Reavivados</span>  -->
+					<p class="p_8">El propósito de esta plataforma es incentivar la lectura bíblica y exaltar el sábado como día especial de dedicación a Jehová.</p>
 					<?php include("modulos/footer.php");?>
 				</footer>
 			</body>
 		</html>	
 		<?php 
-	}   
-	else{ // Si no viene del formulario de registro Registro.php o trata de recargar página lo enviamos al formulario de registro  
-	  	echo "<META HTTP-EQUIV='Refresh' CONTENT='0; url=principal.php'>";  
-	} 
+	// }   
+	// else{ // Si no viene del formulario de registro Registro.php o trata de recargar página lo enviamos al formulario de registro  
+	//   	echo "<META HTTP-EQUIV='Refresh' CONTENT='0; url=principal.php'>";  
+	// } 
 
 	?>
