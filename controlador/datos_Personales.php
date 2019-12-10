@@ -24,8 +24,8 @@
 			<option>Otro</option>
         </select>    
 		<input type="text" name="otroPais" id="OtroPais" placeholder="Indique su pais sino esta en la lista" style="display:none">   
-        
-			<div id="Region_1A" style="display: none;"><!--Aplica solo a Ecuador-->
+            <!--Aplica solo a Ecuador-->
+			<div id="Region_1A" style="display: none;">
 			    <!-- <label>Provincia:</label> -->
 			    <label class="etiqueta_34">Provincia:</label>
 				<select class="etiqueta_33" name="provincia" id="Provincia" onchange="SeleccionarCanton(this.form)">
@@ -37,8 +37,9 @@
 					<option></option>
 				</select>                  
 				<br>
-			</div> 
-            <div id="Region_1B" style="display: none;"><!--Aplica solo a ColombiaSeleccionarMunicipio_Colombia(this.form)-->
+            </div> 
+            <!--Aplica solo a Colombia-->
+            <div id="Region_1B" style="display: none;">
 			    <label class="etiqueta_34">Departamento:</label>
 				<select class="etiqueta_33" name="departamento" id="Departamento" onchange="SeleccionarMunicipio_Colombia(this.form)">
 					<option></option>                            
@@ -48,7 +49,8 @@
 					<option></option>
 				</select>    
             </div> 
-            <div id="Region_1C" style="display: none;"><!--Aplica solo a Venezuela-->
+            <!--Aplica solo a Venezuela-->
+            <div id="Region_1C" style="display: none;">
                 <label>Estado:</label>
                 <select  class="etiqueta_33" name="estado" id="Estado" onclick="SeleccionarMunicipio(this.form)">
                     <option></option>                            
@@ -58,6 +60,7 @@
                     <option></option>
                 </select>                  
             </div>  
+
 			<div id="Region_1D" style="display: none;">
 				<label class="etiqueta_34">Iglesia de congregación:</label>
 				<select class="etiqueta_33" name="iglesia" id="Iglesia" onchange="if(this.value=='Otro'){document.getElementById('Otra_Iglesia').style.display='block';}">
@@ -88,7 +91,7 @@
                     <input class="etiqueta_32" type="text" name="otra_iglesia" id="Iglesia" value="<?php echo $Usuario['Otra_Iglesia'];?>"/>     <?php
                 }
                 else{   ?>
-                    <input class="etiqueta_32" type="text" name="otra_iglesia" id="Iglesia" value="<?php echo $Usuario['Iglesia'];?>"/>     <?php
+                    <input class="etiqueta_32" type="text" name="iglesia" id="Iglesia" value="<?php echo $Usuario['Iglesia'];?>"/>     <?php
                 }  
             ?>
         </div>                  

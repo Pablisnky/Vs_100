@@ -5,11 +5,23 @@ session_start();
 	$Tema = $_GET["val_2"];//se recibe el nombre del Tema desde pregunta.php
 	$Pregunta = $_GET["val_3"];//se recibe el numero de la pregunta desde pregunta.php
 	$CodigoPrueba =  $_GET["val_4"];//se recibe el ID de la prueba desde pregunta.php
+	$Puntaje= $_SESSION["Puntos"];//creada en posicionReavivadosPalabra.php
 	// echo "ID_Participante= " . $Participante . "<br>";
 	// echo "Tema= " . $Tema . "<br>";
-	// echo "Pregunta= " . $Pregunta . "<br>";
-	// echo "Codigo prueba= " . $CodigoPrueba . "<br>";
+	//  echo "Pregunta= " . $Pregunta . "<br>";
+	//  echo "Codigo prueba= " . $CodigoPrueba . "<br>";
 
+	$Aleatorio_1= $_SESSION["Preguna_1"];//Sesion creada en posicionReavivadosPalabra.php
+	$Aleatorio_2= $_SESSION["Preguna_2"];//Sesion creada en posicionReavivadosPalabra.php
+	$Aleatorio_3= $_SESSION["Preguna_3"];//Sesion creada en posicionReavivadosPalabra.php
+	$Aleatorio_4= $_SESSION["Preguna_4"];//Sesion creada en posicionReavivadosPalabra.php
+	$Aleatorio_5= $_SESSION["Preguna_5"];//Sesion creada en posicionReavivadosPalabra.php
+
+	// echo "El indice cero del array es= " . $_SESSION["Preguna_1"] . "<br>";
+	// echo "El indice uno del array es= " . $_SESSION["Preguna_2"] . "<br>";
+	// echo "El indice dos del array es= " . $_SESSION["Preguna_3"] . "<br>";
+	// echo "El indice tres del array es= " . $_SESSION["Preguna_4"] . "<br>";
+	// echo "El indice cuatro del arra es= " . $_SESSION["Preguna_5"] . "<br>";
 	include("../conexion/Conexion_BD.php");
 
 	//consulta para verificar si existe una respuesta correcta en la pregunta
@@ -94,4 +106,26 @@ session_start();
 		mysqli_query($conexion, $insertar);
 	}	
 	
+	//Se inserta la pregunta que le toco de las 12 formuladas, solo si anterioremnete se habia equivocado.
+		
+		if($Puntaje==0){
+			$Puntuar= "UPDATE respuestas SET Num_Pregunta_Alea= $Aleatorio_1 WHERE ID_Participante='$Participante' AND ID_PP = '$CodigoPrueba' AND ID_Pregunta= '$Pregunta'";
+			mysqli_query($conexion, $Puntuar);
+		}
+		else if ($Puntaje==1){
+			$Puntuar_1= "UPDATE respuestas SET Num_Pregunta_Alea= $Aleatorio_2 WHERE ID_Participante='$Participante' AND ID_PP = '$CodigoPrueba' AND ID_Pregunta= '$Pregunta'";
+			mysqli_query($conexion, $Puntuar_1);
+		}
+		else if ($Puntaje==2){
+			$Puntuar_2= "UPDATE respuestas SET Num_Pregunta_Alea= $Aleatorio_3 WHERE ID_Participante='$Participante' AND ID_PP = '$CodigoPrueba' AND ID_Pregunta= '$Pregunta'";
+			mysqli_query($conexion, $Puntuar_2);
+		}
+			else if ($Puntaje==3){
+			$Puntuar_3= "UPDATE respuestas SET Num_Pregunta_Alea= $Aleatorio_4 WHERE ID_Participante='$Participante' AND ID_PP = '$CodigoPrueba' AND ID_Pregunta= '$Pregunta'";
+			mysqli_query($conexion, $Puntuar_3);
+		}
+		else if ($Puntaje==4){
+			$Puntuar_4= "UPDATE respuestas SET Num_Pregunta_Alea= $Aleatorio_5 WHERE ID_Participante='$Participante' AND ID_PP = '$CodigoPrueba' AND ID_Pregunta= '$Pregunta'";
+			mysqli_query($conexion, $Puntuar_4);
+		}
 ?>

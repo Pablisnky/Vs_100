@@ -1,8 +1,6 @@
 <?php
 // session_start();//se inicia sesion para llamar a las variables $_SESSION creadas en otros archivos, o para crearlas si es necesario
 
-	// include("../../conexion/Conexion_BD.php");
-
 	$Tema= $_SESSION["Tema"] ;//se crea una nueva sesion, en esta sesion se guardará el tema de la prueba
 	$participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en 
     $Pregunta= $_SESSION["Pregunta"];//sesion creada en cada pregunta.

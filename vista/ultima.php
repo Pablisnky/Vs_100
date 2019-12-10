@@ -1,14 +1,16 @@
 <?php
 // session_start();    //se inicia sesion para llamar a una variable x
 
-	$verifica = $_SESSION["verifica_pregunta"];
+include_once("../clases/nombreApellido.php");
+
+	// $verifica = $_SESSION["verifica_pregunta"];
 	// if($verifica == 2010){// Anteriormente en pregunta.php se generó la variable $_SESSION["verifica_pregunta"] con un valor de 1906; aqui se constata que se halla pasado por la pagina de registro de usuario Registro.php, si no es asi no se puede entrar en esta página.
-	 	// unset($_SESSION['verifica_pregunta']);//se borra la $_SESSION verifica_pregunta.
+	//  	unset($_SESSION['verifica_pregunta']);//se borra la $_SESSION verifica_pregunta.
 	
 		//se verifica la sesion para evitar que refresquen la pagina que procesa el formulario o entren directamente a la pagina que procesa el formulario y asi nos envien multiples veces el formulario; 
 
-		$participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
-		// echo "ID_Participante= " . $participante . "<br>";
+		$ID_Participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
+		// echo "ID_Participante= " . $ID_Participante . "<br>";
 
 		$Tema= $_SESSION["Tema"];//en esta sesion se tiene guardado el tema de la prueba, sesion creada en seleccionTema.php
 		//  echo "El tema de la prueba es: " . $Tema . "<br>";
@@ -17,11 +19,12 @@
 		// echo "Codigo prueba= " . $CodigoPrueba . "<br>";
 
 		$ID_Prueba= $_SESSION["ID_Prueba"];
-		//  echo "ID_Prueba= " . $ID_Prueba . "<br>";
+		// echo "ID_Prueba= " . $ID_Prueba . "<br>";
 			
 		//sesion creada en entrada.php
 		// $CapituloHoy = $_SESSION["Capitulo"];
 		// echo "Capitulo= " . $CapituloHoy . "<br>";
+
 		?>
 		<!DOCTYPE html>
 		<html lang="es">
@@ -45,16 +48,16 @@
 			</head>	
 			<body>
 				<?php
+//*******************************************************************************************
 					//Se cierra la prueba
-					$Actualizar="UPDATE participantes_pruebas SET Prueba_Cerrada= 1, Prueba_Activa= 0 WHERE ID_Participante='$participante' AND Tema='$Tema' AND ID_PP = '$CodigoPrueba'";
+					$Actualizar="UPDATE participantes_pruebas SET Prueba_Cerrada= 1, Prueba_Activa= 0 WHERE ID_Participante='$ID_Participante' AND Tema='$Tema' AND ID_PP = '$CodigoPrueba'";
 					mysqli_query($conexion, $Actualizar);
 
-					//se realiza una consulta para obtener el nombre del participante
-					$Consulta="SELECT * FROM participante WHERE ID_Participante='$participante'";
-					$Recordset = mysqli_query($conexion,$Consulta);
-					$Participante= mysqli_fetch_array($Recordset);
+//*******************************************************************************************
+					//Se pide el primer nombre del participante
+					$P_Nombre= new NombreApellido();										
 				?>
-					<h4 class="ultima_1"><?php echo $Participante["Nombre"];?></h4>
+					<h4 class="ultima_1"><?php $P_Nombre->PrimerNombre($NombreCompleto);?></h4>
 					<?php 				
 						if($Tema == "Reavivados"){ ?>
 							<h4 class="ultima_1">Has concluido tu test diario<h4> <?php
@@ -62,8 +65,25 @@
 						else{  ?>           				
 							<h4 class="ultima_1">Has concluido tu prueba sobre:</h4>
 							<h4 class="ultima_1"><?php echo $Tema;?></h4>  <?php
-						}  
-					?>
+						}
+
+						
+//*******************************************************************************************
+					//Se consulta si gano la insignia maestro
+					$Consulta_50="SELECT Puntos FROM participantes_pruebas WHERE ID_Participante='$ID_Participante' AND ID_PP = '$CodigoPrueba'";
+					$Recordset_50 = mysqli_query($conexion,$Consulta_50);
+					$PuntosInsignia= mysqli_fetch_array($Recordset_50);
+					if($PuntosInsignia["Puntos"] == 25.000 ||  $PuntosInsignia["Puntos"] == 26.000){	?>         
+						<div class="contenedor_34">
+							<p class="Inicio_32">Lograste la</p>
+							<p class="Inicio_32 Inicio_32a">Insignia Maestro</p>
+                            <img class="imagen_13" alt="Insignia" src="../images/In_Maestro.png" onclick="mostrarInsignia()">
+							<p class="Inicio_33">Cinco respuestas perfectamente respondidas, alcanzaste el máximo de puntos en cada una</p>
+						</div>    <?php   
+					}	?>
+
+<!-- ******************************************************************************************* -->
+
 					<div class="tabla_3">
 						<table>
 							<caption class="caption_lider">Respuestas correctas</caption>
@@ -76,13 +96,14 @@
 								</tr>
 							</thead>
 							<?php
-							//Se consulta el tiempo que tardo en responder una pregunta  
-							$Consulta_2="SELECT ID_Pregunta, puntoGanado, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo FROM respuestas WHERE ID_PP='$CodigoPrueba' AND Correcto = 1 AND puntoGanado > 0 GROUP BY ID_Pregunta ";
-							$Recordset_2 = mysqli_query($conexion, $Consulta_2);					
-							while($TiempoPregunta= mysqli_fetch_array($Recordset_2)){ 
-								$Pregunta_Alea= $TiempoPregunta['ID_Pregunta']; 
-								// echo $Pregunta_Alea;
-								?>
+							//Se consulta el tiempo que tardo en responder una pregunta 
+							$Consulta_2a="SELECT ID_Pregunta, puntoGanado, Num_Pregunta_Alea, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo FROM respuestas WHERE ID_PP='$CodigoPrueba' AND Correcto = 1 AND puntoGanado > 0.000 GROUP BY ID_Pregunta";
+							$Recordset_2a = mysqli_query($conexion, $Consulta_2a);			
+							while($TiempoPregunta= mysqli_fetch_array($Recordset_2a)){ 
+								$Pregunta_Alea= $TiempoPregunta['Num_Pregunta_Alea']; 
+								$N_Pregunta= $TiempoPregunta['ID_Pregunta']; 
+								// echo "Pregunta aleatoria: " . $Pregunta_Alea;
+							?>
 								<tbody>
 									<tr>
 										<td class="tabla_0"><?php echo $TiempoPregunta["ID_Pregunta"];?></td>
@@ -91,58 +112,70 @@
 										<script>
 											//Se cambia la varible php a javascript
 											var jsvar= '<?php echo $Pregunta_Alea; ?>'; 
+											// alert(jsvar);
 										</script>
-										<td class="tabla_7"><a href="../controlador/MostrarPregunta.php?pregunta=<?php echo $Pregunta_Alea;?>" target="_blank">O</a></td>         
+										<td class="tabla_7"><a href="../controlador/MostrarPregunta.php?pregunta=<?php echo $Pregunta_Alea;?>&N_Pregunta=<?php echo $N_Pregunta;?>" target="_blank">O</a><span class="span_12">Nuevo</span></td>         
 									</tr>
+								</tbody>
 									<?php  
 							}   ?> 
-								</tbody>
 						</table>
 						<?php
 							// puntos descontados por cada pregunta incorrecta
-								$Consulta_3="SELECT ID_Pregunta, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo, SUM(puntoGanado) As penalizacion FROM respuestas WHERE ID_PP='$CodigoPrueba' AND puntoGanado <= 0.000 GROUP BY ID_Pregunta ";
-								$Recordset_3 = mysqli_query($conexion, $Consulta_3);
-							if(mysqli_num_rows($Recordset_3)!=0){
-						?>
-							<table>
-								<caption class="caption_lider">Respuestas incorrectas</caption>
-								<thead>
-									<tr>
-										<th>Pregunta</th>
-										<th>Puntos</th>
-										<th>Tiempo</th>
-									</tr>
-								</thead>
+							$Consulta_3="SELECT ID_Pregunta, Num_Pregunta_Alea, SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS tiempo, SUM(puntoGanado) As penalizacion FROM respuestas WHERE ID_PP='$CodigoPrueba' AND puntoGanado <= 0.000 GROUP BY ID_Pregunta ";
+							$Recordset_3 = mysqli_query($conexion, $Consulta_3);
+							if(mysqli_num_rows($Recordset_3)!=0){	?>
+								<table>
+									<caption class="caption_lider">Respuestas incorrectas</caption>
+									<thead>
+										<tr>
+											<th>Pregunta</th>
+											<th>Puntos</th>
+											<th>Tiempo</th>
+											<th>Ver pregunta</th>
+										</tr>
+									</thead>
+									<?php
+									while($Pregunta_Alea_2= mysqli_fetch_array($Recordset_3)){ 
+										$Pregunta_Alea_3= $Pregunta_Alea_2['Num_Pregunta_Alea'];
+										$N_Pregunta= $Pregunta_Alea_2['ID_Pregunta'];  
+										// echo "Pregunta aleatoria: " . $Pregunta_Alea_3; 
+											?>
+										<tbody>
+											<tr>
+												<td class="tabla_0"><?php echo $Pregunta_Alea_2["ID_Pregunta"];?></td>
+												<td class="tabla_1"><?php echo $Pregunta_Alea_2["penalizacion"];?></td>
+												<td class="tabla_0"><?php echo $Pregunta_Alea_2["tiempo"];?></td>
+												<script>
+													//Se cambia la varible php a javascript
+													var jsvar= '<?php echo $Pregunta_Alea_2; ?>'; 
+												</script>
+												<td class="tabla_7"><a href="../controlador/MostrarPregunta.php?pregunta=<?php echo $Pregunta_Alea_3;?>&N_Pregunta=<?php echo $N_Pregunta;?>" target="_blank">O</a><span class="span_12">Nuevo</span></td>           
+										</tr><?php
+										} ?>
+									</tbody>
+								</table>
 								<?php
-								while($PuntosPregunta= mysqli_fetch_array($Recordset_3)){  
-								?>
-								<tbody>
-									<tr>
-										<td class="tabla_0"><?php echo $PuntosPregunta["ID_Pregunta"];?></td>
-										<td class="tabla_1"><?php echo $PuntosPregunta["penalizacion"];?></td>
-										<td class="tabla_0"><?php echo $PuntosPregunta["tiempo"];?></td>  
-								</tr><?php
-								} ?>
-							</tbody>
-						</table>
-					<?php
-					}
+							}
 					?>
 				</div>
+
+<!-- ******************************************************************************************* -->
 				<!-- Se incluyen la tabla de bonificación solo en el tema Reavivados-->
 				<?php
 					if($Tema=="Reavivados"){
 						include("bonos.php");
 					}
 				?>
+<!-- ******************************************************************************************* -->
 				<input type="text" class="ocultar" id="ID_Pregunta" value= "10">
-				<input type="text" class="ocultar" id="ID_Participante" value="<?php echo $participante;?>"><!-- se utiliza para enviar a puntaje.js-->
+				<input type="text" class="ocultar" id="ID_Participante" value="<?php echo $ID_Participante;?>"><!-- se utiliza para enviar a puntaje.js-->
 
 				<div class="Secundario">
 					<div class="ultimaPregunta">
 						<?php
 							//se obtienen los puntos ganados por el participante en la actual prueba
-							$Consulta="SELECT * FROM participantes_pruebas WHERE ID_Participante='$participante' AND Tema='$Tema' AND ID_PP = '$CodigoPrueba'";
+							$Consulta="SELECT * FROM participantes_pruebas WHERE ID_Participante='$ID_Participante' AND Tema='$Tema' AND ID_PP = '$CodigoPrueba'";
 							$Recordset = mysqli_query($conexion, $Consulta);
 							$Participante= mysqli_fetch_array($Recordset);
 
@@ -151,16 +184,18 @@
 							
 							//Puntos ganados en la prueba
 							// echo "Puntos ganados en la prueba: " . $Decimal . "<br>";
-							
+///**********************************************************************************************
 							//(Reavivados)se consulta los puntos acumulados en la semana
 							$Consulta_0="SELECT SUM(Puntos) AS Acumulado FROM participantes_pruebas WHERE ID_Participante='$participante' AND Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK(CURDATE()) GROUP BY WEEK(Fecha_pago))";
 							$Recordset_0= mysqli_query($conexion, $Consulta_0);
 							$Participante_0= mysqli_fetch_array($Recordset_0);
 							$Acumulado= $Participante_0["Acumulado"];
-							// echo "Puntos globales= " . $Acumulado . "<br>";
+							// echo "Puntos semanales= " . $Acumulado . "<br>";
 							
 							//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
 							$Decimal_0 = str_replace('.', ',', $Acumulado);
+							// echo "Puntos semanales= " . $Decimal_0 . "<br>";
+///**********************************************************************************************
 
 							//se realiza una consulta para obtener el tiempo total de respuesta del participante
 							$Consulta_1="SELECT SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(Hora_Respuesta,Hora_Pregunta)))) AS TiempoTotal FROM respuestas WHERE ID_Participante='$participante' AND ID_PP = '$CodigoPrueba' AND Correcto= 1";
@@ -168,21 +203,21 @@
 							$Tiempo= mysqli_fetch_array($Recordset_1);
 
 							if($Tema == "Reavivados"){
-								//Se consulta si el participant existe en la tabla de resultados globales
-								$Consulta_9="SELECT ID_Participante FROM posicion_general_rea WHERE ID_Participante = '$participante'";
+								//Se consulta si el participant existe  en la tabla de resultados globales en la semana en curso
+								$Consulta_9="SELECT ID_Participante FROM posicion_general_rea WHERE ID_Participante = '$participante' AND WEEK(fecha)=WEEK(CURDATE())";
 								$Recordset_9 = mysqli_query($conexion, $Consulta_9);
 								if(mysqli_num_rows($Recordset_9) == 0){
-									//Se inserta el puntaje global acumulado en reavivados si el participante no existe
-									$Insertar= "INSERT INTO posicion_general_rea(PuntosTotales,ID_Participante)VALUES('$Acumulado','$participante')";
+									//Se inserta el puntaje global acumulado en reavivados si el participante no ha participado en la semana en curso
+									$Insertar= "INSERT INTO posicion_general_rea(PuntosTotales,ID_Participante,fecha)VALUES('$Acumulado','$participante',CURDATE())";
 									mysqli_query($conexion, $Insertar);
 									
 									//Se actualiza el puntaje global acumulado en reavivados
-									$Actualizar= "UPDATE posicion_general_rea SET PuntosTotales= $Acumulado WHERE ID_Participante = '$participante')";
+									$Actualizar= "UPDATE posicion_general_rea SET PuntosTotales= $Acumulado WHERE ID_Participante = '$participante') AND fecha=CURDATE()";
 									mysqli_query($conexion, $Actualizar);
 								}
 								else{
 									//Se actualiza el puntaje global acumulado en reavivados
-									$Actualizar= "UPDATE posicion_general_rea SET PuntosTotales= '$Acumulado' WHERE ID_Participante = '$participante'";
+									$Actualizar= "UPDATE posicion_general_rea SET PuntosTotales= '$Acumulado' WHERE ID_Participante = '$participante' AND fecha=CURDATE()";
 									mysqli_query($conexion, $Actualizar);
 								}
 								
@@ -209,16 +244,7 @@
 								else{    ?>
 									<p>Opción de bono perdida</p> 	<?php   
 									$Bono_Prioridad= 0;
-								}   ?>
-							
-							
-
-
-
-
-
-
-
+								}   ?>			
 								<p class="Inicio_5">Bono de constancia:</p>
 								<?php
 							// $Semana= date("W");
@@ -228,10 +254,10 @@
 								// Las semanas en PHP comienzann los dias lunes, por eso se le suma una unidad para que haga el cambio el dia domingo y muestre la semana por adelantado al servidor PHP
 								if($DiaSemana== 0){
 									$Semana = $Semana + 1; 
-									  echo "Semana modificada :" .  $Semana;
+									//   echo "Semana modificada :" .  $Semana;
 								}
 								else{
-									echo "Semana :" .  $Semana . "<br>";
+									// echo "Semana :" .  $Semana . "<br>";
 								}
 								
 								//se consulta si ha participado todos los dias en el test
@@ -242,7 +268,7 @@
 									$Rellenado[]= $Resultado["Dia_semana"];
 								}
 								// $Rellenado= array_pad($Dias,7,"a");
-								echo "el array contiene los numeros:";
+								// echo "el array contiene los numeros:";
 								//   var_dump($Rellenado) . "<br>";
 								
 								// --------
@@ -251,7 +277,7 @@
 								// 	$Rellenado[$i];
 								// 	//   echo "El array contiene los numeros: " .  $Rellenado[$i] . "<br>";
 								// }
-// ---------
+								// ---------
 								// echo "Dia de la semana: " . $DiaSemana;
 								if($DiaSemana == 0){ 
 									if(in_array(1, $Rellenado)){ ?>
@@ -297,23 +323,64 @@
 								//Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
 								$TotalDecimal = str_replace('.', ',', $Total_Puntos);?>
 								<p class="Inicio_5">Total puntos acumulados hoy:</p>    <?php
-								echo $TotalDecimal;
-
+								echo $TotalDecimal . "<br>";
 								
 								//Se actualizan los puntos obtenidos tomando en cuenta los bonos
 								$Actualizar_8="UPDATE participantes_pruebas SET Puntos= '$Total_Puntos' WHERE ID_Participante='$participante' AND Tema='$Tema' AND ID_PP = '$CodigoPrueba'";
 								mysqli_query($conexion, $Actualizar_8);
+
+								// Puntos semanales calculados arriba en linea 165
+								?>
+								<p class="Inicio_5">Total puntos acumulados en la semana:<span class="span_12">Nuevo</span></p>  <?php
+								echo $Decimal_0 . "<br>";
+
+								//Se consulta su posicion en la semana segun sus puntos semanales 
+								$Consulta_5="SELECT COUNT(*) AS Pus FROM posicion_general_rea WHERE PuntosTotales >= '$Decimal_0' AND WEEK(fecha)=WEEK(CURDATE()) ";
+								$Recordset_5 = mysqli_query($conexion, $Consulta_5);
+								$Posicion=  mysqli_fetch_array($Recordset_5);
+								// echo "En la semana ocupas el puesto Nº= " . $Posicion['Pus'] . "<br>";?>
+								<!-- <p class="Inicio_5">Posicion en la semana:<span class="span_12">Nuevo</span>   </p>  -->
+								<?php 
+								// switch($Posicion['Pus']){
+									// case 1:
+									// case 3:
+									// case 11:
+									// 	echo $Posicion['Pus'] . "<sup style=font-size:15px>ra</sup>";
+									// break;
+									// case 2:
+									// case 12:
+									// 	echo $Posicion['Pus'] . "<sup style=font-size:15px>da</sup>";
+									// break;
+									// case 4:
+									// case 5:
+									// case 6:
+									// 	echo $Posicion['Pus'] . "<sup style=font-size:15px>ta</sup>";
+									// break;
+									// case 7:
+									// case 10:
+									// 	echo $Posicion['Pus'] . "<sup style=font-size:15px>ma</sup>";
+									// break;
+									// case 8:
+									// 	echo $Posicion['Pus'] . "<sup style=font-size:15px>va</sup>";
+									// break;
+									// case 9:
+									// 	echo $Posicion['Pus'] . "<sup style=font-size:15px>na</sup>";
+									// break;
+									// default:
+									//    echo $Posicion['Pus'];
+								// }
 							}
 						
 							//Se busca en que posicion quedo el participante
 							//Se consulta cuantos puntos acumulo en la prueba un participante  
 							$Puesto= $Participante["Puntos"];
-							//  echo "Puntos acumulados= " . $Puesto . "<br>";
+							//echo "Puntos acumulados= " . $Puesto . "<br>";
 
-							//Se consulta su posicion segun sus puntos
+							//Se consulta su posicion en la semana segun sus puntos 
 							$Consulta_5="SELECT COUNT(*) AS Pus FROM participantes_pruebas WHERE Puntos >= '$Puesto' AND ID_Prueba='$ID_Prueba'";
 							$Recordset_5 = mysqli_query($conexion, $Consulta_5);
 							$Posicion=  mysqli_fetch_array($Recordset_5);
+							echo "<br>";
 							// echo "Ocupas el puesto Nº= " . $Posicion['Pus'] . "<br>";
 
 							//Se consulta cuantos participantes hay en la prueba
@@ -390,17 +457,11 @@
 										$Recordset_5 = mysqli_query($conexion, $Consulta_5);  
 										$PosicionBiblia=  mysqli_fetch_array($Recordset_5);
 										
-										//(reavivados)Se consulta su posicion general segun sus puntos
+										// (reavivados)Se consulta su posicion semanal segun sus puntos
 										$Consulta_5="SELECT COUNT(*) AS PusRea FROM posicion_general_rea WHERE PuntosTotales >= '$Acumulado' ";
 										$Recordset_5 = mysqli_query($conexion, $Consulta_5);
 										$Posicion=  mysqli_fetch_array($Recordset_5);
-										// echo "Ocupas el puesto Número= " . $Posicion['PusRea'] . "<br>";
-
-										//(reavivados)Se consulta su posicion semanal segun sus puntos
-										// $Consulta_5="SELECT COUNT(*) AS PusRea FROM posicion_general_rea WHERE PuntosTotales >= '$Acumulado' ";
-										// $Recordset_5 = mysqli_query($conexion, $Consulta_5);
-										// $Posicion=  mysqli_fetch_array($Recordset_5);
-										// echo "Ocupas el puesto Número= " . $Posicion['PusRea'] . "<br>";
+										// echo "EN la semana ocupas el puesto Número= " . $Posicion['PusRea'] . "<br>";
 
 										//Se consulta el nombre del lider de hoy 
 										$Consulta_31="SELECT * FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE Tema='Reavivados' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() ORDER BY Puntos DESC LIMIT 1";
@@ -421,12 +482,12 @@
 										<small>A esta hora los resultados son parciales, pueden cambiar si otros usuarios participan en el test, a partir del 01-11-19 el test diario se cerrará a las 6:30 pm e inmediatamente se entregará un reporte con resultados absolutos</small>  -->
 										
 										<?php
-										if($Participante_6 >= 2){  ?>
-											<strong class="Inicio_8"><?php echo $Participante_6;?> participantes aún no han respondido esta prueba</strong>  <?php 
-										}
-										else if($Participante_6 == 1){  ?> 
-											<strong class="Inicio_8"><?php echo $Participante_6;?> participante aún no ha respondido esta prueba</strong>  <?php 
-										}  
+										// if($Participante_6 >= 2){  ?>
+										 	<!-- <strong class="Inicio_8"><?php echo $Participante_6;?> participantes aún no han respondido esta prueba</strong>  <?php  
+										// }
+										// else if($Participante_6 == 1){  ?> 
+										// 	<strong class="Inicio_8"><?php echo $Participante_6;?> participante aún no ha respondido esta prueba</strong>  <?php 
+										// }  
 										?>
 										<!-- <p class="Inicio_5">Tu posición esta semana es de Nº <?php //echo $Posicion['PusRea'];?> de <?php// echo $Participante_4;?> participantes.</p>  -->
 										<div class="tabla_4">
@@ -478,7 +539,7 @@
 												</thead>
 												<tbody>	<?php
 													//Se consulta el nombre del lider de la semana 
-													$Consulta_31="SELECT SUM(Puntos) AS acumulado, participante.ID_Participante, participante.Nombre, participante.Apellido, participante.Iglesia, participante.SubRegion FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK(CURDATE()) GROUP BY WEEK(Fecha_pago)) GROUP BY participante.ID_Participante ORDER BY acumulado DESC LIMIT 1";
+													$Consulta_31="SELECT SUM(Puntos) AS acumulado, participante.ID_Participante, participante.Nombre, participante.Apellido, participante.Iglesia,  participante.Otra_Iglesia,  participante.SubRegion FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK(CURDATE()) GROUP BY WEEK(Fecha_pago)) GROUP BY participante.ID_Participante ORDER BY acumulado DESC LIMIT 1";
 													$Recordset_31= mysqli_query($conexion, $Consulta_31);
 													$Resultado_31= mysqli_fetch_array($Recordset_31);
 													$Participante_30= $Resultado_31["ID_Participante"];
@@ -552,7 +613,7 @@
 		<?php 
 	// }   
 	// else{ // Si no viene del formulario de registro Registro.php o trata de recargar página lo enviamos al formulario de registro  
-	//   	echo "<META HTTP-EQUIV='Refresh' CONTENT='0; url=principal.php'>";  
+	// 	echo "<META HTTP-EQUIV='Refresh' CONTENT='0; url=principal.php'>";  
 	// } 
 
 	?>

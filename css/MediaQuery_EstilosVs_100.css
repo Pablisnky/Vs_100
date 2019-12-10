@@ -76,12 +76,17 @@ input[type=submit]{
 	margin-top: 10% !important;
 }
 .label{/*registro_Libre.php*/
-	font-size:  35px !important;
+	font-size:  25px !important;
 }
 .label_1{/*bonos.php*/
 	text-align: center;
 	margin-top: -7%;
 	display: block;
+}
+.label_4{/*sabiosDia.php*/
+	left: 85%;
+	top: 10% !important;
+	z-index: 2;
 }
 legend{
 	font-size: 15px;
@@ -262,6 +267,7 @@ th{/*participantes.php*/
 }
 .buttonCuatro{/*entrada.php   index.php*/
 	width: 45%;
+	font-size: 15px;
 }
 .buttonCinco{/*bonos.php*/
 	margin-top: 12%;
@@ -274,7 +280,7 @@ th{/*participantes.php*/
 	font-size: 11px;
 }
 .CentroCeldas{
-	color:09204D; 
+	color:#09204D; 
 	width: 800px; 
 	text-align: center;
 }
@@ -286,6 +292,14 @@ th{/*participantes.php*/
 }
 .contador{/*contacto.php  */
 	margin-left: 85%;
+}
+.contador_1{/*index.php  */
+	/* width: 35px !important; */
+	margin-left: 84% !important;
+	/* height: 16px;	 */
+	line-height: 16px;
+	font-size: 14px;
+	display: inline;
 }
 .contenedor_1{/*registro_Pago.php*/
 	display: block;  
@@ -350,14 +364,16 @@ th{/*participantes.php*/
 .contenedor_13_a{/*participacionHoy.php*/
 	margin: auto !important;
 	width: 100% !important;
+	margin-bottom: 2%;
 }
 .contenedor_13_b{/*participacionHoy.php*/
-	margin-top: 8%;
 	width: 100% !important;
+	margin-top: 10%;
+	margin-bottom: 5%;
 }
 .contenedor_13_c{/*participacionHoy.php*/
-	margin-top: 8%;
-	margin-bottom: 15%;
+	margin-top: 10%;
+	margin-bottom: 5%;
 	width: 100% !important;
 }
 .contenedor_14{/*participacionHoy.php*/
@@ -384,32 +400,66 @@ th{/*participantes.php*/
 	padding-bottom: 5%;
 }
 .contenedor_22{/*detalle_bono.php*/
-	background-color: yellow;;
+	/* background-color: yellow; */
 	margin-bottom: 15%;
 }
 .contenedor_23{/*detalle_bono.php*/
 	margin-bottom: 15%;
 }
+.contenedor_25{/*participacionHoy.php      participacionHoy_Cont.php    sabiosConInsignias.php*/
+	margin: 1% auto 10% auto !important;
+	width: 90%;
+}
+.contenedor_27{/*participantesHoy.php*/
+	margin-top:5%; 
+	margin-bottom:0%; 
+}
+.contenedor_29{/*index.php*/
+	display:grid; 
+	grid-template-columns: 100%; 
+}
+.contenedor_29a{/*index.php*/
+	margin-top: 5%;
+}
+.contenedor_30{/*index.php  comentario.php*/
+	width: 100% !important;
+}
+.contenedor_31{/*index.php*/
+	margin-top: 0% !important;
+}
+.contenedor_32{/*participacionHoy.php*/
+	margin-bottom:15%;
+	margin-top:-4%; 
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 2;
+}
+.contenedor_33{/*index.php*/
+	margin: 5% auto;
+	width: 100%
+}
+.contenedor_34{/*ultima.php*/
+	background-color: yellow;
+	width: 95%;
+	margin: 0% auto 10% auto;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;	
+}
+.contenedor_35{/*sabiosDia.php*/
+	margin-top:2%; 
+}
 .n00{/*index.php*/
 	width: 100%;
 	height: 50px;
-	padding-left: 0%;
+	/* padding-left: 0%; */
+	margin-left: 0%;
 	margin-top: 0%;
 	margin-bottom: 8%;
 	justify-content: space-around;
+	border:none;
 } 
-/*saca a un elemento hijo de la alineacion flex que tiene el padre*/
-/* .n00>div{index.php
-   	flex: 1 0 50%;
-   	text-align: center;
-   	padding: 10px;
-}
-.n00>div:first-child{/*index.php*/
-    /* flex: 0 1 50%;
-}  */
-/* *{
-    box-sizing: border-box;
-} */
 .contenido_2{/*contacto.php*/
 	width: 85% !important;
 }
@@ -515,17 +565,35 @@ th{/*participantes.php*/
 .etiqueta_33{/*datos_personales.php*/
 	width: 90% !important
 }
+.etiqueta_35{/*index.php*/
+	display: block;
+	margin-top: -50% !important;
+	width: 20% !important;
+}
+.etiqueta_36{/*comentarios.php*/
+	background-color: #F4FCFB;
+	margin-bottom: 4% !important;
+	border: none;
+	text-align: left;
+	padding-left: 5% !important;
+	font-size: 1.2em;
+	font-weight: bold;
+}
 .h_1{/*participacionHoy.php*/
 	margin:5% auto 8% auto;
 	width: 90%;
 }
 .hr_2{/*header.php*/
-	color: rgba(244, 252, 251,0.4);
+	color: rgba(120, 153, 149, 0.4);
 	width: 80%;
 	margin: auto;
 }
 .hr_3{/*header.php*/
 	display: block;
+}
+.hr_6{/*index.php*/
+	margin-top: 15%;
+	margin-bottom: 10%;
 }
 .icon{
   font-size: 10px;
@@ -540,16 +608,38 @@ th{/*participantes.php*/
 	width: 90%; 
 }
 .imagen_6{/*index.php*/
-	margin-top: 35%;
-	width: 100%; 
-	height: 400px;
+	margin-top: 20%;
+	width: 90% !important; 
+	height: 200px !important;
 	filter: brightness(110%);
+}
+.imagen_7{/*participacionHoy.php     */
+	width: 170px; 
+	height: 170px;
+	margin-bottom: 0%;
 }
 .imagen_8{/*FotoPerfil.php*/
 	width: 100%; 
 	object-fit:contain ;/* deseado cover */
 	filter: brightness(110%);
 	height: 200px;
+}
+.imagen_9{/*participacionHoy.php*/
+	width: 70% !important; 
+	margin-left: 40%;
+}
+.imagen_11{/*entrada.php*/
+	width: 95%; 
+	height: 170px;
+	/* margin-top: 0%; */
+	margin-bottom: 5%;
+	display: block;
+	margin: auto;
+}
+.imagen_13{/*ultima*/
+	width: 30%;
+	border-radius: 50px;
+	margin: 5%;
 }
 .imagenTamaño{
 	width: 35%;
@@ -581,7 +671,7 @@ th{/*participantes.php*/
 .Inicio_3{/*instruccion.php*/
 	width: 85%;
 	font-size:15px;
-	margin-bottom: 10%;
+	margin-bottom: 20%;
 	line-height: 155%;
 }
 .Inicio_4{/*entrada.php*/
@@ -622,7 +712,7 @@ th{/*participantes.php*/
 	display: block;
 }
 .Inicio_11{/*participacionHoy.php*/ 
-	margin-top: 1%;
+	margin-top: 0%;
 	font-size:14px;
 }	
 .Inicio_12{/*index.php*/ 
@@ -679,16 +769,76 @@ p .Inicio_16{/*recibeCorreo.php*/
 	margin:auto;
 	text-align: center;
 }	
-.Inicio_21{/*participacionHoyS.php*/ 
+.Inicio_21{/*participacionHoy.php*/ 
 	width: 100%;
 	font-size:17px !important;
 	margin: auto;
 	margin-top: -4%;
 	margin-bottom: 4%;
 	line-height: 150%;
+}		
+.Inicio_22{/*participacionHoy.php*/ 
+	margin-top: -10%;
 }	
 .Inicio_23{/*index.php*/
 	font-size:12px;
+}
+.Inicio_25{/*Valor_Xxxxxxxx.php*/
+	padding:2% 8%;
+	text-align: left;
+	color:#040652 ;
+	width: 90%;
+	font-size:1.3em;
+	font-family: 'Raleway', sans-serif;
+}
+.Inicio_27{/* index.php*/ 
+	width: 95%;
+	font-size:22px;
+	margin: auto;
+	margin-bottom: 4%;
+	color: white;
+}	
+.Inicio_28{/* index.php*/ 
+	width: 70%;
+}
+.Inicio_29{/*index.php*/
+	margin-top: 10%!important;
+	margin-bottom: 10% !important;
+	width: 95%;
+	font-size: 1.4em;
+}		
+.Inicio_30{/*participacionHoy.php*/
+	font-size: 1.3em !important;
+}
+.Inicio_31{/*ultima.php*/
+	font-family: 'Raleway', sans-serif;
+	width: 70%;
+	font-size:1.2em;
+	font-weight: bold;
+	margin: auto;
+	margin-top: 3%;
+	color: white;
+}
+.Inicio_32{/*ultima.php*/
+	font-family: 'Raleway', sans-serif;
+	width: 70%;
+	font-size:1em;
+	font-weight: bold;
+	margin: auto;
+	margin-top: 3%;
+	color: #040652 ;
+}
+.Inicio_32a{/*ultima.php*/
+	font-size:1.4em;
+}
+.Inicio_33{/*ultima.php*/
+	font-family: 'Raleway', sans-serif;
+	width: 95%;
+	font-size:0.8em;
+	font-weight: bold;
+	margin: auto;
+	margin-top: 3%;
+	color: #040652;
 }
 .input_5{/*recibeCorreo.php   InsertarCodigo.php*/
 	width: 90%;
@@ -855,6 +1005,9 @@ p .Inicio_16{/*recibeCorreo.php*/
 	border:none;
 	color:#040652; 
 }
+.nav_13{/*MostrarPregunta.php  */
+	margin-top: 10% !important;
+}
 .navegacion_1{/*pregunta.php*/
 	margin-left: 0%;
 	width: 100%;
@@ -908,8 +1061,8 @@ p .Inicio_16{/*recibeCorreo.php*/
 	box-sizing: border-box;
 }
 .p4{/*registro_Libre.php*/
-	font-size: 22px; 
-	width: 90%; 
+	font-size: 20px !important; 
+	width: 80%; 
 	margin:20% auto
 }
 .p_5{/*entrada.php*/
@@ -952,7 +1105,7 @@ p .Inicio_16{/*recibeCorreo.php*/
 	bottom: -140pt;
 }
 .piePagina_4{/*index.php*/
-	top:115% !important;
+	top:125% !important;
 }
 .participaciones{/*participaciones.php*/
 	width: 100%;
@@ -1186,6 +1339,15 @@ p .Inicio_16{/*recibeCorreo.php*/
 
 	 font-size:11px;
 }
+.textarea_1{/*comentarios.php*/
+	display: block;
+	padding: 2%;
+	box-sizing: border-box;
+	height: 70px !important;
+	font-size: 1.2em;
+	width: 95% !important;
+	margin: auto;
+}
 .td_1{/*bonos.php*/
 	font-size: 11px !important;
 	padding: 0%;
@@ -1194,6 +1356,9 @@ p .Inicio_16{/*recibeCorreo.php*/
 .th_1{/*bonos.php*/
 	width:20px !important;
 	padding: 0% -5%;
+}
+.ul_2{/*cultura.php*/
+	width: 90%;
 }
 .ultima_1{/*Ultima.php*/
  	padding: 1% 0%;

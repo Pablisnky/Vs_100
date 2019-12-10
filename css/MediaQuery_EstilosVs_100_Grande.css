@@ -4,6 +4,9 @@
 h5{/*index.php*/
 	font-size: 1.8vw;
 }
+select{/*registro.php*/
+	margin-left: 0% ;
+}
 .Afiliacion_4{/*principal*/
 	width: 70%;
 }
@@ -15,6 +18,10 @@ h5{/*index.php*/
 }
 .contenedor_24{/*ministerio.php*/
 	text-align: justify;
+}
+.etiqueta_34{/*datos_personales.php     registro.php*/
+	display: inline-block;
+	width: 170px !important;
 }
 .imagen_6{/*index.php*/
 	margin: 10% auto;
@@ -32,21 +39,27 @@ input[type=checkbox]{/*principal.php*/
 	line-height: 135%;
 }		
 .n00{/*index.php*/
-	width: 45%;
-	float: left;
-	padding-left: 10%;
+	width: 100%;
 	box-sizing: border-box;
 	margin-top: 5%;
 }
-.n20{
-	background-color: red;
-	width: 30%;
+.n20{/*index.php*/
+	width: 100%;
 	background: -webkit-linear-gradient(bottom, white 88%, #040652 12%);
 	line-height: 40px;
 	margin-right: 18%;
 }
 .nueva_Prueba{/*entrada.php*/
 	margin-top: 60% !important;
+}
+.p_8{/*footer*/
+	width: 24%;
+	display: block;
+	font-size: 0.9vw;
+	top: 35%; 
+	left: 72%; 
+	text-align: justify;
+	line-height: 25px;
 }
 .piePagina_5{/*registro.php*/
 	margin-top: 5% !important; 

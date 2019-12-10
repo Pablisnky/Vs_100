@@ -4,8 +4,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
     //Muestra los errores en local e impide mostrarlos en remoto
 	include("../modulos/muestraError.php");
 
- 	if(!isset($_SESSION["ID_Participante"])){//sino hay nada almacenado en la variable superglobal devuelve a principal.php
-    	//con esto se garantiza que el usuario entro por login
+ 	if(!isset($_SESSION["ID_Participante"])){//sino hay nada almacenado en la variable superglobal devuelve a principal.php con esto se garantiza que el usuario entro por login
 
   		header("location:principal.php");
 	}
@@ -55,19 +54,19 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		$Puntaje= mysqli_num_rows($Recordset);//se suman los registros que tiene la consulta realizada.
 		//   echo "Puntos: " . $Puntaje;
 		if($Tema == "Reavivados"){
-			if ($Puntaje==0){
+			if($Puntaje==0){
 				$Num_Pregunta= 1;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==1){
+			else if($Puntaje==1){
 				$Num_Pregunta= 2;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==2){
+			else if($Puntaje==2){
 				$Num_Pregunta= 3;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==3){
+			else if($Puntaje==3){
 				$Num_Pregunta= 4;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==4){
+			else if($Puntaje==4){
 				$Num_Pregunta= 5;// definiendo una variable para identificar el número de la pregunta;
 			}
 			else{
@@ -75,34 +74,34 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			}
 		}
 		else{
-			if ($Puntaje==0){
+			if($Puntaje==0){
 				$Num_Pregunta= 1;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==1){
+			else if($Puntaje==1){
 				$Num_Pregunta= 2;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==2){
+			else if($Puntaje==2){
 				$Num_Pregunta= 3;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==3){
+			else if($Puntaje==3){
 				$Num_Pregunta= 4;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==4){
+			else if($Puntaje==4){
 				$Num_Pregunta= 5;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==5){
+			else if($Puntaje==5){
 				$Num_Pregunta= 6;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==6){
+			else if($Puntaje==6){
 				$Num_Pregunta= 7;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==7){
+			else if($Puntaje==7){
 				$Num_Pregunta= 8;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==8){
+			else if($Puntaje==8){
 				$Num_Pregunta= 9;// definiendo una variable para identificar el número de la pregunta;
 			}
-			else if ($Puntaje==9){
+			else if($Puntaje==9){
 				$Num_Pregunta= 10;// definiendo una variable para identificar el número de la pregunta;
 			}
 			else{
@@ -150,6 +149,9 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 				<div class="Secundario">
 					<div class="encabezado">
 						<h1 class="anula">Reavivados</h1>
+						<div class="contenedor_7">
+							<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
+						</div>
 					</div>
 					<?php
 						if($Tema == "Reavivados"){
@@ -170,7 +172,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 					<div class="encabezado_2">
 						<div id="mostrarPuntos"></div><!-- recibe el puntaje y el nombre del participante por medio de llamar_puntaje() llamada al cargar el documento desde sumaPuntaje.php-->
 					</div>
-					<div style="background-color:red; position:absolute; top:90%; margin:auto">
+					<div class="contenedor_26">
 						<?php
 						if($Tema == "Reavivados"){
 							if($Puntaje<5){//No se muestra si se encuentra en la ultima pregunta de reavivados ?>
@@ -179,9 +181,6 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 										<!--con este include se inserta la hora en la BD a la cual se abrio la pregunta, el tiempo maximo para responder y se muestra un temporizador en pantalla-->
 											<?php include("../controlador/Temporizador_2.php");?>
 									</div>
-								</div>
-								<div class="contenedor_7">
-									<a style="color:white !important;" href="../controlador/entrada.php">Inicio</a>
 								</div>
 								<div class="contenedor_6" id="Flecha">
 									<!-- se actualiza la página -->
@@ -243,6 +242,9 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 							}	
 						?>
 					</div>
+					
+					<!--Recibe el grafico y la notificacion de puntos ganados desde -->
+					<div id="RecibeAjax_3"></div>
 				</div>
 			</body>
 		</html>			

@@ -45,7 +45,7 @@ function llamar_bloqueo(){//invocada en preguntaXXXXXXX_00.php
 function respuesta_bloqueo(){
     if (peticion.readyState == 4){
          if (peticion.status == 200){
-           document.getElementById('RespuestaPreguntas').innerHTML=peticion.responseText;//envia respuesta a preguntaXxxxx_00.php
+           document.getElementById('RecibeAjax_3').innerHTML=peticion.responseText;//envia respuesta a preguntaXxxxx_00.php
         } 
         else{
             alert('Hubo problemas con la petición.');
@@ -73,7 +73,7 @@ function llamar_bloqueo_Demo(){//invocada en preguntaXXXXXXX_00.php
 function respuesta_bloqueo_Demo(){
     if (peticion.readyState == 4){
          if (peticion.status == 200){
-           document.getElementById('RespuestaPreguntas').innerHTML=peticion.responseText;//envia respuesta a preguntaXxxxx_00.php
+           document.getElementById('RecibeAjax_3').innerHTML=peticion.responseText;//envia respuesta a preguntaXxxxx_00.php
         } 
         else{
             alert('Hubo problemas con la petición.');

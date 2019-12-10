@@ -12,6 +12,7 @@ a{/*index.php    principal.php    preguntaXxxxx_00.php*/
 }
 body{
 	background-color:#F4FCFB;
+	height: 100%;
 }
 .body_1{
 	background-image: url("images/index_1.jpg");
@@ -27,7 +28,6 @@ footer{
 	background:rgba(4, 6, 82, 0.1);
 	text-align:center;
 	height: 30%;
-	/* font-size: 7px; */
 	width: 100%;
 	color:#040652;
 	position: absolute; 
@@ -237,6 +237,9 @@ td{
 	line-height: 20px !important;
 	color:rgba(194, 245, 19,1);
 }
+.a_7{
+	margin-right: -42%;
+}
 .Afiliacion_3{/*datos_Personales.php*/
 	min-height: 220px !important;
 }
@@ -435,6 +438,7 @@ td{
 	text-align:center;
 	border-radius:15px;
 	box-sizing:border-box;
+	cursor: pointer;
 }
 .buttonCuatro:hover{/*index.php*/
 	box-shadow:0px 0px 0px;
@@ -485,6 +489,13 @@ td{
 	line-height: 16px;
 	font-size: 12px;
 }
+.contador_1{/*index.php*/
+	width: 35px !important;
+	margin-left: 93%;	
+	line-height: 16px;
+	font-size: 12px;
+	display: inline;
+}
 .contenedor_2{/*temas.php*/ 
 	width:50% !important; 
 	margin-top: 3%;
@@ -512,10 +523,10 @@ td{
 	display: none;
 	z-index: 2;
 }
-.contenedor_7{/*preguntaDemo_XX.php*/
-	background-color: #040652;
+.contenedor_7{/*preguntaDemo_XX.php    pregunta.php*/
+	/* background-color: #040652; */
 	position: absolute;
-	top:7%;
+	top:6%;
 	width: 10%;
 	font-family:verdana;
 	text-align: center;
@@ -566,7 +577,6 @@ td{
 	min-height: 400px;
 }
 .contenedor_13_a{/*participacionHoy.php*/
-	margin-top: 70%;
 	width: 170% !important;
 	margin-top: -30%;
 }
@@ -629,8 +639,63 @@ td{
 	justify-content: center;
 	margin: 3% auto;
 }
-.contenedor_25{/*participacionHoy.php      participacionHoy_Cont.php*/
-	margin-top: 10%;
+.contenedor_25{/*participacionHoy.php      participacionHoy_Cont.php    sabiosConInsignias.php*/
+	display: grid;
+	grid-template-columns:1fr 3fr 1fr;
+	grid-template-rows: 2fr 1fr;	
+	margin: 10% auto 3% auto;
+	width: 100%;
+}
+.contenedor_26{/*pregunta.php*/
+	position:absolute; 
+	top:90%; 
+	margin-left:auto;
+	margin-right:auto;
+	left:0;
+	right:0;
+	width: 90%;
+}
+.contenedor_27{/*participantesHoy.php*/
+	margin-top:18%; 
+	margin-bottom:-1%; 
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 2;
+}
+.contenedor_28{/*index.php*/
+	margin-bottom: 5%;
+	float: left;
+}
+.contenedor_29{/*index.php*/
+	margin-top: 5%;
+	margin-bottom: 5%;
+	display:grid; 
+	grid-template-columns: 40% 40%; 
+	justify-content:space-around;
+}
+.contenedor_29a{/*index.php*/
+	margin-top: 8%;
+}
+.contenedor_29b{/*index.php*/
+	display: none;
+}
+.contenedor_30{/*index.php  comentario.php*/
+	width: 95%;
+	margin: auto;
+} 
+.contenedor_31{/*index.php*/
+	margin-top: 5%;
+}
+.contenedor_33{/*index.php*/
+	margin: 2% auto -4% auto;
+	width: 50%
+}
+.contenedor_35{/*sabiosDia.php*/
+	margin-bottom:5%;
+	margin-top:10%; 
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 2;
 }
 .contenido_2{/*contacto.php*/
 	width: 90%;
@@ -723,9 +788,21 @@ td{
 .etiqueta_33{/*datos_personales.php     registro.php*/
 	width: 50% !important
 }
-.etiqueta_34{/*registro.php*/
+.etiqueta_34{/*datos_personales.php   registro.php    index.php  */
 	display: inline-block;
 	width: 170px !important;
+	margin-top: 5%;
+	margin-left: 3% !important;
+}
+.etiqueta_35{/*index.php*/
+	background-color: #F4FCFB;
+	border: none;
+	width: 170px !important;
+}
+.etiqueta_36{/*comentarios.php*/
+	display: inline-block;
+	width: 170px !important;
+	margin-top: 5%;
 }
 .grafico{/*pregunta.php*/
 	width: 40%;
@@ -751,6 +828,13 @@ td{
 .hr_4{/*participacionHoy*/
 	margin: 10% auto;
 }
+.hr_5{/*pregunta.php*/
+	margin-top: 0%;
+}
+.hr_6{/*index.php*/
+	margin-top: 2%;
+	margin-bottom: 6%;
+}
 .imagen_3{/*footer*/
 	width: 3%; 
 	object-fit:contain ;/* deseado cover */
@@ -769,17 +853,20 @@ td{
 	width: 10%; 
 }
 .imagen_6{/*index.php*/
-	width: 40%; 
-	height: 640px;
+	width: 60%; 
+	/* height: 640px; */
 	display: block;
-	margin: auto;
+	margin: 2% auto;
 	filter: brightness(110%);
 }
-.imagen_7{/*participacionHoy.php*/
-	width: 100%; 
-	object-fit:contain ;/* deseado cover */
+.imagen_7{/*participacionHoy.php     insigniaXxxxxx.php    entrada.php*/
+	/* background-image: url("../images/logo.png");  */
+	width: 170px; 
+	height: 170px;
+	object-fit:cover ;/* deseado cover */
 	filter: brightness(110%);
-	height: 150px;
+	margin: auto;
+	display: block;
 }
 .imagen_8{/*FotoPerfil.php*/
 	width: 70%; 
@@ -787,6 +874,26 @@ td{
 	filter: brightness(110%);
 	height: 250px;
 	z-index: -1 !important;
+}
+.imagen_9{/*participacionHoy.php*/
+	display: block;
+	width: 100% !important; 
+	object-fit:cover ;/* deseado cover */
+	filter: brightness(110%);
+	overflow: hidden;
+	cursor: pointer;
+	border-radius:35px;
+}
+.imagen_10{	/*participacionHoy.php*/
+	border-radius: 50%;
+}
+.imagen_11{/*index.php*/
+	width: 65%; 
+	display: block;
+	margin: auto;
+}
+.imagen_12{/*footer*/
+	margin-left: -65%;
 }
 .Inicio_0{/*instruccion.php*/
 	width: 80%;
@@ -946,7 +1053,7 @@ td{
 	font-family: 'Raleway', sans-serif;
 	width: 70%;
 	font-size:20px;
-	margin-left:43%;
+	margin-left:15%;
 	margin-top: 5%;
 	margin-bottom: 4%;
 	cursor: pointer;
@@ -976,6 +1083,48 @@ td{
 .Inicio_24{/*participacionHoy.php   participacionHoy_Cont.php*/ 
 	background-color: yellow;
 }
+.Inicio_25{/*Valor_Xxxxxxxx.php*/
+	padding:2% 8%;
+	text-align: left;
+	color:#040652 ;
+	width: 40%;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
+}
+.Inicio_26{/*InsigniaXxxxxx.php*/
+	color:#040652 ;
+	width: 100%;
+	margin:15% auto;
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
+}
+.Inicio_27{/* index.php*/ 
+	font-family: 'Raleway', sans-serif;
+	width: 70%;
+	font-size:24px;
+	margin: auto;
+	margin-bottom: 4%;
+	color: white;
+}	
+.Inicio_28{/* index.php*/ 
+	font-family: 'Raleway', sans-serif;
+	width: 70%;
+	font-size:45px;
+	font-weight: bold;
+	margin: auto;
+	margin-top: 3%;
+	color: white;
+}
+.Inicio_29{/*index.php*/
+	font-size: 1.2em;
+	width: 70%;
+	margin-top:5% !important;
+	margin-bottom: 5% !important;
+	margin: auto;
+	line-height: 30px;
+}	
 .input_1{/*entrada.php*/
 	position: absolute; 
 	top: 10%; 
@@ -1016,6 +1165,29 @@ td{
 .label_1{/*bonos.php*/
 	font-family: arial;
 	color: black;
+}
+.label_3{/*index.php*/
+	color: white;
+}
+.label_4{/*sabiosDia.php*/
+	background-color: yellow;
+	border-radius: 60%;
+	width: 100%;
+	font-weight: bold;
+	padding: 3%;
+	font-family: 'Raleway', sans-serif ;
+	position: relative;
+	left: 55%;
+	top: 5% !important;
+	z-index: 2;
+}
+.label_5{/*index.php*/
+	margin-top:7%;
+	color: white;
+	font-size: 1.1em;
+}
+.label_5a{/*index.php*/
+	margin-top:1%;
 }
 .listaDesordenada{
 	background-color:red;
@@ -1095,12 +1267,17 @@ td{
     transition-delay: 0.2s; */
 }
 .n00{/*index.php*/
-	width: 50%;
-	height: 500px;
+	display: grid;
+	grid-row: 30% 30% 30%;
+	width: 100%;
+	height: 390px;
 	float: left;
-	padding-left: 3%;
+	/* padding-left: 3%; */
 	box-sizing: border-box;
-	margin-top: 5%;
+	margin-top: 2%;
+	margin-left: 10%;
+	border:2px solid #000;
+	border-radius:15px;
 } 
 .n20{/*index.php*/
 	background: -webkit-linear-gradient(bottom, white 89%, #040652 11%);
@@ -1110,8 +1287,8 @@ td{
 	padding-bottom: 1.5%;
 	box-sizing: border-box;
 	margin-top: 2%;
- 	margin-right: 11%;
- 	width: 39%;
+ 	margin-right: 10%;
+ 	width: 100%;
  	float: right;
  	line-height: 30px;
 }
@@ -1259,6 +1436,17 @@ td{
 	/* text-align: center;
 	flex-grow: 1;distribuye proporcionalmente los elementos internos en el eje horizontal, es necesario que el elemento padre tenga la propiedad display con el valor flex */
 }
+.nav_13{/*MostrarPregunta.php  */
+	cursor: pointer !important;
+	display: inline-block;
+	text-align: center;
+	margin-top: 3%;
+	width: 100%;
+	color:#040652; 
+	font-family:'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 19px;
+}
 .navegacion_2{/*ultima.php*/
 	margin-left: 30%;
 	margin-bottom: 5% !important;
@@ -1336,7 +1524,7 @@ td{
 	bottom: -120pt;
 }
 .piePagina_4{/*index.php*/
-	top:130%;
+	top:165%;
 }
 .popup{/*tema.php*/
 	cursor: default; 
@@ -1559,6 +1747,15 @@ td{
 	margin-top: 0% !important;
 	padding-left: 17%;
 }
+.span_12{/*ultima.php*/
+	background-color: yellow;
+	color: #040652;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 0.8em;
+	margin-left: 5%;
+	padding: 0em 0.4em;
+	letter-spacing: 0.1em;
+}
 .super_in{/*entrada.php*/
 	font-size: 10px;
 }
@@ -1597,7 +1794,6 @@ td{
     height: 20px;
     width: 20px;
 	text-align: center;
-	cursor: pointer;
 }
 .tapa_2{/*principal.php*/
 	background-color: rgba(0,0,0,0.85) ;
@@ -1621,20 +1817,24 @@ td{
 .temp{/*Temporizador*/
 	 font-size:16px;
 }
+.textarea_1{/*index.php*/
+	display: block;
+	margin: auto;
+	width: 100%;
+	height: 50px;
+	margin-top: -3%;
+}
 .th_1{/*bonos.php*/
 	width:120px;
 }
 .ul_2{/*cultura.php*/
-	margin-top: -5%;
+	width: 30%;
+	margin:auto;
+	margin-bottom: 10%;
 }
 #MenuRes{/*header.html*/
 	display:none ;
 }
-
-
-
-
-
 ul .menuContenedor_2{/*header.php   index.php*/
 	background-color: #040652;
 	display: none;

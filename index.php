@@ -3,23 +3,30 @@ session_start();
 
 	//se evita guardar memoria cache
 	include("modulos/noCache.php");
+	include("clases/imagenComentada.php");
 
 	//Se utiliza la hora de Colombia
 	date_default_timezone_set('America/Bogota');
 	$FechaServidorPHP =date("Y-m-d");
- 	// echo $FechaServidorPHP . "<br>";
+	 // echo $FechaServidorPHP . "<br>";
+	 	 
+	// $_SESSION["FechaHoy"] = $FechaServidorPHP; 
 
 	// Se cambia el formato de la fecha
 	$newFecha = date("d-m-Y", strtotime($FechaServidorPHP));
 	// echo $newFecha . "<br>";
 
-	if($FechaServidorPHP == "2019-11-13"){
-		$CapituloHoy = "2 Crónicas 30";
+	if($FechaServidorPHP == "2019-12-10"){
+		$CapituloHoy = "Nehemías 11";
+		$_SESSION["Capitulo"] = $CapituloHoy;
+	}
+	else if($FechaServidorPHP == "2019-12-09"){
+		$CapituloHoy = "Nehemías 10";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
 	else{
-		$CapituloHoy = "2 Crónicas 29";
-		$_SESSION["Capitulo"] = $CapituloHoy;
+		$CapituloHoy = "Test disponible a las 7:00 am ";
+		$_SESSION["Capitulo"] = $CapituloHoy;		
 	}
 ?>
 <!DOCTYPE html>
@@ -51,6 +58,7 @@ session_start();
 		<link rel="manifest" href="./manifest.json">
 
 		<script type="text/javascript" src="javascript/Funciones_varias.js" ></script>
+		<script type="text/javascript" src="javascript/validarFormulario.js" ></script>
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117655324-5"></script>
@@ -65,17 +73,17 @@ session_start();
 	<body> 
 		<!-- Construcion de ventanan modal -->
         
-			<!-- <input type="checkbox" id="Cerrar"> 
-        	<label for="Cerrar" id="btnCerrar">Cerrar</label> -->
-			<!-- <div class="modal">  -->
-				 <!-- <article class="contenedor_modal modal_2">
+			<input type="checkbox" id="Cerrar"> 
+        	<label for="Cerrar" id="btnCerrar" onclick="pauseAudio()">Cerrar</label>  
+			<div class="modal">
+				<!-- <article class="contenedor_modal modal_2">
 				 	<img class="imagen_5"  src="images/logo.png">
 					<p class="Inicio_3">Hermanos.</p>
 					<p class="Inicio_3">La plataforma se suspendio</p>
 					<p class="Inicio_3">Por ahora el proyecto no continuará, aún y el sentir no sea dejarlo hasta aqui.</p>
 					<p class="Inicio_3">Continuemos aferrados a Dios,<br>
 					aún en la adversidad.</p>
-				</article>  -->
+				</article>   -->
 								
 				<!-- <form action="controlador/recibe_demo.php" method="POST">
     				<img class="imagen_6" id="blah" src="images/Sabado_Joven.jpg">
@@ -83,10 +91,15 @@ session_start();
 					<input type="submit" class="btn" style="display:none;" value="Entrar">
 				</form> -->
 				
-				<!-- <img class="imagen_6" id="blah" src="images/Notificacion_2a.png"> -->
+				<p class="Inicio_28">Invitación</p>
+				<p class="Inicio_27">Cantata navideña</p>
+				<p class="Inicio_27">Coro: Iglesia Peniel</p>
+				<img class="imagen_6" id="blah" src="images/CantataNavideña.jpeg">
+				<p class="label_5">Iglesia Adventista del septimo día<p> 
+				<p class="label_5 label_5a">Peniel - Pamplona.</p>
 				
-			 <!-- <audio id="FondoComercial_1" autoplay src="audio/SabadoJoven.mp3" loop></audio>  -->
-			<!-- </div>        -->
+			 	<audio id="FondoComercial_1" autoplay src="audio/CantataNavidad.mp3" loop></audio>
+			</div>       
 		
 		<!--Termina ventana modal-->
 	
@@ -125,34 +138,47 @@ session_start();
 			<div onclick="ocultarMenu()">
 				<p class="Inicio_13">Capítulo para hoy <?php echo $newFecha;?></p> 
 				<label class="Inicio_14" href=""><?php echo $CapituloHoy;?></label>
-			</div>
-			<div class="n00">
-				<div>
-					<a class="buttonTres" href="vista/principal.php">inicia sesión</a>
-				</div>	
-				<!-- <a class="buttonTres" href="vista/club.php">Club de lectura</a>	 -->
-				<div>
-					<a class="buttonTres" href="vista/demo.php">Prueba Demo</a>	
+				<div class="contenedor_33">
+					<?php
+						$ImagenComentar= new imagenComentada();
+
+						$ImagenComentar->ImagenIndex();
+					?>
+				</div>				 
+				<div class="contenedor_29 contenedor_29a">
+					<div class="n00">
+						<div>
+							<a class="buttonTres" href="vista/principal.php">inicia sesión</a>
+						</div>	
+						<!-- <a class="buttonTres" href="vista/club.php">Club de lectura</a>	 -->
+						<div>
+							<a class="buttonTres" href="vista/demo.php">Prueba Demo</a>	
+						</div>
+						<div>
+							<a class="buttonTres" href="vista/participacionHoy.php">Sabios de hoy</a>
+						</div>	
+					</div>			 
+					<div class="n20" onclick="ocultarMenu()">
+						<h5>Lo que hacemos</h5>				
+						<p class="Inicio_1">Todos los días planteamos un test con 5 preguntas de un capítulo bíblico, en el que cada respuesta acertada es premiada con puntos, al finalizar la semana el día sábado, tenemos un maestro ganador que pasa a nuestro magno salón de los sabios. Para hoy estudiamos <b>"<?php echo $CapituloHoy;?>"</b>, registra una cuenta, toma el test, diviértete y pasa un momento ameno con los miembros de la comunidad.</p>
+						<a class="Inicio_3  buttonCuatro" href="vista/registro.php">Registrar cuenta</a>
+					</div>
 				</div>
-				<div>
-					<a class="buttonTres" href="vista/participacionHoy.php">Sabios de hoy</a>
-				</div>	
-			</div>			 
-			<div class="n20" onclick="ocultarMenu()">
-				<h5>Lo que hacemos</h5>				
-				<p class="Inicio_1">Todos los días planteamos un test con 5 preguntas de un capítulo bíblico, en el que cada respuesta acertada es premiada con puntos, al finalizar la semana el día sábado, tenemos un maestro ganador que pasa a nuestro magno salón de los sabios. Para hoy estudiamos <b>"<?php echo $CapituloHoy;?>"</b>, registra una cuenta, toma el test, diviértete y pasa un momento ameno con los miembros de la comunidad.</p>
-				<a class="Inicio_3  buttonCuatro" href="vista/registro.php">Registrar cuenta</a>
-			</div>
-		</div> 
+			</div> 
 		
-	    <footer class="piePagina_3 piePagina_4">
-			<img class="imagen_3" alt="Logotipo horebi.com" src="images/logo.png">
+	    <footer class="piePagina_5">
+            <img class="imagen_3" alt="Logotipo horebi.com" src="images/logo.png">
 			<label class="Inicio_23">horebi.com</label>
 			<!-- <span class="span_7">Reavivados</span>  -->
 			<p class="p_8">El propósito de esta plataforma es incentivar la lectura bíblica y exaltar el sábado como día especial de dedicación a Jehová.</p>
 	        <?php include("vista/modulos/footer.php");?>
-	    </footer> 
+	    </footer>  
 	</body>
 </html>
 
 <script src="convoca_SW.js"></script> 
+<script>
+	function muestraComen(){
+    window.open("vista/comentarios.php", "ventana1", "width=900,height=600,scrollbars=YES");
+	}
+</script>

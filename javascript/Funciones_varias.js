@@ -162,19 +162,33 @@ function ocultarMenu(){
         
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
-//Impide que se sigan introduciendo caracteres al alcanzar el limite maximo, llamada desde contacto.php 
+//indica la cantidad de caracteres que quedan mientra se escribe, llamada desde index.php
+    function contar_1(){
+        var max = 100; 
+        var cadena = document.getElementById("Contenido").value; 
+        var longitud = cadena.length; 
+
+            if(longitud <= max) { 
+                 document.getElementById("Contador").value = max-longitud; 
+            } else { 
+                 document.getElementById("Contenido").value = cadena.subtring(0, max);
+            } 
+   } 
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Impide que se sigan introduciendo caracteres al alcanzar el limite maximo, llamada desde index.php 
     var contenido_textarea = "";    
-    function valida_Longitud(){  
-        var num_caracteres_permitidos = 500;
+    function valida_Longitud_1(){  
+        var num_caracteres_permitidos = 100;
 
         //se averigua la cantidad de caracteres escritos
-        num_caracteres = document.forms[0].contenido.value.length; 
+        num_caracteres = document.forms[0].comentario.value.length; 
 
         if(num_caracteres > num_caracteres_permitidos){ 
-            document.forms[0].contenido.value = contenido_textarea; 
+            document.forms[0].comentario.value = contenido_textarea; 
         }
         else{ 
-            contenido_textarea = document.forms[0].contenido.value; 
+            contenido_textarea = document.forms[0].comentario.value; 
         } 
     } 
 
@@ -204,19 +218,24 @@ function flecha(){
 
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
-//Reproduce el sonido de respuesta correcta, llamada desde cada pregunta
+//Reproduce el sonido de respuesta correcta y oculta el cronometro, llamada desde cada pregunta
 function sonidoCorrecto() {
   var A = document.getElementById("Resp_Correc");
+  var B = document.getElementById("Temporizador_2");
     A.play();
+    B.style.display="none";
  }
 
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
-//Reproduce el sonido de respuesta incorrecta, llamada desde cada pregunta
-function sonidoInCorrecto() {
+//Reproduce el sonido de respuesta incorrecta y oculta el cronometro, llamada desde cada pregunta
+function sonidoInCorrecto(){
     var A = document.getElementById("Resp_InCorrec");
+    var B = document.getElementById("Temporizador_2");
     A.play();
+    B.style.display="none";
 }
+
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
 //Pausa el sonido de fondo, llamada desde cada pregunta
@@ -356,6 +375,12 @@ function verValor_Colosenses(){
 //Abre ventana con contenido sobre los valores, es llamada en cultura.php
 function verValor_Juan(){
     window.open("../controlador/Valor_Juan.php", "ventana1", "width=360,height=550,scrollbars=YES");
+}
+// -------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------
+//Abre ventana mostrando la insignia, es llamada en participacionHoy.php
+function mostrarInsignia(){
+    window.open("../vista/InsigniaMaestro.php", "ventana1", "width=360,height=650,scrollbars=YES");
 }
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------

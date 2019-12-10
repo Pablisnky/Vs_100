@@ -63,8 +63,8 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 			                    <tbody>
 				                    <?php
 				                        $i = 1;
-				                        //se consulta las pruebas en las que el participante se ha inscrito 
-									    $Consulta= "SELECT participantes_pruebas.Puntos, participantes_pruebas.Fecha_pago, participantes_pruebas.Tema, reavi_capitulo.capitulo FROM participantes_pruebas INNER JOIN reavi_capitulo ON participantes_pruebas.DATE_FORMAT(Fecha_pago, '%Y/%m/%d')=reavi_capitulo.fecha WHERE participantes_pruebas.ID_Participante = '$participante' AND Prueba_Cerrada = 1 ORDER BY Fecha_pago DESC";
+				                        //se consulta las pruebas en las que el participante ha participado
+									    $Consulta= "SELECT participantes_pruebas.Puntos, participantes_pruebas.Fecha_pago, participantes_pruebas.Tema, reavi_capitulo.capitulo FROM participantes_pruebas INNER JOIN reavi_capitulo ON participantes_pruebas.Fecha_pago=reavi_capitulo.fecha WHERE participantes_pruebas.ID_Participante = '$participante' AND Prueba_Cerrada = 1 ORDER BY Fecha_pago DESC";
 									    $Recordset=mysqli_query($conexion, $Consulta); 					            		
 				                        while($Pruebas= mysqli_fetch_array($Recordset)){  
 											

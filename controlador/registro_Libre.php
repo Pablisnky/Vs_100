@@ -38,8 +38,9 @@
 
             echo "<p class='p4'>Ya participastes en la prueba de hoy, mañana continuamos estudiando</p>" . "<br>";                    
             ?>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
-            <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
+            <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css"> 
             <a class="label buttonCuatro" href="javascript:history.go(-1)">Regresar</a> 
             <?php
             exit();

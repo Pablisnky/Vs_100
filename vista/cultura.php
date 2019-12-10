@@ -39,10 +39,10 @@ $CapituloHoy = $_SESSION["Capitulo"];
 			</ul>
 		</div>
 	    <footer>
-                    <img class="imagen_3" alt="Logotipo horebi.com" src="../images/logo.png">
-                    <label class="Inicio_23">horebi.com</label>
-                    <!-- <span class="span_7">Reavivados</span>  -->
-                    <p class="p_8">El propósito de esta plataforma es incentivar la lectura bíblica y exaltar el sábado como día especial de dedicación a Jehová.</p>
+            <img class="imagen_3" alt="Logotipo horebi.com" src="../images/logo.png">
+            <label class="Inicio_23">horebi.com</label>
+            <!-- <span class="span_7">Reavivados</span>  -->
+            <p class="p_8">El propósito de esta plataforma es incentivar la lectura bíblica y exaltar el sábado como día especial de dedicación a Jehová.</p>
 	        <?php include("modulos/footer.php");?>
 	    </footer> 
    	</body>

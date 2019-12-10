@@ -192,5 +192,23 @@ function validar_02(){
 }
 
 
-//-----------------------------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
+/*Validar formulario de login en index.php*/
+function validar_06(){
+  var correo = document.getElementById("Usuario");
+  var clave = document.getElementById("Comentario"); 
+
+  if(correo.value =="" || correo.value.indexOf(" ") == 0 || (isNaN(correo.value)==false) || correo.value.length>80){
+     alert ("El correo no es valido");
+     document.getElementById("Correo").value = "";
+     document.getElementById("Correo").focus();
+     return false;
+  }
+   else if(clave.value =="" || clave.value.indexOf(" ") == 0 || clave.value.length>15){
+     alert ("Clave invalida");
+     document.getElementById("Clave").value = "";
+     document.getElementById("Clave").focus();
+     return false;
+  }
+}

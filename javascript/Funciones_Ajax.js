@@ -110,7 +110,7 @@ function llamar_sombrear(){//Es llamada desde cada preguntaXXXXX.php
 function respuesta_sombrear(){
     if (peticion.readyState == 4){
          if (peticion.status == 200){
-           document.getElementById('RespuestaPreguntas').innerHTML=peticion.responseText;//se recoje el numero de pacientes
+           document.getElementById('RecibeAjax_3').innerHTML=peticion.responseText;//se recoje el numero de pacientes
         } 
         else{
             alert('Hubo problemas con la petición.');
@@ -241,6 +241,30 @@ function respuesta_bloqueo_trivia(){
     if (peticion.readyState == 4){
          if (peticion.status == 200){
            document.getElementById('RespuestaPreguntas').innerHTML=peticion.responseText;//envia respuesta a preguntaXxxxx_00.php
+        } 
+        else{
+            alert('Hubo problemas con la petición.');
+        }
+    }
+}
+
+//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+//invocada en comentarios.php 
+function llamar_comentarios(){
+    A=document.getElementById("Usuario").value;//se inserta el ID_Participante
+    B=document.getElementById("Contenido").value;//se inserta el ID de la pregunta 
+    
+    var url="../controlador/recibeComentarios.php?val_1=" + A + "&val_2=" + B;
+    http_request.open('GET',url,true);     
+    peticion.onreadystatechange = respuesta_comentarios;
+    peticion.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    peticion.send("null");
+}                                                           
+function respuesta_comentarios(){
+    if (peticion.readyState == 4){
+         if (peticion.status == 200){
+           document.getElementById('RespuestaComentarios').innerHTML=peticion.responseText;//envia respuesta a comentarios.php
         } 
         else{
             alert('Hubo problemas con la petición.');

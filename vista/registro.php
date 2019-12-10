@@ -9,8 +9,8 @@
 		<title>Registro</title>
 
 		<meta http-equiv="content-type"  content="text/html; charset=utf-8"/>
-		<meta name="description" content="Juego de preguntas sobre suramerica."/>
-		<meta name="keywords" content="suramerica, latinoamerica"/>
+		<meta name="description" content="registro de usuarios para el sitio web."/>
+		<meta name="keywords" content="registro, usuarios"/>
 		<meta name="author" content="Pablo Cabeza"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="expires" content="07 de mayo de 2018"><!--Inicio de construcción de la página-->

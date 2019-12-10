@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../css/EstilosVs_100.css"/>
 <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/MediaQuery_EstilosVs_100.css">
 <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=RLato|Raleway:400|Montserrat|Indie+Flower|Caveat'>
@@ -7,7 +8,7 @@
 		
 
 <h2>Colosenses 3:23</h2>
-<p class="Inicio_6">Hagan lo que hagan, trabajen de buena gana, como para el Señor y no como para nadie en este mundo.</p>
+<p class="Inicio_25">Hagan lo que hagan, trabajen de buena gana, como para el Señor y no como para nadie en este mundo.</p>
 
 <br>
 <br>

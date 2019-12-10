@@ -89,7 +89,7 @@ $CapituloHoy = $_SESSION["Capitulo"];
 			<h2 class="h2_2" id="ancla_3">Insignias</h2>
 			<p class="Inicio_6">Insignia de Maestro</p>
             <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Maestro.png">
-			<p class="Inicio_3">Otorgada al participante que alcance cinco puntos en todas las respuesta de un test diario y participe antes de las 7 am.</p>
+			<p class="Inicio_3">Otorgada al participante que alcance cinco puntos en todas las respuesta de un test diario.</p>
 						
 			<p class="Inicio_6">Insignia de Especialista</p>
             <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Especialista.png">

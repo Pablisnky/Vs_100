@@ -14,7 +14,9 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 		include("../conexion/Conexion_BD.php");
 
 		$participante=$_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
-        // echo "ID_Participante:" .  $participante . "<br>";     
+		// echo "ID_Participante:" .  $participante . "<br>";    
+		
+		// $Hoy=$_SESSION["FechaHoy"]; //En esta sesion se tiene guardado la fecha de hoy, creada en index.php, se utilizaba para insertar la imagen que se cambio al archivo index.php
 		 
 		//Se llama a la sesioon Capitulo, creada en Index.php
     	$CapituloHoy = $_SESSION["Capitulo"]; 
@@ -39,52 +41,20 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 				<script type="text/javascript" src="../javascript/Funciones_varias.js" ></script>
 			</head>	
 			<body onload="toTop()">
-				<header style="position: fixed;  width: 100%;">
+				<header style="position: fixed;  width: 100%; z-index:1">
 					<?php include("../vista/modulos/header_usuario.php");?>   		   		
 				</header>
 				<br><br><br><br><br><br>
 				<div class="Secundario" onclick="ocultarMenu()">	
+					<p class="Inicio_9">¿Estudiaste el capítulo de hoy?</p>
+					<p class="Inicio_14"><?php echo $CapituloHoy;?></p> 
 					<?php
-					//Se verifica si el participante tiene pruebas pendientes por responder que sean de la semana actual
-					//$Consulta_0="SELECT ID_PP,ID_Prueba,Categoria,Tema,DATE_FORMAT(Fecha_pago, '%Y/%m/%d') AS Fecha_pago FROM participantes_pruebas WHERE ID_Participante='$participante' AND (Prueba_Activa = 1 AND Prueba_Pagada = 1 AND Prueba_Cerrada = 0) AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE()";
-					//$Recordset_0 = mysqli_query($conexion, $Consulta_0); 
-					//if(mysqli_num_rows($Recordset_0) != 0){  ?>
-						<div id="EntradaParticipante_1">  <!--class="nueva_Prueba"-->
-							<!-- <p class="Inicio_4">Tienes pruebas pendientes por responder sobre el tema:</p> -->
-							<?php
-								// Se busca que pruebas tiene pendiente el participante
-								//while($Registro_2= mysqli_fetch_array($Recordset_0)){ 
-									// echo "el tema de la prueba es: " . $Registro_2['Tema'] . "<br>"; 
-									//$Tema= $Registro_2['Tema'];
-									// echo "el codigo de la prueba es: " . $Registro_2['ID_PP'] . "<br>";
-									//$ID_PP= $Registro_2["ID_PP"];
-									// echo "ID_PP = " . 	$ID_PP	 ."<br>";
-									//se verifica que pruebas tiene pendientes o pruebas activas
-									// $Pendiente= $Registro_2[0]; //campo "ID_PP" en tabla participantes_pruebas 
-									// $Activa= $Participante[14]; //campo "activa" en tabla participantes_pruebas 
-									// echo "Prueva pendiente= " . $Pendiente 
-									// echo "Prueva Activa= " . $Activa ."<br>";  
-									//$ID_Prueba= $Registro_2["ID_Prueba"]; 
-									// echo "ID_Prueba= " . $ID_Prueba ."<br>"; 
-									//$Categoria= $Registro_2["Categoria"]; 
-									// echo "ID_Prueba= " . $ID_Prueba ."<br>";
-									//$Fecha= $Registro_2["Fecha_pago"];
-									?>
-									<div style="text-align: center; margin-top: 3%;">
-										<!-- <a href="../vista/pregunta.php?tema=<?php// echo $Tema?>&ID_PP=<?php //echo $ID_PP?>&fecha=<?php //echo $Fecha?>&ID_Prueba=<?php //echo $ID_Prueba;?>"> <?php// echo $Registro_2["Tema"];?></a> -->
-										<!-- <p class="entrada_6"> | Código</p> -->
-										<!-- <p class="entrada_6"><?php// echo $Registro_2["ID_PP"];?></p> -->
-									</div>
-									<?php
-								// }	
-								?>
-							</div>	
-							<?php
-						//}   
-						  ?>
-						  	<p class="Inicio_9">¿Estudiaste el capítulo de hoy?</p>
-							<p class="Inicio_14"><?php echo $CapituloHoy;?></p> 
-							<a class="buttonCuatro a_3" href="registro_Libre.php?Tema=Reavivados">Iniciemos</a> 
+						// if($CapituloHoy = "Test disponible a las 5:00 am"){   ?>
+							 	<!-- <a class="buttonCuatro a_3" href="">Iniciemos</a> -->	<?php
+							// }
+							// else{	?>
+								<a class="buttonCuatro a_3" href="registro_Libre.php?Tema=Reavivados">Iniciemos</a>   
+								<?php  //	}	?>
 							<hr style="border-color: #040652; border-style: solid; border-width: 2px;">
 							<p class="Inicio_9 p_6">O si prefieres</p>
 							<p class="Inicio_1">Seleccione una tema para una prueba corta de 10 preguntas.</p>

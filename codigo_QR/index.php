@@ -10,7 +10,7 @@
         mkdir($dir);
 	
     //Declaramos la ruta y nombre del archivo a generar (archivo que contiene el codigo_QR)
-	$filename = $dir . '2019_43';
+	$filename = $dir . 'HojaVida_PC';
 
     //Parametros de Condiguración
 	$tamaño = 6; //Tamaño de Pixel
@@ -18,7 +18,7 @@
 	$framSize = 3; //Tamaño en blanco
 
 	//Se inserta la ruta a donde va a llevar el código QR
-	$contenido = "https://www.horebi.com/Sabios/2019_43.php"; 
+	$contenido = "https://www.horebi.com/codigo_QR/Soportes_HV_Pablo_Cabeza.html"; 
 	
     //Enviamos los parametros a la Función para generar código QR 
 	QRcode::png($contenido, $filename, $level, $tamaño, $framSize); 

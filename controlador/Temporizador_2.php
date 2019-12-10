@@ -42,15 +42,14 @@
     // echo "Hora PHP de respuesta" . $HoraServidorPHP . "<br>";
 
     //se suman 2 minutos al tiempo que esta registrado en la BD como de apertura de una pregunta (HoraPregunta).
-    $salto_horario_PHPLocal = +0.03333333333333334 * 60 * 60;//se restan 30 minutas, porque el servidor PHP esta adelantado
+    $salto_horario_PHPLocal = +0.0345 * 60 * 60;//se restan 30 minutas, porque el servidor PHP esta adelantado
     $PHPlocal = date("Y-m-d  H:i:s", time()  + $salto_horario_PHPLocal);
     // $PHPlocal= date("Y-m-d  H:i:s");
      // echo "Hora PHP incrementada en 2 min" . $PHPlocal . "<br>";
 
   // ----------------------------------------------------------------------------------------------
   // ----------------------------------------------------------------------------------------------
-
-    // Si la pregunta no ha sido respondida
+  // Si la pregunta no ha sido respondida
     if($VerificarPregunta == 0){ 
         // se suman 2 minutos al tiempo que esta registrado en la BD como de apertura de una pregunta (HoraPregunta).
         //El servidor remoto MySQL tiene 2 horas de atrazo, por eso se añaden -58 minutos mas.
@@ -63,7 +62,7 @@
       
         //se inserta en la BD la hora en la que el participante entro a una pregunta.
         $insertar= "INSERT INTO respuestas(ID_Pregunta, ID_Participante, ID_PP, Tema, Hora_Pregunta, HoraMaximo) VALUES('$Pregunta', '$Participante', '$CodigoPrueba', '$Tema', '$HoraServidorPHP', '$PHPlocal')";
-          mysqli_query($conexion,$insertar) or DIE ('Falló conexión a la base de datos (C1)');
+          mysqli_query($conexion,$insertar) or DIE ('Falló conexión a la base de datos (Temp_2)');
     
     }
     else{
@@ -113,7 +112,7 @@ CountStepper = -1;
 LeadingZero = true;
 //DisplayFormat = "%%D%% Days, %%H%% Hours, %%M%% Minutes, %%S%% Seconds."; Para cuando lleva los dias incluidos
 DisplayFormat = "<b class='temp'>%%M%% min %%S%% seg</b>";
-FinishMessage = "<p id='Temporizador_3'>Tiempo cumplido, su respuesta no sumará puntos</p>";
+FinishMessage = "<p id='Temporizador_3'>Tiempo cumplido,<br> su respuesta no sumará puntos</p>";
 
 //<script language="JavaScript" src="http://scripts.hashemian.com/js/countdown.js">
 
