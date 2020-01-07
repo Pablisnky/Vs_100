@@ -1,26 +1,26 @@
 <?php
 	$participante= $_GET["ID_Participante"];//se recibe desde participaciones.php
-	// echo "ID_Participante= " . $participante . "<br>";
+	//  echo "ID_Participante= " . $participante . "<br>";
 	define("ID_PARTICIPANTE", $participante);
 
 	$Tema= $_GET["Tema"];//se recibe desde participaciones.php
-	//  echo "El tema de la prueba es: " . $Tema . "<br>";
+	// echo "El tema de la prueba es: " . $Tema . "<br>";
 	 
 	$Capitulo= $_GET["Capitulo"];//se recibe desde participaciones.php
-	// echo "El Capitulo de la prueba es: " . $Capitulo . "<br>";
+	 echo "El Capitulo de la prueba es: " . $Capitulo . "<br>";
 
 	$CodigoPrueba =$_GET["codigoPrueba"];//se recibe desde participaciones.php
-	// echo "Codigo prueba= " . $CodigoPrueba . "<br>";
+	 echo "Codigo prueba= " . $CodigoPrueba . "<br>";
 
 	$ID_Prueba= $_GET["ID_Prueba"];//se recibe desde participaciones.php
-    // echo "ID_Prueba= " . $ID_Prueba . "<br>";
+     echo "ID_Prueba= " . $ID_Prueba . "<br>";
     
     //conexion a la BD
     include("../conexion/Conexion_BD.php");
 	
 	 //sesion creada en entrada.php
 	// $CapituloHoy = $_SESSION["Capitulo"];
-	// echo "Capitulo= " . $CapituloHoy . "<br>";
+	 echo "Capitulo= " . $CapituloHoy . "<br>";
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -524,6 +524,112 @@ function SeleccionarIglesia_Col(form){  //Llamada al seleccionar un municipio co
             Iglesia[1] = new Option("Otro"); 
         }
     }
+    if(Departamento[11].selected == true){//César - Valledupar
+        if(municipio_Col[0].selected == true){//si la opcion cero del array select esta seleccionada, la opcion cero del array Municipio_Col valdra 
+            var destino0 = new Option("espere");
+            Iglesia[0] = destino0;
+        }
+        if(municipio_Col[1].selected == true){//Aguachica
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro"); 
+        }
+        if(municipio_Col[2].selected == true){//Agustín Codazzi
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[3].selected == true){//Astrea
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[4].selected == true){//Becerril
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[5].selected == true){//Bosconia
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[6].selected == true){//Chimichagua
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[7].selected == true){//Chiriguaná
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[8].selected == true){//Curumaní
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[9].selected == true){//El Copey
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[10].selected == true){//El Paso
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[11].selected == true){//Gamarra
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[12].selected == true){//González
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[13].selected == true){//La Gloria
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[14].selected == true){//La Jagua de Ibirico
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[15].selected == true){//La Paz Robles
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[16].selected == true){//Manaure Balcón del Cesar
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[17].selected == true){//Pailitas
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[18].selected == true){//Pelaya
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[19].selected == true){//Pueblo Bello
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[20].selected == true){//Río de Oro
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[21].selected == true){//San Alberto
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[22].selected == true){//San Diego
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[23].selected == true){//San Martín
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[24].selected == true){//Tamalameque
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+        if(municipio_Col[25].selected == true){//Valledupar
+            Iglesia[0] = new Option("");
+            Iglesia[1] = new Option("Otro");
+        }
+    }
     if(Departamento[22].selected == true){//Norte de Santander
         if(municipio_Col[0].selected == true){//si la opcion cero del array select esta seleccionada, la opcion cero del array Municipio_Col valdra 
             var destino0 = new Option("espere");
@@ -591,7 +697,7 @@ function SeleccionarIglesia_Col(form){  //Llamada al seleccionar un municipio co
 }
 
 
-function SeleccionarIglesia_Ven(form){  //Llamada al seleccionar un municipio colombiano  
+function SeleccionarIglesia_Ven(form){  //Llamada al seleccionar un municipio veneezolano 
     var Estado = form.estado.options;
     var Municipio = form.municipio.options;//se captura el elemento select que contiene los 
     var Iglesia = form.iglesia.options;//se captura el elemento select que contiene los 

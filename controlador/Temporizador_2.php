@@ -1,7 +1,6 @@
 <?php   
-    //Este archivo calcula el tiempo de cada pregunta, que es de dos minutos, 
-    // session_start();
-    //include("../conexion/Conexion_BD.php"); //No se incluye la conexion y la apertura de sesion porque a los archivos a donde va hacer incluido Temporizador_2.php ya tienen conexion a BD y sesion start.
+    // incluido en entrada.php
+    //Este archivo calcula el tiempo de cada pregunta, que es de dos minutos.
 
     $Pregunta= $_SESSION["Pregunta"];//sesion creada en cada pregunta.
     $Participante= $_SESSION["ID_Participante"];
@@ -70,7 +69,6 @@
     }
 //-----------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------
-
   //Se busca en la BD la fecha en la que termina el plazo para responder
   $Consulta_0= "SELECT DATE_FORMAT(HoraMaximo, '%Y/%m/%d') FROM respuestas WHERE ID_Participante= '$Participante' AND ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PP = '$CodigoPrueba'";
   $Recordset_0= mysqli_query($conexion,$Consulta_0); 
@@ -99,7 +97,7 @@
   // echo "Formato final necesitado= " .  $FormatoFinal . "<br>";
   ?>
 
-<!-- //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   //////  JAVASCRIPT   ////// -->
+<!-- *********************************************************************************************** -->
 
 <script language="JavaScript">
 //se construye la funcion que hace el temporizador y lo muestra en pantalla

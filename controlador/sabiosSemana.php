@@ -1,7 +1,14 @@
+<?php 
+   //Se utiliza la hora de Colombia
+	date_default_timezone_set('America/Bogota');
+    $Fecha_PHP_1 =date("Y-m-d");
+    // echo $Fecha_PHP_1;
+?>
+
 <div class="contenedor_13_a">
     <?php
     //Se busca el primer lugar de la semana
-    $Consulta_1 = "SELECT SUM(Puntos) AS acumulado, participante.ID_Participante, participante.Nombre, participante.Apellido, participante.Iglesia, participante.Otra_Iglesia, participante.Pais,  participante.SubRegion, participante.Fotografia, participantes_pruebas.Fecha_pago FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK(CURDATE()) GROUP BY WEEK(Fecha_pago)) GROUP BY participante.ID_Participante ORDER BY acumulado DESC LIMIT 1";
+    $Consulta_1 = "SELECT SUM(Puntos) AS acumulado, participante.ID_Participante, participante.Nombre, participante.Apellido, participante.Iglesia, participante.Otra_Iglesia, participante.Pais,  participante.SubRegion, participante.Fotografia, participantes_pruebas.Fecha_pago FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK('$Fecha_PHP_1') GROUP BY WEEK(Fecha_pago)) GROUP BY participante.ID_Participante ORDER BY acumulado DESC LIMIT 1";
     $Recordset_1 = mysqli_query($conexion, $Consulta_1);
     while($Resultado_1 =mysqli_fetch_array($Recordset_1)){
         $ID_Participante_4= $Resultado_1["ID_Participante"];
@@ -22,7 +29,7 @@
         //Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
         $Decimal_1 = str_replace('.', ',',  $Puntos_1);
         ?>
-        <div class="contenedor_25" id="Contenedor_25">
+        <div class="contenedor_25 contenedor_25a" id="Contenedor_25">
             <div style="width:100% !important">
                 <?php
                 //Se busca si el participante a logrado una insignia de maestro
@@ -38,7 +45,7 @@
             <div>
                 <img class="imagen_7" alt="Fotografia del usuario" src="../images/usuarios/<?php echo $Fotografia_1;?>">
             </div>
-            <div class="contenedor_27">  
+            <div class="contenedor_35">  
                 <label class="Inicio_10">
                     <?php 
                     $NombreCompleto= new NombreApellido();
@@ -55,18 +62,18 @@
             <?php 
     } 
     //Se verifica que el participante halla respondido hoy para mostrar el check en pantalla
-    $Consulta_5 = "SELECT participantes_pruebas.Fecha_pago FROM participantes_pruebas WHERE DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() AND ID_Participante= '$ID_Participante_4'";
+    $Consulta_5 = "SELECT participantes_pruebas.Fecha_pago FROM participantes_pruebas WHERE Fecha_pago = '$Fecha_PHP_1' AND ID_Participante= '$ID_Participante_4' AND ID_Prueba=5";
     $Recordset_5=  mysqli_query($conexion, $Consulta_5);
     $Resultado_5 =mysqli_fetch_array($Recordset_5);
 
-    date_default_timezone_set('America/Bogota');
-    $FechaServidorPHP =date("Y-m-d");
+    // date_default_timezone_set('America/Bogota');
+    // $FechaServidorPHP =date("Y-m-d");
     $Fecha_Participacion_5=date("Y-m-d",strtotime($Resultado_5["Fecha_pago"]));
     // echo "<br>";
     // echo $Resultado_1["Fecha_pago"] . "<br>";
     // echo $Fecha_Participacion_5 . "<br>";
-    // echo $FechaServidorPHP;
-    if($Fecha_Participacion_5 == $FechaServidorPHP){
+    //  echo $FechaServidorPHP;
+    if($Fecha_Participacion_5 == $Fecha_PHP_1){
         echo "<label class='Inicio_22'>Hoy: <span class='icon icon-checkmark'></span></label>";
     } 
     else{
@@ -77,7 +84,7 @@
                             <div class="contenedor_13_b">
                                 <?php
                                     //Se busca el segundo lugar de la semana
-                                    $Consulta_2 = "SELECT SUM(Puntos) AS acumulado, participante.ID_Participante, participante.Nombre, participante.Apellido, participante.Iglesia, participante.Otra_Iglesia, participante.Pais,  participante.SubRegion, participante.Fotografia, participantes_pruebas.Fecha_pago FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK(CURDATE()) GROUP BY WEEK(Fecha_pago)) GROUP BY participante.ID_Participante ORDER BY acumulado DESC LIMIT 1,1";
+                                    $Consulta_2 = "SELECT SUM(Puntos) AS acumulado, participante.ID_Participante, participante.Nombre, participante.Apellido, participante.Iglesia, participante.Otra_Iglesia, participante.Pais,  participante.SubRegion, participante.Fotografia, participantes_pruebas.Fecha_pago FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK('$Fecha_PHP_1') GROUP BY WEEK(Fecha_pago)) GROUP BY participante.ID_Participante ORDER BY acumulado DESC LIMIT 1,1";
                                     $Recordset_2 = mysqli_query($conexion, $Consulta_2);
                                     while($Resultado_2 =mysqli_fetch_array($Recordset_2)){
                                         $ID_Participante_5= $Resultado_2["ID_Participante"];
@@ -102,7 +109,7 @@
                                         //Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
                                         $Decimal_2 = str_replace('.', ',',  $Puntos_2);
                                         ?>
-                                        <div class="contenedor_25" id="Contenedor_25">
+                                        <div class="contenedor_25 contenedor_25a" id="Contenedor_25">
                                             <div style="width:100% !important">
                                                 <?php
                                                 //Se busca si el participante a logrado una insignia de maestro
@@ -118,7 +125,7 @@
                                             <div> 
                                                 <img class="imagen_7" alt="Fotografia del usuario" src="../images/usuarios/<?php echo $Fotografia_2;?>">
                                             </div>
-                                            <div class="contenedor_27">  <?php
+                                            <div class="contenedor_35">  <?php
                                                     if($Apellido == "NoEspecifico"){ ?>
                                                         <label class="Inicio_10"><?php echo $Nombre_2;?></label> <?php
                                                     }
@@ -140,18 +147,18 @@
                                                 <?php 
                                     }
                                     //Se verifica que el participante halla respondido hoy para mostrar el check en pantalla
-                                    $Consulta_6 = "SELECT participantes_pruebas.Fecha_pago FROM participantes_pruebas WHERE DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() AND ID_Participante= '$ID_Participante_5'";
+                                    $Consulta_6 = "SELECT participantes_pruebas.Fecha_pago FROM participantes_pruebas WHERE  Fecha_pago = '$Fecha_PHP_1' AND ID_Participante= '$ID_Participante_5'";
                                     $Recordset_6=  mysqli_query($conexion, $Consulta_6);
                                     $Resultado_6 =mysqli_fetch_array($Recordset_6);
 
-                                    date_default_timezone_set('America/Bogota');
-                                    $FechaServidorPHP =date("Y-m-d");
+                                    // date_default_timezone_set('America/Bogota');
+                                    // $FechaServidorPHP =date("Y-m-d");
                                     $Fecha_Participacion_6=date("Y-m-d",strtotime($Resultado_6["Fecha_pago"]));
                                     // echo "<br>";
                                     // echo $Resultado_1["Fecha_pago"] . "<br>";
                                     // echo $Fecha_Participacion_5 . "<br>";
                                     // echo $FechaServidorPHP;
-                                    if($Fecha_Participacion_6 == $FechaServidorPHP){
+                                    if($Fecha_Participacion_6 ==  $Fecha_PHP_1){
                                         echo "<label class='Inicio_22'>Hoy: <span class='icon icon-checkmark'></span></label>";
                                     } 
                                     else{
@@ -163,7 +170,7 @@
                             <div class="contenedor_13_c"">
                                 <?php
                                     //Se busca el tercer lugar de la semana
-                                    $Consulta_3 = "SELECT SUM(Puntos) AS acumulado, participante.ID_Participante, participante.Nombre, participante.Apellido, participante.Iglesia, participante.Otra_Iglesia, participante.Pais,  participante.SubRegion, participante.Fotografia, participantes_pruebas.Fecha_pago FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK(CURDATE()) GROUP BY WEEK(Fecha_pago)) GROUP BY participante.ID_Participante ORDER BY acumulado DESC LIMIT 2,1";
+                                    $Consulta_3 = "SELECT SUM(Puntos) AS acumulado, participante.ID_Participante, participante.Nombre, participante.Apellido, participante.Iglesia, participante.Otra_Iglesia, participante.Pais,  participante.SubRegion, participante.Fotografia, participantes_pruebas.Fecha_pago FROM participante INNER JOIN participantes_pruebas ON participante.ID_Participante=participantes_pruebas.ID_Participante WHERE Tema='Reavivados' AND WEEK(Fecha_pago)= (SELECT WEEK(Fecha_pago) AS Semana FROM participantes_pruebas WHERE WEEK(Fecha_pago)=WEEK('$Fecha_PHP_1') GROUP BY WEEK(Fecha_pago)) GROUP BY participante.ID_Participante ORDER BY acumulado DESC LIMIT 2,1";
                                     $Recordset_3 = mysqli_query($conexion, $Consulta_3);
                                     while($Resultado_3 =mysqli_fetch_array($Recordset_3)){
                                         $ID_Participante_6= $Resultado_3["ID_Participante"];
@@ -188,7 +195,7 @@
                                         //Se cambia el formato de los puntos, la parte decimal es recibida con punto desde la BD y se cambia a coma
                                         $Decimal_3 = str_replace('.', ',',  $Puntos_3);
                                             ?>
-                                            <div class="contenedor_25" id="Contenedor_25">
+                                            <div class="contenedor_25 contenedor_25a" id="Contenedor_25">
                                                 <div style="width:100% !important; ">
                                                     <?php
                                                     //Se busca si el participante a logrado una insignia de maestro
@@ -204,7 +211,7 @@
                                                 <div>
                                                     <img class="imagen_7" alt="Fotografia del usuario" src="../images/usuarios/<?php echo $Fotografia_3;?>">
                                                 </div>
-                                                <div class="contenedor_27">  <?php
+                                                <div class="contenedor_35">  <?php
                                                     if($Apellido == "NoEspecifico"){ ?>
                                                         <label class="Inicio_10"><?php echo $Nombre_3;?></label> <?php
                                                     }
@@ -225,18 +232,18 @@
                                         <?php 
                                     } 
                                     //Se verifica que el participante halla respondido hoy para mostrar el check en pantalla
-                                    $Consulta_7 = "SELECT participantes_pruebas.Fecha_pago FROM participantes_pruebas WHERE DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() AND ID_Participante= '$ID_Participante_6'";
+                                    $Consulta_7 = "SELECT participantes_pruebas.Fecha_pago FROM participantes_pruebas WHERE  Fecha_pago = '$Fecha_PHP_1' AND ID_Participante= '$ID_Participante_6'";
                                     $Recordset_7=  mysqli_query($conexion, $Consulta_7);
                                     $Resultado_7 =mysqli_fetch_array($Recordset_7);
 
-                                    date_default_timezone_set('America/Bogota');
-                                    $FechaServidorPHP =date("Y-m-d");
+                                    // date_default_timezone_set('America/Bogota');
+                                    // $FechaServidorPHP =date("Y-m-d");
                                     $Fecha_Participacion_7=date("Y-m-d",strtotime($Resultado_7["Fecha_pago"]));
                                     // echo "<br>";
                                     // echo $Resultado_1["Fecha_pago"] . "<br>";
                                     // echo $Fecha_Participacion_5 . "<br>";
                                     // echo $FechaServidorPHP;
-                                    if($Fecha_Participacion_7 == $FechaServidorPHP){
+                                    if($Fecha_Participacion_7 ==  $Fecha_PHP_1){
                                         echo "<label class='Inicio_22'>Hoy: <span class='icon icon-checkmark'></span></label>";
                                     } 
                                     else{

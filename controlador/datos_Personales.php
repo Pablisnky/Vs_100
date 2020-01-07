@@ -38,6 +38,7 @@
 				</select>                  
 				<br>
             </div> 
+
             <!--Aplica solo a Colombia-->
             <div id="Region_1B" style="display: none;">
 			    <label class="etiqueta_34">Departamento:</label>
@@ -49,6 +50,7 @@
 					<option></option>
 				</select>    
             </div> 
+
             <!--Aplica solo a Venezuela-->
             <div id="Region_1C" style="display: none;">
                 <label>Estado:</label>
@@ -69,7 +71,7 @@
 				<input type="text" name="otraIglesia" id="Otra_Iglesia" style="display:none" placeholder="Indique nombre de grupo o iglesia">       
 			</div>   
         
-        <!-- Muestra la region y sub region que existe en la base de datos-->
+        <!-- Muestra la region y sub region que estan guardadas en la base de datos-->
         <div id="Regiones">
             <?php
             if($Usuario['Pais'] == "Venezuela"){ ?>

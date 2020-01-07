@@ -63,7 +63,9 @@
                         <a id="marcador_04" class="ancla_2"></a>
                         <fieldset class="Afiliacion_4  Afiliacion_3"> 
                             <legend>Insignias</legend>
-                            <P class="etiqueta_3">Aún no has ganado insignias, en <b>"instrucciones"</b> del menu principal están los detallles para obtenerlas.</P>
+                            <?php
+                                include("InsigniasGanadas.php");
+                            ?>
                         </fieldset>
                         <!-- CAMBIAR CONTRASEÑA -->
                         <!-- <a id="marcador_04" class="ancla_2"></a>
@@ -87,7 +89,7 @@
                     </div>  
                     <div id="Perfil_06" class="contenedor_9">
                         <input type="submit" value= "Guardar" style="width: 30%; margin-right: 14%; color:rgba(194, 245, 19,1);"  onclick=""> <!--return validar_10()-->
-                        <a class="buttonCuatro a_6" style="" href="entrada.php">Volver</a>         
+                        <a class="buttonCuatro a_6" href="entrada.php">Volver</a>         
                     </div>             
                 </form>                 
             </section> 

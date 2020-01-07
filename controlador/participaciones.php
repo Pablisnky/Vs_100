@@ -1,14 +1,14 @@
 <?php
-session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID_Participante, creada en validarSesion.php 
-	if(!isset($_SESSION["ID_Participante"])){//si la variable $_SESSION["Participante"] no esta declarada devuelve a principal.php porque el participante no ha realizado el login
-  		// echo "La sesion no fue creada";
+session_start();
+	if(!isset($_SESSION["ID_Participante"])){//si la variable $_SESSION["ID_Participante"] no esta declarada devuelve a principal.php porque el participante no ha realizado el login, sesion creada en validarSesion.php
+  		
   		header("location:../vista/principal.php");		
 	}
 	else{//si la varible $_SESSION["Participante"] esta declarada se entra al archivo, con esto se garantiza que el usuario entro por login
 		include("../conexion/Conexion_BD.php");
 
-		$participante=$_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
-        // echo "ID_Participante:" .  $participante . "<br>";
+		$participante=$_SESSION["ID_Participante"];
+    	//  echo "ID_Participante:" .  $participante . "<br>";
 
 	    //se consulta en cuantas pruebas el participante se ha inscrito y se obtiene (fecha,puntos y tema)
 	    $Consulta= "SELECT COUNT(*) AS Participacion FROM participantes_pruebas WHERE ID_Participante = '$participante' AND Prueba_Cerrada = 1";
@@ -42,7 +42,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 					<br><br><br><br><br><br>
 				<div class="Secundario" onclick="ocultarMenu()">
 					<?php 
-					if($participantes["Participacion"] == 0){ ?> 	
+					if($Participaciones == 0){ ?> 	
 						<div class="participaciones_1">
 							<p class='Inicio_9'>Aun no haz participado en ningúna prueba</p>
 						</div>  <?php  
@@ -57,14 +57,14 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 			                            <th>FECHA</th>
 			                            <th>TEST</th>
 			                            <th>PUNTOS</th>
-			                            <th>DETALLES</th>
+			                            <!-- <th>DETALLES</th> -->
 			                        </tr>
 			                    </thead>
 			                    <tbody>
 				                    <?php
 				                        $i = 1;
 				                        //se consulta las pruebas en las que el participante ha participado
-									    $Consulta= "SELECT participantes_pruebas.Puntos, participantes_pruebas.Fecha_pago, participantes_pruebas.Tema, reavi_capitulo.capitulo FROM participantes_pruebas INNER JOIN reavi_capitulo ON participantes_pruebas.Fecha_pago=reavi_capitulo.fecha WHERE participantes_pruebas.ID_Participante = '$participante' AND Prueba_Cerrada = 1 ORDER BY Fecha_pago DESC";
+									    $Consulta= "SELECT Puntos, Fecha_pago, Tema, reavi_capitulo.capitulo FROM participantes_pruebas INNER JOIN reavi_capitulo ON participantes_pruebas.Fecha_pago=reavi_capitulo.fecha WHERE ID_Participante = '$participante' AND Prueba_Cerrada = 1 ORDER BY Fecha_pago DESC";
 									    $Recordset=mysqli_query($conexion, $Consulta); 					            		
 				                        while($Pruebas= mysqli_fetch_array($Recordset)){  
 											
@@ -86,8 +86,8 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 					                            <td class="tabla_9">
 													<?php echo $Decimal;?> </td> 
 
-												<td class="tabla_2"><a href="../vista/detalleTest.php?ID_Participante=<?php echo $participante?>&Tema=<?php echo $Pruebas['Tema'];?>&Capitulo=<?php echo $Pruebas['Capitulo'];?>&ID_Prueba=<?php echo $Pruebas['ID_Prueba'];?>&codigoPrueba=<?php echo $Pruebas['ID_PP']?>">O</a>
-												</td> <?php
+												<td class="tabla_2"><a href="../vista/detalleTest.php?ID_Participante=<?php echo $participante?>&Tema=<?php echo $Pruebas['capitulo'];?>&Capitulo=<?php echo $Pruebas['capitulo'];?>&ID_Prueba=<?php echo $Pruebas['ID_Prueba'];?>&codigoPrueba=<?php echo $Pruebas['ID_PP']?>"><!--O--></a>
+												</td> <?php -
 					                         $i++;
 					                    }   
 			                        	  ?>      			                        	

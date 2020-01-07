@@ -1,10 +1,15 @@
 <?php
    include_once("../clases/nombreApellido.php");
    include_once("../modulos/muestraError.php");
+
+   //Se utiliza la hora de Colombia
+	date_default_timezone_set('America/Bogota');
+    $Fecha_PHP =date("Y-m-d");
+    // echo $Fecha_PHP;
 ?>
 <div class="contenedor_13_a">  <?php
     //Se busca el primer lugar del dia de hoy
-    $Consulta_1 = "SELECT participante.Nombre, participante.Apellido, participante.Iglesia, participante.Otra_Iglesia, participante.Pais, participante.SubRegion, participante.Fotografia,participantes_pruebas.Puntos, participantes_pruebas.ID_Participante  FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() AND ID_Prueba=5 AND Prueba_Cerrada= 1 ORDER BY Puntos DESC LIMIT 0,1";
+    $Consulta_1 = "SELECT participante.Nombre, participante.Apellido, participante.Iglesia, participante.Otra_Iglesia, participante.Pais, participante.SubRegion, participante.Fotografia,participantes_pruebas.Puntos, participantes_pruebas.ID_Participante  FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE Fecha_pago = '$Fecha_PHP' AND ID_Prueba=5 AND Prueba_Cerrada= 1 ORDER BY Puntos DESC LIMIT 0,1";
     $Recordset_1 = mysqli_query($conexion, $Consulta_1);
     while($Resultado_1 =mysqli_fetch_array($Recordset_1)){
         $ID_Participante_1= $Resultado_1["ID_Participante"];
@@ -62,7 +67,7 @@
                             <div class="contenedor_13_b">
                                 <?php
                                     //Se busca el segundo lugar del dia de hoy
-                                    $Consulta_2 = "SELECT participante.Nombre, participante.Apellido, participante.Fotografia, participante.Iglesia, participante.Otra_Iglesia, participante.Pais,  participante.SubRegion, participantes_pruebas.Puntos,  participantes_pruebas.ID_Participante FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() AND ID_Prueba=5  AND Prueba_Cerrada= 1 ORDER BY Puntos  DESC LIMIT 1,1";
+                                    $Consulta_2 = "SELECT participante.Nombre, participante.Apellido, participante.Fotografia, participante.Iglesia, participante.Otra_Iglesia, participante.Pais,  participante.SubRegion, participantes_pruebas.Puntos,  participantes_pruebas.ID_Participante FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE Fecha_pago = '$Fecha_PHP' AND ID_Prueba=5  AND Prueba_Cerrada= 1 ORDER BY Puntos  DESC LIMIT 1,1";
                                     $Recordset_2 = mysqli_query($conexion, $Consulta_2);
                                     while($Resultado_2 =mysqli_fetch_array($Recordset_2)){
                                         $ID_Participante_2= $Resultado_2["ID_Participante"];
@@ -105,7 +110,14 @@
                                                     <label class="Inicio_10"><?php echo $Nombre_2;?></label> <?php
                                                 }
                                                 else{     ?>
-                                                    <label class="Inicio_10"><?php echo $Nombre_2 . " " . $Apellido_2;?></label> <?php
+                                                    <label class="Inicio_10">
+                                                        <?php 
+                                                        $NombreCompleto= new NombreApellido();
+                                                                                            
+                                                        $NombreCompleto->DosNombre($Nombre_2);
+                                                        $NombreCompleto->PrimerApellido($Apellido_2);
+                                                        ?>
+                                                    </label> <?php 
                                                 }
                                                 ?>
                                                 <label class="Inicio_11"><?php echo $Decimal_2;?> Puntos</label>
@@ -120,7 +132,7 @@
                             <div class="contenedor_13_c">
                                 <?php
                                     //Se busca el tercer lugar del dia de hoy
-                                    $Consulta_2 = "SELECT participante.Nombre, participante.Apellido, participante.Fotografia, participante.Iglesia, participante.Otra_Iglesia, participante.Pais, participante.SubRegion, participantes_pruebas.Puntos,  participantes_pruebas.ID_Participante FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE() AND ID_Prueba=5  AND Prueba_Cerrada= 1 ORDER BY Puntos  DESC LIMIT 2,1";
+                                    $Consulta_2 = "SELECT participante.Nombre, participante.Apellido, participante.Fotografia, participante.Iglesia, participante.Otra_Iglesia, participante.Pais, participante.SubRegion, participantes_pruebas.Puntos,  participantes_pruebas.ID_Participante FROM participantes_pruebas INNER JOIN participante ON participantes_pruebas.ID_Participante=participante.ID_Participante WHERE Fecha_pago = '$Fecha_PHP' AND ID_Prueba=5  AND Prueba_Cerrada= 1 ORDER BY Puntos  DESC LIMIT 2,1";
                                     $Recordset_2 = mysqli_query($conexion, $Consulta_2);
                                     while($Resultado_2 =mysqli_fetch_array($Recordset_2)){
                                         $ID_Participante_3= $Resultado_2["ID_Participante"];
@@ -163,7 +175,14 @@
                                                     <label class="Inicio_10"><?php echo $Nombre_2;?></label> <?php
                                                 }
                                                 else{     ?>
-                                                    <label class="Inicio_10"><?php echo $Nombre_2 . " " . $Apellido_2;?></label> <?php
+                                                    <label class="Inicio_10">
+                                                        <?php 
+                                                        $NombreCompleto= new NombreApellido();
+                                                                                            
+                                                        $NombreCompleto->DosNombre($Nombre_2);
+                                                        $NombreCompleto->PrimerApellido($Apellido_2);
+                                                        ?>
+                                                    </label> <?php
                                                 }
                                                 ?>
                                                 <label class="Inicio_11"><?php echo $Decimal_2;?> Puntos</label>

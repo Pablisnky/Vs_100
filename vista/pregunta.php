@@ -1,5 +1,5 @@
 <?php
-session_start();//se inicia sesion para llamar las variables $_SESSION creadas en otros archivos, o para crear una.
+session_start();
 
     //Muestra los errores en local e impide mostrarlos en remoto
 	include("../modulos/muestraError.php");
@@ -12,14 +12,17 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		
 		include("../conexion/Conexion_BD.php");
 
-		$Tema= $_GET["tema"]; //Se recibe desde entrada.php
-		//  echo "Tema: " . $Tema . "<br>";
+		$Tema= $_GET["tema"]; //Se recibe desde registro_Libre.php
+		// echo "Tema: " . $Tema . "<br>";
+
+		// $Tema= utf8_decode($Tema);
+		// echo "Tema con utf8: " . $Tema . "<br>";
 
 		$ID_PP = $_GET["ID_PP"]; //Se recibe desde entrada.php
-		//  echo "ID_PP: " . $ID_PP . "<br>";
+		//   echo "ID_PP: " . $ID_PP . "<br>";
 
 		$Fecha = $_GET["fecha"]; //Se recibe desde entrada.php
-		//  echo "Fecha: " . $Fecha . "<br>";
+		//   echo "Fecha: " . $Fecha . "<br>";
 
 		// Se consulta si es una prueba libre o una de pago
 		$Consulta_7= "SELECT Deposito FROM participantes_pruebas WHERE Deposito= 'Exonerado' AND Tema = '$Tema'";
@@ -33,7 +36,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 			// echo "ID_Prueba: " . $ID_Prueba . "<br>";
 		}
 		$_SESSION["Tema"]= $Tema;//se crea una nueva sesion, en esta sesion se guardará el tema de la prueba
-		// echo "Sesion con el tema: " . $_SESSION["Tema"] . "<br>";
+		//  echo "Sesion con el tema: " . $_SESSION["Tema"] . "<br>";
 
 		$_SESSION["codigoPrueba"]= $ID_PP;//se crea una nueva sesion, en esta sesion se guardará el codigo de la prueba
 		// echo "Sesion con ID_PP: " . $_SESSION["codigoPrueba"] . "<br>";
@@ -42,10 +45,10 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 		// echo "Sesion con el ID_Prueba: " . $_SESSION["ID_Prueba"] . "<br>";
 
 	    $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el id del participante, sesion creada en validarSesion.php
-		// echo "ID_Participante: " . $participante . "<br>";
-		
+		//  echo "ID_Participante: " . $participante . "<br>";
+		 
 		$CapituloHoy = $_SESSION["Capitulo"];//en esta sesion se tiene guardado el nombre del capitulo estudiado, sesion creada en index.php
-		// echo "Capitulo de hoy: " . $CapituloHoy . "<br>"; 
+		//  echo "Capitulo de hoy: " . $CapituloHoy . "<br>"; 
 
 		//Se consulta en la BD que preguntas a respondido para saber el Nº de la pregunta a responder
 		//Consulta realizada para obtener la cantidad de respuestas correctas y posicionar al participante en la que le corresponde
@@ -73,7 +76,7 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 				$Num_Pregunta= "Resultados";// definiendo una variable para identificar el número de la pregunta;
 			}
 		}
-		else{
+		else{//Sino es reavivaods
 			if($Puntaje==0){
 				$Num_Pregunta= 1;// definiendo una variable para identificar el número de la pregunta;
 			}
@@ -211,19 +214,19 @@ session_start();//se inicia sesion para llamar las variables $_SESSION creadas e
 					<div>
 						<?php
 							switch($Tema){
-			                    case "Exodo":
+			                    case "Éxodo":
 									include("../tema/biblia/exodo/posicionExodo.php");
 									if($Puntaje<10){
 										include("../audio/FondoBiblia_1.php");
 									}
 			                    break;
-			                    case "Genesis":
+			                    case "Génesis":
 			                       	include("../tema/biblia/genesis/posicionGenesis.php");
 									if($Puntaje<10){
 										include("../audio/FondoBiblia_1.php");
 								    }
 			                    break; 
-			                    case "Jeremias":
+			                    case "Jeremías":
 			                       	include("../tema/biblia/jeremias/posicionJeremias.php");
 									if($Puntaje<10){
 										include("../audio/FondoBiblia_1.php");

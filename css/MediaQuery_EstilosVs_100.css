@@ -407,14 +407,18 @@ th{/*participantes.php*/
 	margin-bottom: 15%;
 }
 .contenedor_25{/*participacionHoy.php      participacionHoy_Cont.php    sabiosConInsignias.php*/
-	margin: 1% auto 10% auto !important;
+	margin: -5% auto 10% auto !important;
 	width: 90%;
+}
+.contenedor_25a{/*participacionHoy.php */
+	margin-top: 10% !important;
 }
 .contenedor_27{/*participantesHoy.php*/
 	margin-top:5%; 
 	margin-bottom:0%; 
 }
 .contenedor_29{/*index.php*/
+	width: 100%;
 	display:grid; 
 	grid-template-columns: 100%; 
 }
@@ -439,7 +443,6 @@ th{/*participantes.php*/
 	width: 100%
 }
 .contenedor_34{/*ultima.php*/
-	background-color: yellow;
 	width: 95%;
 	margin: 0% auto 10% auto;
 	border-radius: 15px;
@@ -449,17 +452,23 @@ th{/*participantes.php*/
 }
 .contenedor_35{/*sabiosDia.php*/
 	margin-top:2%; 
+	min-height:10px ;
 }
-.n00{/*index.php*/
-	width: 100%;
-	height: 50px;
-	/* padding-left: 0%; */
-	margin-left: 0%;
-	margin-top: 0%;
-	margin-bottom: 8%;
-	justify-content: space-around;
-	border:none;
-} 
+.contenedor_36{/*sabiosConInsignias.php   sabiosSalon.php*/
+	margin: 5% auto 15% auto;
+	width: 98%; 
+}
+.contenedor_38{/*equipo.php*/
+	float: none;
+	margin: auto; 
+	width:95%
+}
+.contenedor_39{/*equipo.php*/
+	margin-top: 15%;
+}
+.contenedor_40{/*index.php*/
+	display: none;
+}
 .contenido_2{/*contacto.php*/
 	width: 85% !important;
 }
@@ -628,18 +637,26 @@ th{/*participantes.php*/
 	width: 70% !important; 
 	margin-left: 40%;
 }
-.imagen_11{/*entrada.php*/
+.imagen_11{/*imagenComentada.php*/
 	width: 95%; 
-	height: 170px;
+	/* height: 340px; */
 	/* margin-top: 0%; */
 	margin-bottom: 5%;
 	display: block;
 	margin: auto;
 }
-.imagen_13{/*ultima*/
-	width: 30%;
-	border-radius: 50px;
-	margin: 5%;
+.imagen_13{/*ultima   sabiosConInsignias.php   sabiosSalon.php*/
+	width: 70%;
+	border-radius: 60px;
+	/* margin: 5%; */
+}
+.imagen_15{/*ultima.php*/
+	width: 50px; 
+	height: 50px;
+	object-fit:cover ;/* deseado cover */
+	filter: brightness(110%);
+	margin: auto;
+	display: block;
 }
 .imagenTamaño{
 	width: 35%;
@@ -670,8 +687,8 @@ th{/*participantes.php*/
 }
 .Inicio_3{/*instruccion.php*/
 	width: 85%;
-	font-size:15px;
-	margin-bottom: 20%;
+	font-size:1.2em;
+	margin-bottom: 10%;
 	line-height: 155%;
 }
 .Inicio_4{/*entrada.php*/
@@ -834,11 +851,34 @@ p .Inicio_16{/*recibeCorreo.php*/
 .Inicio_33{/*ultima.php*/
 	font-family: 'Raleway', sans-serif;
 	width: 95%;
-	font-size:0.8em;
+	font-size:1.4em;
 	font-weight: bold;
 	margin: auto;
 	margin-top: 3%;
 	color: #040652;
+}
+.Inicio_39{/*Estudios.php*/
+	width: 100%;
+}
+.etiqueta_34{/*datos_personales.php   registro.php */
+	margin-left: 6% !important;
+	text-align: left;
+}
+.Inicio_35{/*equipo.php*/ 
+	font-size:1.1em !important;
+	width: 90%;
+	margin: 5% auto;
+	line-height: 28px;
+}	
+.Inicio_36{/*equipo.php*/
+	width: 90%;
+	font-size: 1em;
+	text-align: justify;
+	margin-left: 5%;
+	margin-bottom: 10%;
+}
+.Inicio_37{/*equipo.php*/
+	margin-bottom: 7%;
 }
 .input_5{/*recibeCorreo.php   InsertarCodigo.php*/
 	width: 90%;
@@ -866,6 +906,13 @@ p .Inicio_16{/*recibeCorreo.php*/
 	width: 10%; 
 	margin-left: -67%;
 	margin-top: 1%;
+	z-index: 0;
+}
+.li_1{/*equipo.php*/
+	width: 85%;
+	margin-left: 10%;
+	margin: 2% auto;
+	font-size: 1.1em;
 }
 .linea{
 	display: none;
@@ -905,6 +952,7 @@ p .Inicio_16{/*recibeCorreo.php*/
 }
 .menuResponsive ul{/*Todas las páginas*/
 	flex-direction: column;
+	width: 100%;
 }
 .menuResponsive li{/*Todas las páginas*/
 	padding-left: 5%;
@@ -929,10 +977,18 @@ p .Inicio_16{/*recibeCorreo.php*/
 	display: block;
 }
 .n00{/*index.php*/
+	width: 100%;
+	height: 50px;
+	/* padding-left: 0%; */
+	margin-left: 0%;
+	margin-top: 10%;
+	margin-bottom: 14%;
+	justify-content: space-around;
+	border:none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
+} 
 /* .n10{index.html
 	background: -webkit-linear-gradient(bottom, white 70%, #040652 30%);
 	padding-bottom: 15px;
@@ -1084,6 +1140,15 @@ p .Inicio_16{/*recibeCorreo.php*/
 	left: 50%; 
 	line-height: 15px;
 }
+.p_9{/*imagenComentada.php*/
+	width: 95%;
+	margin: 1% auto 5% auto;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+.p_10{/*ultima.php*/
+	font-size: 1em;
+}
 .pais{
 	font-size: 17px;
 	font-weight: bold;
@@ -1108,7 +1173,7 @@ p .Inicio_16{/*recibeCorreo.php*/
 	top:125% !important;
 }
 .participaciones{/*participaciones.php*/
-	width: 100%;
+	width: 95%;
 	margin: 8% auto;
 }
 .popup{
@@ -1253,6 +1318,9 @@ p .Inicio_16{/*recibeCorreo.php*/
 	margin-top: 0% !important;
 	padding-left: 17%;
 }
+.span_13{/*header.php*/
+	display: inline;
+}
 .tabla_0{/*ultima.php*/
     padding: 1% 5%; 
     height: 20px;
@@ -1290,15 +1358,14 @@ p .Inicio_16{/*recibeCorreo.php*/
 	margin-top: 10% !important;
 }
 .tabla_7{/*participaciones.php*/
-    /* padding: 1% 5%;  */
     height: 20px;
-    width: 30%;
+    width: 25%;
 	text-align: center;
 	font-size: 14px;
 }
 .tabla_8{/*participaciones.php*/
     height: 20px;
-    width: 55%;
+    width: 45%;
     text-align: center;
 	font-size: 14px;
 }

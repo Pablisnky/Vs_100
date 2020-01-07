@@ -1,7 +1,6 @@
 <?php
-session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID_Participante, creada en validarSesion.php 
+session_start();
 	if(!isset($_SESSION["ID_Participante"])){//si la variable $_SESSION["Participante"] no esta declarada devuelve a principal.php porque el participante no ha realizado el login
-  		// echo "La sesion no fue creada";
   		header("location:../vista/principal.php");		
 	}
 	else{//si la varible $_SESSION["Participante"] esta declarada se entra al archivo, con esto se garantiza que el usuario entro por login
@@ -18,7 +17,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 		
 		// $Hoy=$_SESSION["FechaHoy"]; //En esta sesion se tiene guardado la fecha de hoy, creada en index.php, se utilizaba para insertar la imagen que se cambio al archivo index.php
 		 
-		//Se llama a la sesioon Capitulo, creada en Index.php
+		//sesioon creada en Index.php
     	$CapituloHoy = $_SESSION["Capitulo"]; 
 		?>
 		<!DOCTYPE html>
@@ -45,19 +44,19 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 					<?php include("../vista/modulos/header_usuario.php");?>   		   		
 				</header>
 				<br><br><br><br><br><br>
+				<div>
+					<label>Selecciona una categoria test</label>
+					<label>El reto del capitulo diario</label>
+					<label>El reto de un libro biblico</label>
+					<label>Un estudio biblico</label>
+				</div>
 				<div class="Secundario" onclick="ocultarMenu()">	
 					<p class="Inicio_9">¿Estudiaste el capítulo de hoy?</p>
 					<p class="Inicio_14"><?php echo $CapituloHoy;?></p> 
-					<?php
-						// if($CapituloHoy = "Test disponible a las 5:00 am"){   ?>
-							 	<!-- <a class="buttonCuatro a_3" href="">Iniciemos</a> -->	<?php
-							// }
-							// else{	?>
-								<a class="buttonCuatro a_3" href="registro_Libre.php?Tema=Reavivados">Iniciemos</a>   
-								<?php  //	}	?>
-							<hr style="border-color: #040652; border-style: solid; border-width: 2px;">
-							<p class="Inicio_9 p_6">O si prefieres</p>
-							<p class="Inicio_1">Seleccione una tema para una prueba corta de 10 preguntas.</p>
+					<a class="buttonCuatro a_3" href="registro_Libre.php?Tema=Reavivados">Iniciemos</a>   
+					<hr style="border-color: #040652; border-style: solid; border-width: 2px;">
+					<p class="Inicio_9 p_6">O si prefieres</p>
+					<p class="Inicio_1">Seleccione una tema para un test de 10 preguntas.</p>
 							<div class="entrada_5">
 								<div class="entrada_4">
 									<p class="p_5">Libros del pentateuco</p>
@@ -94,7 +93,7 @@ session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID
 								<div class="entrada_4">
 									<p class="p_5">Libros de profetas mayores</p>
 									<input type="text" class="nav_4" readonly="readonly" value="Isaías">
-									<a class="nav_7" href="registro_Libre.php?Tema=Jeremias">Jeremías</a>
+									<a class="nav_7" href="registro_Libre.php?Tema=Jeremías">Jeremías</a>
 									<input type="text" class="nav_4" readonly="readonly" value="Lamentaciones">
 									<input type="text" class="nav_4" readonly="readonly" value="Ezequiel">
 									<input type="text" class="nav_4" readonly="readonly" value="Daniel">

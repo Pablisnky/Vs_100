@@ -49,7 +49,6 @@
 						</fieldset>      						
                         <fieldset class="Afiliacion_4">
                         	<legend>Datos de congregación</legend>
-							<!-- <label>Pais:</label> -->
 							<label class="etiqueta_34">Pais:</label>
 							<select class="etiqueta_33" name="pais" id="Pais" onchange="SeleccionarRegiones(this.form)"> 
 								<option></option>

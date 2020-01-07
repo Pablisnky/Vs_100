@@ -66,103 +66,38 @@
                 ?>                            
             </div>	
                         
-
                         <!-- Salon del sabio -->
                         <div class="contenedor_12_c" id="Contenedor_12_c">
                             <h2 class="h_1" id="Contenedor_12_a1">Salón del sabio</h2> 
-                            <p class="Inicio_21">Galería de participantes que han alcanzado honores dentro de nuestra comunidad, bien sea con el máximo puntaje de una semana o que han ganado una insignia para su perfil.</p> 
+                            <p class="Inicio_21">Galería de participantes que han alcanzado honores dentro de nuestra comunidad.</p> 
                             <div class="contenedor_14_a">
                                 <div>
                                     <input type="radio" name="insignias" id="Semanal_2" onclick="Lideres_Sem()"><br>
                                     <label class="radio" for="Semanal_2" onclick="Lideres_Sem()">Lider por semanas</label>
                                 </div>
                                 <div>
-                                    <input type="radio" name="insignias" id="Insignias" onclick="Insignias()"><br>
-                                    <label class="radio" for="Insignias" onclick="Insignias()">Participantes con Insignias</label>
+                                    <input type="radio" name="insignias" id="Insignias"  onclick="Insignia()"><br>
+                                    <label class="radio" for="Insignias" onclick="Insignia()">Participantes con Insignias</label>
                                 </div>
-                            </div>  
+                            </div>
 
-                            <div id="Contenedor_24"><!--Contiene los participantes con mayor puntaje en una semana -->         
-                                <hr>
-                                <img class="imagen_7" alt="Fotografia del usuario" src="../images/usuarios/<?php echo "Perfil.jpg";?>">
-                                <label class="Inicio_10"><?php echo "Kathy Rozo";?></label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 48-2019</label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 167,678</label>
-                                <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-                                <label class="Inicio_11 b_1"><?php echo "Peniel - Pamplona"?></label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
-                                <label class="Inicio_11 b_1"><?php echo "Esdras 5"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "Esdras 6"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "Esdras 7"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "Esdras 8"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "Esdras 9"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "Esdras 10"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "Nehemías 1"?></label>
-                                <label class="Inicio_11">sábado 30 de noviembre de 2019</label>
-
-                                <hr class="hr_4">
-                                <img class="imagen_7" alt="Fotografia del usuario" src="../images/usuarios/<?php echo "Perfil.jpg";?>">
-                                <label class="Inicio_10"><?php echo "Alfredo Ortega";?></label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 47-2019</label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 129,060</label>
-                                <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-                                <label class="Inicio_11 b_1"><?php echo "Filadelfia - Bucaramanga"?></label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 34"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 35"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 36"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "Esdras 1"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "Esdras 2"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "Esdras 3"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "Esdras 4"?></label>
-                                <label class="Inicio_11">sábado 23 de noviembre de 2019</label> 
-
-                                <hr class="hr_4">
-                                <label class="Inicio_10"><?php echo "Declarado desierto";?></label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 46-2019</label>
-                                <label class="Inicio_11">sábado 16 de noviembre de 2019</label>
-                                <label class="Inicio_11">Fallas tecnicas no permitieron realizar el reto semanal</label>                           
-                               
-                                <hr class="hr_4">                                
-                                <img class="imagen_7" alt="Fotografia del usuario" src="../images/usuarios/<?php echo "Perfil.jpg";?>">
-                                <label class="Inicio_10"><?php echo "Elisabeth Contreras";?></label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 45-2019</label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 148,22</label>
-                                <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-                                <label class="Inicio_11 b_1"><?php echo "Peniel - Pamplonita"?></label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 20"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 21"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 22"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 23"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 24"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 25"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 26"?></label>
-                                <label class="Inicio_11">sábado 09 de noviembre de 2019</label>
-
-                                <hr class="hr_4">
-                                <img class="imagen_7" alt="Fotografia del usuario" src="../images/usuarios/<?php echo "IMG-20190602-WA0002.jpg";?>">
-                                <label class="Inicio_10"><?php echo "Luje Mala";?></label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 44-2019</label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 135,643</label>
-                                <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-                                <label class="Inicio_11 b_1"><?php echo "Peniel - Pamplona"?></label>
-                                <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 13"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 14"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 15"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 16"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 17"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 18"?></label>
-                                <label class="Inicio_11 b_1"><?php echo "2 Crónicas 19"?></label>
-                                <label class="Inicio_11">sábado 02 de noviembre de 2019</label>
-                            </div>	
-                            <div id="Contenedor_25"><!--Contiene los participantes con una insignias -->
-                                <?php
-                                    include("../controlador/sabiosConInsignias.php");
-                                ?>                            
+                            <!--Contiene los participantes con mayor puntaje en una semana -->
+                            <div id="Contenedor_50">       
+                                <div id="Contenedor_52">
+                                    <?php
+                                        include("../controlador/sabiosSalon.php");
+                                    ?>                            
+                                </div>  
+                                <!-- Contiene los participantes con insignias -->                    
+                                <div id="Contenedor_51">                             
+                                    <?php
+                                        include("../controlador/sabiosConInsignias.php");
+                                    ?>                            
+                                </div>  
                             </div>
                         </div> 
+                        
+
         </div>
 		<footer>
             <img class="imagen_3" alt="Logotipo horebi.com" src="../images/logo.png">

@@ -1,15 +1,23 @@
 <?php 
-    session_start();//se inicia sesion para llamar a la $_SESSION que contiene el ID_Participante, creada en validarSesion.php 
+    session_start();
     
     //Se conecta con la BD
     include("../conexion/Conexion_BD.php");
-    //Se evita que se muestren los errores en remotoreavivados por su palabrayoutube
-    include("../modulos/muestraError.php");
+    include("hora.php");
 
+    //Muestra los errores en local e impide mostrarlos en remoto
+    include("../modulos/muestraError.php");
+    
 	$Tema= $_GET["Tema"];//recibe el tema de la prueba desde entrada.php
-    //  echo "Tema= " . $Tema . "<br>";
+    // echo "Tema= " . $Tema . "<br>";
+     
     $Participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado el ID del participante, sesion creada en validarSesion.php
     //   echo "ID_Participante= " . $Participante . "<br>";
+    
+    //Se genera un numero aleatorio para insertarlo como Nº de deposito
+    mt_srand (time());
+    $Aleatorio = mt_rand(1000000,999999999);
+    // echo "Aleatorio= " . $Aleatorio . "<br>";
 
     switch($Tema){
         case 'Génesis': 
@@ -28,7 +36,7 @@
             $ID_Prueba = 5;
         break;
     }
-    // echo $ID_Prueba . "<br>";
+    //  echo $ID_Prueba . "<br>";
     
     if($ID_Prueba == 5){//Reavivados
         //Se evalua si ya respondio la prueba diaria
@@ -49,13 +57,9 @@
             //se evalua si la prueba comenzó a contestarla y quedo a medias
 
             //Es primera vez que entra a la prueba
-            //Se genera un numero aleatorio para insertarlo como Nº de deposito
-            mt_srand (time());
-            $Aleatorio = mt_rand(1000000,999999999);
-            // echo "Aleatorio= " . $Aleatorio . "<br>";
             
             //Se activa la prueba reavivados en la BD 
-            $Insertar= "INSERT INTO participantes_pruebas(ID_Participante, ID_Prueba, Tema, Deposito, Prueba_Pagada, Prueba_Activa, Fecha_pago) VALUES('$Participante', '$ID_Prueba', '$Tema', '$Aleatorio',1 ,1 , NOW())";
+            $Insertar= "INSERT INTO participantes_pruebas(ID_Participante, ID_Prueba, Tema, Deposito, Prueba_Pagada, Prueba_Activa, Fecha_pago, Hora_pago) VALUES('$Participante', '$ID_Prueba', '$Tema', '$Aleatorio',1 ,1 , CURDATE(), '$hora' )";
             mysqli_query($conexion, $Insertar) or DIE ('Falló primera conexión a la base de datos');
         
             // header("location:entrada.php");
@@ -94,8 +98,8 @@
         //  echo "Aleatorio= " . $Aleatorio . "<br>";
         
         //Se activa la prueba en la BD 
-        $Insertar= "INSERT INTO participantes_pruebas(ID_Participante, ID_Prueba, Tema, Deposito, Prueba_Pagada, Prueba_Activa, Fecha_pago) VALUES('$Participante', '$ID_Prueba','$Tema', '$Aleatorio',1 ,1 , NOW())" ;
-        mysqli_query($conexion, $Insertar) or DIE ('Falló conexión a la base de datos');
+        $Insertar= "INSERT INTO participantes_pruebas(ID_Participante, ID_Prueba, Tema, Deposito, Prueba_Pagada, Prueba_Activa, Fecha_pago, Hora_pago) VALUES('$Participante', '$ID_Prueba','$Tema', '$Aleatorio',1 ,1 , CURDATE(), '$hora' )" ;
+        mysqli_query($conexion, $Insertar) or DIE ('Falló conexión con la base de datos');
         
 		//Se consulta en la BD los datos de la prueba que acaba de registrarse para poder ser redireccionado a la prueba
 		$Consulta_0="SELECT ID_PP,ID_Prueba,Categoria,Tema,DATE_FORMAT(Fecha_pago, '%Y/%m/%d') AS Fecha_pago FROM participantes_pruebas WHERE ID_Participante='$Participante' AND Deposito= '$Aleatorio' AND (Prueba_Activa = 1 AND Prueba_Pagada = 1 AND Prueba_Cerrada = 0)";

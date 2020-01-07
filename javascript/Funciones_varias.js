@@ -262,6 +262,7 @@ function Lideres_D(){
         document.getElementById("Contenedor_12_b").style.display="grid";
         document.getElementById("Contenedor_12_c").style.display="none";
         document.getElementById("Contenedor_18").style.display="none";
+        document.getElementById("Contenedor_24").style.display="none";
     }
 }
 // -------------------------------------------------------------------------------------------
@@ -291,23 +292,24 @@ function Salon(){
         document.getElementById("Contenedor_12_a").style.display="none";
         document.getElementById("Contenedor_12_a1").style.display="none";
         document.getElementById("Contenedor_18").style.display="none";
-        document.getElementById("Contenedor_24").style.display="none";
-        document.getElementById("Contenedor_25").style.display="none";
+        document.getElementById("Contenedor_50").style.display="none";
+        // document.getElementById("Contenedor_25").style.display="none";
     }
 }
 // -------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------
 //llamada desde participacionHoy.php
-function Insignias(){
-    if(document.getElementById("Salon").checked == true){
+function Insignia(){
+    if(document.getElementById("Insignias").checked == true){
         document.getElementById("Contenedor_12").style.display="none";
         document.getElementById("Contenedor_12_b").style.display="none";
         document.getElementById("Contenedor_12_c").style.display="block";
         document.getElementById("Contenedor_12_a").style.display="none";
         document.getElementById("Contenedor_12_a1").style.display="none";
         document.getElementById("Contenedor_18").style.display="none";
-        document.getElementById("Contenedor_24").style.display="none";
-        document.getElementById("Contenedor_25").style.display="block";
+        document.getElementById("Contenedor_50").style.display="block";
+        document.getElementById("Contenedor_51").style.display="block";
+        document.getElementById("Contenedor_52").style.display="none";
     }
 }
 // -------------------------------------------------------------------------------------------
@@ -321,8 +323,9 @@ function Lideres_Sem(){
         document.getElementById("Contenedor_12_a").style.display="none";
         document.getElementById("Contenedor_12_a1").style.display="none";
         document.getElementById("Contenedor_18").style.display="none";
-        document.getElementById("Contenedor_24").style.display="block";
-        document.getElementById("Contenedor_25").style.display="none";
+        document.getElementById("Contenedor_50").style.display="block";
+        document.getElementById("Contenedor_51").style.display="none";
+        document.getElementById("Contenedor_52").style.display="block";
     }
 }
 // -------------------------------------------------------------------------------------------

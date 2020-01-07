@@ -15,7 +15,7 @@
 	$Consulta="SELECT * FROM respuestas WHERE ID_Participante='$participante' AND Correcto='1' AND Tema='$Tema' AND ID_PP ='$CodigoPrueba'";
 	$Recordset = mysqli_query($conexion, $Consulta) or die (mysqli_error($conexion)); 
 	$Puntaje= mysqli_num_rows($Recordset);//se suman los registros que tiene la consulta realizada.
-	//echo "Puntos: " . $Puntaje;
+	// echo "Puntos: " . $Puntaje;
 		if ($Puntaje==0){
 				include("preguntaBiblia_Exodo_01.php");
 		}

@@ -19,6 +19,9 @@ select{/*registro.php*/
 .contenedor_24{/*ministerio.php*/
 	text-align: justify;
 }
+.contenedor_38{/*equipo.php*/
+	margin-left:20%; 
+}
 .etiqueta_34{/*datos_personales.php     registro.php*/
 	display: inline-block;
 	width: 170px !important;
@@ -37,7 +40,11 @@ input[type=checkbox]{/*principal.php*/
 	margin: auto;
 	margin-bottom: 4%;
 	line-height: 135%;
-}		
+}			
+.Inicio_35{/*equipo.php*/ 
+	width: 60%;
+	margin: 1% auto;
+}	
 .n00{/*index.php*/
 	width: 100%;
 	box-sizing: border-box;

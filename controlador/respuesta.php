@@ -72,7 +72,7 @@ session_start();
 					marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" 
 						frameborder="0" height="300">
 				</iframe> 
-				<audio autoplay src="../audio/MysticBeauty.mp3" loop></audio>
+				<audio autoplay src="../audio/Grafico.mp3" loop></audio>
 			<?php
 			//se actualiza en la BD la hora a la que responido la pregunta
 			$Actualizar_4= "UPDATE respuestas SET correcto = 1, Hora_Respuesta = '$HoraServidorPHP' WHERE ID_Participante='$Participante' AND ID_Pregunta='$Pregunta' AND Tema ='$Tema' AND ID_PP = '$CodigoPrueba'";
@@ -92,7 +92,7 @@ session_start();
 			include("prorroteoPuntos.php");	?>
 			<iframe  src="../grafico/Grafico_Respuestas.php" marginwidth="0" marginheight="0" name="ventana_iframe" scrolling="no" border="0" frameborder="0" height="300">
 			</iframe> 	
-			<audio autoplay src="../audio/MysticBeauty.mp3" loop></audio>
+			<audio autoplay src="../audio/Grafico.mp3" loop></audio>
 			<?php
 		}
 	}

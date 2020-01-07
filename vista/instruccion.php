@@ -106,7 +106,7 @@ $CapituloHoy = $_SESSION["Capitulo"];
 			<p class="Inicio_6" >Insignia Mayor</p>
             <img class="imagen_7" alt="Fotografia del usuario" src="../images/In_Mayor.png">
 			<p class="Inicio_3">Otorgada al participante que entregue un pequeño proyecto viable sobre un tema o problema actual, que se implemente en nuestro entorno social y que solucione o demuestre que puede solucionar un problema.</p>
-					</div>
+		</div>
 		<a href="#up" class="simplescrollup__button simplescrollup__button--hide"><span class="icon-airplane" style="transform: rotate(45deg); display: block;"></span></a>
 		<script src="../javascript/scrollUp.js"></script>
 	    <footer>

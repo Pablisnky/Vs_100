@@ -3,7 +3,7 @@ $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado e
 //    echo "ID_Participante= " . $participante . "<br>";
 ?>
 
-<!--Se inserta en ultima.php linea 120 -->
+<!--Este archivo se inserta en ultima.php linea 120 -->
 <link rel="stylesheet" type="text/css" href="../iconos/icono_tilde_exis/style_tilde_exis.css"/><!--galeria icomoon.io  -->
 
 <?php
@@ -174,7 +174,7 @@ $participante= $_SESSION["ID_Participante"];//en esta sesion se tiene guardado e
 				<td class="tabla_0">
 					<?php
 						//se consulta si participo antes de las siete de la mañana
-						$Consulta_2= "SELECT ID_Participante, HOUR(TIME(Fecha_pago)) as hora FROM participantes_pruebas WHERE ID_Participante='$participante' AND HOUR(TIME(Fecha_pago)) < '8' AND Tema = 'Reavivados' AND DATE_FORMAT(Fecha_pago, '%Y/%m/%d') = CURDATE()";
+						$Consulta_2= "SELECT ID_Participante, Hora_pago FROM participantes_pruebas WHERE ID_Participante='$participante' AND Hora_pago < '07:00:00' AND Tema = 'Reavivados' AND Fecha_pago = CURDATE()";
 						$Recordset_2 = mysqli_query($conexion,$Consulta_2);
 						$Resultado_2= mysqli_num_rows($Recordset_2);
 						// echo $Resultado_2["hora"];

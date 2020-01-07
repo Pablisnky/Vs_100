@@ -14,14 +14,17 @@
         $Fecha = $_GET["fecha"];
         $ID_PP = $_GET["ID_PP"];
 
-        //  echo "Fecha: " . $Fecha ."<br>";
+        //   echo "Fecha: " . $Fecha ."<br>";
         //  echo "ID_PP: " . $ID_PP . "<br>";
 
     }
 
-    if($Fecha == "2019/12/10"){
-       include("12_19/10/posicionReavivadosPalabra.php");
+    if($Fecha == "2020/01/07"){
+       include("01_20/07/posicionReavivadosPalabra.php");
+    }
+    else if($Fecha == "2020/01/06"){
+        include("01_20/06/posicionReavivadosPalabra.php");
     }
     else{
-        include("12_19/09/posicionReavivadosPalabra.php");
+        
     }
