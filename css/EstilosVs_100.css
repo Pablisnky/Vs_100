@@ -964,7 +964,7 @@ td{
 }
 .Inicio_1{/*index.php    principal.php*/ 
 	font-family: 'Raleway', sans-serif;
-	font-size:16px !important;
+	font-size:1em !important;
 	width: 90%;
 	margin: 5% auto;
 	padding-bottom: 3%;

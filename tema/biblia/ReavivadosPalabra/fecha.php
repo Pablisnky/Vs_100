@@ -16,14 +16,13 @@
 
         //   echo "Fecha: " . $Fecha ."<br>";
         //  echo "ID_PP: " . $ID_PP . "<br>";
-
     }
 
-    if($Fecha == "2020/01/07"){
-       include("01_20/07/posicionReavivadosPalabra.php");
+    if($Fecha == "2020/01/12"){
+       include("01_20/12/posicionReavivadosPalabra.php");
     }
-    else if($Fecha == "2020/01/06"){
-        include("01_20/06/posicionReavivadosPalabra.php");
+    else if($Fecha == "2020/01/13"){
+        include("01_20/13/posicionReavivadosPalabra.php");
     }
     else{
         

@@ -1,6 +1,8 @@
 @media screen and (min-width: 1500px){/*las reglas se aplicarán cuando la pantalla tenga una anchura mayor de la indicada.*/
 
-
+body{
+	font-size: 18px;
+}
 h5{/*index.php*/
 	font-size: 1.8vw;
 }
@@ -45,6 +47,10 @@ input[type=checkbox]{/*principal.php*/
 	width: 60%;
 	margin: 1% auto;
 }	
+.Inicio_39{/*Estudios.php*/
+	width: 60%;
+	line-height: 30px;
+}
 .n00{/*index.php*/
 	width: 100%;
 	box-sizing: border-box;

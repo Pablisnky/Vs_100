@@ -42,11 +42,11 @@ session_start();
                 $FechaServidorPHP =date("Y-m-d");
                 // echo $FechaServidorPHP . "<br>";
                 
-                if($FechaServidorPHP == "2020-01-07"){
-                    include("../tema/biblia/ReavivadosPalabra/01_20/07/preguntaBiblia_ReavivadosPalabra_$PreguntaParticipante.php");
+                if($FechaServidorPHP == "2020-01-13"){
+                    include("../tema/biblia/ReavivadosPalabra/01_20/13/preguntaBiblia_ReavivadosPalabra_$PreguntaParticipante.php");
                 }
                 else{
-                    include("../tema/biblia/ReavivadosPalabra/01_20/06/preguntaBiblia_ReavivadosPalabra_$PreguntaParticipante.php");
+                    include("../tema/biblia/ReavivadosPalabra/01_20/12/preguntaBiblia_ReavivadosPalabra_$PreguntaParticipante.php");
                 }
             ?>
             <label class="nav_13" onclick ="window.close()">Cerrar</label>

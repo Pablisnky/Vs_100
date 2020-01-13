@@ -858,7 +858,8 @@ p .Inicio_16{/*recibeCorreo.php*/
 	color: #040652;
 }
 .Inicio_39{/*Estudios.php*/
-	width: 100%;
+	width: 90%;
+	text-align: justify !important;
 }
 .etiqueta_34{/*datos_personales.php   registro.php */
 	margin-left: 6% !important;

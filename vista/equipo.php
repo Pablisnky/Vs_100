@@ -44,7 +44,7 @@
                     <div class="contenedor_39">
                         <p class="Inicio_33 Inicio_37">Los principales colaboradores necesarios:</p>
                         <ul>
-                            <li class="li_1">Programador de desarrollo web BackEnd y FrontEnd, que domine el siguiente stack de tecnologías (PHP, MySQL, Ajax, JavaScript, GIT):</li> 
+                            <li class="li_1">Programador de desarrollo web BackEnd y FrontEnd, que domine el siguiente stack de tecnologías (PHP, MySQL, Ajax, JavaScript, control de versiones GIT, paradigma POO y patrón de diseño MVC):</li> 
                             <p class="Inicio_36">Ayudar en la migración de programación procedimental a programación orientada a objetos bajo el patrón de diseño MVC, crear nuevas funcionalidades dentro de la aplicación, activar el código de notificaciones push, refactorizar código, entre muchísimas otras actividades..</p>
                             <li class="li_1">Especialista en seguridad informática: </li>
                             <p class="Inicio_36">Optimizar el acceso restringido de la información contenida en nuestra base de datos.</p>

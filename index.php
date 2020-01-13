@@ -16,12 +16,12 @@ session_start();
 	$newFecha = date("d-m-Y", strtotime($FechaServidorPHP));
 	//  echo $newFecha . "<br>";
 
-	if($FechaServidorPHP == "2020-01-07"){
-		$CapituloHoy = "Job 16";
+	if($FechaServidorPHP == "2020-01-13"){
+		$CapituloHoy = "Job 22";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
-	else if($FechaServidorPHP == "2020-01-06"){
-		$CapituloHoy = "Job 15";
+	else if($FechaServidorPHP == "2020-01-12"){
+		$CapituloHoy = "Job 21";
 		$_SESSION["Capitulo"] = $CapituloHoy;
 	}
 	else{

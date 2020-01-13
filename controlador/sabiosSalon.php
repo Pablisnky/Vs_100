@@ -45,7 +45,32 @@
 <p class="Inicio_21">Participantes lideres por semana</p>
 <div class="contenedor_36">
     <div>
-        <label class="label_4">+6</label>
+        <!-- <img class="imagen_13" alt="Insignia" src="../images/In_Maestro.png" onclick="mostrarInsignia()"> -->
+    </div>
+    <div>
+        <img class="imagen_7" alt="Fotografia del usuario" src="../images/usuarios/<?php echo "20191224_192329.jpg";?>">
+    </div>
+    <div class="contenedor_37"> 
+        <label class="Inicio_10"><?php echo "Johana Ortega";?></label>
+        <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 02-2020</label>
+        <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 147,194</label>
+        <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
+        <label class="Inicio_11 b_1"><?php echo "Iglesia Central - Pelaya - César"?></label>
+        <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
+        <label class="Inicio_11 b_1"><?php echo "Job 14"?></label>
+        <label class="Inicio_11 b_1"><?php echo "Job 15"?></label>
+        <label class="Inicio_11 b_1"><?php echo "Job 16"?></label>
+        <label class="Inicio_11 b_1"><?php echo "Job 17"?></label>
+        <label class="Inicio_11 b_1"><?php echo "Job 18"?></label>
+        <label class="Inicio_11 b_1"><?php echo "Job 19"?></label>
+        <label class="Inicio_11 b_1"><?php echo "Job 20"?></label>
+        <label class="Inicio_11">sábado 11 de enero de 2020</label>
+    </div>
+</div>
+<!-- *******************************************************************************************  -->
+<div class="contenedor_36">
+    <div>
+        <label class="label_4">+8</label>
         <img class="imagen_13" alt="Insignia" src="../images/In_Maestro.png" onclick="mostrarInsignia()">
     </div>
     <div>
@@ -56,7 +81,7 @@
         <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 01-2020</label>
         <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 70,317</label>
         <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-        <label class="Inicio_11 b_1"><?php echo "Filadelfia - Bucaramanga"?></label>
+        <label class="Inicio_11 b_1"><?php echo "Filadelfia - Bucaramanga - Santander"?></label>
         <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
         <label class="Inicio_11 b_1"><?php echo "Job 7"?></label>
         <label class="Inicio_11 b_1"><?php echo "Job 8"?></label>
@@ -71,7 +96,7 @@
 <!-- *******************************************************************************************  -->
 <div class="contenedor_36">
     <div>
-        <label class="label_4">+6</label>
+        <label class="label_4">+8</label>
         <img class="imagen_13" alt="Insignia" src="../images/In_Maestro.png" onclick="mostrarInsignia()">
     </div>
     <div>
@@ -82,7 +107,7 @@
         <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 52-2019</label>
         <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 139,821</label>
         <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-        <label class="Inicio_11 b_1"><?php echo "Filadelfia - Bucaramanga"?></label>
+        <label class="Inicio_11 b_1"><?php echo "Filadelfia - Bucaramanga - Santander"?></label>
         <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
         <label class="Inicio_11 b_1"><?php echo "Ester 10"?></label>
         <label class="Inicio_11 b_1"><?php echo "Job 1"?></label>
@@ -105,7 +130,7 @@
         <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 51-2019</label>
         <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 142,077</label>
         <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-        <label class="Inicio_11 b_1"><?php echo "Peniel - Pamplonita"?></label>
+        <label class="Inicio_11 b_1"><?php echo "Peniel - Pamplonita - Norte de Santander"?></label>
         <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
         <label class="Inicio_11 b_1"><?php echo "Ester 3"?></label>
         <label class="Inicio_11 b_1"><?php echo "Ester 4"?></label>
@@ -120,7 +145,7 @@
 <!-- ********************************************************************************************* -->
 <div class="contenedor_36">
     <div>
-        <label class="label_4">+6</label>
+        <label class="label_4">+8</label>
         <img class="imagen_13" alt="Insignia" src="../images/In_Maestro.png" onclick="mostrarInsignia()">
     </div>
     <div>
@@ -131,7 +156,7 @@
         <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 50-2019</label>
         <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 145,889</label>
         <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-        <label class="Inicio_11 b_1"><?php echo "Filadelfia - Bucaramanga"?></label>
+        <label class="Inicio_11 b_1"><?php echo "Filadelfia - Bucaramanga - Santander"?></label>
         <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
         <label class="Inicio_11 b_1"><?php echo "Nehemías 9"?></label>
         <label class="Inicio_11 b_1"><?php echo "Nehemías 10"?></label>
@@ -146,7 +171,7 @@
 <!-- ********************************************************************************************* -->
 <div class="contenedor_36">
     <div>
-        <label class="label_4">+6</label>
+        <label class="label_4">+8</label>
         <img class="imagen_13" alt="Insignia" src="../images/In_Maestro.png" onclick="mostrarInsignia()">
     </div>
     <div>
@@ -157,7 +182,7 @@
         <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 49-2019</label>
         <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 126,636</label>
         <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-        <label class="Inicio_11 b_1"><?php echo "Filadelfia - Bucaramanga"?></label>
+        <label class="Inicio_11 b_1"><?php echo "Filadelfia - Bucaramanga - Santander"?></label>
         <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
         <label class="Inicio_11 b_1"><?php echo "Nehemías 2"?></label>
         <label class="Inicio_11 b_1"><?php echo "Nehemías 3"?></label>
@@ -183,7 +208,7 @@
                                     <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 48-2019</label>
                                     <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 167,678</label>
                                     <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-                                    <label class="Inicio_11 b_1"><?php echo "Peniel - Pamplona"?></label>
+                                    <label class="Inicio_11 b_1"><?php echo "Peniel - Pamplona - Norte de Santander"?></label>
                                     <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
                                     <label class="Inicio_11 b_1"><?php echo "Esdras 5"?></label>
                                     <label class="Inicio_11 b_1"><?php echo "Esdras 6"?></label>
@@ -206,7 +231,7 @@
                                     <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 47-2019</label>
                                     <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 129,060</label>
                                     <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-                                    <label class="Inicio_11 b_1"><?php echo "Filadelfia - Bucaramanga"?></label>
+                                    <label class="Inicio_11 b_1"><?php echo "Filadelfia - Bucaramanga - Santander"?></label>
                                     <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
                                     <label class="Inicio_11 b_1"><?php echo "2 Crónicas 34"?></label>
                                     <label class="Inicio_11 b_1"><?php echo "2 Crónicas 35"?></label>
@@ -240,7 +265,7 @@
                                     <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 45-2019</label>
                                     <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 148,22</label>
                                     <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-                                    <label class="Inicio_11 b_1"><?php echo "Peniel - Pamplonita"?></label>
+                                    <label class="Inicio_11 b_1"><?php echo "Peniel - Pamplonita - Norte de Santander"?></label>
                                     <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
                                     <label class="Inicio_11 b_1"><?php echo "2 Crónicas 20"?></label>
                                     <label class="Inicio_11 b_1"><?php echo "2 Crónicas 21"?></label>
@@ -263,7 +288,7 @@
                                     <label class="Inicio_11 b_1"><b class="b_1">Semana:</b> 44-2019</label>
                                     <label class="Inicio_11 b_1"><b class="b_1">Puntos:</b> 135,643</label>
                                     <label class="Inicio_11 b_1">Iglesia Adventista del Séptimo día</label>
-                                    <label class="Inicio_11 b_1"><?php echo "Peniel - Pamplona"?></label>
+                                    <label class="Inicio_11 b_1"><?php echo "Peniel - Pamplona - Norte de Santander"?></label>
                                     <label class="Inicio_11 b_1"><b class="b_1">Capitulos estudiados:</b></label>
                                     <label class="Inicio_11 b_1"><?php echo "2 Crónicas 13"?></label>
                                     <label class="Inicio_11 b_1"><?php echo "2 Crónicas 14"?></label>

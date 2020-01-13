@@ -1,13 +1,14 @@
 <?php
     class imagenComentada{
         function ImagenIndex(){ 
-            if(date("Y-m-d")=="2020-01-06"){
-                echo "<img class='imagen_11' src='images/Job_Amigos.jpg'/>"; 
-                echo "<p class='p_9'>\"Para sus compañeros, las quejas de Job eran indicio de un espíritu orgulloso, rebelde y blasfemo.\"</p>";
+            if(date("Y-m-d")=="2020-01-10"){
+                echo "<img class='imagen_11' src='images/Job_reprochaAmigos.jpg'/>"; 
+                echo "<p class='p_9'>Job le reclama a sus amigos \"¿Por qué me perseguís como Dios,
+                Y ni aun de mi carne os saciáis?.\"</p>";
             }
             else{
-                echo "<img class='imagen_11' src='images/Queja_de_Job.jpg'/>";
-                echo "<p class='p_9'>Job se lamenta y le dice a Dios \"Tú me has llenado de arrugas; testigo es mi flacura\"</p>";
+                echo "<img class='imagen_11' src='images/job_acusado_2.jpg'/>";
+                echo "<p class='p_9'>Los amigos de Job lo acusan de ser un malvado y haberse ganado tal aflicción</p>";
             }
         }
         function ImagenComentario(){

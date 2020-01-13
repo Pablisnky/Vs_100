@@ -4,7 +4,8 @@
 <fieldset class="Afiliacion_4">
     <legend>Fotografia de perfil</legend>
     <label class="etiqueta_3">Inserte una imagen no mayor de 700 Kb</label>
-    <input type="file" id="imgInp" name="imagen" value="Seleccione un fotografia"  />
+    <!-- <label class="label_1" for="imgInp">Buscar imagen</label> -->
+    <input type="file" id="imgInp" name="imagen"/>
     <img class="imagen_8"  id="blah" alt="Fotografia del usuario" src="../images/usuarios/<?php echo $Usuario['Fotografia'];?>">
     <!-- <a href="../controlador/EliminarFotoPerfil.php?FotoPerfil=<?php// echo $Usuario['fotografia'];?>" onclick="return Confirmacion()">Eliminar</a> es necesario mandar el nombre de la categoria para saber a que tipo de perfil redireccionar despues de eliminar la fotografia--> 
 </fieldset>
@@ -22,7 +23,7 @@
     }
 
     $("#imgInp").change(function () {
-        // Código a ejecutar cuando se detecta un cambio de archivO
+        // Código a ejecutar cuando se detecta un cambio de archivo
         readImage(this);
     });
 </script>
